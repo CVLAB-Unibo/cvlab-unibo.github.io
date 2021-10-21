@@ -160,6 +160,7 @@
                 Method overview
                 </h3>
                 <image src="img/pipeline.png" class="img-responsive" alt="overview">
+                <p class="text-justify">    
                 Our method comprises three steps. First, in the pseudo-labels warm up step, we train a reconstruction network $\Phi_{rec}$ on both source and target domains. The weights of the encoder are used to initialize the backbone $\Phi^{w}_{cls}$ of a classifier, that is then trained on the source domain.
                 In the refinement step, we use the classifier to split target samples in the easy ($\mathcal{E}$) and hard ($\mathcal{H}$) sets according to their confidence and refine them by performing nearest neighbor queries in the auto-encoder feature space.
                 Finally, in the self-training step, we train a target-specific classifier $\Psi_t$ by refined pseudo-labels and online pseudo-labels obtained with the mean teacher architecture.
