@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>RefRec</title>
+    <!-- Latex command on -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+    <!--FACEBOOK-->
+    <meta property="og:image" content="https://cvlab-unibo.github.io/RefRec/img/teaser.png">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="256">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cvlab-unibo.github.io/RefRec/"/>
+    <meta property="og:title" content="RefRec" />
+    <meta property="og:description" content="Project page for RefRec: Pseudo-labels Refinement via Shape Reconstruction for Unsupervised 3D Domain Adaptation." />
+
+    <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RefRec" />
+    <meta name="twitter:description" content="Project page for RefRec: Pseudo-labels Refinement via Shape Reconstruction for Unsupervised 3D Domain Adaptation." />
+    <meta name="twitter:image" content="https://cvlab-unibo.github.io/RefRec/img/teaser.png"/>
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <link rel="icon" type="image/png" href="img/logo_cvlab.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110862391-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110862391-1');
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-18 text-center">
+            RefRec: Pseudo-labels Refinement via Shape Reconstruction
+         </br> for Unsupervised 3D Domain Adaptation
+         </br>
+                <small>
+                    3DV 2021 (oral)
+                </small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://www.unibo.it/sitoweb/adriano.cardace2">
+                          Adriano Cardace
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.unibo.it/sitoweb/riccardo.spezialetti">
+                          Riccardo Spezialetti
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.unibo.it/sitoweb/pierluigi.zama">
+                            Pierluigi Zama Ramirez
+                        </a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="https://www.unibo.it/sitoweb/samuele.salti">
+                          Samuele Salti
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.unibo.it/sitoweb/luigi.distefano">
+                          Luigi Di Stefano
+                        </a>
+                    </li>
+                </ul>
+                Department of Computer Science and Engineering (DISI)
+              </br> University of Bologna, Italy
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2110.11036">
+                            <image src="img/paper_ico.png" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                            <image src="img/youtube_icon.png" height="60px", class="img_gray">
+                                <h4><strong>Video cooming soon</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/CVLAB-Unibo/RefRec">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                Abstract
+                </h3>
+                <image src="img/teaser.png" class="image_center" alt="overview">
+                </br>
+                <p class="text-justify">
+                  Unsupervised Domain Adaptation (UDA) for point cloud classification is an emerging research problem with relevant practical motivations.
+                  Reliance on multi-task learning to align features across domains has been the standard way to tackle it.
+                  In this paper, we take a different path and propose RefRec, the first approach to investigate pseudo-labels and self-training in UDA for point clouds. We present two main innovations to make self-training effective on 3D data: i) refinement of noisy pseudo-labels by matching shape descriptors that are learned by the unsupervised task of shape reconstruction on both domains; ii) a novel self-training protocol that learns domain-specific decision boundaries and reduces the negative impact of mislabelled target samples and in-domain intra-class variability.
+                  RefRec sets the new state of the art in both standard benchmarks used to test UDA for point cloud classification, showcasing the effectiveness of self-training for this important problem.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                Method overview
+                </h3>
+                <image src="img/pipeline.png" class="img-responsive" alt="overview">
+                <p class="text-justify">
+                Our method comprises three steps. First, in the pseudo-labels warm up step, we train a reconstruction network $\Phi_{rec}$ on both source and target domains. The weights of the encoder are used to initialize the backbone $\Phi^{w}_{cls}$ of a classifier, that is then trained on the source domain.
+                In the refinement step, we use the classifier to split target samples in the easy ($\mathcal{E}$) and hard ($\mathcal{H}$) sets according to their confidence and refine them by performing nearest neighbor queries in the auto-encoder feature space.
+                Finally, in the self-training step, we train a target-specific classifier $\Psi_t$ by refined pseudo-labels and online pseudo-labels obtained with the mean teacher architecture.
+            </div>
+        </div>
+
+        <!--Uncomment after the video.
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                Video
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/nVA6K6Sn2S4" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                Results
+                </h3>
+                Shape classification accuracy on the <a href="https://github.com/canqin001/PointDAN">PointDA-10 dataset</a>.
+          <table class="table" data-sorting="true">
+           <thead>
+             <tr>
+               <th>Method</th>
+               <th>ModelNet </br> to ShapeNet</th>
+               <th>ModelNet </br> to ScanNet</th>
+               <th>ShapeNet </br> to ModelNet</th>
+               <th>ShapeNet </br> to ScanNet</th>
+               <th>ScanNet </br> to ModelNet</th>
+               <th>ScanNet </br> to ShapeNet</th>
+               <th>Average</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td>No Adaptation</td><td>80.2</td><td>43.1</td><td>75.8</td><td>40.7</td><td>63.2</td><td>67.2</td><td>61.7<td>
+             </tr>
+             <tr>
+             <td>PointDAN</td><td>80.2</td><td>45.3</td><td>71.2</td><td>46.9</td><td>59.8</td><td>66.2</td><td>61.6</td>
+             </tr>
+             <tr>
+            <td>DefRec</td><td>80.0</td><td>46.0</td><td>68.5</td><td>41.7</td><td>63.0</td><td>68.2</td><td>61.2</td>
+          </tr>
+          <tr>
+            <td>DefRec+PCM</td><td>81.1</td><td>50.3</td><td>54.3</td><td>52.8</td><td>54.0</td><td>69.0</td><td>60.3</td>
+          </tr>
+          <tr>
+          <td>3D Puzzle</td><td><b>81.6</b></td><td>49.7</td><td>73.6</td><td>41.9</td><td>65.9</td><td>68.1</td><td>63.5</td>
+          </tr>
+          <td><b>RefRec</b></td><td>81.4</td><td><b>56.5</b></td><td><b>85.4</b></td><td><b>53.3</b></td><td><b>73.0</b></td><td><b>73.1</b></td><td><b>70.5</b></td>
+          <tr>
+            <tr>
+            <td>Oracle</td><td>93.2</td><td>64.2</td><td>95</td><td>64.2</td><td>95.0</td><td>93.2</td><td>-</td>
+            </tr>
+           </tbody>
+         </table>
+        Shape classification accuracy on the <a href="https://hkust-vgd.github.io/scanobjectnn/">ScanObjectNNdataset</a>.
+
+        <table class="table" data-sorting="true">
+         <thead>
+           <tr>
+             <th>Method</th>
+             <th>ModelNet to ScanObjectNN</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>No Adaptation</td><td>49.6</td>
+           </tr>
+           <tr>
+           <td>PointDAN</td><td>56.4</td>
+           </tr>
+           <tr>
+          <td>3D Puzzle</td><td>58.5</td>
+        </tr>
+        <tr>
+        <td>RefRec</td><td><b>61.3</b></td>
+      </tr>
+         </tbody>
+       </table>
+
+       </div>
+     </div>
+   </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                Citation
+                </h3>
+                <div class="form-group col-md-18 col-md-offset-0">
+                <pre>
+    @inproceedings{cardace2021refrec,
+    title={RefRec: Pseudo-labels Refinement via Shape Reconstruction for Unsupervised 3D Domain Adaptation},
+    author={Adriano Cardace and Riccardo Spezialetti and Pierluigi Zama Ramirez and Samuele Salti and Luigi Di Stefano},
+    booktitle={2021 International Conference on 3D Vision (3DV)},
+    year={2021},
+    organization={IEEE}}
+              </pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                Acknowledgements
+                </h3>
+                <p class="text-justify">
+                We gratefully acknowledge NVIDIA Corporation with the donation of the Titan RTX 2080Ti  GPU used in this work.  We  also would  like  to  thank  Injenia  srl for partly supporting this research work.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
