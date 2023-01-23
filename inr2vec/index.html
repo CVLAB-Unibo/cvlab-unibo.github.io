@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>FeatureDistillation</title>
+    <!-- Latex command on -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+    <!--FACEBOOK-->
+    <meta property="og:image" content="https://cvlab-unibo.github.io/FeatureDistillationimg/teaser.png">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="256">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="Deep Learning on Implicit Neural Representations of Shapes"/>
+    <meta property="og:title" content="FeatureDistillation" />
+    <meta property="og:description" content="Project page for Deep Learning on Implicit Neural Representations of Shapes." />
+
+    <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FeatureDistillation" />
+    <meta name="twitter:description" content="Project page for Deep Learning on Implicit Neural Representations of Shapes." />
+    <meta name="twitter:image" content="https://cvlab-unibo.github.io/FeatureDistillationimg/teaser.png"/>
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <link rel="icon" type="image/png" href="img/logo_cvlab.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110862391-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110862391-1');
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-18 text-center">
+              Deep Learning on Implicit Neural Representations of Shapes
+         </br>
+                <small>
+                    ICLR 2023
+                </small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://www.unibo.it/sitoweb/luca.deluigi4">
+                          Luca De Luigi
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.unibo.it/sitoweb/adriano.cardace2">
+                          Adriano Cardace
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.unibo.it/sitoweb/riccardo.spezialetti">
+                          Riccardo Spezialetti
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.unibo.it/sitoweb/pierluigi.zama">
+                          Pierluigi Zama Ramirez
+                        </a>
+                    </li>
+                    <br>
+                    <li>
+                        <a href="https://www.unibo.it/sitoweb/samuele.salti">
+                          Samuele Salti
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.unibo.it/sitoweb/luigi.distefano">
+                          Luigi Di Stefano
+                        </a>
+                    </li>
+                </ul>
+                Department of Computer Science and Engineering (DISI)
+              </br> University of Bologna, Italy
+            </div>
+        </div>
+
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2210.08226">
+                            <image src="img/paper_ico.jpg" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                            <image src="img/youtube_icon.png" height="60px", class="img_gray">
+                                <h4><strong>Video cooming soon</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/CVLAB-Unibo/Feature-Distillation-for-3D-UDA/blob/main/README.md">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                Abstract
+                </h3>
+                <image src="img/teaser.pdf" class="image_center" alt="overview">
+                </br>
+                <p class="text-justify">
+                    Implicit Neural Representations (INRs) have emerged in the last few years as a powerful tool to encode continuously  a variety of different signals like images, videos, audio and 3D shapes. When applied to 3D shapes, INRs allow to overcome the fragmentation and shortcomings of the popular discrete representations used so far.
+                    Yet, considering that INRs consist in neural networks, it is not clear whether and how it may be possible to feed them into deep learning pipelines aimed at solving a downstream task. In this paper, we put forward this research problem and propose inr2vec, a framework that can compute a compact latent representation for an input INR in a single inference pass.
+                    We verify that inr2vec can embed effectively the 3D shapes represented by the input INRs and show how the produced embeddings can be fed into deep learning pipelines to solve several tasks by processing exclusively INRs.
+            </div>
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                Method overview
+                </h3>
+                <image src="img/framework.jpg" class="img-responsive" alt="overview">
+                <p class="text-justify">
+                  Illustration of our framework: <br>
+                  <b>Left:</b> weakly and strongly augmented point clouds are generated with two transformation functions for both domains.
+                  The weakly augmented shapes are fed to an exponential moving average (EMA) encoder, the teacher, while the strongly augmented are processed by the student. 
+                  A consistency loss is applied between the corresponding embeddings. <br>
+                  <b>Right:</b> the whole target dataset is processed by a GCN online during self-training to iteratively refine and update.
+            </div>
+        </div> -->
+
+        <!--Uncomment after the video.
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                Video
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/nVA6K6Sn2S4" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                Citation
+                </h3>
+                <div class="form-group col-md-18 col-md-offset-0">
+                <pre>
+<!-- @inproceedings{cardace2023selfdistill,
+    title={Deep Learning on Implicit Neural Representations of Shapes},
+    author={Adriano Cardace and Riccardo Spezialetti and Pierluigi Zama Ramirez and Samuele Salti and Luigi Di Stefano},
+    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+    year = {2023},
+} -->
+              </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
