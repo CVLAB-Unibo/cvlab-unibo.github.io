@@ -14,27 +14,29 @@
 }
 
 .list-inline {
-	list-style: none;
-	margin-left: -0.5em;
-	margin-right: -0.5em;
-	padding-left: 0;
+    list-style: none;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    padding-left: 0;
 }
 
-.list-inline > li {
-	display: inline-block;
-	margin-left: 0.5em;
-	margin-right: 0.5em;
+.list-inline>li {
+    display: inline-block;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
+
 .image_center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
-.img_gray{
+
+.img_gray {
     -webkit-filter: grayscale(100%);
-       -moz-filter: grayscale(100%);
-         -o-filter: grayscale(100%);
-        -ms-filter: grayscale(100%);
-            filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
