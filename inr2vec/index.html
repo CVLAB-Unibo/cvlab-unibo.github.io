@@ -6,12 +6,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>inr2vec</title>
-    <!-- Latex command on -->
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-    </script>
-    <script type="text/javascript" async
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -92,19 +89,19 @@
                 <ul class="nav nav-pills nav-justified">
                     <li>
                         <a href="">
-                            <image src="img/paper_ico.jpg" height="60px"></image>
+                            <image src="img/paper_ico.jpg" height="80px"></image>
                             <h4><strong>Paper</strong></h4>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <image src="img/youtube_icon.png" height="60px" , class="img_gray"></image>
+                            <image src="img/youtube_icon.png" height="80px"></image>
                             <h4><strong>Video (coming soon)</strong></h4>
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <image src=" img/github.png" height="60px"></image>
+                            <image src=" img/github_pad.png" height="80px"></image>
                             <h4><strong>Code (coming soon)</strong></h4>
                         </a>
                     </li>
@@ -118,8 +115,7 @@
                 <h3>
                     Abstract
                 </h3>
-                <image src="img/teaser.png" class="image_center" alt="Overview of our framework"></image>
-                </br>
+                <image src="img/teaser.png" class="image_center_100" alt="Overview of our framework"></image>
                 <p class="text-justify">
                     Implicit Neural Representations (INRs) have emerged in the last few years as a
                     powerful tool to encode continuously a variety of different signals like images,
@@ -137,6 +133,9 @@
             </div>
         </div>
 
+        </br>
+        </br>
+
         <!-- METHOD -->
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -145,37 +144,83 @@
                 </h3>
 
                 <p class="text-justify">
-                    <!-- TODO -->
+                    Our framework, dubbed \({\tt inr2vec}\), is composed of an encoder and a decoder.
+                    The encoder is designed to take as input the weights of an INR and produce a
+                    compact embedding that encodes all the relevant information of the input INR. A
+                    first challenge in designing an encoder for INRs consists in defining how the
+                    encoder should ingest the weights as input, since processing naively all the
+                    weights would require a huge amount of memory. Following standard practice, we
+                    consider INRs composed of several hidden layers, each one with \(H\) nodes, i.e.,
+                    the linear transformation between two consecutive layers is parameterized by a matrix
+                    of weights \(\mathbf{W}_{i} \in \mathbb{R}^{H \times H}\) and a vector of biases
+                    \(\mathbf{b}_{i} \in \mathbb{R}^{H \times 1}\). Thus, stacking \(\mathbf{W}_{i}\)
+                    and \({\mathbf{b}_{i}}^T\), the mapping between two consecutive layers can be
+                    represented by a single matrix \(\mathbf{P}_i \in \mathbb{R}^{(H+1) \times H}\).
+                    For an INR composed of \(L + 1\) hidden layers, we consider the \(L\) linear
+                    transformations between them. Hence, stacking all the $L$ matrices \(\mathbf{P}_i
+                    \in \mathbb{R}^{(H+1) \times H}, i=1,\dots,L\), between the hidden layers we obtain
+                    a single matrix \(\mathbf{P}\in \mathbb{R}^{L(H+1) \times H}\), that we use to
+                    represent the INR in input to \({\tt inr2vec}\) encoder. We discard the input and
+                    output layers in our formulation as they feature different dimensionality and their
+                    use does not change \({\tt inr2vec}\) performance (additional details in the
+                    paper). The \({\tt inr2vec}\) encoder is designed with a simple architecture, consisting
+                    of a series of linear layers with batch norm and ReLU non-linearity followed by
+                    final max pooling. At each stage, the input matrix is transformed by one linear
+                    layer, that applies the same weights to each row of the matrix. The final max
+                    pooling compresses all the rows into a single one, obtaining the desired embedding.
                 </p>
-                </br>
-                <image src="img/encoder.png" class="image_center" alt="inr2vec encoder"></image>
+                <image src="img/encoder.png" class="image_center_100" alt="inr2vec encoder"></image>
 
+                </br>
                 </br>
 
                 <p class="text-justify">
-                    <!-- TODO -->
+                    In order to guide the \({\tt inr2vec}\) encoder to produce meaningful embeddings,
+                    we first note that we are not interested in encoding the values of the input weights
+                    in the embeddings produced by our framework, but, rather, in storing information
+                    about the 3D shape represented by the input INR. For this reason, we supervise
+                    the decoder to replicate the function approximated by the input INR instead of
+                    directly reproducing its weights, as it would be the case in a standard auto-encoder
+                    formulation. In particular, during training, we adopt an implicit decoder which
+                    takes in input the embeddings produced by the encoder and decodes the input INRs
+                    from them. After the overall framework has been trained end to end, the frozen
+                    encoder can be used to compute embeddings of unseen INRs with a single forward
+                    pass while the implicit decoder can be used, if needed, to reconstruct the discrete
+                    representation given an embedding.
                 </p>
-                </br>
-                <image src="img/inr2vec.png" class="image_center" alt="inr2vec framework"></image>
+                <image src="img/inr2vec.png" class="image_center_100" alt="inr2vec framework"></image>
 
+                </br>
                 </br>
 
                 <p class="text-justify">
-                    <!-- TODO -->
+                    In the following figure we compare 3D shapes reconstructed from INRs unseen during
+                    training with those reconstructed by the \({\tt inr2vec}\) decoder starting from
+                    the latent codes yielded by the encoder. We visualize point clouds with 8192 points,
+                    meshes reconstructed by marching cubes from a grid with resolution \(128^3\) and
+                    voxels with resolution \(64^3\). We note that, though our embedding is dramatically
+                    more compact than the original INR, the reconstructed shape resembles the ground-truth
+                    with a good level of detail.
                 </p>
-                </br>
-                <image src="img/inr2vec_io.png" class="image_center" alt="inr2vec reconstructions"></image>
+                <image src="img/inr2vec_io.png" class="image_center_80" alt="inr2vec reconstructions"></image>
 
+                </br>
                 </br>
 
                 <p class="text-justify">
-                    <!-- TODO -->
+                    Moreover, we linearly interpolate between the embeddings produced by \({\tt inr2vec}\)
+                    from two input shapes and show the shapes reconstructed from the interpolated
+                    embeddings. The results presented in the next figure highlight that the latent
+                    space learned by \({\tt inr2vec}\) enables smooth interpolations between shapes
+                    represented as INRs.
                 </p>
-                </br>
-                <image src="img/interpolation.png" class="image_center" alt="inr2vec interpolations"></image>
+                <image src="img/interpolation.png" class="image_center_80" alt="inr2vec interpolations"></image>
 
             </div>
         </div>
+
+        </br>
+        </br>
 
         <!-- RESULTS -->
         <div class="row">
@@ -184,9 +229,105 @@
                     Results
                 </h3>
 
-                <!-- TODO -->
+                <p class="text-justify">
+                    We first evaluate the feasibility of using \({\tt inr2vec}\) embeddings of INRs
+                    to solve tasks usually tackled by representation learning, and we select 3D
+                    retrieval as a benchmark. Quantitative results, reported in the following table,
+                    show that, while there is an average gap of 1.8 mAP with PointNet++, \({\tt inr2vec}\)
+                    is able to match, and in some cases even surpass, the performance of the other baselines.
+                </p>
+                <image src="img/tab_retrieval.png" class="image_center_100" alt="retrieval"></image>
+
+                </br>
+                </br>
+
+                <p class="text-justify">
+                    We then address the problem of classifying point clouds, meshes and voxel grids.
+                    Despite the different nature of the discrete representations taken into account,
+                    \({\tt inr2vec}\) allows us to perform shape classification on INRs embeddings by
+                    the very same downstream network architecture, i.e., a simple fully connected
+                    classifier consisting of three layers with 1024, 512 and 128 features. The results
+                    reported in the next table show that \({\tt inr2vec}\) embeddings deliver
+                    classification accuracy close to the specialized baselines across all the
+                    considered datasets, regardless of the original discrete representation of the
+                    shapes in each dataset. Remarkably, our framework allows us to apply the same
+                    simple classification architecture on all the considered input modalities, in stark
+                    contrast with all the baselines that are highly specialized for each modality,
+                    exploit inductive biases specific to each such modality and cannot be deployed on
+                    representations different from those they were designed for.
+                </p>
+                <image src="img/tab_classification.png" class="image_center_80" alt="classification"></image>
+
+                </br>
+                </br>
+
+                <p class="text-justify">
+                    While the tasks of retrieval and classification concern the possibility of using
+                    \({\tt inr2vec}\) embeddings as a compact proxy for the global information of the
+                    input shapes, with the task of point cloud part segmentation we aim at investigating
+                    whether \({\tt inr2vec}\) embeddings can be used also to assess upon local properties
+                    of shapes. The part segmentation task consists in predicting a semantic label for
+                    each point of a given cloud. We tackle this problem by training a decoder similar
+                    to that used to train our framework (see left part of the following figure). Such
+                    decoder is fed with the \({\tt inr2vec}\) embedding of the INR representing the
+                    input cloud, concatenated with the coordinate of a 3D query, and it is trained to
+                    predict the label of the query point. Qualitative results reported in the right
+                    part of the figure show the possibility of performing also a local discriminative
+                    task as challenging as part segmentation based on the task-agnostic embeddings
+                    produced by \({\tt inr2vec}\).
+                </p>
+                <image src="img/partseg.png" class="image_center_100" alt="part segmentation"></image>
+
+                </br>
+                </br>
+
+                <p class="text-justify">
+                    We also address the task of shape generation in an adversarial setting to investigate
+                    whether the compact representations produced by our framework can be adopted also
+                    as medium for the output of deep learning pipelines. For this purpose, as depicted
+                    in the next figure, we train a Latent-GAN to generate embeddings indistinguishable
+                    from those produced by \({\tt inr2vec}\) starting from random noise. The generated
+                    embeddings can then be decoded into discrete representations with the implicit
+                    decoder exploited during \({\tt inr2vec}\) training. Since our framework is agnostic
+                    w.r.t. the original discrete representation of shapes used to fit INRs, we can
+                    train Latent-GANs with embeddings representing point clouds or meshes based on the
+                    same identical protocol and architecture (two simple fully connected networks as
+                    generator and discriminator). In the following figure, we show some samples
+                    generated with the described procedure, comparing them with SP-GAN for what concerns
+                    point clouds and Occupancy Networks (VAE formulation) for meshes. The shapes generated
+                    with our Latent-GAN trained only on \({\tt inr2vec}\) embeddings seem comparable
+                    to those produced by the considered baselines, in terms of both diversity and richness of details.
+                </p>
+                <image src="img/generative.png" class="image_center_100" alt="shape generation"></image>
+
+                </br>
+                </br>
+
+                <p class="text-justify">
+                    Finally we consider the possibility of learning a mapping between two distinct
+                    latent spaces produced by our framework for two separate datasets of INRs, based
+                    on a \(\textit{transfer}\) function designed to operate on \({\tt inr2vec}\)
+                    embeddings as both input and output data. Such transfer function can be realized
+                    by a simple fully connected network that maps the input embedding into the output
+                    one and is trained by a standard MSE loss. Here, we apply this idea to two tasks.
+                    Firstly, we address point cloud completion by learning a mapping from \({\tt inr2vec}\)
+                    embeddings of INRs that represent incomplete clouds to embeddings associated with
+                    complete clouds. Then, we tackle the task of surface reconstruction on ShapeNet cars,
+                    training the transfer function to map \({\tt inr2vec}\) embeddings representing
+                    point clouds into embeddings that can be decoded into meshes. As we can appreciate
+                    from the samples reported in the figure, the transfer function can learn an effective
+                    mapping between \({\tt inr2vec}\) latent spaces. Indeed, by processing exclusively
+                    INRs embedding, we can obtain output shapes that are highly compatible with the
+                    input ones whilst preserving the distinctive details, like the pointy wing of the
+                    airplane in or the flap of the first car.
+                </p>
+                <image src="img/mapping.png" class="image_center_100" alt="mapping"></image>
+
             </div>
         </div>
+
+        </br>
+        </br>
 
         <!-- CITATION -->
         <div class="row">
