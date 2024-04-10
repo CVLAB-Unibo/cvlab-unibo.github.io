@@ -37,9 +37,6 @@
                 <small>
                     INRV 2024
                 </small>
-                <small>
-                    (CVPR 2024)
-                </small>
             </h2>
         </div>
 
@@ -86,13 +83,13 @@
                 <ul class="nav nav-pills nav-justified">
                     <li>
                         <a href="https://arxiv.org/">
-                            <image src="img/paper_ico.png" height="80px" class="img_border"></image>
+                            <image src="img/paper_icon.png" height="80px" class="img_border"></image>
                             <h4><strong>Paper</strong></h4>
                         </a>
                     </li>
                     <li>
                         <a href="https://github.com/CVLAB-Unibo/">
-                            <image src="img/github_pad.png" height="80px"></image>
+                            <image src="img/github.png" height="75px"></image>
                             <h4><strong>Code</strong></h4>
                             <h6><strong>(Coming soon)</strong></h6>
                         </a>
@@ -110,7 +107,7 @@
                 <p class="text-justify">
                     Neural Radiance Fields (NeRFs) have emerged as a standard framework for representing 3D scenes and objects, introducing a novel data type for information exchange and storage. Concurrently, significant progress has been made in multimodal representation learning for text and image data. This paper explores a novel research direction that aims to connect the NeRF modality with other modalities, similar to established methodologies for images and text. To this end, we propose a simple framework that exploits pre-trained models for NeRF representations alongside multimodal models for text and image processing. Our framework learns a bidirectional mapping between NeRF embeddings and those obtained from corresponding images and text. This mapping unlocks several novel and useful applications, including NeRF zero-shot classification and NeRF retrieval from images or text.
                 </p>
-                <image src="img/teaser.png" class="image_center_100" alt="Applications of our framework"></image>
+                <image src="img/teaser.png" class="image_center_90" alt="Applications of our framework"></image>
             </div>
         </div>
 
@@ -124,9 +121,9 @@
                     Method
                 </h3>
                 <p class="text-justify">
-                    In order to learn a bidirectional mapping between images/text and NeRFS, we train two MLPs, one that maps <a href="https://openai.com/research/clip">CLIP</a> image embeddings to <a href="https://cvlab-unibo.github.io/nf2vec">\({\tt nf2vec}\)</a> NeRF embeddings, and the other computing the mapping in the opposite direction.
+                    In order to learn a bidirectional mapping between images or text and NeRFs, we train two MLPs: one maps <a href="https://openai.com/research/clip">CLIP</a> image embeddings to <a href="https://cvlab-unibo.github.io/nf2vec">\({\tt nf2vec}\)</a> NeRF embeddings, while the other computes the mapping in the opposite direction.
                 </p>
-                <image src="img/training.png" class="image_center_50" alt="Training procedure"></image>
+                <image src="img/training.png" class="image_center_60" alt="Training procedure"></image>
             </div>
         </div>
 
@@ -139,96 +136,31 @@
                 <h3>
                     Zero-shot NeRF classification
                 </h3>
-
-                <p class="text-justify">
+                <p class="text-justify"> Bla bla bla
                 </p>
-                <image src="img/tab_retrieval.png" class="image_center_100" alt="retrieval"></image>
+                <image src="img/classification.png" class="image_center_100" alt="Zero-shot NeRF classification"></image>
 
                 </br>
                 </br>
 
-                <p class="text-justify">
-                    We then address the problem of classifying point clouds, meshes and voxel grids.
-                    Despite the different nature of the discrete representations taken into account,
-                    \({\tt inr2vec}\) allows us to perform shape classification on INRs embeddings by
-                    the very same downstream network architecture, i.e., a simple fully connected
-                    classifier consisting of three layers with 1024, 512 and 128 features. The results
-                    reported in the next table show that \({\tt inr2vec}\) embeddings deliver
-                    classification accuracy close to the specialized baselines across all the
-                    considered datasets, regardless of the original discrete representation of the
-                    shapes in each dataset. Remarkably, our framework allows us to apply the same
-                    simple classification architecture on all the considered input modalities, in stark
-                    contrast with all the baselines that are highly specialized for each modality,
-                    exploit inductive biases specific to each such modality and cannot be deployed on
-                    representations different from those they were designed for.
+                <h3>
+                    NeRF retrieval (from images or text)
+                </h3>
+                <p class="text-justify"> Bla bla bla
                 </p>
-                <image src="img/tab_classification.png" class="image_center_80" alt="classification"></image>
+                <image src="img/retrieval.png" class="image_center_70" alt="NeRF retrieval"></image>
+                </br>
+                <image src="img/retrieval_qualitatives.png" class="image_center_100" alt="NeRF retrieval"></image>
 
                 </br>
                 </br>
 
-                <p class="text-justify">
-                    While the tasks of retrieval and classification concern the possibility of using
-                    \({\tt inr2vec}\) embeddings as a compact proxy for the global information of the
-                    input shapes, with the task of point cloud part segmentation we aim at investigating
-                    whether \({\tt inr2vec}\) embeddings can be used also to assess upon local properties
-                    of shapes. The part segmentation task consists in predicting a semantic label for
-                    each point of a given cloud. We tackle this problem by training a decoder similar
-                    to that used to train our framework (see left part of the following figure). Such
-                    decoder is fed with the \({\tt inr2vec}\) embedding of the INR representing the
-                    input cloud, concatenated with the coordinate of a 3D query, and it is trained to
-                    predict the label of the query point. Qualitative results reported in the right
-                    part of the figure show the possibility of performing also a local discriminative
-                    task as challenging as part segmentation based on the task-agnostic embeddings
-                    produced by \({\tt inr2vec}\).
+                <h3>
+                    NeRF generation (from images or text)
+                </h3>
+                <p class="text-justify"> Bla bla bla
                 </p>
-                <image src="img/partseg.png" class="image_center_100" alt="part segmentation"></image>
-
-                </br>
-                </br>
-
-                <p class="text-justify">
-                    We also address the task of shape generation in an adversarial setting to investigate
-                    whether the compact representations produced by our framework can be adopted also
-                    as medium for the output of deep learning pipelines. For this purpose, as depicted
-                    in the next figure, we train a Latent-GAN to generate embeddings indistinguishable
-                    from those produced by \({\tt inr2vec}\) starting from random noise. The generated
-                    embeddings can then be decoded into discrete representations with the implicit
-                    decoder exploited during \({\tt inr2vec}\) training. Since our framework is agnostic
-                    w.r.t. the original discrete representation of shapes used to fit INRs, we can
-                    train Latent-GANs with embeddings representing point clouds or meshes based on the
-                    same identical protocol and architecture (two simple fully connected networks as
-                    generator and discriminator). In the following figure, we show some samples
-                    generated with the described procedure, comparing them with SP-GAN for what concerns
-                    point clouds and Occupancy Networks (VAE formulation) for meshes. The shapes generated
-                    with our Latent-GAN trained only on \({\tt inr2vec}\) embeddings seem comparable
-                    to those produced by the considered baselines, in terms of both diversity and richness of details.
-                </p>
-                <image src="img/generative.png" class="image_center_100" alt="shape generation"></image>
-
-                </br>
-                </br>
-
-                <p class="text-justify">
-                    Finally we consider the possibility of learning a mapping between two distinct
-                    latent spaces produced by our framework for two separate datasets of INRs, based
-                    on a \(\textit{transfer}\) function designed to operate on \({\tt inr2vec}\)
-                    embeddings as both input and output data. Such transfer function can be realized
-                    by a simple fully connected network that maps the input embedding into the output
-                    one and is trained by a standard MSE loss. Here, we apply this idea to two tasks.
-                    Firstly, we address point cloud completion by learning a mapping from \({\tt inr2vec}\)
-                    embeddings of INRs that represent incomplete clouds to embeddings associated with
-                    complete clouds. Then, we tackle the task of surface reconstruction on ShapeNet cars,
-                    training the transfer function to map \({\tt inr2vec}\) embeddings representing
-                    point clouds into embeddings that can be decoded into meshes. As we can appreciate
-                    from the samples reported in the figure, the transfer function can learn an effective
-                    mapping between \({\tt inr2vec}\) latent spaces. Indeed, by processing exclusively
-                    INRs embedding, we can obtain output shapes that are highly compatible with the
-                    input ones whilst preserving the distinctive details, like the pointy wing of the
-                    airplane or the flap of the first car.
-                </p>
-                <image src="img/mapping.png" class="image_center_100" alt="mapping"></image>
-
+                <image src="img/generation.png" class="image_center_100" alt="NeRF generation"></image>
             </div>
         </div>
 
@@ -243,23 +175,21 @@
                 </h3>
                 <div class="form-group col-md-18 col-md-offset-0">
                     <pre>
-@inproceedings{deluigi2023inr2vec,
-    title = {Deep Learning on Implicit Neural Representations of Shapes},
-    author = {De Luigi, Luca 
-              and Cardace, Adriano 
-              and Spezialetti, Riccardo 
-              and Zama Ramirez, Pierluigi 
-              and Salti, Samuele
-              and Di Stefano, Luigi},
-    booktitle = {International Conference on Learning Representations (ICLR)},
-    year = {2023}
+@inproceedings{ballerini2024clip2nerf,
+  title     = {Connecting {NeRFs}, Images, and Text},
+  author    = {Ballerini, Francesco 
+               and Zama Ramirez, Pierluigi 
+               and Mirabella, Roberto  
+               and Salti, Samuele
+               and Di Stefano, Luigi},
+  maintitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  booktitle = {Implicit Neural Representation for Vision (INRV)},
+  year      = {2024}
 }
                     </pre>
                 </div>
             </div>
         </div>
-
     </div>
 </body>
-
 </html>
