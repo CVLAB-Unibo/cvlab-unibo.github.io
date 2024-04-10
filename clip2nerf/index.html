@@ -35,7 +35,11 @@
                 Connecting NeRFs, Images, and Text
                 </br>
                 <small>
-                    INRV 2024 (CVPR 2024)
+                    INRV 2024
+                </small>
+                </br>
+                <small>
+                    (CVPR 2024)
                 </small>
             </h2>
         </div>
@@ -120,80 +124,10 @@
                 <h3>
                     Method
                 </h3>
-
                 <p class="text-justify">
-                    Our framework, dubbed \({\tt inr2vec}\), is composed of an encoder and a decoder.
-                    The encoder is designed to take as input the weights of an INR and produce a
-                    compact embedding that encodes all the relevant information of the input INR. A
-                    first challenge in designing an encoder for INRs consists in defining how the
-                    encoder should ingest the weights as input, since processing naively all the
-                    weights would require a huge amount of memory. Following standard practice, we
-                    consider INRs composed of several hidden layers, each one with \(H\) nodes, i.e.,
-                    the linear transformation between two consecutive layers is parameterized by a matrix
-                    of weights \(\mathbf{W}_{i} \in \mathbb{R}^{H \times H}\) and a vector of biases
-                    \(\mathbf{b}_{i} \in \mathbb{R}^{H \times 1}\). Thus, stacking \(\mathbf{W}_{i}\)
-                    and \({\mathbf{b}_{i}}^T\), the mapping between two consecutive layers can be
-                    represented by a single matrix \(\mathbf{P}_i \in \mathbb{R}^{(H+1) \times H}\).
-                    For an INR composed of \(L + 1\) hidden layers, we consider the \(L\) linear
-                    transformations between them. Hence, stacking all the \(L\) matrices \(\mathbf{P}_i
-                    \in \mathbb{R}^{(H+1) \times H}, i=1,\dots,L\), between the hidden layers we obtain
-                    a single matrix \(\mathbf{P}\in \mathbb{R}^{L(H+1) \times H}\), that we use to
-                    represent the INR in input to \({\tt inr2vec}\) encoder. We discard the input and
-                    output layers in our formulation as they feature different dimensionality and their
-                    use does not change \({\tt inr2vec}\) performance (additional details in the
-                    paper). The \({\tt inr2vec}\) encoder is designed with a simple architecture, consisting
-                    of a series of linear layers with batch norm and ReLU non-linearity followed by
-                    final max pooling. At each stage, the input matrix is transformed by one linear
-                    layer, that applies the same weights to each row of the matrix. The final max
-                    pooling compresses all the rows into a single one, obtaining the desired embedding.
+                    In order to learn a bidirectional mapping between images/text and NeRFS, we train two MLPs, one that maps CLIP image embeddings to \({\tt nf2vec}\) NeRF embeddings, and the other computing the mapping in the opposite direction.
                 </p>
-                <image src="img/encoder.png" class="image_center_100" alt="inr2vec encoder"></image>
-
-                </br>
-                </br>
-
-                <p class="text-justify">
-                    In order to guide the \({\tt inr2vec}\) encoder to produce meaningful embeddings,
-                    we first note that we are not interested in encoding the values of the input weights
-                    in the embeddings produced by our framework, but, rather, in storing information
-                    about the 3D shape represented by the input INR. For this reason, we supervise
-                    the decoder to replicate the function approximated by the input INR instead of
-                    directly reproducing its weights, as it would be the case in a standard auto-encoder
-                    formulation. In particular, during training, we adopt an implicit decoder which
-                    takes in input the embeddings produced by the encoder and decodes the input INRs
-                    from them. After the overall framework has been trained end to end, the frozen
-                    encoder can be used to compute embeddings of unseen INRs with a single forward
-                    pass while the implicit decoder can be used, if needed, to reconstruct the discrete
-                    representation given an embedding.
-                </p>
-                <image src="img/inr2vec.png" class="image_center_100" alt="inr2vec framework"></image>
-
-                </br>
-                </br>
-
-                <p class="text-justify">
-                    In the following figure we compare 3D shapes reconstructed from INRs unseen during
-                    training with those reconstructed by the \({\tt inr2vec}\) decoder starting from
-                    the latent codes yielded by the encoder. We visualize point clouds with 8192 points,
-                    meshes reconstructed by marching cubes from a grid with resolution \(128^3\) and
-                    voxels with resolution \(64^3\). We note that, though our embedding is dramatically
-                    more compact than the original INR, the reconstructed shape resembles the ground-truth
-                    with a good level of detail.
-                </p>
-                <image src="img/inr2vec_io.png" class="image_center_80" alt="inr2vec reconstructions"></image>
-
-                </br>
-                </br>
-
-                <p class="text-justify">
-                    Moreover, we linearly interpolate between the embeddings produced by \({\tt inr2vec}\)
-                    from two input shapes and show the shapes reconstructed from the interpolated
-                    embeddings. The results presented in the next figure highlight that the latent
-                    space learned by \({\tt inr2vec}\) enables smooth interpolations between shapes
-                    represented as INRs.
-                </p>
-                <image src="img/interpolation.png" class="image_center_80" alt="inr2vec interpolations"></image>
-
+                <image src="img/training.png" class="image_center_100" alt="Training procedure"></image>
             </div>
         </div>
 
