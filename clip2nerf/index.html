@@ -37,7 +37,6 @@
                 <small>
                     INRV 2024
                 </small>
-                </br>
                 <small>
                     (CVPR 2024)
                 </small>
@@ -125,9 +124,9 @@
                     Method
                 </h3>
                 <p class="text-justify">
-                    In order to learn a bidirectional mapping between images/text and NeRFS, we train two MLPs, one that maps CLIP image embeddings to \({\tt nf2vec}\) NeRF embeddings, and the other computing the mapping in the opposite direction.
+                    In order to learn a bidirectional mapping between images/text and NeRFS, we train two MLPs, one that maps <a href="https://openai.com/research/clip">CLIP</a> image embeddings to <a href="https://cvlab-unibo.github.io/nf2vec">\({\tt nf2vec}\)</a> NeRF embeddings, and the other computing the mapping in the opposite direction.
                 </p>
-                <image src="img/training.png" class="image_center_100" alt="Training procedure"></image>
+                <image src="img/training.png" class="image_center_50" alt="Training procedure"></image>
             </div>
         </div>
 
@@ -138,15 +137,10 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Results
+                    Zero-shot NeRF classification
                 </h3>
 
                 <p class="text-justify">
-                    We first evaluate the feasibility of using \({\tt inr2vec}\) embeddings of INRs
-                    to solve tasks usually tackled by representation learning, and we select 3D
-                    retrieval as a benchmark. Quantitative results, reported in the following table,
-                    show that, while there is an average gap of 1.8 mAP with PointNet++, \({\tt inr2vec}\)
-                    is able to match, and in some cases even surpass, the performance of the other baselines.
                 </p>
                 <image src="img/tab_retrieval.png" class="image_center_100" alt="retrieval"></image>
 
