@@ -136,8 +136,13 @@
                 <h3>
                     Zero-shot NeRF classification
                 </h3>
-                <p class="text-justify"> Bla bla bla
+                <p class="text-justify">
+                    To perform zero-shot NeRF classification, we map a NeRF embedding into a CLIP embedding and use the latter to query a gallery of textual embeddings identifying classes. 
                 </p>
+                <p class="text-justify"></p>
+                    Our method performs better than baselines that use CLIP embeddings of several NeRF views as query, and does so without requiring any rendering step.
+                </p>
+                </br>
                 <image src="img/classification.png" class="image_center_100" alt="Zero-shot NeRF classification"></image>
 
                 </br>
@@ -146,7 +151,11 @@
                 <h3>
                     NeRF retrieval (from images or text)
                 </h3>
-                <p class="text-justify"> Bla bla bla
+                <p class="text-justify">
+                    We perform NeRF retrieval from either images or text by mapping a CLIP embedding into a NeRF embedding and using the latter to query a gallery of NeRF embeddings. 
+                </p>
+                <p class="text-justify">
+                    Our method shows promising results with both real images and text as query.
                 </p>
                 <image src="img/retrieval.png" class="image_center_70" alt="NeRF retrieval"></image>
                 </br>
@@ -158,8 +167,10 @@
                 <h3>
                     NeRF generation (from images or text)
                 </h3>
-                <p class="text-justify"> Bla bla bla
+                <p class="text-justify">
+                    Our method also allows generating novel NeRF views from both images and textual descriptions.
                 </p>
+                </br>
                 <image src="img/generation.png" class="image_center_100" alt="NeRF generation"></image>
             </div>
         </div>
