@@ -139,10 +139,10 @@
                     that NFs are essentially neural networks, it remains unclear
                     whether and how they can be seamlessly integrated into deep
                     learning pipelines for solving downstream tasks. This paper
-                    addresses this research problem and introduces nf2vec, a
+                    addresses this research problem and introduces \({\tt nf2vec}\), a
                     framework capable of generating a compact latent representation
                     for an input NF in a single inference pass. We demonstrate
-                    that nf2vec effectively embeds 3D objects represented by the
+                    that \({\tt nf2vec}\) effectively embeds 3D objects represented by the
                     input NFs and showcase how the resulting embeddings can
                     be employed in deep learning pipelines to successfully address
                     various tasks, all while processing exclusively NFs. We test this
@@ -156,7 +156,6 @@
         </div>
 
         </br>
-        </br>
 
         <!-- METHOD -->
         <div class="row">
@@ -164,10 +163,9 @@
                 <h3>
                     Method
                 </h3>
-
                 <p class="text-justify">
                     Our framework, dubbed \({\tt nf2vec}\), is composed of an encoder and a decoder.
-                    The encoder is designed to take as input the weights of an NF and produce a
+                    The encoder is designed to take as input the weights of a NF and produces a
                     compact embedding that encodes all the relevant information of the input NF. A
                     first challenge in designing an encoder for NFs consists in defining how the
                     encoder should ingest the weights as input, since processing naively all the
@@ -175,14 +173,11 @@
                     The \({\tt nf2vec}\) encoder is designed with a simple architecture, consisting
                     of a series of linear layers with batch norm and ReLU non-linearity followed by
                     final max pooling. At each stage, the input weight matrix is transformed by one linear
-                    layer, that applies the same weights to each row of the matrix. The final max
+                    layer that applies the same weights to each row of the matrix. The final max
                     pooling compresses all the rows into a single one, obtaining the desired embedding.
                 </p>
                 <image src="img/encoder.png" class="image_center_100" alt="nf2vec encoder"></image>
-
                 </br>
-                </br>
-
                 <p class="text-justify">
                     In order to guide the \({\tt nf2vec}\) encoder to produce meaningful embeddings,
                     we first note that we are not interested in encoding the values of the input weights
@@ -191,188 +186,89 @@
                     the decoder to replicate the function approximated by the input NF instead of
                     directly reproducing its weights, as it would be the case in a standard auto-encoder
                     formulation. In particular, during training, we adopt an implicit decoder which
-                    takes in input the embeddings produced by the encoder and decodes the input NFs
+                    takes in input the embeddings produced by the encoder and decodes the input NF
                     from them. After the overall framework has been trained end to end, the frozen
                     encoder can be used to compute embeddings of unseen NFs with a single forward
-                    pass while the implicit decoder can be used, if needed, to reconstruct the discrete
+                    pass, whereas the implicit decoder can be used, if needed, to reconstruct the discrete
                     representation given an embedding.
                 </p>
                 <image src="img/framework.png" class="image_center_100" alt="nf2vec framework"></image>
-
-                </br>
-                </br>
-
-                <!-- <p class="text-justify">
-                    In the following figure we compare 3D shapes reconstructed from NFs unseen during
-                    training with those reconstructed by the \({\tt nf2vec}\) decoder starting from
-                    the latent codes yielded by the encoder. We visualize point clouds with 8192 points,
-                    meshes reconstructed by marching cubes from a grid with resolution \(128^3\) and
-                    voxels with resolution \(64^3\). We note that, though our embedding is dramatically
-                    more compact than the original NF, the reconstructed shape resembles the ground-truth
-                    with a good level of detail.
-                </p>
-                <image src="img/NF2vec_io.png" class="image_center_80" alt="nf2vec reconstructions"></image>
-
-                </br>
-                </br> -->
-<!-- 
-                <p class="text-justify">
-                    Moreover, we linearly interpolate between the embeddings produced by \({\tt nf2vec}\)
-                    from two input shapes and show the shapes reconstructed from the interpolated
-                    embeddings. The results presented in the next figure highlight that the latent
-                    space learned by \({\tt nf2vec}\) enables smooth interpolations between shapes
-                    represented as NFs.
-                </p>
-                <image src="img/interpolation.png" class="image_center_80" alt="nf2vec interpolations"></image> -->
-
             </div>
         </div>
 
-        </br>
         </br>
 
         <!-- RESULTS -->
-        <!--
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Results
+                    Reconstruction
                 </h3>
-
                 <p class="text-justify">
-                    We first evaluate the feasibility of using \({\tt nf2vec}\) embeddings of NFs
-                    to solve tasks usually tackled by representation learning, and we select 3D
-                    retrieval as a benchmark. Quantitative results, reported in the following table,
-                    show that, while there is an average gap of 1.8 mAP with PointNet++, \({\tt nf2vec}\)
-                    is able to match, and in some cases even surpass, the performance of the other baselines.
+                    We compare 3D shapes and NeRFs reconstructed from NFs unseen during training with those reconstructed by the \({\tt nf2vec}\) decoder starting from the latent codes yielded by the encoder. Though our embedding is dramatically more compact than the original NF, the reconstructed discrete data resembles those of the original input NF.
                 </p>
-                <image src="img/tab_retrieval.png" class="image_center_100" alt="retrieval"></image>
-
-                </br>
-                </br>
-
+                <image src="img/reconstr.png" class="image_center_80" alt="Shape reconstruction"></image>
+                <image src="img/reconstr_nerf.png" class="image_center_90" alt="NeRF reconstruction"></image>
+                <h3>
+                    Interpolation
+                </h3>
                 <p class="text-justify">
-                    We then address the problem of classifying point clouds, meshes and voxel grids.
-                    Despite the different nature of the discrete representations taken into account,
-                    \({\tt nf2vec}\) allows us to perform shape classification on NFs embeddings by
-                    the very same downstream network architecture, i.e., a simple fully connected
-                    classifier consisting of three layers with 1024, 512 and 128 features. The results
-                    reported in the next table show that \({\tt nf2vec}\) embeddings deliver
-                    classification accuracy close to the specialized baselines across all the
-                    considered datasets, regardless of the original discrete representation of the
-                    shapes in each dataset. Remarkably, our framework allows us to apply the same
-                    simple classification architecture on all the considered input modalities, in stark
-                    contrast with all the baselines that are highly specialized for each modality,
-                    exploit inductive biases specific to each such modality and cannot be deployed on
-                    representations different from those they were designed for.
+                    We linearly interpolate between two object embeddings produced by \({\tt nf2vec}\). Results highlight that the learned latent spaces enable smooth interpolations between shapes represented as NFs.
                 </p>
-                <image src="img/tab_classification.png" class="image_center_80" alt="classification"></image>
-
+                <image src="img/interp.png" class="image_center_80" alt="Shape interpolation"></image>
                 </br>
+                <image src="img/interp_nerf.png" class="image_center_80" alt="NeRF interpolation"></image>
                 </br>
-
                 <p class="text-justify">
-                    While the tasks of retrieval and classification concern the possibility of using
-                    \({\tt nf2vec}\) embeddings as a compact proxy for the global information of the
-                    input shapes, with the task of point cloud part segmentation we aim at investigating
-                    whether \({\tt nf2vec}\) embeddings can be used also to assess upon local properties
-                    of shapes. The part segmentation task consists in predicting a semantic label for
-                    each point of a given cloud. We tackle this problem by training a decoder similar
-                    to that used to train our framework (see left part of the following figure). Such
-                    decoder is fed with the \({\tt nf2vec}\) embedding of the NF representing the
-                    input cloud, concatenated with the coordinate of a 3D query, and it is trained to
-                    predict the label of the query point. Qualitative results reported in the right
-                    part of the figure show the possibility of performing also a local discriminative
-                    task as challenging as part segmentation based on the task-agnostic embeddings
-                    produced by \({\tt nf2vec}\).
+                    Additionally, given two input NeRFs, we render images from networks obtained by interpolating their weights. We compare these results with those obtained from the interpolation of \({\tt nf2vec}\) embeddings. Notably, renderings obtained by averaging the weights of the two NeRFs appear blurred and lack 3D structure, whereas renderings produced by \({\tt nf2vec}\) preserve details and maintain 3D consistency.
                 </p>
-                <image src="img/partseg.png" class="image_center_100" alt="part segmentation"></image>
-
-                </br>
-                </br>
-
+                <image src="img/interp_nerf_weights.png" class="image_center_90" alt="NeRF weights interpolation"></image>
+                <h3>
+                    Retrieval
+                </h3>
                 <p class="text-justify">
-                    We also address the task of shape generation in an adversarial setting to investigate
-                    whether the compact representations produced by our framework can be adopted also
-                    as medium for the output of deep learning pipelines. For this purpose, as depicted
-                    in the next figure, we train a Latent-GAN to generate embeddings indistinguishable
-                    from those produced by \({\tt nf2vec}\) starting from random noise. The generated
-                    embeddings can then be decoded into discrete representations with the implicit
-                    decoder exploited during \({\tt nf2vec}\) training. Since our framework is agnostic
-                    w.r.t. the original discrete representation of shapes used to fit NFs, we can
-                    train Latent-GANs with embeddings representing point clouds or meshes based on the
-                    same identical protocol and architecture (two simple fully connected networks as
-                    generator and discriminator). In the following figure, we show some samples
-                    generated with the described procedure, comparing them with SP-GAN for what concerns
-                    point clouds and Occupancy Networks (VAE formulation) for meshes. The shapes generated
-                    with our Latent-GAN trained only on \({\tt nf2vec}\) embeddings seem comparable
-                    to those produced by the considered baselines, in terms of both diversity and richness of details.
+                    We perform shape retrieval by computing the Euclidean distance between \({\tt nf2vec}\) embeddings of unseen point clouds from the test set. The retrieved shapes not only belong to the same class as the query but also exhibit similar coarse structures.
                 </p>
-                <image src="img/generative.png" class="image_center_100" alt="shape generation"></image>
-
-                We also perform the task of NeRF generation using the methodology described above.
-
-                <image src="img/generative_nerf.png" class="image_center_100" alt="mapping"></image>
-
+                <image src="img/retrieval.png" class="image_center_70" alt="Point cloud retrieval"></image>
                 </br>
-                </br>
-
                 <p class="text-justify">
-                    Finally we consider the possibility of learning a mapping between two distinct
-                    latent spaces produced by our framework for two separate datasets of NFs, based
-                    on a \(\textit{transfer}\) function designed to operate on \({\tt nf2vec}\)
-                    embeddings as both input and output data. Such transfer function can be realized
-                    by a simple fully connected network that maps the input embedding into the output
-                    one and is trained by a standard MSE loss. Here, we apply this idea to two tasks.
-                    Firstly, we address point cloud completion by learning a mapping from \({\tt nf2vec}\)
-                    embeddings of NFs that represent incomplete clouds to embeddings associated with
-                    complete clouds. Then, we tackle the task of surface reconstruction on ShapeNet cars,
-                    training the transfer function to map \({\tt nf2vec}\) embeddings representing
-                    point clouds into embeddings that can be decoded into meshes. As we can appreciate
-                    from the samples reported in the figure, the transfer function can learn an effective
-                    mapping between \({\tt nf2vec}\) latent spaces. Indeed, by processing exclusively
-                    NFs embedding, we can obtain output shapes that are highly compatible with the
-                    input ones whilst preserving the distinctive details, like the pointy wing of the
-                    airplane or the flap of the first car.
+                    Performing the same experiment on NeRFs allows to retrieve neighbors that are similar to the query in both geometry and color.
                 </p>
-                <image src="img/mapping.png" class="image_center_100" alt="mapping"></image>
-
-                Finally, we address the task of mapping a UDF into 
-                a NeRF. The task is difficult as we need to preserve the geometry while introducing a
-                realistic appeareance, yet we can address with our feature mapping strategy.
-
-                <image src="img/mapping_nerf.png" class="image_center_100" alt="mapping"></image>
-
+                <image src="img/retrieval_nerf.png" class="image_center_100" alt="NeRF retrieval"></image>
+                <h3>
+                    Part segmentation
+                </h3>
+                <p class="text-justify">
+                    Part segmentation aims to predict a semantic (i.e. part) label for each point of a given cloud. We tackle this problem by training a decoder similar to that used to train our framework. Such decoder is fed with the \({\tt nf2vec}\) embedding of the NF representing the input cloud, concatenated with the coordinate of a 3D query, and it is trained to predict the label of the query point. Notice how the \({\tt nf2vec}\) embeddings, although task-agnostic, allow to perform a local discriminative task such as part segmentation. 
+                </p>
+                <image src="img/partseg.png" class="image_center_100" alt="Part segmentation"></image>
+                <h3>
+                    Generation
+                </h3>
+                <p class="text-justify">
+                    We employ a Latent-GAN to generate embeddings resembling those produced by \({\tt nf2vec}\) from random noise. Generated embeddings can be decoded into discrete representations using the implicit decoder from the \({\tt nf2vec}\) training. As our framework is agnostic towards the original discrete representation of shapes used to learn the NFs, we can train Latent-GANs with embeddings representing point clouds or meshes based on the same identical protocol and architecture. Furthermore, by generating embeddings representing NFs, our method allows point cloud sampling at any arbitrary resolution, whereas SP-GAN needs a new training for each desired resolution.
+                </p>
+                <image src="img/gen.png" class="image_center_100" alt="Shape generation"></image>
+                </br>
+                <p class="text-justify"></p>
+                    When applied to NeRFs, our generation method produces renderings that have a good level of realism and diversity. Notably, the 3D consistency of images obtained from different viewpoints is preserved.
+                </p>
+                <image src="img/gen_nerf.png" class="image_center_80" alt="NeRF generation"></image>
+                <h3>
+                    Learning a mapping between \({\tt nf2vec}\) embedding spaces
+                </h3>
+                <p class="text-justify">
+                    We develop a transfer function specifically designed to operate on \({\tt nf2vec}\) embeddings as both input and output data. Such transfer function can be realized by a simple MLP that maps the input embedding into the output one and is trained with standard MSE loss. We explore two tasks: first, we address point cloud completion by learning a mapping from \({\tt nf2vec}\) embeddings of NFs that represent incomplete clouds to embeddings associated with complete clouds. Then, we tackle the task of surface reconstruction by training the transfer function to map \({\tt nf2vec}\) embeddings representing point clouds into embeddings that can be decoded into meshes. Indeed, by processing exclusively NF embeddings, we can obtain output shapes that are highly compatible with the input ones while preserving their distinctive details, like the pointy wings of an airplane or the flap of a car.
+                </p>
+                <image src="img/map.png" class="image_center_100" alt="Shape mapping"></image>
+                </br>
+                <p class="text-justify">
+                    We also show that the same methodology allows to learn a transfer function that maps \({\tt nf2vec}\) embeddings of point clouds to \({\tt nf2vec}\) embeddings of NeRFs. The generated NeRFs preserve the geometry of the input shapes and exhibit plausible diverse colors associated with different object parts.
+                </p>
+                <image src="img/map_nerf.png" class="image_center_70" alt="NeRF mapping"></image>
             </div>
         </div>
-
-        </br>
-        </br>-->
-
-        <!-- CITATION -->
-        <!-- <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Cite us
-                </h3>
-                <div class="form-group col-md-18 col-md-offset-0">
-                    <pre>
-@inproceedings{deluigi2023nf2vec,
-    title = {Deep Learning on Implicit Neural Representations of Shapes},
-    author = {De Luigi, Luca 
-              and Cardace, Adriano 
-              and Spezialetti, Riccardo 
-              and Zama Ramirez, Pierluigi 
-              and Salti, Samuele
-              and Di Stefano, Luigi},
-    booktitle = {International Conference on Learning Representations (ICLR)},
-    year = {2023}
-}
-                    </pre>
-                </div>
-            </div>
-        </div> -->
-
+    
     </div>
 </body>
 
