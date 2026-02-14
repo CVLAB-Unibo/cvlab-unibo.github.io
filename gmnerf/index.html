@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Weight space learning on NeRFs with diverse architectures">
+  <meta name="keywords" content="Weight Space Learning, NeRF, Graph Metanetwork">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weight Space Representation Learning on Diverse NeRF Architectures</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/unibo.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Weight Space Representation Learning on Diverse NeRF Architectures</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=d_EdMVQAAAAJ">Francesco Ballerini</a>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=OAYAmKYAAAAJ">Pierluigi Zama Ramirez</a>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=xZVTzyAAAAAJ">Luigi Di Stefano</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=1kcIJG0AAAAJ">Samuele Salti</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Bologna, Italy</span>
+          </div>
+
+          <div class="is-size-5 has-text-weight-bold">
+            <span class="author-block">ICLR 2026</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://openreview.net/pdf?id=u90rHXaBve"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <img src="static/images/iclr.svg" style="height:1em;">
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/CVLAB-Unibo/gmnerf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/frallebini/gmnerf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <img src="static/images/huggingface.svg" style="height:1em;">
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <figure>
+        <img src="./static/images/teaser.png">
+      </figure>
+      <h2 class="subtitle has-text-centered">
+        Our framework learns <b>architecture-agnostic representations of NeRFs</b> by processing their parameters as input.
+        This allows performing downstream tasks on NeRFs independently of their neural parameterization and without reconstructing the underlying 3D object.
+      </h2>
+    </div>
+  </div>
+</section>
+      
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Neural Radiance Fields (NeRFs) have emerged as a groundbreaking paradigm for representing 3D objects and scenes by encoding shape and appearance information into the weights of a neural network. Recent studies have demonstrated that these weights can be used as input for frameworks designed to address deep learning tasks; however, such frameworks require NeRFs to adhere to a specific, predefined architecture. In this paper, we introduce the first framework capable of processing NeRFs with diverse architectures and performing inference on architectures unseen at training time. We achieve this by training a Graph Meta-Network within an unsupervised representation learning framework, and show that a contrastive objective is conducive to obtaining an architecture-agnostic latent space. In experiments conducted across 13 NeRF architectures belonging to three families (MLPs, tri-planes, and, for the first time, hash tables), our approach demonstrates robust performance in classification, retrieval, and language tasks involving multiple architectures, even unseen at training time, while also matching or exceeding the results of existing frameworks limited to single architectures.          </p>
+          <p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{ballerini2026weight,
+  title     = {Weight Space Representation Learning on Diverse {NeRF} Architectures},
+  author    = {Ballerini, Francesco and Zama Ramirez, Pierluigi and Di Stefano, Luigi and Salti, Samuele},
+  booktitle = {The Fourteenth International Conference on Learning Representations},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+    <div class="columns is-centered has-text-centered">
+        <p>
+          This website template was borrowed from the  <a href="https://nerfies.github.io/">Nerfies project page</a>.
+        </p>
+  </div>
+</footer>
+
+</body>
+</html>
