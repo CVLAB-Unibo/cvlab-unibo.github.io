@@ -29,7 +29,7 @@ window.SITE = {
       "The <strong>Computer Vision Laboratory (CVLab)</strong> is a research group of the <a href=\"https://disi.unibo.it/en\" target=\"_blank\" rel=\"noopener\">Department of Computer Science and Engineering (DISI)</a> at the <strong>University of Bologna</strong>, Italy. We work on machine learning methods for understanding the visual and geometric structure of the world.",
       "Our research spans the whole perception pipeline. We recover <strong>depth and 3D geometry</strong> from images and heterogeneous sensors such as stereo rigs, event cameras, LiDAR and time-of-flight, and we build maps with <strong>SLAM</strong>. We <strong>reconstruct and represent</strong> scenes with neural fields and Gaussian Splatting, and we study <strong>neural fields as a new kind of data</strong>: models that learn, classify and reason directly on NeRFs and 3D shapes, and connect them to <strong>language</strong>. We <strong>understand</strong> scenes, from semantic segmentation and point-cloud learning to <strong>anomaly detection</strong> for industrial inspection, driving and intelligent transportation, and the analysis of generated images.",
       "A common thread is <em>how</em> we make it work: models that are <strong>efficient and real-time</strong>, able to run on CPUs, embedded and low-power devices, and that stay <strong>robust and adaptive</strong> across domains, sensors and conditions, increasingly with foundation, vision-language and generative models.",
-      "We publish at top venues such as CVPR, ICCV, ECCV, NeurIPS, ICLR and TPAMI, and we release our code and datasets openly. We are always happy to hear from motivated students and researchers: have a look at our <a href=\"{root}positions/\">open positions</a>."
+      "We publish at top venues such as CVPR, ICCV, ECCV, NeurIPS, ICLR and TPAMI, and we release our code and datasets openly. We are always happy to hear from motivated students and researchers: see how to <a href=\"{root}positions/\">work with us</a>."
     ],
     // Card on the right of "About us". icon: pin | users | code | mail | topics
     // `value` may contain HTML; `link` adds a small link under the text.
@@ -41,7 +41,7 @@ window.SITE = {
         value: "Faculty, researchers and students working together.",
         link: { label: "Meet the team", href: "team/" } },
       { icon: "code", label: "Open source",
-        value: "Code and datasets of our papers are public.",
+        value: "Code and datasets of our papers are public: on our GitHub and on the personal pages of the authors.",
         link: { label: "github.com/CVLAB-Unibo", href: "https://github.com/CVLAB-Unibo" } }
     ]
   },
@@ -52,7 +52,7 @@ window.SITE = {
     { label: "Research",     href: "research/" },
     { label: "News",         href: "news/" },
     { label: "Team",         href: "team/" },
-    { label: "Open Positions", href: "positions/" }
+    { label: "Work with us", href: "positions/" }
   ],
 
   contact: {

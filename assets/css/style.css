@@ -668,3 +668,16 @@ span.au { color: var(--muted); }
   background: radial-gradient(34rem 8.5rem at 50% 50%, rgba(255,255,255,.95) 0%, rgba(255,255,255,.85) 50%, rgba(255,255,255,0) 100%),
               linear-gradient(90deg, #fff 0%, rgba(255,255,255,0) 12%, rgba(255,255,255,0) 88%, #fff 100%); }
 @media (prefers-reduced-motion: reduce) { .hero-figs .strip { animation: none; } }
+
+/* highlighted label on a team card (e.g. "Active contributor to the lab") */
+.p-badge { display: inline-block; margin: .3rem 0 .15rem; padding: .18rem .7rem; font-size: .72rem; font-weight: 700; letter-spacing: .02em; color: var(--ink); background: var(--hl); border-radius: 999px; }
+
+/* Former members: smaller and denser than the current team; people with a badge (active contributors) keep the full size */
+.grid-former { grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); gap: 1.3rem 1rem; }
+.grid-former .person .avatar { width: 6.5rem; height: 6.5rem; font-size: 1.7rem; margin-bottom: .7rem; box-shadow: var(--shadow); }
+.grid-former .person h5 { font-size: .95rem; }
+.grid-former .person .role { font-size: .8rem; line-height: 1.4; }
+.grid-former .person .pill { font-size: .72rem; padding: .1rem .55rem; }
+.grid-former .person--lead .avatar { width: 9.5rem; height: 9.5rem; font-size: 2.3rem; box-shadow: var(--shadow-lg); }
+.grid-former .person--lead h5 { font-size: 1.1rem; }
+.grid-former .person--lead .role { font-size: .88rem; }

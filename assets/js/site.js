@@ -637,11 +637,11 @@
 
   function renderTeam() {
     $("#team-list").innerHTML = window.TEAM.filter((g) => g.people.length).map((g) => `<h3 class="group-title" id="g-${slug(g.group)}">${esc(g.group)}</h3>
-      <div class="grid grid-4">${g.people.map((p) => {
+      <div class="grid grid-4${g.alumni ? " grid-former" : ""}">${g.people.map((p) => {
         const name = p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)}</a>` : esc(p.name);
         const links = [p.url && `<a class="pill" href="${esc(p.url)}" target="_blank" rel="noopener">${linkLabel(p.url)} ↗</a>`,
                        p.email && `<a class="pill" href="mailto:${esc(p.email)}">Email</a>`].filter(Boolean).join("");
-        return `<div class="person">${avatarHtml(p)}<h5>${name}</h5><p class="role">${esc(roleOf(p))}</p>${links ? `<div class="links">${links}</div>` : ""}</div>`;
+        return `<div class="person${p.badge ? " person--lead" : ""}">${avatarHtml(p)}<h5>${name}</h5>${p.badge ? `<span class="p-badge">${esc(p.badge)}</span>` : ""}<p class="role">${esc(roleOf(p))}</p>${links ? `<div class="links">${links}</div>` : ""}</div>`;
       }).join("")}</div>`).join("");
     fixMissingPhotos($("#team-list"));
     renderTeamOverview($("#team-overview"));

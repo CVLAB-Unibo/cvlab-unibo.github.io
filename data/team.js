@@ -11,10 +11,11 @@
             words separated by "-", e.g. imgs/team/matteo-poggi.jpg).
             Without a photo the initials are shown.
      email  optional
+     badge  optional highlighted label under the name, e.g. "Active contributor to the lab"
      start  optional, "YYYY-MM-DD". Before that date the person is shown as "Incoming …" and not counted;
             from that date on the label disappears by itself.
 
-   `alumni: true` on a group = former members: they appear on the Team page but
+   `alumni: true` on a group = former members (any past role: PhD, visiting, postdoc…): they appear on the Team page but
    NOT in the "Our people" carousel on the home page.
    Groups with no people are hidden.
    =========================================================================== */
@@ -79,11 +80,11 @@ window.TEAM = [
     ]
   },
   {
-    group: "Alumni",
+    group: "Former members",
     kind: "alumni",
     alumni: true,
     people: [
-      { name: "Pierluigi Zama Ramirez", role: "Now Associate Professor at Ca' Foscari University of Venice", url: "https://pierlui92.github.io/" },
+      { name: "Pierluigi Zama Ramirez", role: "Associate Professor at Ca' Foscari University of Venice", badge: "Active contributor to the lab", url: "https://pierlui92.github.io/" },
       { name: "Riccardo Spezialetti",   role: "Now at eyecan.ai", url: "https://it.linkedin.com/in/riccardo-spezialetti-443998212" },
       { name: "Luca De Luigi",          role: "Now at eyecan.ai", url: "https://it.linkedin.com/in/luca-de-luigi-4a713bba" },
       { name: "Filippo Aleotti",        role: "Now Machine Learning Engineer at Niantic, London", url: "https://filippoaleotti.github.io/website/" },
@@ -92,6 +93,12 @@ window.TEAM = [
       { name: "Alex Costanzino",        role: "Now Postdoctoral Researcher at University of Bonn", url: "https://alex-costanzino.github.io/" },
       { name: "Andrea Conti",           role: "Now Computer Vision Engineer at Sony Depthsensing Solutions", url: "https://andreaconti.github.io/" },
       { name: "Adriano Cardace",        role: "Now Computer Vision Research Scientist at Stanford University", url: "https://www.linkedin.com/in/adriano-cardace" },
+      { name: "Tommaso Cavallari",      role: "Now Senior Research Scientist at Niantic, Inc", url: "https://uk.linkedin.com/in/tcavallari" },
+      { name: "Paolo Galeone",          role: "Now Head of Software Engineering at Zuru Tech", url: "https://it.linkedin.com/in/paolo-galeone-6782b311b" },
+      { name: "Dario De Nardi",         role: "Now Edge AI Engineer at Reply Labs (Area42), Turin", url: "https://dariodenardi.me/" },
+      { name: "Chaoqiang Zhao",         role: "Former member", url: "https://zxcqlf.github.io/" },
+      { name: "Alessandro Maragno",     role: "Former member", url: "https://www.linkedin.com/in/alessandro-maragno-37784514a/" },
+      { name: "Marlon Marcon",          role: "Now Assistant Professor at the Federal University of Technology – Paraná (UTFPR)" },
       { name: "Federico Tombari",       role: "Now Director of Research at Google, Zurich", url: "https://federicotombari.github.io/" },
       { name: "Daniele De Gregorio",    role: "Now CEO of eyecan.ai", url: "https://www.eyecan.ai/" },
       { name: "Rizhao Fan",             role: "Now at the Research Institute of Mine Artificial Intelligence", url: "https://www.linkedin.com/in/rizhao-fan123/?locale=en" },
