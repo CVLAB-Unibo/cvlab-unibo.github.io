@@ -802,7 +802,7 @@
   function initHeroFigures() {
     const strip = $("#hero-figs");
     if (!strip) return;
-    const imgs = (window.PUBLICATIONS || []).filter((p) => p.image).map((p) => p.image);
+    const imgs = (window.PUBLICATIONS || []).filter((p) => p.image && !p.noBanner).map((p) => p.image);
     if (!imgs.length) { strip.remove(); return; }
     const list = [...new Set(imgs)];
     for (let i = list.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [list[i], list[j]] = [list[j], list[i]]; }

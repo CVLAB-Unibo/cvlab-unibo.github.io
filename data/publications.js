@@ -22,6 +22,7 @@
        dataset: "https://huggingface.co/…"
      },
      bibtex:   "@inproceedings{…}",        // optional – if omitted a basic entry is generated
+     noBanner: true,                       // optional: keep this figure out of the scrolling banner on the Publications page
      featured: 1,                          // 1, 2, 3… = show in "Highlights" on the home page, in this order
      summary:  "One line shown on the highlight card",
    }
@@ -964,6 +965,7 @@ window.PUBLICATIONS = [
     "year": 2024,
     "rank": "GGS A++",
     "image": "assets/img/publications/federated.jpg",
+    "noBanner": true,
     "url": "https://mattpoggi.github.io/assets/papers/poggi2024cvpr.pdf",
     "links": {
       "project": "https://fedstereo.github.io/",
