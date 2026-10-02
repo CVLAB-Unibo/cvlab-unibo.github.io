@@ -15,7 +15,7 @@ window.SITE = {
   // Colour theme: "teal" | "m-lime" | "m-sky" | "m-mint" | "m-peach" | "m-lilac" | "m-butter" | "m-rose".  themePreview shows the floating switcher
   // (set it to false once you have chosen).
   theme: "m-peach",
-  themePreview: true,
+  themePreview: false,
 
   tagline: "We study how machines perceive, reconstruct and understand the 3D world, and how to make that perception efficient, robust and general.",
 

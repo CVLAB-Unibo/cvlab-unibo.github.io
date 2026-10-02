@@ -30,6 +30,10 @@
   --font-head:  'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* always light: stops phones from darkening the page (auto / forced dark mode) */
+:root { color-scheme: only light; }
+html { background: #ffffff; }
+
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }   /* filters hide cards with the hidden attribute */
 html { scroll-behavior: smooth; }
