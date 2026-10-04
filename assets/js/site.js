@@ -68,17 +68,43 @@
     return list + (p.equalContribution ? ' <span class="text-muted">(* equal contribution)</span>' : "");
   }
 
+  // BibTeX reads "Luigi Di Stefano" as first "Luigi Di", last "Stefano": write names as "Last, First".
+  // Surnames made of several capitalised words that are not particles go in BIB_SURNAMES.
+  const BIB_SURNAMES = ["Zama Ramirez", "Salmon Cinotti"];
+  const BIB_PARTICLE = /^(di|de|del|della|dal|da|van|von|der|den|le|la|du|dos)$/i;
+  function bibName(n) {
+    if (/^et al\.?$/.test(n)) return "others";
+    const known = BIB_SURNAMES.find((s) => n.endsWith(" " + s));
+    if (known) return `${known}, ${n.slice(0, -known.length - 1)}`;
+    const w = n.split(" ");
+    if (w.length < 2) return n;
+    let i = w.length - 1;
+    while (i > 1 && BIB_PARTICLE.test(w[i - 1])) i--;
+    return `${w.slice(i).join(" ")}, ${w.slice(0, i).join(" ")}`;
+  }
+
   function autoBibtex(p) {
     if (p.bibtex) return p.bibtex;
     const clean = (a) => a.replace(/\*$/, "");
-    const first = clean(p.authors[0]).split(" ").pop().toLowerCase().replace(/[^a-z]/g, "");
+    const names = p.authors.map(clean).map(bibName);
+    const first = names[0].split(",")[0].normalize("NFD").toLowerCase().replace(/[^a-z]/g, "");
     const word = (p.title.split(/\W+/).find((w) => w.length > 3) || "paper").toLowerCase();
     const kind = p.kind || "Conference";
-    const type = kind === "Thesis" ? "phdthesis" : kind === "Journal" || kind === "Preprint" ? "article" : "inproceedings";
-    const field = { phdthesis: "school", article: "journal", inproceedings: "booktitle" }[type];
-    const venue = type === "phdthesis" ? p.venue.replace(/^PhD thesis, /, "") : p.venue;
-    const authors = p.authors.map(clean).map((a) => (/^et al\.?$/.test(a) ? "others" : a)).join(" and ");
-    return `@${type}{${first}${p.year}${word},\n  title  = {${p.title}},\n  author = {${authors}},\n  ${field.padEnd(6)}= {${venue}},\n  year   = {${p.year}}\n}`;
+    const type = kind === "Journal" || kind === "Preprint" ? "article" : "inproceedings";
+    const f = { title: `{${p.title}}`, author: names.join(" and ") };
+    // archive rows carry DBLP-style venues: "IEEE Trans. Robotics 42: 1405-1427 (2026)", "ECCV (77) 2026: 158-177"
+    const arxiv = p.venue.match(/^CoRR abs\/(\S+)/);
+    const jour = p.archive && p.venue.match(/^(.*?)\s+(\d+)(?:\((\d+)\))?:\s*([\w-]+)\s*\(\d{4}\)$/);
+    if (arxiv) { f.journal = "arXiv preprint"; f.eprint = arxiv[1]; }
+    else if (jour) { f.journal = jour[1]; f.volume = jour[2]; if (jour[3]) f.number = jour[3]; f.pages = jour[4].replace("-", "--"); }
+    else if (p.archive) {
+      const pages = (p.venue.match(/:\s*([\w]+-[\w]+)$/) || [])[1];
+      f[type === "article" ? "journal" : "booktitle"] = p.venue.replace(/:\s*[\w-]+$/, "").replace(/\s*\(\d+\)/, "").replace(/\s*\(\d{4}\)$/, "");
+      if (pages) f.pages = pages.replace("-", "--");
+    } else f[type === "article" ? "journal" : "booktitle"] = p.venue;
+    f.year = p.year;
+    const w = Math.max(...Object.keys(f).map((k) => k.length));
+    return `@${type}{${first}${p.year}${word},\n${Object.entries(f).map(([k, v]) => `  ${k.padEnd(w)} = {${v}}`).join(",\n")}\n}`;
   }
 
   // archive tuples [year, title, authors, venue] -> publication-like objects
@@ -116,7 +142,7 @@
       ${thumb}
       <div class="pub-main">
         <div class="pub-meta">
-          <span class="badge badge--venue">${esc(venueLabel(p))}</span>${p.rank ? `<span class="rank" title="Venue ranking">${esc(p.rank)}</span>` : ""}
+          <span class="badge badge--venue">${esc(venueLabel(p))}</span>${p.rank ? `<span class="rank" title="${/CORE/.test(p.rank) ? "ICORE 2026 conference ranking" : "Journal quartile (Scimago / JCR)"}">${esc(p.rank)}</span>` : ""}
           ${p.tag ? `<span class="badge badge--tag">${esc(p.tag)}</span>` : ""}
           ${p.kind && !["Conference", "Journal"].includes(p.kind) ? `<span class="badge">${esc(p.kind)}</span>` : ""}
           ${topics.slice(0, 2).map((t) => `<a class="topic-tag ax-${axisOf(t)}" href="${topicHref(t)}" data-topic="${esc(t)}">${esc(t)}</a>`).join("")}${kws.slice(0, 2).map((t) => `<a class="kw-tag" href="${tagHref(t)}" data-tag="${esc(t)}">${esc(t)}</a>`).join("")}
@@ -144,7 +170,7 @@
     if (p.rank) {
       if (/A\+\+|A\*/.test(p.rank)) return "top";
       if (/Q1/.test(p.rank)) return "q1";
-      if (/GGS A/.test(p.rank)) return "a";
+      if (/(CORE|GGS) A\b/.test(p.rank)) return "a";
     }
     if ((V.top || []).includes(key)) return "top";
     if ((V.q1 || []).includes(key)) return "q1";
@@ -152,7 +178,7 @@
     return p.kind === "Journal" ? "journal" : "other";
   }
   const TIERS = {
-    top:   { name: "A*/A++ conferences",  color: "#c2410c" },
+    top:   { name: "A* conferences",      color: "#c2410c" },
     q1:    { name: "Q1 journals",         color: "#57534e" },
     a:     { name: "A-rated conferences", color: "var(--hl)" },
     other: { name: "Other venues",        color: "var(--line-2)" }
@@ -174,11 +200,11 @@
       const pct = peer.length ? Math.round((100 * top) / peer.length) : 0;
       const tiers = ["top", "q1", "a", "other"].filter((t) => n[t]);
       const nWs = inRange.filter((p) => tierOf(p) === "workshop").length;
-      el.innerHTML = `<div class="sum-row"><p class="sum-lead"><b>${pct}%</b> of our peer-reviewed papers${from ? ` since ${from}` : ""} (${top} of ${peer.length}) are in A*/A++ conferences or Q1 journals.</p>
+      el.innerHTML = `<div class="sum-row"><p class="sum-lead"><b>${pct}%</b> of our peer-reviewed papers${from ? ` since ${from}` : ""} (${top} of ${peer.length}) are in A* conferences or Q1 journals.</p>
           <div class="seg" role="group" aria-label="Time range"><button type="button" data-from="${last - 4}" class="${from ? "on" : ""}">Last 5 years</button><button type="button" data-from="0" class="${from === 0 ? "on" : ""}">All time</button></div></div>
         <div class="sum-bar" role="img" aria-label="Peer-reviewed papers by venue tier">${tiers.map((t) => `<i style="flex:${n[t]};background:${TIERS[t].color}" title="${TIERS[t].name}: ${n[t]}"></i>`).join("")}</div>
         <div class="sum-legend">${tiers.map((t) => `<span><i style="background:${TIERS[t].color}"></i><b>${n[t]}</b>${TIERS[t].name}</span>`).join("")}
-          <span class="info" tabindex="0" title="Conference tiers follow the GGS rating (A++ ≈ CORE A*); journals are Q1 in their Scimago/JCR category. Not counted: ${nWs} workshop papers, preprints and theses. Venue lists: data/venues.js">how we count</span></div>`;
+          <span class="info" tabindex="0" title="Conferences follow the ICORE 2026 ranking; journals are Q1 in their Scimago/JCR category. Not counted: ${nWs} workshop papers and preprints.">how we count</span></div>`;
     };
     el.addEventListener("click", (e) => { const b = e.target.closest("[data-from]"); if (b) { from = +b.dataset.from; draw(); } });
     draw();
@@ -201,7 +227,7 @@
     const order = (window.RESEARCH || []).map((r) => r.short || r.title);
     const tlabels = order.filter((t) => tcount[t]).concat(Object.keys(tcount).filter((t) => !order.includes(t)).sort());
     const bar = $("#pub-topics"), more = $("#pub-more");
-    const AXES = { what: "Topic", how: "Approach" };
+    const AXES = { what: "Topic", how: "Approach", past: "Earlier work" };
     const btn = (t) => `<button type="button" class="tfilter" data-f="${esc(t)}">${esc(t)} <span>${tcount[t]}</span></button>`;
     const allBtn = `<button type="button" class="tfilter on" data-f="">All <span>${all.length}</span></button>`;
     if (bar) bar.innerHTML = Object.entries(AXES).map(([ax, name], k) => {
@@ -325,6 +351,43 @@
     </article>`;
   }
 
+  /* ---------- home: awards (paper tags from data/publications.js + data/awards.js) -------------- */
+  const TROPHY = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7M10 17h4"/></svg>';
+  // one quiet line on service to the community, built from the "service" rows of data/activities.js
+  function serviceHtml() {
+    const svc = (window.ACTIVITIES || []).filter((a) => a.kind === "service");
+    if (!svc.length) return "";
+    const events = (re) => [...new Set(svc.filter((a) => re.test(a.title)).map((a) => a.event))];
+    const venues = (re) => { const m = {}; svc.filter((a) => re.test(a.title)).forEach((a) => { const v = a.event.replace(/\s*\d{4}$/, ""); m[v] = (m[v] || 0) + 1; }); return Object.keys(m).sort((a, b) => m[b] - m[a]); };
+    const list = (xs) => (xs.length > 1 ? xs.slice(0, -1).join(", ") + " and " + xs[xs.length - 1] : xs[0] || "");
+    const ae = events(/Associate Editor/), ac = events(/^Area Chair/), out = venues(/^Outstanding/);
+    const roles = [ae.length && `associate editors (${ae.join(", ")})`, ac.length && `area chairs (${ac.join(", ")})`, "reviewers for the main computer vision and machine learning venues"].filter(Boolean);
+    return `<p class="svc-note">Beyond research, members of the lab serve the community as ${esc(list(roles))}${out.length ? `, and have received Outstanding Reviewer and Area Chair awards at ${esc(list(out))}` : ""}.</p>`;
+  }
+
+  function renderAwards(el) {
+    if (!el) return;
+    const pubs = window.PUBLICATIONS || [];
+    const link = (p) => (p.url ? url(p.url) : p.links?.project ? url(p.links.project) : p.links?.pdf ? url(p.links.pdf) : null);
+    const awards = pubs.filter((p) => /best|award|honou?rable|prize/i.test(p.tag || ""))
+      .map((p) => ({ year: p.year, title: p.tag, event: venueLabel(p), work: p.title, href: link(p), who: authorsHtml(p) }))
+      .concat((window.AWARDS || []).map((a) => ({ ...a, href: a.url, who: a.person ? `Awarded to <strong>${esc(a.person)}</strong>` : "" })))
+      .sort((a, b) => b.year - a.year);
+    const dist = pubs.filter((p) => /^(oral|highlight|spotlight)/i.test(p.tag || "")).sort((a, b) => b.year - a.year);
+    if (!awards.length && !dist.length) { el.closest("section").hidden = true; return; }
+    const ext = (h) => (h && /^https?:/.test(h) ? ' target="_blank" rel="noopener"' : "");
+    el.innerHTML = `<div class="aw-grid">${awards.map((a) => `<article class="aw-card">
+        <span class="aw-icon">${TROPHY}</span>
+        <div><div class="aw-title">${esc(a.title)}</div><div class="aw-event">${esc(a.event || "")}${a.event && !/\d{4}/.test(a.event) ? ` ${a.year}` : ""}</div>
+          ${a.work ? `<p class="aw-paper">${a.href ? `<a href="${a.href}"${ext(a.href)}>${esc(a.work)}</a>` : esc(a.work)}</p>` : a.href ? `<p class="aw-paper"><a href="${a.href}"${ext(a.href)}>Details ↗</a></p>` : ""}
+          ${a.who ? `<p class="aw-who">${a.who}</p>` : ""}</div></article>`).join("")}</div>
+      ${serviceHtml()}
+      ${dist.length ? `<h3 class="aw-sub">Orals, spotlights &amp; highlights</h3><ul class="aw-list">${dist.map((p) => {
+        const h = link(p);
+        return `<li><span class="aw-kind">${esc(p.tag)}</span><span class="aw-v">${esc(venueLabel(p))}</span>${h ? `<a href="${h}"${ext(h)}>${esc(p.title)}</a>` : `<span>${esc(p.title)}</span>`}</li>`;
+      }).join("")}</ul>` : ""}`;
+  }
+
   /* ---------- gallery: photo-only section with lightbox ---------------------------------------- */
   function renderGallery(el) {
     const photos = window.PHOTOS || [];
@@ -383,6 +446,7 @@
     const news = [...window.NEWS].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
     $("#home-news").innerHTML = news.map(newsItem).join("");
 
+    renderAwards($("#home-awards"));
     renderCarousel($("#home-research"));
     renderGallery($("#home-gallery"));
     renderStory($("#home-story"));
@@ -407,18 +471,23 @@
     [/Trans\. Multim/, "TMM"], [/Trans Autom\. Sci\. Eng/, "T-ASE"], [/Trans\. Emerg\. Top\. Comput\. Intell/, "TETCI"],
     [/Pattern Recognit\. Lett/, "PRL"], [/Pattern Recognit\./, "Pattern Recognit."], [/Mach\. Vis\. Appl/, "MVA"],
     [/Image Vis\. Comput/, "IVC"], [/Remote\. Sens/, "Remote Sens."], [/IEEE Access/, "IEEE Access"], [/Neural Networks/, "Neural Networks"],
-    [/Sensors/, "Sensors"], [/Internet Things/, "IoT-J"], [/Real Time Imaging/, "Real-Time Imaging"], [/Comput\. Graph\. Forum/, "CGF"]
+    [/Sensors/, "Sensors"], [/Internet Things/, "IoT-J"], [/Real Time Imaging/, "Real-Time Imaging"], [/Comput\. Graph\. Forum/, "CGF"],
+    [/J\. Sel\. Top\. Signal Process/, "JSTSP"], [/J\. Emerg\. Sel\. Topics Circuits/, "JETCAS"], [/Comput\. Electron\. Agric/, "COMPAG"],
+    [/EURASIP J\. Image Video Process/, "EURASIP JIVP"], [/Computer Graphics and Applications/, "IEEE CG&A"], [/IPSJ Trans\. Comput\. Vis/, "IPSJ CVA"],
+    [/J\. Parallel Distributed Comput/, "JPDC"], [/J\. Signal Process\. Syst/, "JSPS"], [/J\. Electronic Imaging/, "JEI"], [/Microprocess\. Microsystems/, "MICPRO"]
   ];
+  // one spelling for workshops: "ICCVW 2025", "WACV (Workshops) 2023" -> "ICCV Workshops 2025", "WACV Workshops 2023"
+  const normVenue = (v) => v.replace(/^([A-Z]+)W(?= \d{4})/, "$1 Workshops").replace(/ \(Workshops\)/, " Workshops").replace(/^Zenodo, /, "Zenodo ");
   // short text for the venue badge: "ICLR 2026", "TPAMI 2024", "arXiv 2026"
   function venueLabel(p) {
     if (p.badge) return p.badge;
-    const par = p.venue.match(/\(([^)]*[A-Za-z][^)]*)\)/);                 // "(ICLR 2026)" or "(TPAMI)"
+    const venue = normVenue(p.venue);
+    const par = venue.match(/\(([^)]*[A-Za-z][^)]*)\)/);                 // "(ICLR 2026)" or "(TPAMI)"
     if (par) return /\d{4}/.test(par[1]) ? par[1] : `${par[1]} ${p.year}`;
-    if (/^CoRR/.test(p.venue)) return "arXiv " + p.year;
-    const base = p.venue.split(":")[0].replace(/\s+\d+(\(\d+\))?$/, "").replace(/\s*\(\d{4}\)$/, "").replace(/\s*\(\d+\)/, "").trim();
+    if (/^CoRR/.test(venue)) return "arXiv " + p.year;
+    const base = venue.split(":")[0].replace(/\s+\d+(\(\d+\))?$/, "").replace(/\s*\(\d{4}\)$/, "").replace(/\s*\(\d+\)/, "").trim();
     const ab = JOURNAL_ABBR.find(([re]) => re.test(base));
     if (ab) return `${ab[1]} ${p.year}`;
-    if (/^PhD thesis/.test(p.venue)) return "PhD thesis " + p.year;
     const lbl = /\d{4}/.test(base) ? base : `${base} ${p.year}`;
     return lbl.length > 26 ? lbl.slice(0, 24).trim() + "… " + p.year : lbl;
   }
@@ -465,7 +534,7 @@
       return `<article class="slide" data-ax="${r.axis || "what"}" aria-roledescription="slide" aria-label="${i + 1} / ${topics.length}">
         <div class="slide-img">${r.image ? `<img src="${url(/\.\w{3,4}$/.test(r.image) ? r.image : r.image + ".png")}" data-base="${/\.\w{3,4}$/.test(r.image) ? "" : esc(r.image)}" data-ph="${esc(r.short || r.title)}" alt="${esc(r.title)}" draggable="false" loading="${i < 3 ? "eager" : "lazy"}">` : `<div class="ph"><span>${esc(r.short || r.title)}</span><small>image coming soon</small></div>`}</div>
         <div class="slide-body">
-          <span class="slide-num">${String(i + 1).padStart(2, "0")} / ${String(topics.length).padStart(2, "0")}<em>${(r.axis || "what") === "how" ? "How we make it work" : "What we perceive"}</em></span>
+          <span class="slide-num">${String(i + 1).padStart(2, "0")} / ${String(topics.length).padStart(2, "0")}<em>${{ how: "How we make it work", past: "Where we come from" }[r.axis] || "What we perceive"}</em></span>
           <h3>${esc(r.title)}</h3>
           <p>${esc(r.text)}</p>
           ${rel.length ? `<h6>Latest papers</h6><ul class="slide-papers">${rel.slice(0, 3).map((p) =>
@@ -809,6 +878,9 @@
     const html = list.concat(list).map((src) => `<img src="${url(src)}" alt="" decoding="async">`).join("");
     strip.innerHTML = `<div class="strip" style="--n:${list.length};--s:10s;animation-delay:-${(Math.random() * list.length * 10).toFixed(1)}s">${html}</div>`;
   }
+
+  // helpers reused by other pages (e.g. the News timeline)
+  window.CVLAB = { venueLabel, venueKey, tierOf, archiveObjects, authorsHtml, url };
 
   /* ---------- boot ----------------------------------------------------------- */
   initThemes();

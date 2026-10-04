@@ -3,6 +3,7 @@
 
   python3 tools/build_photos.py         group photos  imgs/photos/ -> data/photos.js  (home, team, research)
   python3 tools/build_photos.py city    city photos   imgs/city/   -> data/city.js    (open positions)
+  python3 tools/build_photos.py events  event photos  imgs/events/ -> data/events.js  (news)
 
 1. Put photos (jpg/jpeg/png) in the folder
 2. Run the command above
@@ -20,9 +21,10 @@ from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
 SET = sys.argv[1] if len(sys.argv) > 1 else "photos"
-CFG = {"photos": ("photos", "hero", "photos.js", "PHOTOS"), "city": ("city", "city", "city.js", "CITY")}
+CFG = {"photos": ("photos", "hero", "photos.js", "PHOTOS"), "city": ("city", "city", "city.js", "CITY"),
+       "events": ("events", "events", "events.js", "EVENTS")}
 if SET not in CFG:
-    sys.exit("usage: build_photos.py [photos|city]")
+    sys.exit("usage: build_photos.py [photos|city|events]")
 _src, _out, _manifest, VAR = CFG[SET]
 SRC = ROOT / "imgs" / _src
 OUT = ROOT / "assets" / "img" / _out

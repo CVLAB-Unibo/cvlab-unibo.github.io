@@ -83,7 +83,7 @@ window.ARCHIVE = (window.ARCHIVE || []).concat([
   [2017, "Integration of GPS and satellite images for detection and classification of fleet hotspots", "Francesco Sambo, Samuele Salti, Luca Bravi, Matteo Simoncini, Leonardo Taccari, Alessandro Lori", "ITSC 2017: 1-6"],
 
   /* 2016 */
-  [2016, "Deep Stereo Fusion: Combining Multiple Disparity Hypotheses with Deep-Learning", "Matteo Poggi, Stefano Mattoccia", "3DV 2016: 138-147"],
+  [2016, "Deep Stereo Fusion: Combining Multiple Disparity Hypotheses with Deep-Learning", "Matteo Poggi, Stefano Mattoccia", "3DV 2016: 138-147", ["Depth Perception", "Stereo & Multi-Sensor"]],
   [2016, "Learning a General-Purpose Confidence Measure Based on O(1) Features and a Smarter Aggregation Strategy for Semi Global Matching", "Matteo Poggi, Stefano Mattoccia", "3DV 2016: 509-518"],
   [2016, "Learning from scratch a confidence measure", "Matteo Poggi, Stefano Mattoccia", "BMVC 2016"],
   [2016, "Reliable Fusion of ToF and Stereo Depth Driven by Confidence Measures", "Giulio Marin, Pietro Zanuttigh, Stefano Mattoccia", "ECCV (7) 2016: 386-401"],

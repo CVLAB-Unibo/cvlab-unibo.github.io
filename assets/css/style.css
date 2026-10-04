@@ -625,7 +625,7 @@ span.au { color: var(--muted); }
 .search-box { max-width: 24rem; margin-bottom: 1.6rem; padding: .6rem 1.1rem; box-shadow: none; }
 #pub-topics { margin: 0 0 .4rem; }
 .axis { display: flex; align-items: baseline; gap: 1rem; margin-top: .45rem; }
-.axis .fname { flex: 0 0 5.2rem; font-size: .68rem; text-transform: uppercase; letter-spacing: .09em; font-weight: 600; color: var(--muted); }
+.axis .fname { flex: 0 0 6.6rem; font-size: .68rem; text-transform: uppercase; letter-spacing: .09em; font-weight: 600; color: var(--muted); }
 .tfilters { display: flex; flex-wrap: wrap; gap: .1rem 1.15rem; margin: 0; }
 .tfilter { padding: .15rem 0; border: 0; border-radius: 0; background: none; font: inherit; font-size: .86rem; font-weight: 450; color: var(--text); border-bottom: 2px solid transparent; transform: none; }
 .tfilter span { margin-left: .2rem; font-size: .68rem; color: var(--muted); vertical-align: super; }
@@ -681,3 +681,23 @@ span.au { color: var(--muted); }
 .grid-former .person--lead .avatar { width: 9.5rem; height: 9.5rem; font-size: 2.3rem; box-shadow: var(--shadow-lg); }
 .grid-former .person--lead h5 { font-size: 1.1rem; }
 .grid-former .person--lead .role { font-size: .88rem; }
+
+/* ---------- Home: awards & recognition ---------------------------------------------------------- */
+.section--rule { border-top: 1px solid var(--line); }
+.aw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); gap: 1rem; }
+.aw-card { display: grid; grid-template-columns: auto 1fr; gap: 1rem; padding: 1.2rem 1.3rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.aw-icon { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--hl); color: var(--ink); }
+.aw-title { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--ink); line-height: 1.3; }
+.aw-event { font-size: .75rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); margin-top: .15rem; }
+.aw-paper { margin: .55rem 0 0; font-size: .92rem; font-weight: 500; line-height: 1.4; }
+.aw-paper a { color: var(--ink); }
+.aw-who { margin: .3rem 0 0; font-size: .8rem; color: var(--muted); line-height: 1.45; }
+.aw-who .au { color: inherit; }
+.aw-sub { margin: 2.2rem 0 .6rem; font-size: .72rem; text-transform: uppercase; letter-spacing: .09em; color: var(--muted); }
+.aw-list { list-style: none; margin: 0; padding: 0; }
+.aw-list li { display: grid; grid-template-columns: 7.5rem 7.5rem 1fr; gap: 1rem; align-items: baseline; padding: .6rem 0; border-bottom: 1px solid var(--line); font-size: .92rem; }
+.aw-list li a { color: var(--ink); }
+.aw-kind { justify-self: start; white-space: nowrap; font-size: .7rem; font-weight: 600; padding: .05rem .5rem; border-radius: .3rem; background: var(--hl); color: #0a0a0a; }
+.aw-v { font-size: .78rem; font-weight: 600; color: var(--muted); }
+@media (max-width: 640px) { .aw-list li { grid-template-columns: auto 1fr; gap: .2rem .7rem; } .aw-list li > :last-child { grid-column: 1 / -1; } }
+.svc-note { margin: 1.6rem 0 0; max-width: 52rem; font-size: .92rem; color: var(--muted); }

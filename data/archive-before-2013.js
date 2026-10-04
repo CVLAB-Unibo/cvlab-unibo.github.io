@@ -1,8 +1,5 @@
-/* Publication archive up to 2012, plus theses. Format: [year, title, authors, venue] */
+/* Publication archive up to 2012. Format: [year, title, authors, venue] */
 window.ARCHIVE = (window.ARCHIVE || []).concat([
-  /* Theses */
-  [2021, "Deep-learning for 3D reconstruction", "Fabio Tosi", "PhD thesis, University of Bologna, Italy, 2021"],
-  [2011, "On-line adaptive visual tracking", "Samuele Salti", "PhD thesis, University of Bologna, Italy, 2011"],
 
   /* 2012 */
   [2012, "Introduction to the Issue on Emerging Techniques in 3-D", "A. Aydin Alatan, Jörn Ostermann, Levent Onural, Ghassan Alregib, Stefano Mattoccia, Chunrong Yuan", "IEEE J. Sel. Top. Signal Process. 6(5): 409-410 (2012)"],

@@ -65,8 +65,6 @@ window.SITE = {
   },
 
   social: [
-    { label: "GitHub",  href: "https://github.com/CVLAB-Unibo" },
-    { label: "Google Scholar", href: "#" },
-    { label: "X / Twitter",    href: "#" }
+    { label: "GitHub",  href: "https://github.com/CVLAB-Unibo" }
   ]
 };

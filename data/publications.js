@@ -33,6 +33,7 @@ window.PUBLICATIONS = [
     image: "assets/img/publications/weight-space.jpg",
     authors: ["Francesco Ballerini", "Pierluigi Zama Ramirez", "Luigi Di Stefano", "Samuele Salti"],
     venue: "International Conference on Learning Representations (ICLR 2026)",
+    rank: "CORE A*",
     year: 2026,
     abstract: "We learn representations directly from the weights of NeRFs trained with diverse architectures, enabling a single framework to process and reason on heterogeneous neural fields.",
     links: {
@@ -41,8 +42,48 @@ window.PUBLICATIONS = [
       code: "https://github.com/CVLAB-Unibo/gmnerf",
       dataset: "https://huggingface.co/datasets/frallebini/gmnerf"
     },
-    featured: 12,
+    featured: 13,
     summary: "Learns directly from the weights of NeRFs with different architectures, with one single framework."
+  },
+  {
+    "title": "Spectral Gating via Damped Oscillations for Adaptive Implicit Neural Representations",
+    "authors": ["Alex Costanzino", "Pierluigi Zama Ramirez", "Giuseppe Lisanti", "Luigi Di Stefano"],
+    "kind": "Conference",
+    "venue": "European Conference on Computer Vision",
+    "badge": "ECCV 2026",
+    "year": 2026,
+    "rank": "CORE A*",
+    "tag": "Spotlight Oral",
+    "abstract": "Each neuron's activation is modelled as the steady-state response of a sinusoidally-forced damped harmonic oscillator, learnt together with the weights: the network adapts its spectral selectivity to the target signal, following a coarse-to-fine curriculum and needing no task-specific tuning.",
+    "image": "assets/img/publications/spectral.png",
+    "url": "https://alex-costanzino.github.io/fdho/",
+    "links": {
+      "project": "https://alex-costanzino.github.io/fdho/",
+      "Paper": "https://eccv.ecva.net/virtual/2026/spotlight/6070",
+      "code": "https://github.com/alex-costanzino/fdho-release"
+    },
+    "topics": ["3D Reconstruction & NVS"],
+    "bibtex": "@inproceedings{costanzino2026fdho,\n  author    = {Costanzino, Alex and Zama Ramirez, Pierluigi and Lisanti, Giuseppe and Di Stefano, Luigi},\n  title     = {Spectral Gating via Damped Oscillations for Adaptive Implicit Neural Representations},\n  booktitle = {The European Conference on Computer Vision},\n  year      = {2026},\n}",
+    "featured": 2,
+    "summary": "Activations as damped oscillators: implicit neural representations that tune their own spectral gate, with no per-task tuning."
+  },
+  {
+    "title": "Modulate-and-Map: Crossmodal Feature Mapping with Cross-View Modulation for 3D Anomaly Detection",
+    "authors": ["Alex Costanzino", "Pierluigi Zama Ramirez", "Giuseppe Lisanti", "Luigi Di Stefano"],
+    "kind": "Conference",
+    "venue": "Conference on Computer Vision and Pattern Recognition – Findings",
+    "badge": "CVPR Findings 2026",
+    "year": 2026,
+    "abstract": "ModMap maps features across both modalities and views, modelling view-dependent relationships through feature-wise modulation and a cross-view training strategy, with a depth encoder for industrial data released alongside; state of the art on the multiview, multimodal SiM3D benchmark.",
+    "image": "assets/img/publications/modulate-and-map.png",
+    "url": "https://alex-costanzino.github.io/modmap/",
+    "links": {
+      "project": "https://alex-costanzino.github.io/modmap/",
+      "arxiv": "https://arxiv.org/abs/2604.02328",
+      "code": "https://github.com/alex-costanzino/modmap-code",
+      "dataset": "https://huggingface.co/datasets/arcanoXIII/SiM3D"
+    },
+    "bibtex": "@article{costanzino2026modmap,\n  author    = {Costanzino, Alex and Zama Ramirez, Pierluigi and Lisanti, Giuseppe and Di Stefano, Luigi},\n  title     = {Modulate-and-Map: Crossmodal Feature Mapping with Cross-View Modulation for 3D Anomaly Detection},\n  journal   = {The IEEE/CVF Conference on Computer Vision and Pattern Recognition Findings},\n  year      = {2026},\n}"
   },
   {
     title: "Deep Learning on Object-centric 3D Neural Fields",
@@ -78,6 +119,7 @@ window.PUBLICATIONS = [
     authors: ["Luca De Luigi*", "Adriano Cardace*", "Riccardo Spezialetti*", "Pierluigi Zama Ramirez", "Samuele Salti", "Luigi Di Stefano"],
     equalContribution: true,
     venue: "International Conference on Learning Representations (ICLR 2023)",
+    rank: "CORE A*",
     year: 2023,
     abstract: "inr2vec compresses an Implicit Neural Representation of a 3D shape into a compact embedding that can be fed to standard deep learning pipelines.",
     image: "inr2vec/img/teaser.png",
@@ -86,7 +128,7 @@ window.PUBLICATIONS = [
       pdf: "https://arxiv.org/abs/2302.05438",
       code: "https://github.com/CVLAB-Unibo/inr2vec"
     },
-    featured: 10,
+    featured: 11,
     summary: "Compact embeddings of implicit neural representations, so that standard deep learning can work on shapes."
   },
   {
@@ -119,7 +161,7 @@ window.PUBLICATIONS = [
 
   {
     "title": "Multimodal Industrial Anomaly Detection by Crossmodal Feature Mapping",
-    "featured": 4,
+    "featured": 5,
     "summary": "Learns to map features across modalities on nominal samples and flags anomalies as inconsistencies.",
     "authors": [
       "Alex Costanzino*",
@@ -130,7 +172,7 @@ window.PUBLICATIONS = [
     "kind": "Conference",
     "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2024), pp. 17234–17243",
     "year": 2024,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "abstract": "We propose a light and fast framework that learns to map features from one modality (point clouds, images) to the other on nominal samples, and detects anomalies by pinpointing inconsistencies between observed and mapped features. It achieves state-of-the-art detection and segmentation on MVTec 3D-AD, in the standard and few-shot settings, with faster inference and a smaller memory footprint than previous multimodal methods.",
     "links": {
       "project": "https://cvlab-unibo.github.io/CrossmodalFeatureMapping/",
@@ -155,11 +197,11 @@ window.PUBLICATIONS = [
     "kind": "Conference",
     "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2023), pp. 18527–18536",
     "year": 2023,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "topics": [
       "Depth Perception"
     ],
-    "featured": 9,
+    "featured": 10,
     "summary": "Fuses convolutions and vision Transformers in a single block for depth completion.",
     "image": "assets/img/publications/completionformer.jpg",
     "links": {
@@ -183,8 +225,8 @@ window.PUBLICATIONS = [
     "kind": "Conference",
     "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2023), pp. 20762–20772",
     "year": 2023,
-    "rank": "GGS A++",
-    "featured": 8,
+    "rank": "CORE A*",
+    "featured": 9,
     "summary": "A dataset for novel view synthesis and relighting of real-world objects.",
     "image": "assets/img/publications/relight-my-nerf.jpg",
     "equalContribution": true,
@@ -209,7 +251,7 @@ window.PUBLICATIONS = [
     "kind": "Journal",
     "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), vol. 44(12): 9687–9702",
     "year": 2022,
-    "rank": "Q1 · IF 20.8",
+    "rank": "Q1",
     "summary": "Self-supervised learning of local equivariant 3D descriptors for point clouds."
   },
   {
@@ -224,8 +266,8 @@ window.PUBLICATIONS = [
     "kind": "Conference",
     "venue": "Conference on Neural Information Processing Systems (NeurIPS 2024)",
     "year": 2024,
-    "rank": "GGS A++",
-    "featured": 6,
+    "rank": "CORE A*",
+    "featured": 7,
     "summary": "A multimodal language assistant that understands NeRFs directly from their weights.",
     "image": "assets/img/publications/LLaNA.jpg",
     "links": {
@@ -250,8 +292,8 @@ window.PUBLICATIONS = [
     "kind": "Conference",
     "venue": "International Conference on Computer Vision (ICCV 2025), pp. 20944–20953",
     "year": 2025,
-    "rank": "GGS A++",
-    "featured": 2,
+    "rank": "CORE A*",
+    "featured": 3,
     "summary": "A benchmark for single-instance, multiview and multimodal 3D anomaly detection.",
     "image": "assets/img/publications/sim3d.jpg",
     "links": {
@@ -289,6 +331,7 @@ window.PUBLICATIONS = [
     "kind": "Journal",
     "venue": "ACM Transactions on Graphics, vol. 45, no. 6, art. 204",
     "badge": "SIGGRAPH Asia 2026",
+    "rank": "CORE A*",
     "year": 2026,
     "image": "assets/img/publications/marigoldv2.jpg",
     "url": "https://huggingface.co/spaces/huawei-bayerlab/marigold-v2-web",
@@ -312,13 +355,12 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Luca Bartolomei": "https://bartn8.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Conference",
     "venue": "European Conference on Computer Vision",
     "badge": "ECCV 2026",
     "year": 2026,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/zipdepth.jpg",
     "url": "https://zipdepth.github.io/",
     "links": {
@@ -345,14 +387,13 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Ziren Gong": "https://zorangong.github.io/",
       "Youmin Zhang": "https://youmi-zym.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Matteo Poggi": "https://mattpoggi.github.io/"
     },
     "kind": "Conference",
     "venue": "European Conference on Computer Vision",
     "badge": "ECCV 2026",
     "year": 2026,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/dinoslam.jpg",
     "url": "https://zorangong.github.io/DINO-SLAM/",
     "links": {
@@ -374,14 +415,13 @@ window.PUBLICATIONS = [
     ],
     "authorLinks": {
       "Ziren Gong": "https://zorangong.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Matteo Poggi": "https://mattpoggi.github.io/"
     },
     "kind": "Conference",
     "venue": "European Conference on Computer Vision",
     "badge": "ECCV 2026",
     "year": 2026,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/magist3r.jpg",
     "url": "https://zorangong.github.io/magist3r_page/",
     "links": {
@@ -407,7 +447,7 @@ window.PUBLICATIONS = [
     "venue": "British Machine Vision Conference",
     "badge": "BMVC 2026",
     "year": 2026,
-    "rank": "GGS A",
+    "rank": "CORE A",
     "image": "assets/img/publications/flowit.jpg",
     "url": "https://github.com/sadrasafa/FlowIt",
     "links": {
@@ -431,13 +471,12 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Luca Bartolomei": "https://bartn8.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Conference",
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2026",
     "year": 2026,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/bicmpstereo.jpg",
     "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Xu_Bidirectional_Cross-Modal_Prompting_for_Event-Frame_Asymmetric_Stereo_CVPR_2026_paper.pdf",
     "links": {
@@ -458,13 +497,12 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Luca Bartolomei": "https://bartn8.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Conference",
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2026",
     "year": 2026,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/eventhub.jpg",
     "url": "https://bartn8.github.io/eventhub/",
     "links": {
@@ -517,14 +555,13 @@ window.PUBLICATIONS = [
     ],
     "authorLinks": {
       "Ziren Gong": "https://zorangong.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Matteo Poggi": "https://mattpoggi.github.io/"
     },
     "kind": "Conference",
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2026",
     "year": 2026,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/ov3r.jpg",
     "url": "https://zorangong.github.io/Ov3R_page/",
     "links": {
@@ -549,7 +586,6 @@ window.PUBLICATIONS = [
       "Youmin Zhang": "https://youmi-zym.github.io/",
       "Ziren Gong": "https://zorangong.github.io/",
       "Erik Sandström": "https://eriksandstroem.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Martin R. Oswald": "https://cvg.ethz.ch/team/Dr-Martin-R-Oswald",
       "Matteo Poggi": "https://mattpoggi.github.io/"
     },
@@ -557,7 +593,7 @@ window.PUBLICATIONS = [
     "venue": "IEEE Transactions on Robotics, vol. 42, pp. 1405–1427",
     "badge": "T-RO 2026",
     "year": 2026,
-    "rank": "Q1 · IF 10.8",
+    "rank": "Q1",
     "image": "assets/img/publications/slam_survey.jpg",
     "url": "https://arxiv.org/abs/2402.13255",
     "links": {
@@ -582,7 +618,7 @@ window.PUBLICATIONS = [
     "venue": "AAAI Conference on Artificial Intelligence",
     "badge": "AAAI 2026",
     "year": 2026,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "tag": "Oral",
     "image": "assets/img/publications/foundationslam.jpg",
     "url": "https://arxiv.org/pdf/2512.25008",
@@ -608,7 +644,7 @@ window.PUBLICATIONS = [
     "venue": "IEEE/CVF Winter Conference on Applications of Computer Vision",
     "badge": "WACV 2026",
     "year": 2026,
-    "rank": "GGS A",
+    "rank": "CORE A",
     "image": "assets/img/publications/warprf.jpg",
     "url": "https://kuis-ai.github.io/WarpRF/",
     "links": {
@@ -639,7 +675,7 @@ window.PUBLICATIONS = [
     "venue": "Conference on Neural Information Processing Systems",
     "badge": "NeurIPS 2025",
     "year": 2025,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/eve3d.jpg",
     "url": "https://fabiotosi92.github.io/files/14521_Eve3D_Elevating_Vision_M-main.pdf",
     "links": {
@@ -661,7 +697,7 @@ window.PUBLICATIONS = [
     "venue": "International Conference on Computer Vision",
     "badge": "ICCV 2025",
     "year": 2025,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/flowseek.jpg",
     "url": "https://arxiv.org/abs/2509.05297",
     "links": {
@@ -687,7 +723,7 @@ window.PUBLICATIONS = [
     "venue": "International Journal of Computer Vision",
     "badge": "IJCV 2025",
     "year": 2025,
-    "rank": "Q1 · IF 11.6",
+    "rank": "Q1",
     "image": "assets/img/publications/stereo_survey_twenties.jpg",
     "url": "https://link.springer.com/article/10.1007/s11263-024-02331-0",
     "links": {
@@ -698,7 +734,7 @@ window.PUBLICATIONS = [
   },
   {
     "title": "Stereo Anywhere: Robust Zero-Shot Deep Stereo Matching Even Where Either Stereo or Mono Fail",
-    "featured": 3,
+    "featured": 4,
     "summary": "Zero-shot stereo that stays robust even where stereo or monocular cues fail.",
     "authors": [
       "Luca Bartolomei",
@@ -709,13 +745,12 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Luca Bartolomei": "https://bartn8.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Conference",
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2025",
     "year": 2025,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/stereoanywhere.jpg",
     "url": "https://arxiv.org/pdf/2412.04472",
     "links": {
@@ -738,13 +773,12 @@ window.PUBLICATIONS = [
       "Luca Bartolomei": "https://bartn8.github.io/",
       "Enrico Mannocci": "https://www.unibo.it/sitoweb/enrico.mannocci3/en",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Conference",
     "venue": "International Conference on Computer Vision",
     "badge": "ICCV 2025",
     "year": 2025,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/depthanyevent.jpg",
     "url": "https://bartn8.github.io/depthanyevent/",
     "links": {
@@ -767,13 +801,12 @@ window.PUBLICATIONS = [
       "Luca Bartolomei": "https://bartn8.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
       "Andrea Conti": "https://andreaconti.github.io//",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Journal",
     "venue": "International Journal of Computer Vision",
     "badge": "IJCV 2025",
     "year": 2025,
-    "rank": "Q1 · IF 11.6",
+    "rank": "Q1",
     "image": "assets/img/publications/active_stereo_wild.jpg",
     "links": {
       "pdf": "https://arxiv.org/pdf/2406.04345",
@@ -787,20 +820,19 @@ window.PUBLICATIONS = [
       "Ugo Leone Cavalcanti",
       "Matteo Poggi",
       "Fabio Tosi",
-      "Vittorio Cambareri",
-      "Vladan Zlokolica",
+      "Valerio Cambareri",
+      "Vladimir Zlokolica",
       "Stefano Mattoccia"
     ],
     "authorLinks": {
       "Ugo Leone Cavalcanti": "https://www.ugoleonecavalcanti.com/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Conference",
     "venue": "Winter Conference on Applications of Computer Vision",
     "badge": "WACV 2025",
     "year": 2025,
-    "rank": "GGS A",
+    "rank": "CORE A",
     "image": "assets/img/publications/cabnir.jpg",
     "url": "https://cabnir.github.io/",
     "links": {
@@ -821,14 +853,13 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Ziren Gong": "https://zorangong.github.io/",
       "Youmin Zhang": "https://youmi-zym.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Matteo Poggi": "https://mattpoggi.github.io/"
     },
     "kind": "Conference",
     "venue": "International Conference on Robotics and Automation",
     "badge": "ICRA 2025",
     "year": 2025,
-    "rank": "GGS A",
+    "rank": "CORE A*",
     "image": "assets/img/publications/hsslam.jpg",
     "url": "https://zorangong.github.io/HS-SLAM/",
     "links": {
@@ -854,7 +885,7 @@ window.PUBLICATIONS = [
     "venue": "British Machine Vision Conference",
     "badge": "BMVC 2024",
     "year": 2024,
-    "rank": "GGS A",
+    "rank": "CORE A",
     "tag": "Best Poster Award",
     "image": "assets/img/publications/stereogs.jpg",
     "url": "https://arxiv.org/pdf/2409.07456",
@@ -867,7 +898,7 @@ window.PUBLICATIONS = [
   },
   {
     "title": "Diffusion Models for Monocular Depth Estimation: Overcoming Challenging Conditions",
-    "featured": 5,
+    "featured": 6,
     "summary": "Diffusion models make monocular depth work in challenging conditions.",
     "authors": [
       "Fabio Tosi",
@@ -882,7 +913,7 @@ window.PUBLICATIONS = [
     "venue": "European Conference on Computer Vision",
     "badge": "ECCV 2024",
     "year": 2024,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/overcoming_challenging.jpg",
     "url": "https://raw.githubusercontent.com/fabiotosi92/Diffusion4RobustDepth/main/assets/main.pdf",
     "links": {
@@ -905,14 +936,13 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Pierluigi Zama Ramirez": "https://pierlui92.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Luigi Di Stefano": "https://www.unibo.it/sitoweb/luigi.distefano"
     },
     "kind": "Journal",
     "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 46, no. 1, pp. 85–102",
     "badge": "TPAMI 2024",
     "year": 2024,
-    "rank": "Q1 · IF 20.8",
+    "rank": "Q1",
     "image": "assets/img/publications/booster_tpami.jpg",
     "links": {
       "pdf": "https://doi.org/10.1109/TPAMI.2023.3323858",
@@ -934,14 +964,13 @@ window.PUBLICATIONS = [
       "Filippo Aleotti": "https://filippoaleotti.github.io/website/",
       "Pierluigi Zama Ramirez": "https://pierlui92.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Luigi Di Stefano": "https://www.unibo.it/sitoweb/luigi.distefano"
     },
     "kind": "Journal",
     "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
     "badge": "TPAMI 2024",
     "year": 2024,
-    "rank": "Q1 · IF 20.8",
+    "rank": "Q1",
     "image": "assets/img/publications/neural_disparity_refinement_tpami.jpg",
     "links": {
       "pdf": "https://doi.org/10.1109/TPAMI.2024.3411292",
@@ -963,7 +992,7 @@ window.PUBLICATIONS = [
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2024",
     "year": 2024,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/federated.jpg",
     "noBanner": true,
     "url": "https://mattpoggi.github.io/assets/papers/poggi2024cvpr.pdf",
@@ -976,7 +1005,7 @@ window.PUBLICATIONS = [
   },
   {
     "title": "GO-SLAM: Global Optimization for Consistent 3D Instant Reconstruction",
-    "featured": 7,
+    "featured": 8,
     "summary": "Real-time global optimization for consistent 3D reconstruction from monocular, stereo and RGB-D input.",
     "authors": [
       "Youmin Zhang",
@@ -986,14 +1015,13 @@ window.PUBLICATIONS = [
     ],
     "authorLinks": {
       "Youmin Zhang": "https://youmi-zym.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Matteo Poggi": "https://mattpoggi.github.io/"
     },
     "kind": "Conference",
     "venue": "International Conference on Computer Vision",
     "badge": "ICCV 2023",
     "year": 2023,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/goslam.jpg",
     "url": "https://youmi-zym.github.io/projects/GO-SLAM/",
     "links": {
@@ -1016,13 +1044,12 @@ window.PUBLICATIONS = [
       "Luca Bartolomei": "https://bartn8.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
       "Andrea Conti": "https://andreaconti.github.io//",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Conference",
     "venue": "International Conference on Computer Vision",
     "badge": "ICCV 2023",
     "year": 2023,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/vpp.jpg",
     "url": "https://vppstereo.github.io/",
     "links": {
@@ -1033,7 +1060,7 @@ window.PUBLICATIONS = [
   },
   {
     "title": "NeRF-Supervised Deep Stereo",
-    "featured": 11,
+    "featured": 12,
     "summary": "Trains stereo networks without ground truth, using NeRF-rendered stereo data.",
     "authors": [
       "Fabio Tosi",
@@ -1050,7 +1077,7 @@ window.PUBLICATIONS = [
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2023",
     "year": 2023,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/stereonerf.jpg",
     "url": "https://nerfstereo.github.io/",
     "links": {
@@ -1076,7 +1103,6 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Pierluigi Zama Ramirez": "https://pierlui92.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Luigi Di Stefano": "https://www.unibo.it/sitoweb/luigi.distefano"
     },
     "equalContribution": true,
@@ -1084,11 +1110,11 @@ window.PUBLICATIONS = [
     "venue": "International Conference on Computer Vision",
     "badge": "ICCV 2023",
     "year": 2023,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/depth4tom.jpg",
-    "url": "https://cvlab-unibo.github.io/Depth4ToM-website/",
+    "url": "https://cvlab-unibo.github.io/Depth4ToM/",
     "links": {
-      "project": "https://cvlab-unibo.github.io/Depth4ToM-website/",
+      "project": "https://cvlab-unibo.github.io/Depth4ToM/",
       "pdf": "https://doi.org/10.1109/ICCV51070.2023.00848",
       "code": "https://github.com/CVLAB-Unibo/Depth4ToM"
     },
@@ -1108,13 +1134,12 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Chaoqiang Zhao": "https://zxcqlf.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Conference",
     "venue": "International Conference on Computer Vision",
     "badge": "ICCV 2023",
     "year": 2023,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/gasmono.jpg",
     "links": {
       "pdf": "https://doi.org/10.1109/ICCV51070.2023.01485"
@@ -1138,14 +1163,12 @@ window.PUBLICATIONS = [
       "Chaoqiang Zhao": "https://zxcqlf.github.io/",
       "Youmin Zhang": "https://youmi-zym.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Conference",
     "venue": "International Conference on 3D Vision",
     "badge": "3DV 2022",
     "year": 2022,
-    "rank": "GGS A-",
-    "image": "assets/img/publications/monovit.jpg",
+        "image": "assets/img/publications/monovit.jpg",
     "url": "https://github.com/zxcqlf/MonoViT",
     "links": {
       "pdf": "https://arxiv.org/abs/2208.03543",
@@ -1167,7 +1190,6 @@ window.PUBLICATIONS = [
       "Matteo Poggi": "https://mattpoggi.github.io/",
       "Pierluigi Zama Ramirez": "https://pierlui92.github.io/",
       "Samuele Salti": "https://www.unibo.it/sitoweb/samuele.salti",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Luigi Di Stefano": "https://www.unibo.it/sitoweb/luigi.distefano"
     },
     "equalContribution": true,
@@ -1175,8 +1197,7 @@ window.PUBLICATIONS = [
     "venue": "International Conference on 3D Vision",
     "badge": "3DV 2022",
     "year": 2022,
-    "rank": "GGS A-",
-    "image": "assets/img/publications/xnerf.jpg",
+        "image": "assets/img/publications/xnerf.jpg",
     "url": "https://cvlab-unibo.github.io/xnerf-web/",
     "links": {
       "pdf": "https://arxiv.org/abs/2209.00648",
@@ -1199,7 +1220,6 @@ window.PUBLICATIONS = [
       "Pierluigi Zama Ramirez": "https://pierlui92.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
       "Samuele Salti": "https://www.unibo.it/sitoweb/samuele.salti",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Luigi Di Stefano": "https://www.unibo.it/sitoweb/luigi.distefano"
     },
     "equalContribution": true,
@@ -1207,7 +1227,7 @@ window.PUBLICATIONS = [
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2022",
     "year": 2022,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/booster.jpg",
     "url": "https://cvlab-unibo.github.io/booster-web/",
     "links": {
@@ -1233,7 +1253,6 @@ window.PUBLICATIONS = [
       "Pierluigi Zama Ramirez": "https://pierlui92.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
       "Samuele Salti": "https://www.unibo.it/sitoweb/samuele.salti",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Luigi Di Stefano": "https://www.unibo.it/sitoweb/luigi.distefano"
     },
     "equalContribution": true,
@@ -1241,7 +1260,7 @@ window.PUBLICATIONS = [
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2022",
     "year": 2022,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/rgb-ms.jpg",
     "url": "https://cvlab-unibo.github.io/rgb-ms-web/",
     "links": {
@@ -1264,14 +1283,13 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Matteo Poggi": "https://mattpoggi.github.io/",
       "Alessio Tonioni": "https://alessiotonioni.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Luigi Di Stefano": "https://www.unibo.it/sitoweb/luigi.distefano"
     },
     "kind": "Journal",
     "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 44, no. 9, pp. 4713–4729",
     "badge": "TPAMI 2022",
     "year": 2022,
-    "rank": "Q1 · IF 20.8",
+    "rank": "Q1",
     "image": "assets/img/publications/continual_adaptation.jpg",
     "links": {
       "pdf": "https://doi.org/10.1109/TPAMI.2021.3075815",
@@ -1294,13 +1312,12 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Matteo Poggi": "https://mattpoggi.github.io/",
       "Filippo Aleotti": "https://filippoaleotti.github.io/website/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Journal",
     "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 44, no. 9, pp. 5293–5313",
     "badge": "TPAMI 2022",
     "year": 2022,
-    "rank": "Q1 · IF 20.8",
+    "rank": "Q1",
     "image": "assets/img/publications/confidence_quantitative_tpami.jpg",
     "links": {
       "pdf": "https://doi.org/10.1109/TPAMI.2021.3069706"
@@ -1323,7 +1340,6 @@ window.PUBLICATIONS = [
       "Pierluigi Zama Ramirez": "https://pierlui92.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
       "Samuele Salti": "https://www.unibo.it/sitoweb/samuele.salti",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Luigi Di Stefano": "https://www.unibo.it/sitoweb/luigi.distefano"
     },
     "equalContribution": true,
@@ -1331,8 +1347,7 @@ window.PUBLICATIONS = [
     "venue": "International Conference on 3D Vision",
     "badge": "3DV 2021",
     "year": 2021,
-    "rank": "GGS A-",
-    "tag": "Best Paper Honorable Mention",
+        "tag": "Best Paper Honorable Mention",
     "image": "assets/img/publications/3dv2021.jpg",
     "url": "https://cvlab-unibo.github.io/neural-disparity-refinement-web/",
     "links": {
@@ -1354,13 +1369,12 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Matteo Poggi": "https://mattpoggi.github.io/",
       "Philippos Mordohai": "https://mordohai.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Journal",
     "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
     "badge": "TPAMI 2021",
     "year": 2021,
-    "rank": "Q1 · IF 20.8",
+    "rank": "Q1",
     "image": "assets/img/publications/stereo_survey.jpg",
     "links": {
       "pdf": "https://arxiv.org/abs/2004.08566"
@@ -1383,7 +1397,7 @@ window.PUBLICATIONS = [
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2021",
     "year": 2021,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/smdnets.jpg",
     "url": "https://autonomousvision.github.io/smdnets/",
     "links": {
@@ -1412,7 +1426,6 @@ window.PUBLICATIONS = [
       "Pierluigi Zama Ramirez": "https://pierlui92.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
       "Samuele Salti": "https://www.unibo.it/sitoweb/samuele.salti",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html",
       "Luigi Di Stefano": "https://www.unibo.it/sitoweb/luigi.distefano"
     },
     "equalContribution": true,
@@ -1420,7 +1433,7 @@ window.PUBLICATIONS = [
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2020",
     "year": 2020,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/omeganet.jpg",
     "url": "https://github.com/CVLAB-Unibo/omeganet",
     "links": {
@@ -1443,14 +1456,13 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Filippo Aleotti": "https://filippoaleotti.github.io/website/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "equalContribution": true,
     "kind": "Conference",
     "venue": "European Conference on Computer Vision",
     "badge": "ECCV 2020",
     "year": 2020,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/reversing.jpg",
     "url": "https://arxiv.org/pdf/2008.07130.pdf",
     "links": {
@@ -1471,19 +1483,17 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Filippo Aleotti": "https://filippoaleotti.github.io/website/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Conference",
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2019",
     "year": 2019,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/monoresmatch.jpg",
     "links": {
       "pdf": "https://openaccess.thecvf.com/content_CVPR_2019/papers/Tosi_Learning_Monocular_Depth_Estimation_Infusing_Traditional_Stereo_Knowledge_CVPR_2019_paper.pdf",
       "supp": "https://openaccess.thecvf.com/content_CVPR_2019/supplemental/Tosi_Learning_Monocular_Depth_CVPR_2019_supplemental.pdf",
       "code": "https://github.com/fabiotosi92/monoResMatch-Tensorflow",
-      "poster": "https://vision.disi.unibo.it/~ftosi/papers/monoResMatch_poster.pdf",
       "video": "https://www.youtube.com/watch?v=h6Wo5MqbCY0&t=2s"
     },
     "addTopics": ["Depth Perception"]
@@ -1499,13 +1509,12 @@ window.PUBLICATIONS = [
     "authorLinks": {
       "Alessio Tonioni": "https://alessiotonioni.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Conference",
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2019",
     "year": 2019,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "tag": "Oral",
     "image": "assets/img/publications/adaptation2019.jpg",
     "links": {
@@ -1527,20 +1536,18 @@ window.PUBLICATIONS = [
     ],
     "authorLinks": {
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "equalContribution": true,
     "kind": "Conference",
     "venue": "Conference on Computer Vision and Pattern Recognition",
     "badge": "CVPR 2019",
     "year": 2019,
-    "rank": "GGS A++",
+    "rank": "CORE A*",
     "image": "assets/img/publications/guided.jpg",
     "links": {
       "pdf": "https://openaccess.thecvf.com/content_CVPR_2019/papers/Poggi_Guided_Stereo_Matching_CVPR_2019_paper.pdf",
       "democode": "https://github.com/mattpoggi/guided-stereo",
       "video": "https://www.youtube.com/watch?v=AVlPu3K2ays",
-      "poster": "https://vision.deis.unibo.it/~mpoggi/papers/cvpr2019guided_poster.pdf"
     },
     "addTopics": ["Stereo & Multi-Sensor"]
   },
@@ -1553,14 +1560,13 @@ window.PUBLICATIONS = [
     ],
     "authorLinks": {
       "Matteo Poggi": "https://mattpoggi.github.io/",
-      "Stefano Mattoccia": "http://vision.deis.unibo.it/~smatt/Site/Home.html"
     },
     "kind": "Conference",
     "venue": "International Conference on Computer Vision",
     "badge": "ICCV 2017",
     "year": 2017,
-    "rank": "GGS A++",
-    "tag": "Oral",
+    "rank": "CORE A*",
+    "tag": "Spotlight",
     "image": "assets/img/publications/confidence2017.jpg",
     "links": {
       "pdf": "https://doi.org/10.1109/ICCV.2017.559"

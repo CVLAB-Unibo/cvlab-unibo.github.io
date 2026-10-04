@@ -1,5 +1,6 @@
 /* ===========================================================================
-   Publication archive (compact list rows). Format: [year, title, authors, venue]
+   Publication archive (compact list rows). Format: [year, title, authors, venue, topics?]
+   The optional 5th item fixes the research pillars by hand, e.g. ["Scene Understanding"].
    Papers that already have a full card in data/publications.js are not repeated here.
    Venues of the form "CoRR abs/2603.28759 (2026)" automatically get an arXiv link.
    =========================================================================== */
@@ -17,9 +18,7 @@ window.ARCHIVE = (window.ARCHIVE || []).concat([
   [2026, "Bidirectional Cross-Modal Prompting for Event-Frame Asymmetric Stereo", "Ninghui Xu, Fabio Tosi, Lihui Wang, Jiawei Han, Luca Bartolomei, Zhiting Yao, Matteo Poggi, Stefano Mattoccia", "CoRR abs/2604.15312 (2026)"],
   [2026, "ZipDepth: Bringing Lightweight Zero-Shot Monocular Depth Anywhere, on Any Device", "Fabio Tosi, Luca Bartolomei, Matteo Poggi, Stefano Mattoccia", "CoRR abs/2607.08771 (2026)"],
   [2026, "FGDepth: Fine-Grained Boundary Perception Enhancement in Self-Supervised Indoor Depth Estimation", "Chenggong Han, Chen Lv, He Jiang, Qiqi Kou, Deqiang Cheng, Stefano Mattoccia", "IEEE Trans. Multim. 28: 4851-4863 (2026)"],
-  [2026, "Spectral Gating via Damped Oscillations for Adaptive Implicit Neural Representations", "Alex Costanzino, Pierluigi Zama Ramirez, Giuseppe Lisanti, Luigi Di Stefano", "ECCV (16) 2026: 447-463"],
   [2026, "NVS-HO: A Benchmark for Novel View Synthesis of Handheld Objects", "Musawar Ali, Manuel Carranza-García, Nicola Fioraio, Samuele Salti, Luigi Di Stefano", "ICPR (2) 2026: 560-574"],
-  [2026, "Modulate-and-Map: Crossmodal Feature Mapping with Cross-View Modulation for 3D Anomaly Detection", "Alex Costanzino, Pierluigi Zama Ramirez, Giuseppe Lisanti, Luigi Di Stefano", "CoRR abs/2604.02328 (2026)"],
   [2026, "RendBEV: Semantic Perspective View Rendering as Supervision for Bird's Eye View Segmentation", "Henrique Piñeiro Monteagudo, Leonardo Taccari, Aurel Pjetri, Francesco Sambo, Samuele Salti", "IEEE Access 14: 12255-12272 (2026)"],
   [2026, "GeCHO: Generation of Contextualized Human-Object Interactions", "Giovanni Minelli, Andrea Benericetti, Leonardo Taccari, Francesco Sambo, Samuele Salti", "IEEE Access 14: 48872-48886 (2026)"],
   [2026, "The PRISM benchmark: PhotoRealistic Image Synthesis and Manipulation to detect generated images", "Filippo Bartolucci, Samuele Salti, Giuseppe Lisanti", "Comput. Vis. Image Underst. 270: 104826 (2026)"],
@@ -33,7 +32,7 @@ window.ARCHIVE = (window.ARCHIVE || []).concat([
   [2025, "NTIRE 2025 Challenge on HR Depth from Images of Specular and Transparent Surfaces", "Pierluigi Zama Ramirez, Fabio Tosi, Luigi Di Stefano, Radu Timofte, Alex Costanzino, Matteo Poggi, Samuele Salti, Stefano Mattoccia, et al.", "CVPR Workshops 2025: 987-1001"],
   [2025, "Stereo Anywhere: Robust Zero-Shot Deep Stereo Matching Even Where Either Stereo or Mono Fail", "Luca Bartolomei, Fabio Tosi, Matteo Poggi, Stefano Mattoccia", "CVPR 2025: 1013-1027"],
   [2025, "The Fourth Monocular Depth Estimation Challenge", "Anton Obukhov, Matteo Poggi, Fabio Tosi, et al.", "CVPR Workshops 2025: 6182-6195"],
-  [2025, "Semantic Library Adaptation: LoRA Retrieval and Fusion for Open-Vocabulary Semantic Segmentation", "Reza Qorbani, Gianluca Villani, Theodoros Panagiotakopoulos, Marc Botet Colomer, Linus Härenstam-Nielsen, Mattia Segù, Pier Luigi Dovesi, Jussi Karlgren, Daniel Cremers, Federico Tombari, Matteo Poggi", "CVPR 2025: 9804-9815"],
+  [2025, "Semantic Library Adaptation: LoRA Retrieval and Fusion for Open-Vocabulary Semantic Segmentation", "Reza Qorbani, Gianluca Villani, Theodoros Panagiotakopoulos, Marc Botet Colomer, Linus Härenstam-Nielsen, Mattia Segù, Pier Luigi Dovesi, Jussi Karlgren, Daniel Cremers, Federico Tombari, Matteo Poggi", "CVPR 2025: 9804-9815", ["Scene Understanding", "Robust & Generalizable", "Foundation & Generative"]],
   [2025, "Learning Temporally Consistent Video Depth from Video Diffusion Priors", "Jiahao Shao, Yuanbo Yang, Hongyu Zhou, Youmin Zhang, Yujun Shen, Vitor Guizilini, Yue Wang, Matteo Poggi, Yiyi Liao", "CVPR 2025: 22841-22852"],
   [2025, "TRICKY 2025 Challenge on Monocular Depth from Images of Specular and Transparent Surfaces", "Pierluigi Zama Ramirez, Alex Costanzino, Fabio Tosi, Matteo Poggi, Luigi Di Stefano, et al.", "ICCVW 2025: 3311-3322"],
   [2025, "TRICKY 2025 HouseCat6D Object Pose Estimation Challenge with Specular and Transparent Surfaces", "Weihang Li, Junwen Huang, Hyunjun Jung, Guangyao Zhai, Pierluigi Zama Ramirez, Alex Costanzino, Fabio Tosi, Matteo Poggi, Luigi Di Stefano, et al.", "ICCVW 2025: 3323-3333"],
@@ -53,7 +52,7 @@ window.ARCHIVE = (window.ARCHIVE || []).concat([
   [2025, "Lost in Translation? Vocabulary Alignment for Source-Free Adaptation in Open-Vocabulary Semantic Segmentation", "Silvio Mazzucco, Carl Persson, Mattia Segù, Pier Luigi Dovesi, Federico Tombari, Luc Van Gool, Matteo Poggi", "CoRR abs/2509.15225 (2025)"],
   [2025, "StereoSpace: Depth-Free Synthesis of Stereo Geometry via End-to-End Diffusion in a Canonical Space", "Tjark Behrens, Anton Obukhov, Bingxin Ke, Fabio Tosi, Matteo Poggi, Konrad Schindler", "CoRR abs/2512.10959 (2025)"],
   [2025, "Learning to Be a Transformer to Pinpoint Anomalies", "Alex Costanzino, Pierluigi Zama Ramirez, Giuseppe Lisanti, Luigi Di Stefano", "IEEE Access 13: 109624-109637 (2025)"],
-  [2025, "Multimodal SAM-Adapter for Semantic Segmentation", "Iacopo Curti, Pierluigi Zama Ramirez, Alioscia Petrelli, Luigi Di Stefano", "IEEE Access 13: 160438-160455 (2025)"],
+  [2025, "Multimodal SAM-Adapter for Semantic Segmentation", "Iacopo Curti, Pierluigi Zama Ramirez, Alioscia Petrelli, Luigi Di Stefano", "IEEE Access 13: 160438-160455 (2025)", ["Scene Understanding", "Multimodal", "Foundation & Generative"]],
   [2025, "SiM3D: Single-Instance Multiview Multimodal and Multisetup 3D Anomaly Detection Benchmark", "Alex Costanzino, Pierluigi Zama Ramirez, Luigi Lella, Matteo Ragaglia, Alessandro Oliva, Giuseppe Lisanti, Luigi Di Stefano", "ICCV 2025: 20944-20953"],
   [2025, "Few-Shot Anomaly Classification by Learning to Inpaint Nominal Images", "Rubin Carkaxhia, Musawar Ali, Nicola Fioraio, Luigi Di Stefano, Samuele Salti", "ICIAP 2025: 520-532"],
   [2025, "Spatially-aware Weights Tokenization for NeRF-Language Models", "Andrea Amaduzzi, Pierluigi Zama Ramirez, Giuseppe Lisanti, Samuele Salti, Luigi Di Stefano", "NeurIPS 2025"],
@@ -64,7 +63,6 @@ window.ARCHIVE = (window.ARCHIVE || []).concat([
   /* 2024 */
   [2024, "Guest Editorial: Special Issue on Traditional Computer Vision in the Age of Deep Learning", "Matteo Poggi, Federica Arrigoni, Andrea Fusiello, Stefano Mattoccia, Adrien Bartoli, Torsten Sattler, Tomás Pajdla", "Int. J. Comput. Vis. 132(9): 4128-4130 (2024)"],
   [2024, "RGB Guided ToF Imaging System: A Survey of Deep Learning-Based Methods", "Xin Qiao, Matteo Poggi, Pengchao Deng, Hao Wei, Chenyang Ge, Stefano Mattoccia", "Int. J. Comput. Vis. 132(11): 4954-4991 (2024)"],
-  [2024, "RED-SEA Project: Towards a new-generation European interconnect", "María Engracia Gómez, Julio Sahuquillo, et al., Matteo Poggi, et al.", "Microprocess. Microsystems 110: 105102 (2024)"],
   [2024, "Booster: A Benchmark for Depth From Images of Specular and Transparent Surfaces", "Pierluigi Zama Ramirez, Alex Costanzino, Fabio Tosi, Matteo Poggi, Samuele Salti, Stefano Mattoccia, Luigi Di Stefano", "IEEE Trans. Pattern Anal. Mach. Intell. 46(1): 85-102 (2024)"],
   [2024, "Neural Disparity Refinement", "Fabio Tosi, Filippo Aleotti, Pierluigi Zama Ramirez, Matteo Poggi, Samuele Salti, Stefano Mattoccia, Luigi Di Stefano", "IEEE Trans. Pattern Anal. Mach. Intell. 46(12): 8900-8917 (2024)"],
   [2024, "Range-Agnostic Multi-View Depth Estimation with Keyframe Selection", "Andrea Conti, Matteo Poggi, Valerio Cambareri, Stefano Mattoccia", "3DV 2024: 1350-1359"],
@@ -128,7 +126,6 @@ window.ARCHIVE = (window.ARCHIVE || []).concat([
   [2022, "A Cascade Dense Connection Fusion Network for Depth Completion", "Rizhao Fan, Zhigen Li, Matteo Poggi, Stefano Mattoccia", "BMVC 2022: 843"],
   [2022, "RGB-Multispectral Matching: Dataset, Learning Methodology, Evaluation", "Fabio Tosi, Pierluigi Zama Ramirez, Matteo Poggi, Samuele Salti, Stefano Mattoccia, Luigi Di Stefano", "CVPR 2022: 15937-15947"],
   [2022, "Open Challenges in Deep Stereo: the Booster Dataset", "Pierluigi Zama Ramirez, Fabio Tosi, Matteo Poggi, Samuele Salti, Stefano Mattoccia, Luigi Di Stefano", "CVPR 2022: 21136-21146"],
-  [2022, "RED-SEA: Network Solution for Exascale Architectures", "Andrea Biagioni, Paolo Cretaro, et al., Matteo Poggi, et al.", "DSD 2022: 712-719"],
   [2022, "Online Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions", "Theodoros Panagiotakopoulos, Pier Luigi Dovesi, Linus Härenstam-Nielsen, Matteo Poggi", "ECCV (34) 2022: 128-146"],
   [2022, "Meta-confidence estimation for stereo matching", "Seungryong Kim, Matteo Poggi, Sunok Kim, Kwanghoon Sohn, Stefano Mattoccia", "ICRA 2022: 10624-10631"],
   [2022, "Unsupervised confidence for LiDAR depth maps and applications", "Andrea Conti, Matteo Poggi, Filippo Aleotti, Stefano Mattoccia", "IROS 2022: 8352-8359"],
