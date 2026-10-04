@@ -2710,5 +2710,154 @@ window.PUBLICATIONS = [
       "dataset": "https://sites.google.com/view/staticdepth-dataset",
       "paper": "https://proceedings.bmvc2023.org/901/"
     }
+  },
+
+  /* ---- 2023 papers moved here from the archive (batch 4) ---- */
+  {
+    "title": "Contrastive Learning for Depth Prediction",
+    "authors": [
+      "Rizhao Fan",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Workshop",
+    "venue": "CVPR Workshops 2023, pp. 3226–3237",
+    "badge": "CVPR Workshops 2023",
+    "year": 2023,
+    "abstract": "This paper proposes a novel framework combining contrastive learning and depth prediction, allowing us to pay more attention to depth distribution and consequently enabling improvements to the overall estimation process.",
+    "image": "assets/img/publications/contrastive-depth",
+    "links": {
+      "pdf": "https://cris.unibo.it/retrieve/handle/11585/961727/226ec78f-625c-400f-9fd7-e08b646a5230/Fan_Contrastive_Learning_for_Depth_Prediction_CVPRW_2023_paper.pdf"
+    }
+  },
+  {
+    "title": "To Adapt or Not to Adapt? Real-Time Adaptation for Semantic Segmentation",
+    "authors": [
+      "Marc Botet Colomer",
+      "Pier Luigi Dovesi",
+      "Theodoros Panagiotakopoulos",
+      "Joao Frederico Carvalho",
+      "Linus Härenstam-Nielsen",
+      "Hossein Azizpour",
+      "Hedvig Kjellström",
+      "Daniel Cremers",
+      "Matteo Poggi"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF International Conference on Computer Vision (ICCV 2023), pp. 16502–16513",
+    "badge": "ICCV 2023",
+    "year": 2023,
+    "rank": "CORE A*",
+    "abstract": "In this paper we propose HAMLET, a Hardware-Aware Modular Least Expensive Training framework for real-time domain adaptation. Our approach includes a hardware-aware back-propagation orchestration agent (HAMT) and a dedicated domain-shift detector that enables active control over when and how the model is adapted (LT).",
+    "image": "assets/img/publications/hamlet",
+    "url": "https://marcbotet.github.io/hamlet-web/",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2307.15063",
+      "project": "https://marcbotet.github.io/hamlet-web/"
+    }
+  },
+  {
+    "title": "Depth Self-Supervision for Single Image Novel View Synthesis",
+    "authors": [
+      "Giovanni Minelli",
+      "Matteo Poggi",
+      "Samuele Salti"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2023), pp. 5836–5843",
+    "badge": "IROS 2023",
+    "year": 2023,
+    "rank": "CORE A",
+    "abstract": "We tackle the problem of generating a novel image from an arbitrary viewpoint given a single frame as input.",
+    "image": "assets/img/publications/depth-nvs",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2308.14108"
+    }
+  },
+  {
+    "title": "TemporalStereo: Efficient Spatial-Temporal Stereo Matching Network",
+    "authors": [
+      "Youmin Zhang",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2023), pp. 9528–9535",
+    "badge": "IROS 2023",
+    "year": 2023,
+    "rank": "CORE A",
+    "abstract": "We present TemporalStereo, a coarse-to-fine stereo matching network that is highly efficient, and able to effectively exploit the past geometry and context information to boost matching accuracy. Our network leverages sparse cost volume and proves to be effective when a single stereo pair is given.",
+    "image": "assets/img/publications/temporalstereo",
+    "url": "https://youmi-zym.github.io/projects/TemporalStereo/",
+    "links": {
+      "project": "https://youmi-zym.github.io/projects/TemporalStereo/",
+      "code": "https://github.com/youmi-zym/TemporalStereo",
+      "arxiv": "https://arxiv.org/abs/2211.13755"
+    }
+  },
+  {
+    "title": "ScanNeRF: a Scalable Benchmark for Neural Radiance Fields",
+    "authors": [
+      "Luca De Luigi",
+      "Damiano Bolognini",
+      "Federico Domeniconi",
+      "Daniele De Gregorio",
+      "Matteo Poggi",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2023), pp. 816–825",
+    "badge": "WACV 2023",
+    "year": 2023,
+    "rank": "CORE A",
+    "abstract": "We propose the first-ever real benchmark thought for evaluating Neural Radiance Fields (NeRFs) and, in general, Neural Rendering (NR) frameworks. We design and implement an effective pipeline for scanning real objects in quantity and effortlessly.",
+    "image": "assets/img/publications/scannerf",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2211.13762"
+    }
+  },
+  {
+    "title": "Sparsity Agnostic Depth Completion",
+    "authors": [
+      "Andrea Conti",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2023), pp. 5860–5869",
+    "badge": "WACV 2023",
+    "year": 2023,
+    "rank": "CORE A",
+    "abstract": "We present a novel depth completion approach agnostic to the sparsity of depth points, that is very likely to vary in many practical applications. State-of-the-art approaches yield accurate results only when processing a specific density and distribution of input points, i.e. the one observed during training, narrowing their deployment in real use cases.",
+    "image": "assets/img/publications/sparsity-agnostic-dc",
+    "url": "https://andreaconti.github.io/projects/sparsity_agnostic_depth_completion",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2212.00790",
+      "project": "https://andreaconti.github.io/projects/sparsity_agnostic_depth_completion",
+      "code": "https://github.com/andreaconti/sparsity-agnostic-depth-completion"
+    }
+  },
+  {
+    "title": "Boosting Multi-Modal Unsupervised Domain Adaptation for LiDAR Semantic Segmentation by Self-Supervised Depth Completion",
+    "authors": [
+      "Adriano Cardace",
+      "Andrea Conti",
+      "Pierluigi Zama Ramirez",
+      "Riccardo Spezialetti",
+      "Samuele Salti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Access, vol. 11, pp. 85155–85164",
+    "badge": "IEEE Access 2023",
+    "year": 2023,
+    "abstract": "We propose a novel Unsupervised Domain Adaptation (UDA) technique for multi-modal LiDAR segmentation. Unlike previous works in this field, we leverage depth completion as an auxiliary task to align features extracted from 2D images across domains, and as a powerful data augmentation for LiDARs.",
+    "image": "assets/img/publications/lidar-uda-depth-completion",
+    "url": "https://cvlab-unibo.github.io/cts-web/",
+    "links": {
+      "code": "https://github.com/CVLAB-Unibo/CtS",
+      "project": "https://cvlab-unibo.github.io/cts-web/",
+      "paper": "https://ieeexplore.ieee.org/document/10214589"
+    }
   }
 ];
