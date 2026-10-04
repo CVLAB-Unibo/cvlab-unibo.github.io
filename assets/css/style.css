@@ -471,7 +471,8 @@ span.au { color: var(--muted); }
 .step-n { font-size: .72rem; font-weight: 700; letter-spacing: .1em; color: var(--accent); margin-bottom: .5rem; }
 .step h3 { font-size: 1.3rem; letter-spacing: -.02em; margin-bottom: .4rem; background: linear-gradient(var(--hl), var(--hl)) 0 90% / 100% 38% no-repeat; display: inline-block; align-self: flex-start; }
 .step p { font-size: .9rem; color: var(--text); margin-bottom: .8rem; }
-.step a { margin-top: auto; font-size: .82rem; font-weight: 600; color: var(--accent); }
+.step a { font-size: .82rem; font-weight: 600; color: var(--accent); }
+.step-links { margin-top: auto; display: flex; flex-direction: column; gap: .2rem; padding-top: .45rem; border-top: 1px dashed var(--line); }
 .step a:hover { text-decoration: underline; }
 @media (max-width: 900px) { .step::after { display: none; } }
 

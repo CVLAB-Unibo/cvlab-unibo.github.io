@@ -725,12 +725,12 @@
     mark(); restart();
   }
 
-  // "Perceive -> Estimate -> Reconstruct -> Understand -> Adapt"
+  // "Perceive -> Estimate -> Reconstruct -> Understand -> Deploy", each step linking to one or more research areas
   function renderStory(el) {
     el.innerHTML = `<ol class="story">${window.STORY.map((x, i) => `<li class="step">
       <span class="step-n">${String(i + 1).padStart(2, "0")}</span>
       <h3>${esc(x.step)}</h3><p>${esc(x.text)}</p>
-      <a href="${topicHref(x.pillar)}">${esc(x.pillar)} →</a></li>`).join("")}</ol>`;
+      <div class="step-links">${(x.pillars || [x.pillar]).map((p) => `<a href="${topicHref(p)}">${esc(p)} →</a>`).join("")}</div></li>`).join("")}</ol>`;
   }
 
   // secondary dimensions as links to the filtered publication list

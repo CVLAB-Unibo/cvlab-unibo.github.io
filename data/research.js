@@ -19,7 +19,8 @@
       They become the small outlined keyword tags and the "More filters". Each label has
       title keywords; to set them by hand use  keywords: ["Event Cameras", "Zero-/Few-Shot"]  on a paper.
 
-   3) STORY – the "Perceive → Estimate → Reconstruct → Understand → Adapt" narrative.
+   3) STORY – the "Perceive → Estimate → Reconstruct → Understand → Deploy" narrative.
+      `pillars`: the research areas each step links to (short labels of RESEARCH).
    =========================================================================== */
 window.RESEARCH = [
   {
@@ -172,9 +173,9 @@ window.OVERVIEW = {
 };
 
 window.STORY = [
-  { step: "Perceive",    text: "Sense the 3D world with cameras, stereo rigs, event cameras, LiDAR and time-of-flight.", pillar: "Stereo & Multi-Sensor" },
-  { step: "Estimate",    text: "Infer depth, disparity, motion and their confidence from visual data.",                  pillar: "Depth Perception" },
-  { step: "Reconstruct", text: "Build and represent 3D scenes with neural fields, Gaussian Splatting and SLAM.",         pillar: "3D Reconstruction & NVS" },
-  { step: "Understand",  text: "Add semantics, language and scene-level reasoning on top of the geometry.",              pillar: "Scene Understanding" },
-  { step: "Adapt",       text: "Make models robust across domains, sensors and operating conditions.",                  pillar: "Robust & Generalizable" }
+  { step: "Perceive",    text: "Sense the 3D world with cameras, stereo rigs, event cameras, LiDAR and time-of-flight, and fuse what they capture.", pillars: ["Stereo & Multi-Sensor", "Multimodal"] },
+  { step: "Estimate",    text: "Infer depth, disparity, motion and their confidence from visual data.",                                               pillars: ["Depth Perception"] },
+  { step: "Reconstruct", text: "Build and represent 3D scenes with neural fields and Gaussian Splatting, and track the camera with SLAM.",             pillars: ["3D Reconstruction & NVS", "SLAM & Localization"] },
+  { step: "Understand",  text: "Add semantics, language and scene-level reasoning on top of the geometry, down to defects on industrial parts.",      pillars: ["Scene Understanding", "Anomaly & Industrial"] },
+  { step: "Deploy",      text: "Run in real time on any device, and stay robust across domains, sensors and operating conditions.",                  pillars: ["Efficient & Real-Time", "Robust & Generalizable"] }
 ];
