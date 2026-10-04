@@ -701,3 +701,77 @@ span.au { color: var(--muted); }
 .aw-v { font-size: .78rem; font-weight: 600; color: var(--muted); }
 @media (max-width: 640px) { .aw-list li { grid-template-columns: auto 1fr; gap: .2rem .7rem; } .aw-list li > :last-child { grid-column: 1 / -1; } }
 .svc-note { margin: 1.6rem 0 0; max-width: 52rem; font-size: .92rem; color: var(--muted); }
+.footer-mails { margin-top: .7rem !important; }
+.footer-mails li { margin-bottom: .2rem; font-size: .82rem; }
+
+/* ---------- News & events: timeline ------------------------------------------------------------ */
+/* one soft colour per kind of item (same family as Perceive → Adapt on the Research page) */
+.nk-paper    { --k: #fed7aa; --kd: #c2410c; }
+.nk-award    { --k: #fde68a; --kd: #a16207; }
+.nk-workshop { --k: #bae6fd; --kd: #0369a1; }
+.nk-tutorial { --k: #ddd6fe; --kd: #6d28d9; }
+.nk-demo     { --k: #a7f3d0; --kd: #047857; }
+.nk-patent   { --k: #fecdd3; --kd: #be123c; }
+.nk-people   { --k: #e7e5e4; --kd: #57534e; }
+.news-wrap { max-width: 64rem; }
+
+/* filters + year jump, sticky under the navbar */
+.nw-bar { position: sticky; top: 5rem; z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); padding: .8rem 0 .7rem; margin-bottom: .5rem; border-bottom: 1px solid var(--line); }
+.nw-filters { display: flex; gap: .4rem; flex-wrap: wrap; }
+.nw-filters button { font: inherit; font-size: .92rem; display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .8rem; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; transition: border-color .15s, background .15s; }
+.nw-filters button i { width: .55rem; height: .55rem; border-radius: 50%; background: var(--k, var(--ink)); }
+.nw-filters button:hover { border-color: var(--line-2); }
+.nw-filters button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.nw-years { display: flex; gap: .15rem .75rem; flex-wrap: wrap; margin-top: .6rem; font-size: .84rem; font-variant-numeric: tabular-nums; }
+.nw-years a { color: var(--muted); }
+.nw-years a:hover { color: var(--ink); }
+.nw-years .nw-more { font-weight: 600; color: var(--ink); }
+
+/* year blocks: big year on the left, sticky while its items scroll */
+.nw-yr { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0 2rem; padding: 2.2rem 0 1rem; border-top: 1px solid var(--line); scroll-margin-top: 11rem; }
+.nw-yr:first-of-type { border-top: 0; }
+.nw-year { position: sticky; top: 11.5rem; align-self: start; margin: 0; font-family: var(--font-head); font-size: 2.6rem; font-weight: 700; line-height: 1; letter-spacing: -.04em; color: #a8a29e; }
+.nw-yr ol { list-style: none; margin: 0; padding: 0 0 0 1.7rem; border-left: 2px solid var(--line); }
+
+/* items */
+.nw-it { position: relative; padding: .8rem 0 1.1rem; }
+.nw-it::before { content: ''; position: absolute; left: calc(-1.7rem - 7px); top: 1.15rem; width: 12px; height: 12px; border-radius: 50%; background: var(--k); box-shadow: 0 0 0 3px var(--bg); }
+.nw-meta { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; margin-bottom: .35rem; font-size: .84rem; color: var(--muted); }
+.nw-k { font-size: .72rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; padding: .1rem .5rem; border-radius: .3rem; background: var(--k); color: #0a0a0a; }
+.nw-v { font-weight: 600; color: var(--kd); }
+.nw-it h4 { font-size: 1.15rem; line-height: 1.35; margin: 0; }
+.nw-it p { margin: .35rem 0 0; font-size: .98rem; color: var(--text); line-height: 1.5; }
+.nw-it p a { color: var(--ink); background: linear-gradient(var(--k), var(--k)) 0 92% / 0% 40% no-repeat; transition: background-size .35s; }
+.nw-it p a:hover { background-size: 100% 40%; }
+.nw-it .nw-who { font-size: .88rem; color: var(--muted); }
+.nw-it .nw-go { font-size: .88rem; font-weight: 600; color: var(--kd); background: none; }
+.nw-thumbs { display: flex; gap: .5rem; margin: .6rem 0 .2rem; overflow: hidden; }
+.nw-thumbs img { flex: 0 0 auto; height: 72px; width: 116px; object-fit: contain; padding: .25rem; background: var(--bg-soft); border: 1px solid var(--line); border-radius: .45rem; mix-blend-mode: multiply; }
+.nw-papers { margin: .4rem 0 0; padding: 0; list-style: none; }
+.nw-papers li { position: relative; padding: .2rem 0 .2rem 1rem; font-size: .98rem; line-height: 1.45; }
+.nw-papers li::before { content: ''; position: absolute; left: 0; top: .8rem; width: .4rem; height: 2px; background: var(--k); }
+.nw-papers li a { color: var(--text); }
+.nw-papers li a:hover { color: var(--ink); }
+.nw-papers em { font-style: normal; font-size: .76rem; font-weight: 600; padding: 0 .35rem; border-radius: .25rem; background: var(--hl); color: #0a0a0a; margin-left: .3rem; }
+.nw-it details summary { cursor: pointer; font-size: .88rem; font-weight: 600; color: var(--kd); margin-top: .35rem; list-style: none; }
+.nw-it details summary::-webkit-details-marker { display: none; }
+.nw-it details[open] summary { display: none; }
+
+/* awards stand out */
+.nw-it.nw-big { margin: .4rem 0 .7rem; padding: 1rem 1.1rem 1.05rem 3.6rem; background: linear-gradient(90deg, #fffbeb, var(--surface)); border: 1px solid #fde68a; border-radius: .9rem; }
+.nw-tro { position: absolute; left: 1rem; top: 1.05rem; display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--k); color: #0a0a0a; }
+.nw-tro svg { width: 16px; height: 16px; }
+
+/* everything before NEWS_SINCE stays folded behind one button */
+.nw-early { display: flex; align-items: center; gap: 1rem; margin: 2rem 0 0; }
+.nw-early::before, .nw-early::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+.nw-early button { font: inherit; font-size: 1rem; font-weight: 600; padding: .55rem 1.3rem; border-radius: 999px; border: 1px solid var(--ink); background: var(--surface); color: var(--ink); cursor: pointer; transition: background .15s, color .15s; }
+.nw-early button:hover { background: var(--ink); color: #fff; }
+.nw-early small { display: block; font-size: .8rem; font-weight: 400; color: var(--muted); }
+.nw-early button:hover small { color: rgba(255,255,255,.75); }
+
+@media (max-width: 700px) {
+  .nw-bar { position: static; }
+  .nw-yr { grid-template-columns: minmax(0, 1fr); scroll-margin-top: 6rem; }
+  .nw-year { position: static; margin-bottom: 1rem; }
+}

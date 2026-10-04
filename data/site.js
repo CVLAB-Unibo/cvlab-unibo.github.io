@@ -60,8 +60,8 @@ window.SITE = {
       "Viale del Risorgimento 2",
       "40136 Bologna",
       "Italy"
-    ],
-    email: "name.surname@unibo.it"
+    ]
+    // e-mails in the footer: the faculty members of data/team.js (each with an `email`)
   },
 
   social: [

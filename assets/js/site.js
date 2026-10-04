@@ -36,6 +36,10 @@
 
   function renderFooter() {
     const c = S.contact;
+    // contact e-mails: the faculty in data/team.js (fallback: contact.email in data/site.js)
+    const faculty = (window.TEAM || []).filter((g) => g.kind === "faculty").flatMap((g) => g.people).filter((p) => p.email);
+    const mails = (faculty.length ? faculty : c.email ? [{ email: c.email }] : [])
+      .map((p) => `<li><a href="mailto:${esc(p.email)}"${p.name ? ` title="${esc(p.name)}"` : ""}>${esc(p.email)}</a></li>`).join("");
     $("#site-footer").outerHTML = `<footer class="footer"><div class="container">
       <div class="cols">
         <div><a href="${ROOT || "./"}"><img class="footer-logo" src="${url(S.logoFull || S.logo)}" alt="${esc(S.fullName)}"></a>
@@ -44,8 +48,8 @@
           <li><a href="${ROOT || "./"}">Home</a></li>
           ${S.nav.map((n) => `<li><a href="${url(n.href)}">${esc(n.label)}</a></li>`).join("")}
         </ul></div>
-        <div><h6>Contact</h6><small>${c.lines.map(esc).join("<br>")}<br>
-          <a href="mailto:${esc(c.email)}">${esc(c.email)}</a></small></div>
+        <div><h6>Contact</h6><small>${c.lines.map(esc).join("<br>")}</small>
+          ${mails ? `<ul class="footer-mails">${mails}</ul>` : ""}</div>
         <div><h6>Connect</h6><ul>
           ${S.social.map((s) => `<li><a href="${esc(s.href)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join("")}
         </ul></div>
@@ -458,8 +462,84 @@
   const newsItem = (n) => `<div class="news-item"><div class="news-date">${fmtDate(n.date)}</div>
     <div><h5>${esc(n.title)}</h5><div class="text-muted">${(n.text || "").replaceAll("{root}", ROOT)}</div></div></div>`;
 
+  // News & events: one timeline built from data/news.js (people), the papers in A* venues and Q1
+  // journals, data/awards.js + award tags, and data/activities.js (workshops, tutorials, demos, patents).
+  // From NEWS_SINCE on everything is open; the earlier years sit behind the "Earlier events" button.
+  const NEWS_SINCE = 2020;
+  const NEWS_MONTH = { WACV: 2, AAAI: 2, DATE: 3, ICLR: 4, ICRA: 5, CVPR: 6, ECCV: 9, "3DV": 9, ICCV: 10, IROS: 10, Expo: 10, BMVC: 11, NeurIPS: 12, "SIGGRAPH Asia": 12 };
+  const NEWS_KINDS = { all: "All", paper: "Papers", award: "Awards", workshop: "Workshops & challenges we organise", tutorial: "Tutorials", demo: "Demos", patent: "Patents", people: "People" };
+  const NEWS_LABEL = { paper: "Paper", award: "Award", workshop: "Organised", tutorial: "Tutorial", demo: "Demo", patent: "Patent", people: "People" };
+
+  function newsItems() {
+    const link = (t, h) => (h ? `<a href="${esc(h)}"${/^https?:/.test(h) ? ' target="_blank" rel="noopener"' : ""}>${esc(t)}</a>` : esc(t));
+    const href = (p) => (p.url ? url(p.url) : p.links?.project ? url(p.links.project) : p.links?.pdf ? url(p.links.pdf) : null);
+    const month = (ev) => { const k = Object.keys(NEWS_MONTH).find((m) => (ev || "").includes(m)); return k ? NEWS_MONTH[k] : 0; };
+    const items = [];
+    const add = (o) => items.push({ m: month(o.venue), ...o });
+
+    (window.NEWS || []).forEach((n) => add({ k: "people", year: +n.date.slice(0, 4), m: +n.date.slice(5, 7) + 0.5, venue: fmtDate(n.date).replace(/ \d{4}$/, ""),
+      title: n.title, body: `<p>${(n.text || "").replaceAll("{root}", ROOT)}</p>` }));
+
+    const groups = {};
+    (window.PUBLICATIONS || []).concat(archiveObjects()).filter((p) => ["top", "q1"].includes(tierOf(p)))
+      .forEach((p) => (groups[p.year + "|" + venueKey(p)] ||= []).push(p));
+    Object.entries(groups).forEach(([key, ps]) => {
+      const [year, venue] = key.split("|");
+      ps.sort((x, y) => !!y.image - !!x.image);
+      const imgs = ps.filter((p) => p.image).slice(0, 5).map((p) => `<img src="${esc(url(p.image))}" alt="" loading="lazy">`).join("");
+      const li = ps.map((p) => `<li>${link(p.title, href(p))}${p.tag ? `<em>${esc(p.tag)}</em>` : ""}</li>`);
+      const list = li.length > 4 ? `<ul class="nw-papers">${li.slice(0, 3).join("")}</ul><details><summary>+ ${li.length - 3} more</summary><ul class="nw-papers">${li.slice(3).join("")}</ul></details>` : `<ul class="nw-papers">${li.join("")}</ul>`;
+      add({ k: "paper", year: +year, venue, title: `${ps.length} paper${ps.length > 1 ? "s" : ""} ${tierOf(ps[0]) === "q1" ? "in" : "at"} ${venue} ${year}`,
+        body: (imgs ? `<div class="nw-thumbs">${imgs}</div>` : "") + list });
+    });
+
+    (window.PUBLICATIONS || []).filter((p) => /best|award|honou?rable|prize/i.test(p.tag || "")).forEach((p) =>
+      add({ k: "award", year: p.year, venue: venueLabel(p).replace(/ \d{4}$/, ""), title: p.tag, body: `<p>${link(p.title, href(p))}</p>` }));
+    (window.AWARDS || []).forEach((w) => {
+      const parts = (w.event || "").split(/ · | – /), venue = (parts.find((x) => /^[A-Z][A-Za-z0-9]+ \d{4}$/.test(x)) || parts[0]).replace(/ \d{4}$/, "");
+      add({ k: "award", year: w.year, venue, title: w.title,
+        body: `${w.work ? `<p>${link(w.work, w.url)}</p>` : w.url ? `<p>${link("Details ↗", w.url)}</p>` : ""}<p class="nw-who">${esc(w.event || "")}${w.person ? ` · awarded to <strong>${esc(w.person)}</strong>` : ""}</p>` });
+    });
+
+    // "service" rows are left out on purpose (they only feed one line on the home page)
+    (window.ACTIVITIES || []).filter((x) => ["workshop", "tutorial", "demo", "patent"].includes(x.kind)).forEach((x) => {
+      const ev = (x.event || "").replace(/ \d{4}$/, "");
+      add({ k: x.kind, year: x.year, title: x.title,
+        venue: x.kind === "workshop" ? `${/challenge/i.test(x.title) ? "Challenge" : "Workshop"} organised by ${S.name} · ${ev}` : x.kind === "tutorial" ? `Tutorial given at ${ev}` : x.kind === "demo" ? `Live demo at ${ev}` : "Filed",
+        body: `${x.note ? `<p>${esc(x.note)}</p>` : ""}${x.people ? `<p class="nw-who">${esc(x.people)}</p>` : ""}${x.url ? `<p><a class="nw-go" href="${esc(x.url)}" target="_blank" rel="noopener">${x.kind === "patent" ? "Details" : "Website"} ↗</a></p>` : ""}` });
+    });
+
+    return items.sort((x, y) => (y.year || 0) - (x.year || 0) || y.m - x.m);
+  }
+
   function renderNews() {
-    $("#news-list").innerHTML = [...window.NEWS].sort((a, b) => b.date.localeCompare(a.date)).map(newsItem).join("");
+    const nf = $("#news-filters"), tl = $("#news-list"), yrs = $("#news-years");
+    if (!tl) return;
+    const items = newsItems();
+    const item = (i) => `<li class="nw-it nk-${i.k}${i.k === "award" ? " nw-big" : ""}">${i.k === "award" ? `<span class="nw-tro">${TROPHY}</span>` : ""}
+        <div class="nw-meta"><span class="nw-k">${NEWS_LABEL[i.k]}</span>${i.venue ? `<span class="nw-v">${esc(i.venue)}</span>` : ""}</div>
+        <h4>${esc(i.title)}</h4>${i.body || ""}</li>`;
+    let filter = "all", early = false;
+    const draw = () => {
+      nf.innerHTML = Object.entries(NEWS_KINDS).map(([k, t]) => `<button type="button" data-k="${k}" class="nk-${k}${k === filter ? " on" : ""}">${k === "all" ? "" : "<i></i>"}${esc(t)}</button>`).join("");
+      const shown = items.filter((i) => filter === "all" || i.k === filter);
+      const years = [...new Set(shown.map((i) => i.year))];
+      const recent = years.filter((y) => y >= NEWS_SINCE), older = years.filter((y) => y < NEWS_SINCE);
+      const open = early || !recent.length;
+      const span = older.length ? `${older[older.length - 1]}–${older[0]}` : "";
+      yrs.innerHTML = (open ? years : recent).map((y) => `<a href="#y${y}">${y}</a>`).join("") + (!open && older.length ? `<a class="nw-more" href="#y${older[0]}" data-early="${older[0]}">${span} ›</a>` : "");
+      tl.innerHTML = (open ? years : recent).map((y) => `<section class="nw-yr" id="y${y}"><h2 class="nw-year">${y}</h2>
+          <ol>${shown.filter((i) => i.year === y).map(item).join("")}</ol></section>`).join("") +
+        (!open && older.length ? `<div class="nw-early"><button type="button" data-early="${older[0]}">Earlier events<small>${shown.filter((i) => i.year < NEWS_SINCE).length} items · ${span}</small></button></div>` : "");
+    };
+    nf.addEventListener("click", (e) => { const b = e.target.closest("[data-k]"); if (b) { filter = b.dataset.k; draw(); } });
+    document.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-early]");
+      if (!b) return;
+      e.preventDefault(); early = true; draw();
+      document.getElementById("y" + b.dataset.early)?.scrollIntoView({ behavior: "smooth" });
+    });
+    draw();
   }
 
   /* ---------- research ------------------------------------------------------- */
@@ -878,9 +958,6 @@
     const html = list.concat(list).map((src) => `<img src="${url(src)}" alt="" decoding="async">`).join("");
     strip.innerHTML = `<div class="strip" style="--n:${list.length};--s:10s;animation-delay:-${(Math.random() * list.length * 10).toFixed(1)}s">${html}</div>`;
   }
-
-  // helpers reused by other pages (e.g. the News timeline)
-  window.CVLAB = { venueLabel, venueKey, tierOf, archiveObjects, authorsHtml, url };
 
   /* ---------- boot ----------------------------------------------------------- */
   initThemes();

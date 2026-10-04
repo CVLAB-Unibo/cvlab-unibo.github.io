@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="color-scheme" content="only light">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>News</title>
+  <title>News &amp; events</title>
   <meta name="description" content="CVLab – Computer Vision Laboratory, University of Bologna.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
@@ -15,19 +15,32 @@
 
   <div id="site-nav"></div>
 
-  <header class="hero">
+  <header class="hero hero--photos hero--photos-sm">
+    <div class="hero-photos" id="hero-photos" data-list="EVENTS" aria-hidden="true"></div>
     <div class="container">
-      <h1>News</h1>
-      <p class="lead">The latest from the lab.</p>
+      <h1>News &amp; events</h1>
+      <p class="lead">Papers, awards, workshops, tutorials, demos and people of CVLab.</p>
     </div>
   </header>
 
-  <main class="page-section"><div class="container"><div class="card" style="padding:1rem 2rem"><div id="news-list"></div></div></div></main>
+  <main class="page-section" style="padding-top:1.5rem"><div class="container news-wrap">
+    <div class="nw-bar"><div class="nw-filters" id="news-filters"></div><div class="nw-years" id="news-years"></div></div>
+    <div id="news-list"></div>
+  </div></main>
 
   <div id="site-footer"></div>
 
   <script src="../data/site.js"></script>
+  <script src="../data/team.js"></script>
+  <script src="../data/publications.js"></script>
+  <script src="../data/venues.js"></script>
+  <script src="../data/archive-2022-2026.js"></script>
+  <script src="../data/archive-2013-2021.js"></script>
+  <script src="../data/archive-before-2013.js"></script>
   <script src="../data/news.js"></script>
+  <script src="../data/awards.js"></script>
+  <script src="../data/activities.js"></script>
+  <script src="../data/events.js"></script>
   <script src="../assets/js/site.js"></script>
 </body>
 </html>
