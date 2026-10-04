@@ -128,7 +128,14 @@
     });
   }
 
-  const LINK_LABELS = { project: "Project", pdf: "PDF", preprint: "Preprint", arxiv: "arXiv", supp: "Supp.", code: "Code", demo: "Demo", video: "Video", poster: "Poster", slides: "Slides", weights: "Weights", dataset: "Dataset", extended: "Extended paper", leaderboard: "Leaderboard" };
+  // publication figure: "assets/img/publications/name" without extension tries .jpg, .png, .jpeg, .webp
+  const FIG_EXTS = ["jpg", "png", "jpeg", "webp"];
+  function figImg(path, attrs = 'alt="" loading="lazy"') {
+    if (/\.\w{3,4}$/.test(path)) return `<img src="${esc(url(path))}" ${attrs}>`;
+    return `<img src="${esc(url(path + "." + FIG_EXTS[0]))}" data-fig="${esc(url(path))}" data-ext="0" ${attrs}>`;
+  }
+
+  const LINK_LABELS = { project: "Project", pdf: "PDF", paper: "Paper", workshop: "Workshop", preprint: "Preprint", arxiv: "arXiv", supp: "Supp.", code: "Code", demo: "Demo", video: "Video", poster: "Poster", slides: "Slides", weights: "Weights", dataset: "Dataset", extended: "Extended paper", leaderboard: "Leaderboard" };
 
   const topicHref = (label) => `${url("publications/")}?topic=${encodeURIComponent(label)}`;
   const tagHref = (label) => `${url("publications/")}?tag=${encodeURIComponent(label)}`;
@@ -137,7 +144,7 @@
   function pubCard(p, idx) {
     const href = p.url ? url(p.url) : p.links?.project ? url(p.links.project) : null;
     const ext = href && /^https?:/.test(href) ? ' target="_blank" rel="noopener"' : "";
-    const thumb = p.image ? `<${href ? "a" : "div"} class="pub-thumb"${href ? ` href="${href}"${ext} tabindex="-1" aria-hidden="true"` : ""}><img src="${url(p.image)}" alt="" loading="lazy"></${href ? "a" : "div"}>` : "";
+    const thumb = p.image ? `<${href ? "a" : "div"} class="pub-thumb"${href ? ` href="${href}"${ext} tabindex="-1" aria-hidden="true"` : ""}>${figImg(p.image)}</${href ? "a" : "div"}>` : "";
     const topics = topicsOf(p), kws = keywordsOf(p);
     const venue = p.venueUrl ? `<a href="${esc(p.venueUrl)}">${esc(p.venue)}</a>` : esc(p.venue);
     const keys = Object.keys(LINK_LABELS).filter((k) => p.links?.[k]).concat(Object.keys(p.links || {}).filter((k) => !LINK_LABELS[k]));
@@ -338,7 +345,7 @@
     const href = p.url ? url(p.url) : p.links?.project ? url(p.links.project) : p.links?.pdf ? url(p.links.pdf) : null;
     const ext = href && /^https?:/.test(href) ? ' target="_blank" rel="noopener"' : "";
     const tag = topicsOf(p)[0] || "";
-    const img = p.image ? `<img src="${url(p.image)}" alt="" loading="lazy">` : `<div class="hl-ph"><span>${esc(tag || "Publication")}</span><small>image coming soon</small></div>`;
+    const img = p.image ? figImg(p.image) : `<div class="hl-ph"><span>${esc(tag || "Publication")}</span><small>image coming soon</small></div>`;
     const keys = Object.keys(LINK_LABELS).filter((k) => p.links?.[k]).concat(Object.keys(p.links || {}).filter((k) => !LINK_LABELS[k]));
     const links = keys.map((k) => `<a href="${url(p.links[k])}" target="_blank" rel="noopener">${esc(LINK_LABELS[k] || k)}</a>`).join("");
     const full = (p.venue || "").replace(/\s*\([^)]*\d{4}\)/, "").replace(/,\s*pp\..*$/, "");
@@ -486,7 +493,7 @@
     Object.entries(groups).forEach(([key, ps]) => {
       const [year, venue] = key.split("|");
       ps.sort((x, y) => !!y.image - !!x.image);
-      const imgs = ps.filter((p) => p.image).slice(0, 5).map((p) => `<img src="${esc(url(p.image))}" alt="" loading="lazy">`).join("");
+      const imgs = ps.filter((p) => p.image).slice(0, 5).map((p) => figImg(p.image)).join("");
       const li = ps.map((p) => `<li>${link(p.title, href(p))}${p.tag ? `<em>${esc(p.tag)}</em>` : ""}</li>`);
       const list = li.length > 4 ? `<ul class="nw-papers">${li.slice(0, 3).join("")}</ul><details><summary>+ ${li.length - 3} more</summary><ul class="nw-papers">${li.slice(3).join("")}</ul></details>` : `<ul class="nw-papers">${li.join("")}</ul>`;
       add({ k: "paper", year: +year, venue, title: `${ps.length} paper${ps.length > 1 ? "s" : ""} ${tierOf(ps[0]) === "q1" ? "in" : "at"} ${venue} ${year}`,
@@ -937,27 +944,55 @@
     fixMissingPhotos(el);
   }
 
-  // a missing figure file falls back to the placeholder instead of a broken image
+  // missing figure: try the next extension; when none exists, the publication card shows no thumbnail,
+  // the banner and the News thumbnails drop the image, a home highlight shows the placeholder
   document.addEventListener("error", (e) => {
     const img = e.target;
-    if (!(img instanceof HTMLImageElement) || !img.matches(".hl-thumb img, .pub-thumb img")) return;
-    const ph = document.createElement("div");
-    ph.className = "hl-ph";
-    ph.innerHTML = "<span>Figure</span><small>image coming soon</small>";
-    img.replaceWith(ph);
+    if (!(img instanceof HTMLImageElement)) return;
+    if (img.dataset.fig) {
+      const k = +img.dataset.ext + 1;
+      if (k < FIG_EXTS.length) { img.dataset.ext = k; img.src = img.dataset.fig + "." + FIG_EXTS[k]; return; }
+    }
+    if (img.closest(".pub-thumb")) { img.closest(".pub")?.classList.remove("has-img"); img.closest(".pub-thumb").remove(); }
+    else if (img.closest(".hero-figs, .nw-thumbs")) img.remove();
+    else if (img.closest(".hl-thumb")) {
+      const ph = document.createElement("div");
+      ph.className = "hl-ph";
+      ph.innerHTML = "<span>Figure</span><small>image coming soon</small>";
+      img.replaceWith(ph);
+    }
   }, true);
 
   /* ---------- publication figures scrolling behind a page title (publications) --------------------- */
-  function initHeroFigures() {
+  // only figures with at least 2x the pixels of the strip height go in, so nothing is upscaled (also on retina
+  // screens); if fewer than BANNER_MIN qualify, the largest ones are used
+  const BANNER_MIN = 10;
+  const loadFig = (path) => new Promise((done) => {
+    const exts = /\.\w{3,4}$/.test(path) ? [""] : FIG_EXTS.map((e) => "." + e);
+    const next = (k) => {
+      if (k >= exts.length) return done(null);
+      const im = new Image();
+      im.onload = () => done({ src: url(path + exts[k]), h: im.naturalHeight });
+      im.onerror = () => next(k + 1);
+      im.src = url(path + exts[k]);
+    };
+    next(0);
+  });
+  async function initHeroFigures() {
     const strip = $("#hero-figs");
     if (!strip) return;
-    const imgs = (window.PUBLICATIONS || []).filter((p) => p.image && !p.noBanner).map((p) => p.image);
-    if (!imgs.length) { strip.remove(); return; }
-    const list = [...new Set(imgs)];
+    const paths = [...new Set((window.PUBLICATIONS || []).filter((p) => p.image && !p.noBanner).map((p) => p.image))];
+    if (!paths.length) { strip.remove(); return; }
+    const need = 2 * Math.max(strip.clientHeight - 28, 150);            // 28 = vertical padding of the strip
+    const figs = (await Promise.all(paths.map(loadFig))).filter(Boolean).sort((a, b) => b.h - a.h);
+    let list = figs.filter((f) => f.h >= need);
+    if (list.length < BANNER_MIN) list = figs.slice(0, BANNER_MIN);
+    list = list.map((f) => f.src);
     for (let i = list.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [list[i], list[j]] = [list[j], list[i]]; }
-    const html = list.concat(list).map((src) => `<img src="${url(src)}" alt="" decoding="async">`).join("");
+    const html = list.concat(list).map((src) => `<img src="${esc(src)}" alt="" decoding="async">`).join("");
     strip.innerHTML = `<div class="strip" style="--n:${list.length};--s:10s;animation-delay:-${(Math.random() * list.length * 10).toFixed(1)}s">${html}</div>`;
   }
+
 
   /* ---------- boot ----------------------------------------------------------- */
   initThemes();

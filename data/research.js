@@ -154,7 +154,7 @@ window.TAXONOMY = {
   },
   "Applications": {
     "Autonomous Driving": ["driving", "vehicle", "bev", "bird's eye", "dashcam", "traffic", "maneuver", "accident", "in-vehicle", "automotive", "urban"],
-    "Robotics": ["robot", "grasp", "manipulat", "navigation"],
+    "Robotics": ["robot", "grasp", "navigation"],
     "Industrial Inspection": ["industrial", "anomal", "defect", "inspection", "semiconductor"],
     "Human-Object Interaction": ["human-object"]
   }

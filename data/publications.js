@@ -59,7 +59,7 @@ window.PUBLICATIONS = [
     "url": "https://alex-costanzino.github.io/fdho/",
     "links": {
       "project": "https://alex-costanzino.github.io/fdho/",
-      "Paper": "https://eccv.ecva.net/virtual/2026/spotlight/6070",
+      "paper": "https://eccv.ecva.net/virtual/2026/spotlight/6070",
       "code": "https://github.com/alex-costanzino/fdho-release"
     },
     "topics": ["3D Reconstruction & NVS"],
@@ -298,7 +298,8 @@ window.PUBLICATIONS = [
     "image": "assets/img/publications/sim3d.jpg",
     "links": {
       "project": "https://alex-costanzino.github.io/SiM3D/",
-      "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Costanzino_SiM3D_Single-instance_Multiview_Multimodal_and_Multisetup_3D_Anomaly_Detection_Benchmark_ICCV_2025_paper.pdf"
+      "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Costanzino_SiM3D_Single-instance_Multiview_Multimodal_and_Multisetup_3D_Anomaly_Detection_Benchmark_ICCV_2025_paper.pdf",
+      "dataset": "https://huggingface.co/datasets/arcanoXIII/SiM3D"
     },
     "bibtex": "@inproceedings{costanzino2025sim3d,\n  author    = {Costanzino, Alex and Zama Ramirez, Pierluigi and Lella, Luigi and Ragaglia, Matteo and Oliva, Alessandro and Lisanti, Giuseppe and Di Stefano, Luigi},\n  title     = {SiM3D: Single-instance Multiview Multimodal and Multisetup 3D Anomaly Detection Benchmark},\n  booktitle = {International Conference on Computer Vision (ICCV)},\n  year      = {2025},\n}"
   },
@@ -398,7 +399,8 @@ window.PUBLICATIONS = [
     "url": "https://zorangong.github.io/DINO-SLAM/",
     "links": {
       "project": "https://zorangong.github.io/DINO-SLAM/",
-      "arxiv": "https://arxiv.org/abs/2507.19474"
+      "arxiv": "https://arxiv.org/abs/2507.19474",
+      "paper": "https://doi.org/10.1007/978-3-032-37041-9_9"
     },
     "addTopics": ["SLAM & Localization"]
   },
@@ -426,7 +428,8 @@ window.PUBLICATIONS = [
     "url": "https://zorangong.github.io/magist3r_page/",
     "links": {
       "project": "https://zorangong.github.io/magist3r_page/",
-      "arxiv": "https://arxiv.org/abs/2607.15211"
+      "arxiv": "https://arxiv.org/abs/2607.15211",
+      "paper": "https://doi.org/10.1007/978-3-032-36984-0_23"
     },
     "addTopics": ["SLAM & Localization"]
   },
@@ -597,7 +600,8 @@ window.PUBLICATIONS = [
     "image": "assets/img/publications/slam_survey.jpg",
     "url": "https://arxiv.org/abs/2402.13255",
     "links": {
-      "arxiv": "https://arxiv.org/abs/2402.13255"
+      "arxiv": "https://arxiv.org/abs/2402.13255",
+      "paper": "https://doi.org/10.1109/tro.2026.3666139"
     },
     "addTopics": ["SLAM & Localization", "3D Reconstruction & NVS"]
   },
@@ -649,7 +653,8 @@ window.PUBLICATIONS = [
     "url": "https://kuis-ai.github.io/WarpRF/",
     "links": {
       "project": "https://kuis-ai.github.io/WarpRF/",
-      "pdf": "https://arxiv.org/pdf/2506.22433.pdf"
+      "pdf": "https://arxiv.org/pdf/2506.22433.pdf",
+      "code": "https://github.com/sadrasafa/WarpRF"
     },
     "addTopics": ["3D Reconstruction & NVS"]
   },
@@ -680,7 +685,8 @@ window.PUBLICATIONS = [
     "url": "https://fabiotosi92.github.io/files/14521_Eve3D_Elevating_Vision_M-main.pdf",
     "links": {
       "pdf": "https://fabiotosi92.github.io/files/14521_Eve3D_Elevating_Vision_M-main.pdf",
-      "supp": "https://fabiotosi92.github.io/files/14521_Eve3D_Elevating_Vision_M-appendix.pdf"
+      "supp": "https://fabiotosi92.github.io/files/14521_Eve3D_Elevating_Vision_M-appendix.pdf",
+      "project": "https://youmi-zym.github.io/projects/Eve3D/"
     },
     "addTopics": ["3D Reconstruction & NVS", "SLAM & Localization"]
   },
@@ -728,7 +734,8 @@ window.PUBLICATIONS = [
     "url": "https://link.springer.com/article/10.1007/s11263-024-02331-0",
     "links": {
       "pdf": "https://link.springer.com/article/10.1007/s11263-024-02331-0",
-      "preprint": "https://fabiotosi92.github.io/files/survey-stereo.pdf"
+      "preprint": "https://fabiotosi92.github.io/files/survey-stereo.pdf",
+      "code": "https://github.com/fabiotosi92/Awesome-Deep-Stereo-Matching"
     },
     "addTopics": ["Stereo & Multi-Sensor"]
   },
@@ -810,7 +817,8 @@ window.PUBLICATIONS = [
     "image": "assets/img/publications/active_stereo_wild.jpg",
     "links": {
       "pdf": "https://arxiv.org/pdf/2406.04345",
-      "project": "https://vppstereo.github.io/"
+      "project": "https://vppstereo.github.io/",
+      "code": "https://github.com/bartn8/vppstereo"
     },
     "addTopics": ["Stereo & Multi-Sensor"]
   },
@@ -864,7 +872,8 @@ window.PUBLICATIONS = [
     "url": "https://zorangong.github.io/HS-SLAM/",
     "links": {
       "project": "https://zorangong.github.io/HS-SLAM/",
-      "pdf": "https://doi.org/10.1109/ICRA55743.2025.11127551"
+      "pdf": "https://doi.org/10.1109/ICRA55743.2025.11127551",
+      "video": "https://zorangong.github.io/HS-SLAM/static/videos/ICRA2025_video.mp4"
     },
     "addTopics": ["SLAM & Localization"]
   },
@@ -1572,5 +1581,1134 @@ window.PUBLICATIONS = [
       "pdf": "https://doi.org/10.1109/ICCV.2017.559"
     },
     "addTopics": ["Stereo & Multi-Sensor"]
+  },
+
+  /* ---- 2025–2026 papers moved here from the archive (figures: assets/img/publications/<name>.jpg|png) ---- */
+  {
+    "title": "Image-to-Point Cloud Feature Back-Projection for Multimodal Training of 3D Semantic Segmentation",
+    "authors": [
+      "Jiawei Han",
+      "Matteo Poggi",
+      "Li Huan",
+      "Changshuo Wang",
+      "Kaiqi Liu",
+      "Wei Li"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2026), pp. 42049–42060",
+    "badge": "CVPR 2026",
+    "year": 2026,
+    "rank": "CORE A*",
+    "abstract": "This paper proposes Image-to-Point Cloud Feature Back-Projection (IPFP), a novel method for training multimodal fusion networks that back-projects aggregated image-feature centers (from non-projection-aligned image pixels) into the point-cloud feature set via the estimated depth map.",
+    "image": "assets/img/publications/img2pc-backprojection",
+    "links": {
+      "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Han_Image-to-Point_Cloud_Feature_Back-Projection_for_Multimodal_Training_of_3D_Semantic_CVPR_2026_paper.pdf"
+    }
+  },
+  {
+    "title": "FGDepth: Fine-Grained Boundary Perception Enhancement in Self-Supervised Indoor Depth Estimation",
+    "authors": [
+      "Chenggong Han",
+      "Chen Lv",
+      "He Jiang",
+      "Qiqi Kou",
+      "Deqiang Cheng",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Transactions on Multimedia, vol. 28, pp. 4851–4863",
+    "badge": "TMM 2026",
+    "year": 2026,
+    "rank": "Q1",
+    "abstract": "We propose FGDepth, a framework designed to enhance depth estimation through fine-grained boundary perception.",
+    "image": "assets/img/publications/fgdepth",
+    "links": {
+      "paper": "https://doi.org/10.1109/tmm.2026.3660182"
+    }
+  },
+  {
+    "title": "NVS-HO: A Benchmark for Novel View Synthesis of Handheld Objects",
+    "authors": [
+      "Musawar Ali",
+      "Manuel Carranza-García",
+      "Nicola Fioraio",
+      "Samuele Salti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Conference",
+    "venue": "International Conference on Pattern Recognition (ICPR 2026), pp. 560–574",
+    "badge": "ICPR 2026",
+    "year": 2026,
+    "abstract": "We propose NVS-HO, the first benchmark designed for novel view synthesis of handheld objects in real-world environments using only RGB inputs.",
+    "image": "assets/img/publications/nvs-ho",
+    "links": {
+      "paper": "https://doi.org/10.1007/978-3-032-31583-0_37",
+      "arxiv": "https://arxiv.org/abs/2602.05822"
+    }
+  },
+  {
+    "title": "RendBEV: Semantic Perspective View Rendering as Supervision for Bird's Eye View Segmentation",
+    "authors": [
+      "Henrique Piñeiro Monteagudo",
+      "Leonardo Taccari",
+      "Aurel Pjetri",
+      "Francesco Sambo",
+      "Samuele Salti"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Access, vol. 14, pp. 12255–12272",
+    "badge": "IEEE Access 2026",
+    "year": 2026,
+    "abstract": "We present RendBEV, a new method to train BEV semantic segmentation networks without direct BEV supervision. We leverage rendering with neural density fields or monocular depth estimation models to shift the supervision to semantic perspective views, where targets can be computed by a 2D semantic segmentation model.",
+    "image": "assets/img/publications/rendbev-access",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/11359590"
+    }
+  },
+  {
+    "title": "GeCHO: Generation of Contextualized Human-Object Interactions",
+    "authors": [
+      "Giovanni Minelli",
+      "Andrea Benericetti",
+      "Leonardo Taccari",
+      "Francesco Sambo",
+      "Samuele Salti"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Access, vol. 14, pp. 48872–48886",
+    "badge": "IEEE Access 2026",
+    "year": 2026,
+    "abstract": "We propose an inpainting approach that specifically tackles the complexities of generating contextual human-object interactions, which we refer to as GeCHO.",
+    "image": "assets/img/publications/gecho",
+    "url": "https://johnminelli.github.io/GeCHO/",
+    "links": {
+      "project": "https://johnminelli.github.io/GeCHO/",
+      "paper": "https://ieeexplore.ieee.org/document/11456932",
+      "code": "https://github.com/johnMinelli/GeCHO"
+    }
+  },
+  {
+    "title": "The PRISM benchmark: PhotoRealistic Image Synthesis and Manipulation to detect generated images",
+    "authors": [
+      "Filippo Bartolucci",
+      "Samuele Salti",
+      "Giuseppe Lisanti"
+    ],
+    "kind": "Journal",
+    "venue": "Computer Vision and Image Understanding, vol. 270, art. 104826",
+    "badge": "CVIU 2026",
+    "year": 2026,
+    "rank": "Q1",
+    "abstract": "We propose PRISM, a new challenging benchmark for generated content detection designed to reflect the complexity of real-world visual data.",
+    "image": "assets/img/publications/prism",
+    "links": {
+      "paper": "https://www.sciencedirect.com/science/article/pii/S1077314226001931",
+      "code": "https://github.com/filippobartolucci/PRISM_Benchmark",
+      "dataset": "https://huggingface.co/datasets/oppiliF/PRISM_Benchmark"
+    }
+  },
+  {
+    "title": "Additive decomposition of one-dimensional signals using Transformers",
+    "authors": [
+      "Samuele Salti",
+      "Andrea Pinto",
+      "Alessandro Lanza",
+      "Serena Morigi"
+    ],
+    "kind": "Journal",
+    "venue": "Pattern Recognition Letters, vol. 199, pp. 239–245",
+    "badge": "PRL 2026",
+    "year": 2026,
+    "abstract": "One-dimensional signal decomposition is a well-established and widely used technique across various scientific fields. It serves as a highly valuable pre-processing step for data analysis.",
+    "image": "assets/img/publications/additive-decomposition",
+    "links": {
+      "paper": "https://doi.org/10.1016/j.patrec.2025.11.002",
+      "arxiv": "https://arxiv.org/abs/2506.05942"
+    }
+  },
+  {
+    "title": "Domain Adaptation for Image Classification of Defects in Semiconductor Manufacturing",
+    "authors": [
+      "Adrian Poniatowski",
+      "Natalie Gentner",
+      "Manuel Barusco",
+      "Davide Dalle Pezze",
+      "Samuele Salti",
+      "Gian Antonio Susto"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Transactions on Automation Science and Engineering, vol. 23, pp. 3818–3828",
+    "badge": "T-ASE 2026",
+    "year": 2026,
+    "rank": "Q1",
+    "abstract": "We propose the DBACS approach, a CycleGAN-inspired model enhanced with additional loss terms to improve performance.",
+    "image": "assets/img/publications/semiconductor-da",
+    "links": {
+      "paper": "https://doi.org/10.1109/TASE.2025.3621854",
+      "arxiv": "https://arxiv.org/abs/2506.15260",
+      "code": "https://bitbucket.org/papers_vad_group/dbacs"
+    }
+  },
+  {
+    "title": "How to Evaluate and Refine Your CAM",
+    "authors": [
+      "Luca Domeniconi",
+      "Alessandra Stramiglio",
+      "Michele Lombardi",
+      "Samuele Salti"
+    ],
+    "kind": "Conference",
+    "venue": "International Conference on Pattern Recognition (ICPR 2026), pp. 543–557",
+    "badge": "ICPR 2026",
+    "year": 2026,
+    "abstract": "We introduce a synthetic dataset with ground-truth attributions that enables a rigorous comparison of CAM evaluation metrics. Using this dataset, we analyze existing metrics and propose ARCC, a new composite metric that more reliably identifies faithful explanations.",
+    "image": "assets/img/publications/cam-evaluation",
+    "url": "https://refinecam.github.io",
+    "links": {
+      "project": "https://refinecam.github.io",
+      "paper": "https://doi.org/10.1007/978-3-032-31663-9_36",
+      "arxiv": "https://arxiv.org/abs/2605.14641",
+      "code": "https://github.com/liuktc/RefineCAM"
+    }
+  },
+  {
+    "title": "NTIRE 2025 Challenge on HR Depth from Images of Specular and Transparent Surfaces",
+    "authors": [
+      "Pierluigi Zama Ramirez",
+      "Fabio Tosi",
+      "Luigi Di Stefano",
+      "Radu Timofte",
+      "Alex Costanzino",
+      "Matteo Poggi",
+      "Samuele Salti",
+      "Stefano Mattoccia",
+      "et al."
+    ],
+    "kind": "Workshop",
+    "venue": "CVPR Workshops – NTIRE 2025, pp. 987–1001",
+    "badge": "CVPR Workshops 2025",
+    "year": 2025,
+    "abstract": "This paper reports on the NTIRE 2025 challenge on HR Depth From images of Specular and Transparent surfaces, held in conjunction with the New Trends in Image Restoration and Enhancement (NTIRE) workshop at CVPR 2025.",
+    "image": "assets/img/publications/ntire2025",
+    "url": "https://cvlai.net/ntire/2025/",
+    "links": {
+      "project": "https://cvlai.net/ntire/2025/",
+      "pdf": "https://openaccess.thecvf.com/content/CVPR2025W/NTIRE/papers/Ramirez_NTIRE_2025_Challenge_on_HR_Depth_from_Images_of_Specular_CVPRW_2025_paper.pdf",
+      "arxiv": "https://arxiv.org/abs/2506.05815",
+      "dataset": "https://cvlab-unibo.github.io/booster-web/"
+    }
+  },
+  {
+    "title": "The Fourth Monocular Depth Estimation Challenge",
+    "authors": [
+      "Anton Obukhov",
+      "Matteo Poggi",
+      "Fabio Tosi",
+      "et al."
+    ],
+    "kind": "Workshop",
+    "venue": "CVPR Workshops – MDEC 2025, pp. 6182–6195",
+    "badge": "CVPR Workshops 2025",
+    "year": 2025,
+    "abstract": "This paper presents the results of the fourth edition of the Monocular Depth Estimation Challenge (MDEC), which focuses on zero-shot generalization to the SYNS-Patches benchmark, a dataset featuring challenging environments in both natural and indoor settings.",
+    "image": "assets/img/publications/mdec2025",
+    "url": "https://jspenmar.github.io/MDEC/",
+    "links": {
+      "project": "https://jspenmar.github.io/MDEC/",
+      "pdf": "https://openaccess.thecvf.com/content/CVPR2025W/MDEC/papers/Obukhov_The_Fourth_Monocular_Depth_Estimation_Challenge_CVPRW_2025_paper.pdf",
+      "arxiv": "https://arxiv.org/abs/2504.17787",
+      "code": "https://github.com/toshas/mdec_benchmark"
+    }
+  },
+  {
+    "title": "Semantic Library Adaptation: LoRA Retrieval and Fusion for Open-Vocabulary Semantic Segmentation",
+    "authors": [
+      "Reza Qorbani",
+      "Gianluca Villani",
+      "Theodoros Panagiotakopoulos",
+      "Marc Botet Colomer",
+      "Linus Härenstam-Nielsen",
+      "Mattia Segù",
+      "Pier Luigi Dovesi",
+      "Jussi Karlgren",
+      "Daniel Cremers",
+      "Federico Tombari",
+      "Matteo Poggi"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2025), pp. 9804–9815",
+    "badge": "CVPR 2025",
+    "year": 2025,
+    "rank": "CORE A*",
+    "abstract": "We introduce Semantic Library Adaptation (SemLA), a novel framework for training-free, test-time domain adaptation. SemLA leverages a library of LoRA-based adapters indexed with CLIP embeddings, dynamically merging the most relevant adapters based on proximity to the target domain in the embedding space.",
+    "image": "assets/img/publications/semla",
+    "url": "https://thegoodailab.org/semla",
+    "links": {
+      "project": "https://thegoodailab.org/semla",
+      "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Qorbani_Semantic_Library_Adaptation_LoRA_Retrieval_and_Fusion_for_Open-Vocabulary_Semantic_CVPR_2025_paper.pdf",
+      "arxiv": "https://arxiv.org/abs/2503.21780",
+      "code": "https://github.com/rezaqorbani/SemLA"
+    },
+    "topics": [
+      "Scene Understanding",
+      "Robust & Generalizable",
+      "Foundation & Generative"
+    ]
+  },
+  {
+    "title": "Learning Temporally Consistent Video Depth from Video Diffusion Priors",
+    "authors": [
+      "Jiahao Shao",
+      "Yuanbo Yang",
+      "Hongyu Zhou",
+      "Youmin Zhang",
+      "Yujun Shen",
+      "Vitor Guizilini",
+      "Yue Wang",
+      "Matteo Poggi",
+      "Yiyi Liao"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2025), pp. 22841–22852",
+    "badge": "CVPR 2025",
+    "year": 2025,
+    "rank": "CORE A*",
+    "abstract": "Specifically, we propose a consistent context-aware training and inference strategy for arbitrarily long videos to provide cross-clip context. We sample independent noise levels for each frame within a clip during training while using a sliding window strategy and initializing overlapping frames with previously predicted frames without adding noise.",
+    "image": "assets/img/publications/chronodepth",
+    "url": "https://xdimlab.github.io/ChronoDepth/",
+    "links": {
+      "project": "https://xdimlab.github.io/ChronoDepth/",
+      "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Shao_Learning_Temporally_Consistent_Video_Depth_from_Video_Diffusion_Priors_CVPR_2025_paper.pdf",
+      "arxiv": "https://arxiv.org/abs/2406.01493",
+      "code": "https://github.com/jiahao-shao1/ChronoDepth"
+    }
+  },
+  {
+    "title": "TRICKY 2025 Challenge on Monocular Depth from Images of Specular and Transparent Surfaces",
+    "authors": [
+      "Pierluigi Zama Ramirez",
+      "Alex Costanzino",
+      "Fabio Tosi",
+      "Matteo Poggi",
+      "Luigi Di Stefano",
+      "et al."
+    ],
+    "kind": "Workshop",
+    "venue": "ICCV Workshops – TRICKY 2025, pp. 3311–3322",
+    "badge": "ICCV Workshops 2025",
+    "year": 2025,
+    "abstract": "This paper presents the results of the TRICKY 2025 Monocular Depth Track Challenge, held as part of the Transparent & Reflective objects In the wild Challenges (TRICKY) workshop at ICCV 2025. The challenge aims to advance the state-of-the-art in dense depth prediction for reflective and transparent surfaces, building on recent progress in the field.",
+    "image": "assets/img/publications/tricky2025-depth",
+    "url": "https://sites.google.com/view/iccv25tricky",
+    "links": {
+      "project": "https://sites.google.com/view/iccv25tricky",
+      "pdf": "https://openaccess.thecvf.com/content/ICCV2025W/TRICKY/papers/Ramirez_TRICKY_2025_Challenge_on_Monocular_Depth_from_Images_of_Specular_ICCVW_2025_paper.pdf"
+    }
+  },
+  {
+    "title": "TRICKY 2025 HouseCat6D Object Pose Estimation Challenge with Specular and Transparent Surfaces",
+    "authors": [
+      "Weihang Li",
+      "Junwen Huang",
+      "Hyunjun Jung",
+      "Guangyao Zhai",
+      "Pierluigi Zama Ramirez",
+      "Alex Costanzino",
+      "Fabio Tosi",
+      "Matteo Poggi",
+      "Luigi Di Stefano",
+      "et al."
+    ],
+    "kind": "Workshop",
+    "venue": "ICCV Workshops – TRICKY 2025, pp. 3323–3333",
+    "badge": "ICCV Workshops 2025",
+    "year": 2025,
+    "abstract": "This paper presents the TRICKY 2025 HouseCat6D Category-Level Object Pose Estimation Challenge, held in conjunction with the ICCV 2025 workshop on Transparent and Reflective Objects in the Wild. The challenge addresses the critical limitations of existing pose estimation systems when applied to non-Lambertian surfaces, such as glass and metal.",
+    "image": "assets/img/publications/tricky2025-pose",
+    "url": "https://sites.google.com/view/iccv25tricky",
+    "links": {
+      "project": "https://sites.google.com/view/iccv25tricky",
+      "pdf": "https://openaccess.thecvf.com/content/ICCV2025W/TRICKY/papers/Li_TRICKY_2025_HouseCat6D_Object_Pose_Estimation_Challenge_with_Specular_and_ICCVW_2025_paper.pdf"
+    }
+  },
+  {
+    "title": "Learnable Fractional Reaction-Diffusion Dynamics for Under-Display ToF Imaging and Beyond",
+    "authors": [
+      "Xin Qiao",
+      "Matteo Poggi",
+      "Xing Wei",
+      "Pengchao Deng",
+      "Yanhui Zhou",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF International Conference on Computer Vision (ICCV 2025), pp. 6080–6090",
+    "badge": "ICCV 2025",
+    "year": 2025,
+    "rank": "CORE A*",
+    "abstract": "To alleviate this drawback, we propose Learnable Fractional Reaction-Diffusion Dynamics (LFRD2), a hybrid framework that combines the expressive power of neural networks with the interpretability of physical modeling.",
+    "image": "assets/img/publications/lfrd2",
+    "links": {
+      "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Qiao_Learnable_Fractional_Reaction-Diffusion_Dynamics_for_Under-Display_ToF_Imaging_and_Beyond_ICCV_2025_paper.pdf",
+      "arxiv": "https://arxiv.org/abs/2511.01704",
+      "code": "https://github.com/wudiqx106/LFRD2"
+    }
+  },
+  {
+    "title": "ToF-Splatting: Dense SLAM Using Sparse Time-of-Flight Depth and Multi-Frame Integration",
+    "authors": [
+      "Andrea Conti",
+      "Matteo Poggi",
+      "Valerio Cambareri",
+      "Martin R. Oswald",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF International Conference on Computer Vision (ICCV 2025), pp. 28344–28353",
+    "badge": "ICCV 2025",
+    "year": 2025,
+    "rank": "CORE A*",
+    "abstract": "We propose ToF-Splatting, the first 3D Gaussian Splatting-based SLAM pipeline tailored for using effectively very sparse ToF input data.",
+    "image": "assets/img/publications/tof-splatting",
+    "links": {
+      "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Conti_ToF-Splatting_Dense_SLAM_using_Sparse_Time-of-Flight_Depth_and_Multi-Frame_Integration_ICCV_2025_paper.pdf",
+      "arxiv": "https://arxiv.org/abs/2504.16545"
+    }
+  },
+  {
+    "title": "Zero-Shot Neural Architecture Search for Efficient Deep Stereo Matching",
+    "authors": [
+      "Alessio Mingozzi",
+      "Stefano Mattoccia",
+      "Matteo Poggi",
+      "Fatma Güney"
+    ],
+    "kind": "Conference",
+    "venue": "International Conference on Image Analysis and Processing (ICIAP 2025), pp. 17–28",
+    "badge": "ICIAP 2025",
+    "year": 2025,
+    "abstract": "This paper introduces a novel and efficient architecture for deep stereo matching obtained through Zero-Shot Neural Architecture Search (NAS). Applied to RAFT-Stereo, this process yields a significantly smaller – 1.14M parameters, compared to the original 11M – and substantially faster network.",
+    "image": "assets/img/publications/zs-nas-stereo",
+    "links": {
+      "paper": "https://doi.org/10.1007/978-3-032-10185-3_2",
+      "code": "https://github.com/amingozz/RAFT-StereoZero"
+    }
+  },
+  {
+    "title": "Lightstereo: Channel Boost is All You Need for Efficient 2D Cost Aggregation",
+    "authors": [
+      "Xianda Guo",
+      "Chenming Zhang",
+      "Youmin Zhang",
+      "Wenzhao Zheng",
+      "Dujun Nie",
+      "Matteo Poggi",
+      "Long Chen"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE International Conference on Robotics and Automation (ICRA 2025), pp. 8738–8744",
+    "badge": "ICRA 2025",
+    "year": 2025,
+    "rank": "CORE A*",
+    "abstract": "We present LightStereo, a cutting-edge stereo-matching network crafted to accelerate the matching process. Departing from conventional methodologies that rely on aggregating computationally intensive 4D costs, LightStereo adopts the 3D cost volume as a lightweight alternative.",
+    "image": "assets/img/publications/lightstereo",
+    "links": {
+      "paper": "https://doi.org/10.1109/icra55743.2025.11127711",
+      "arxiv": "https://arxiv.org/abs/2406.19833",
+      "code": "https://github.com/XiandaGuo/OpenStereo"
+    }
+  },
+  {
+    "title": "Drive with the Flow",
+    "authors": [
+      "Enrico Mannocci",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE International Conference on Robotics and Automation (ICRA 2025), pp. 10028–10034",
+    "badge": "ICRA 2025",
+    "year": 2025,
+    "rank": "CORE A*",
+    "abstract": "End-to-end autonomous driving systems still struggle with dense traffic, lacking an understanding of the dynamics of the surrounding vehicles.",
+    "image": "assets/img/publications/drive-with-the-flow",
+    "url": "https://noce99.github.io/FlowFuser/",
+    "links": {
+      "project": "https://noce99.github.io/FlowFuser/",
+      "paper": "https://zenodo.org/records/16893607",
+      "code": "https://github.com/Noce99/FlowFuser"
+    }
+  },
+  {
+    "title": "Self-supervised Monocular Depth Estimation for Dynamic Objects with Ground Propagation",
+    "authors": [
+      "Huan Li",
+      "Matteo Poggi",
+      "Fabio Tosi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2025), pp. 2384–2391",
+    "badge": "IROS 2025",
+    "year": 2025,
+    "rank": "CORE A",
+    "abstract": "Self-supervised single-view depth estimation faces significant challenges when dynamic objects are present in the training data, as they violate the multi-view geometry assumptions behind photometric losses.",
+    "image": "assets/img/publications/dynamic-objects-depth",
+    "links": {
+      "paper": "https://doi.org/10.1109/IROS60139.2025.11246123",
+      "code": "https://github.com/LiHuanLi/GroundMono"
+    }
+  },
+  {
+    "title": "Stereo 3D Gaussian Splatting SLAM for Outdoor Urban Scenes",
+    "authors": [
+      "Xiaohan Li",
+      "Ziren Gong",
+      "Fabio Tosi",
+      "Matteo Poggi",
+      "Stefano Mattoccia",
+      "Dong Liu",
+      "Jun Wu"
+    ],
+    "kind": "Preprint",
+    "venue": "arXiv preprint",
+    "badge": "arXiv 2025",
+    "year": 2025,
+    "abstract": "We present BGS-SLAM, the first binocular 3D Gaussian Splatting SLAM system designed for outdoor scenarios. Our approach uses only RGB stereo pairs without requiring LiDAR or active sensors.",
+    "image": "assets/img/publications/stereo-gs-slam",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2507.23677"
+    }
+  },
+  {
+    "title": "StereoCarla: A High-Fidelity Driving Dataset for Generalizable Stereo",
+    "authors": [
+      "Xianda Guo",
+      "Chenming Zhang",
+      "Ruilin Wang",
+      "Youmin Zhang",
+      "Wenzhao Zheng",
+      "Matteo Poggi",
+      "Hao Zhao",
+      "Qin Zou",
+      "Long Chen"
+    ],
+    "kind": "Preprint",
+    "venue": "arXiv preprint",
+    "badge": "arXiv 2025",
+    "year": 2025,
+    "abstract": "We present StereoCarla, a high-fidelity synthetic stereo dataset specifically designed for autonomous driving scenarios.",
+    "image": "assets/img/publications/stereocarla",
+    "url": "https://xiandaguo.net/StereoCarla",
+    "links": {
+      "project": "https://xiandaguo.net/StereoCarla",
+      "arxiv": "https://arxiv.org/abs/2509.12683",
+      "code": "https://github.com/XiandaGuo/OpenStereo"
+    }
+  },
+  {
+    "title": "Lost in Translation? Vocabulary Alignment for Source-Free Adaptation in Open-Vocabulary Semantic Segmentation",
+    "authors": [
+      "Silvio Mazzucco",
+      "Carl Persson",
+      "Mattia Segù",
+      "Pier Luigi Dovesi",
+      "Federico Tombari",
+      "Luc Van Gool",
+      "Matteo Poggi"
+    ],
+    "kind": "Conference",
+    "venue": "British Machine Vision Conference (BMVC 2025)",
+    "badge": "BMVC 2025",
+    "rank": "CORE A",
+    "year": 2025,
+    "abstract": "We introduce VocAlign, a novel source-free domain adaptation framework specifically designed for VLMs in open-vocabulary semantic segmentation. Our method adopts a student-teacher paradigm enhanced with a vocabulary alignment strategy, which improves pseudo-label generation by incorporating additional class concepts.",
+    "image": "assets/img/publications/vocalign",
+    "url": "https://thegoodailab.org/blog/vocalign",
+    "links": {
+      "project": "https://thegoodailab.org/blog/vocalign",
+      "arxiv": "https://arxiv.org/abs/2509.15225",
+      "code": "https://github.com/Sisso16/VocAlign"
+    }
+  },
+  {
+    "title": "Learning to Be a Transformer to Pinpoint Anomalies",
+    "authors": [
+      "Alex Costanzino",
+      "Pierluigi Zama Ramirez",
+      "Giuseppe Lisanti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Access, vol. 13, pp. 109624–109637",
+    "badge": "IEEE Access 2025",
+    "year": 2025,
+    "abstract": "We propose a novel Teacher--Student paradigm to leverage strong pre-trained features while processing high-resolution input images very efficiently.",
+    "image": "assets/img/publications/l2bt",
+    "url": "https://alex-costanzino.github.io/learning_to_be_a_transformer/",
+    "links": {
+      "project": "https://alex-costanzino.github.io/learning_to_be_a_transformer/",
+      "paper": "https://doi.org/10.1109/ACCESS.2025.3582900",
+      "arxiv": "https://arxiv.org/abs/2407.04092",
+      "code": "https://github.com/alex-costanzino/L2BT"
+    }
+  },
+  {
+    "title": "Multimodal SAM-Adapter for Semantic Segmentation",
+    "authors": [
+      "Iacopo Curti",
+      "Pierluigi Zama Ramirez",
+      "Alioscia Petrelli",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Access, vol. 13, pp. 160438–160455",
+    "badge": "IEEE Access 2025",
+    "year": 2025,
+    "abstract": "We present MM SAM-adapter, a novel framework that extends the capabilities of the Segment Anything Model (SAM) for multimodal semantic segmentation. The proposed method employs an adapter network that injects fused multimodal features into SAM's rich RGB features.",
+    "image": "assets/img/publications/mm-sam-adapter",
+    "links": {
+      "paper": "https://doi.org/10.1109/access.2025.3609640",
+      "arxiv": "https://arxiv.org/abs/2509.10408",
+      "code": "https://github.com/iacopo97/Multimodal-SAM-Adapter"
+    },
+    "topics": [
+      "Scene Understanding",
+      "Multimodal",
+      "Foundation & Generative"
+    ]
+  },
+  {
+    "title": "Few-Shot Anomaly Classification by Learning to Inpaint Nominal Images",
+    "authors": [
+      "Rubin Carkaxhia",
+      "Musawar Ali",
+      "Nicola Fioraio",
+      "Luigi Di Stefano",
+      "Samuele Salti"
+    ],
+    "kind": "Conference",
+    "venue": "International Conference on Image Analysis and Processing (ICIAP 2025), pp. 520–532",
+    "badge": "ICIAP 2025",
+    "year": 2025,
+    "abstract": "Automated inspection suffers from data scarcity, as only a few anomalous samples are usually available. We generate high-resolution defective images by inpainting the few available real defects, and fine-tune a second inpainting model to vary the nominal parts of the generated images, reaching a new state of the art on MVTec-AD.",
+    "image": "assets/img/publications/fewshot-inpaint-anomaly",
+    "links": {
+      "paper": "https://doi.org/10.1007/978-3-032-10185-3_41"
+    }
+  },
+  {
+    "title": "Spatially-aware Weights Tokenization for NeRF-Language Models",
+    "authors": [
+      "Andrea Amaduzzi",
+      "Pierluigi Zama Ramirez",
+      "Giuseppe Lisanti",
+      "Samuele Salti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Conference",
+    "venue": "Conference on Neural Information Processing Systems (NeurIPS 2025)",
+    "badge": "NeurIPS 2025",
+    "year": 2025,
+    "rank": "CORE A*",
+    "abstract": "We propose weights2space, a self-supervised framework featuring a meta-encoder that computes a sequence of spatial tokens directly from the weights of a NeRF. Leveraging this representation, we build Spatial LLaNA, an MLLM for NeRFs capable of understanding details and spatial relationships in objects represented as NeRFs.",
+    "image": "assets/img/publications/weights-tokenization",
+    "url": "https://andreamaduzzi.github.io/spatial-llana/",
+    "links": {
+      "project": "https://andreamaduzzi.github.io/spatial-llana/",
+      "paper": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/dc2e744f0e3fa6e869af915482b57210-Abstract-Conference.html",
+      "code": "https://github.com/CVLAB-Unibo/Spatial-LLaNA",
+      "dataset": "https://huggingface.co/datasets/andreamaduzzi/Spatial-ObjaNeRF"
+    }
+  },
+  {
+    "title": "Scaling LLaNA: Advancing NeRF-Language Understanding Through Large-Scale Training",
+    "authors": [
+      "Andrea Amaduzzi",
+      "Pierluigi Zama Ramirez",
+      "Giuseppe Lisanti",
+      "Samuele Salti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Preprint",
+    "venue": "arXiv preprint",
+    "badge": "arXiv 2025",
+    "year": 2025,
+    "abstract": "We introduce LLaNA, the first MLLM able to perform new tasks such as NeRF captioning and Q\\&A, by directly processing the weights of a NeRF's MLP. Notably, LLaNA is able to extract information about the represented objects without the need to render images or materialize 3D data structures.",
+    "image": "assets/img/publications/scaling-llana",
+    "url": "https://andreamaduzzi.github.io/llana/",
+    "links": {
+      "project": "https://andreamaduzzi.github.io/llana/",
+      "arxiv": "https://arxiv.org/abs/2504.13995",
+      "code": "https://github.com/CVLAB-Unibo/LLaNA"
+    }
+  },
+  {
+    "title": "VS-Sim: A Synthetic Dataset for Viewpoint Shift Robustness",
+    "authors": [
+      "Riccardo Turra",
+      "Matteo Simoncini",
+      "Henrique Piñeiro Monteagudo",
+      "Aurel Pjetri",
+      "Samuele Salti",
+      "Leonardo Taccari"
+    ],
+    "kind": "Conference",
+    "venue": "International Conference on Image Analysis and Processing (ICIAP 2025), pp. 507–519",
+    "badge": "ICIAP 2025",
+    "year": 2025,
+    "abstract": "We release VS-Sim, a synthetic dataset of road scene images to study the robustness of computer vision models to viewpoint shift, with frontal-view (depth, semantic segmentation) and Bird's Eye View annotations.",
+    "image": "assets/img/publications/vs-sim",
+    "url": "https://henriquepm.github.io/VS-SIM/",
+    "links": {
+      "project": "https://henriquepm.github.io/VS-SIM/",
+      "paper": "https://doi.org/10.1007/978-3-032-10185-3_40",
+      "dataset": "https://huggingface.co/datasets/vzc-research-chapter/VS-SIM"
+    }
+  },
+  {
+    "title": "RendBEV: Semantic Novel View Synthesis for Self-Supervised Bird's Eye View Segmentation",
+    "authors": [
+      "Henrique Piñeiro Monteagudo",
+      "Leonardo Taccari",
+      "Aurel Pjetri",
+      "Francesco Sambo",
+      "Samuele Salti"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2025), pp. 535–544",
+    "badge": "WACV 2025",
+    "year": 2025,
+    "rank": "CORE A",
+    "abstract": "We present RendBEV, a new method for the self-supervised training of BEV semantic segmentation networks, leveraging differentiable volumetric rendering to receive supervision from semantic perspective views computed by a 2D semantic segmentation model. Used as pretraining, it significantly boosts performance in low-annotation regimes.",
+    "image": "assets/img/publications/rendbev",
+    "url": "https://henriquepm.github.io/RendBEV/",
+    "links": {
+      "project": "https://henriquepm.github.io/RendBEV/",
+      "pdf": "https://openaccess.thecvf.com/content/WACV2025/papers/Monteagudo_RendBEV_Semantic_Novel_View_Synthesis_for_Self-Supervised_Birds_Eye_View_WACV_2025_paper.pdf",
+      "arxiv": "https://arxiv.org/abs/2502.14792"
+    }
+  },
+
+  /* ---- 2024 papers moved here from the archive ---- */
+  {
+    "title": "RGB Guided ToF Imaging System: A Survey of Deep Learning-Based Methods",
+    "authors": [
+      "Xin Qiao",
+      "Matteo Poggi",
+      "Pengchao Deng",
+      "Hao Wei",
+      "Chenyang Ge",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Journal",
+    "venue": "International Journal of Computer Vision, vol. 132, no. 11, pp. 4954–4991",
+    "badge": "IJCV 2024",
+    "year": 2024,
+    "rank": "Q1",
+    "abstract": "A comprehensive review of deep learning for RGB guided ToF imaging, covering guided depth super-resolution and guided depth completion: network structures, learning strategies, evaluation metrics, benchmark datasets and objective functions, with quantitative comparisons of state-of-the-art methods.",
+    "image": "assets/img/publications/tof-imaging-survey",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2405.10357"
+    }
+  },
+  {
+    "title": "Range-Agnostic Multi-View Depth Estimation with Keyframe Selection",
+    "authors": [
+      "Andrea Conti",
+      "Matteo Poggi",
+      "Valerio Cambareri",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "International Conference on 3D Vision (3DV 2024), pp. 1350–1359",
+    "badge": "3DV 2024",
+    "year": 2024,
+    "abstract": "We focus on multi-view depth estimation without requiring prior knowledge about the metric range of the scene by proposing RAMDepth, an efficient and purely 2D framework that reverses the depth estimation and matching steps order.",
+    "image": "assets/img/publications/range-agnostic-mvs",
+    "url": "https://andreaconti.github.io/projects/range_agnostic_multi_view_depth",
+    "links": {
+      "project": "https://andreaconti.github.io/projects/range_agnostic_multi_view_depth",
+      "arxiv": "https://arxiv.org/abs/2401.14401",
+      "code": "https://github.com/andreaconti/ramdepth"
+    }
+  },
+  {
+    "title": "Revisiting Depth Completion from a Stereo Matching Perspective for Cross-domain Generalization",
+    "authors": [
+      "Luca Bartolomei",
+      "Matteo Poggi",
+      "Andrea Conti",
+      "Fabio Tosi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "International Conference on 3D Vision (3DV 2024), pp. 1360–1370",
+    "badge": "3DV 2024",
+    "year": 2024,
+    "abstract": "This paper proposes a new framework for depth completion robust against domain-shifting issues. It exploits the generalization capability of modern stereo networks to face depth completion, by processing fictitious stereo pairs obtained through a virtual pattern projection paradigm.",
+    "image": "assets/img/publications/revisiting-depth-completion",
+    "url": "https://vppdc.github.io/",
+    "links": {
+      "project": "https://vppdc.github.io/",
+      "arxiv": "https://arxiv.org/abs/2312.09254",
+      "code": "https://github.com/bartn8/vppdc"
+    }
+  },
+  {
+    "title": "The Third Monocular Depth Estimation Challenge",
+    "authors": [
+      "Jaime Spencer",
+      "Fabio Tosi",
+      "Matteo Poggi",
+      "et al."
+    ],
+    "kind": "Workshop",
+    "venue": "CVPR Workshops – MDEC 2024, pp. 1–14",
+    "badge": "CVPR Workshops 2024",
+    "year": 2024,
+    "abstract": "This paper discusses the results of the third edition of the Monocular Depth Estimation Challenge (MDEC). The challenge focuses on zero-shot generalization to the challenging SYNS-Patches dataset, featuring complex scenes in natural and indoor settings.",
+    "image": "assets/img/publications/mdec2024",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2404.16831"
+    }
+  },
+  {
+    "title": "NTIRE 2024 Challenge on HR Depth from Images of Specular and Transparent Surfaces",
+    "authors": [
+      "Pierluigi Zama Ramirez",
+      "Fabio Tosi",
+      "Luigi Di Stefano",
+      "Radu Timofte",
+      "Alex Costanzino",
+      "Matteo Poggi",
+      "Samuele Salti",
+      "Stefano Mattoccia",
+      "et al."
+    ],
+    "kind": "Workshop",
+    "venue": "CVPR Workshops – NTIRE 2024, pp. 6499–6512",
+    "badge": "CVPR Workshops 2024",
+    "year": 2024,
+    "abstract": "This paper reports on the NTIRE 2024 challenge on HR Depth From images of Specular and Transparent surfaces held in conjunction with the New Trends in Image Restoration and Enhancement (NTIRE) workshop at CVPR 2024.",
+    "image": "assets/img/publications/ntire2024",
+    "url": "https://cvlab-unibo.github.io/booster-web/ntire24.html",
+    "links": {
+      "project": "https://cvlab-unibo.github.io/booster-web/ntire24.html",
+      "pdf": "https://openaccess.thecvf.com/content/CVPR2024W/NTIRE/papers/Ramirez_NTIRE_2024_Challenge_on_HR_Depth_from_Images_of_Specular_CVPRW_2024_paper.pdf"
+    }
+  },
+  {
+    "title": "LiDAR-Event Stereo Fusion with Hallucinations",
+    "authors": [
+      "Luca Bartolomei",
+      "Matteo Poggi",
+      "Andrea Conti",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "European Conference on Computer Vision (ECCV 2024), pp. 125–145",
+    "badge": "ECCV 2024",
+    "year": 2024,
+    "rank": "CORE A*",
+    "abstract": "We integrate a stereo event camera with a fixed-frequency active sensor such as a LiDAR: its sparse depth hints are used to hallucinate fictitious events in the stacks or raw input streams, compensating for the lack of information where no brightness changes occur.",
+    "image": "assets/img/publications/lidar-event-stereo",
+    "url": "https://eventvppstereo.github.io/",
+    "links": {
+      "project": "https://eventvppstereo.github.io/",
+      "arxiv": "https://arxiv.org/abs/2408.04633",
+      "code": "https://github.com/bartn8/eventvppstereo"
+    }
+  },
+  {
+    "title": "TRICKY 2024 Challenge on Monocular Depth from Images of Specular and Transparent Surfaces",
+    "authors": [
+      "Pierluigi Zama Ramirez",
+      "Alex Costanzino",
+      "Fabio Tosi",
+      "Matteo Poggi",
+      "Luigi Di Stefano",
+      "et al."
+    ],
+    "kind": "Workshop",
+    "venue": "ECCV Workshops – TRICKY 2024, pp. 248–266",
+    "badge": "ECCV Workshops 2024",
+    "year": 2024,
+    "image": "assets/img/publications/tricky2024-depth",
+    "url": "https://cvlab-unibo.github.io/booster-web/tricky24.html",
+    "links": {
+      "project": "https://cvlab-unibo.github.io/booster-web/tricky24.html",
+      "workshop": "https://sites.google.com/view/eccv24-tricky-workshop/"
+    }
+  },
+  {
+    "title": "Depth on Demand: Streaming Dense Depth from a Low Frame Rate Active Sensor",
+    "authors": [
+      "Andrea Conti",
+      "Matteo Poggi",
+      "Valerio Cambareri",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "European Conference on Computer Vision (ECCV 2024), pp. 283–302",
+    "badge": "ECCV 2024",
+    "year": 2024,
+    "rank": "CORE A*",
+    "abstract": "Depth on Demand (DoD) achieves accurate temporal and spatial depth densification by coupling a high frame rate RGB sensor with a lower frame rate, sparse active depth sensor, reducing energy consumption and the streaming requirements on the depth sensor.",
+    "image": "assets/img/publications/depth-on-demand",
+    "url": "https://andreaconti.github.io/projects/depth_on_demand",
+    "links": {
+      "project": "https://andreaconti.github.io/projects/depth_on_demand",
+      "arxiv": "https://arxiv.org/abs/2409.08277",
+      "code": "https://github.com/andreaconti/depth-on-demand"
+    }
+  },
+  {
+    "title": "MaskingDepth: Masked Consistency Regularization for Semi-Supervised Monocular Depth Estimation",
+    "authors": [
+      "Jongbeom Baek",
+      "Gyeongnyeon Kim",
+      "Seonghoon Park",
+      "Honggyu An",
+      "Matteo Poggi",
+      "Seungryong Kim"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2024), pp. 2755–2762",
+    "badge": "IROS 2024",
+    "year": 2024,
+    "rank": "CORE A",
+    "abstract": "We propose MaskingDepth, a novel semi-supervised learning framework for monocular depth estimation to mitigate the reliance on large ground-truth depth quantities.",
+    "image": "assets/img/publications/maskingdepth",
+    "url": "https://ku-cvlab.github.io/MaskingDepth/",
+    "links": {
+      "project": "https://ku-cvlab.github.io/MaskingDepth/",
+      "arxiv": "https://arxiv.org/abs/2212.10806",
+      "code": "https://github.com/KU-CVLAB/MaskingDepth"
+    }
+  },
+  {
+    "title": "Exploring Few-Beam LiDAR Assistance in Self-Supervised Multi-Frame Depth Estimation",
+    "authors": [
+      "Rizhao Fan",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2024), pp. 2770–2777",
+    "badge": "IROS 2024",
+    "year": 2024,
+    "rank": "CORE A",
+    "image": "assets/img/publications/few-beam-lidar",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/10801997"
+    }
+  },
+
+  /* ---- 2023–2024 papers moved here from the archive (batch 3) ---- */
+  {
+    "title": "Automatic Implant Generation for Cranioplasty via Occupancy Networks",
+    "authors": [
+      "Stefano Mazzocchetti",
+      "Mirko Bevini",
+      "Giovanni Badiali",
+      "Giuseppe Lisanti",
+      "Luigi Di Stefano",
+      "Samuele Salti"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Access, vol. 12, pp. 95185–95195",
+    "badge": "IEEE Access 2024",
+    "year": 2024,
+    "abstract": "We generate patient-specific cranial implants with a conditioned occupancy network: starting from the partial skull point cloud, the completed voxel grid is reconstructed by evaluating the learned occupancy function, matching state-of-the-art results on SkullBreak and SkullFix with significantly fewer computational resources.",
+    "image": "assets/img/publications/cranioplasty-implant",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/10589384"
+    }
+  },
+  {
+    "title": "AnomalyControl: Few-Shot Anomaly Generation by ControlNet Inpainting",
+    "authors": [
+      "Musawar Ali",
+      "Nicola Fioraio",
+      "Samuele Salti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Access, vol. 12, pp. 192903–192914",
+    "badge": "IEEE Access 2024",
+    "year": 2024,
+    "abstract": "We show how casting defect generation as inpainting of nominal images and using ControlNet to specialize a state-of-the-art inpainting model based on stable diffusion can be an effective solution for the few-shot anomaly generation task.",
+    "image": "assets/img/publications/anomalycontrol",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/10806704"
+    }
+  },
+  {
+    "title": "Dynamic Bird's Eye View Reconstruction of Driving Accidents",
+    "authors": [
+      "Marco Boschi",
+      "Luca De Luigi",
+      "Samuele Salti",
+      "Francesco Sambo",
+      "Douglas Coimbra de Andrade",
+      "Leonardo Taccari",
+      "Alex Quintero Garcia"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Transactions on Intelligent Transportation Systems, vol. 25, no. 8, pp. 8671–8680",
+    "badge": "T-ITS 2024",
+    "year": 2024,
+    "rank": "Q1",
+    "image": "assets/img/publications/bev-driving-accidents",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/10496390"
+    }
+  },
+  {
+    "title": "Test Time Training for Industrial Anomaly Segmentation",
+    "authors": [
+      "Alex Costanzino",
+      "Pierluigi Zama Ramirez",
+      "Mirko Del Moro",
+      "Agostino Aiezzo",
+      "Giuseppe Lisanti",
+      "Samuele Salti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Workshop",
+    "venue": "CVPR Workshops 2024, pp. 3910–3920",
+    "badge": "CVPR Workshops 2024",
+    "year": 2024,
+    "abstract": "Anomaly detection methods output per-pixel scores, but turning them into a binary segmentation usually relies on statistics from nominal-only validation data. We propose a test time training strategy that extracts features directly from the anomalous test samples to train a classifier that discriminates defects, on top of any anomaly detection and segmentation method.",
+    "image": "assets/img/publications/ttt-anomaly-segmentation",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2404.03743"
+    }
+  },
+  {
+    "title": "Neural Processing of Tri-Plane Hybrid Neural Fields",
+    "authors": [
+      "Adriano Cardace",
+      "Pierluigi Zama Ramirez",
+      "Francesco Ballerini",
+      "Allan Zhou",
+      "Samuele Salti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Conference",
+    "venue": "International Conference on Learning Representations (ICLR 2024)",
+    "badge": "ICLR 2024",
+    "year": 2024,
+    "rank": "CORE A*",
+    "abstract": "We show that the tri-plane discrete data structure encodes rich information, which can be effectively processed by standard deep-learning machinery. We define an extensive benchmark covering a diverse set of fields such as occupancy, signed/unsigned distance, and, for the first time, radiance fields.",
+    "image": "assets/img/publications/triplane-neural-fields",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2310.01140",
+      "code": "https://github.com/CVLAB-Unibo/triplane_processing"
+    }
+  },
+  {
+    "title": "Depth super-resolution from explicit and implicit high-frequency features",
+    "authors": [
+      "Xin Qiao",
+      "Chenyang Ge",
+      "Youmin Zhang",
+      "Yanhui Zhou",
+      "Fabio Tosi",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Journal",
+    "venue": "Computer Vision and Image Understanding, vol. 237, art. 103841",
+    "badge": "CVIU 2023",
+    "year": 2023,
+    "rank": "Q1",
+    "abstract": "We propose a novel multi-stage depth super-resolution network, which progressively reconstructs high-resolution depth maps from explicit and implicit high-frequency features. The former are extracted by an efficient transformer processing both local and global contexts, while the latter are obtained by projecting color images into the frequency domain.",
+    "image": "assets/img/publications/depth-sr-high-frequency",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2303.09307"
+    }
+  },
+  {
+    "title": "Self-supervised depth super-resolution with contrastive multiview pre-training",
+    "authors": [
+      "Xin Qiao",
+      "Chenyang Ge",
+      "Chaoqiang Zhao",
+      "Fabio Tosi",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Journal",
+    "venue": "Neural Networks, vol. 168, pp. 223–236",
+    "badge": "Neural Networks 2023",
+    "year": 2023,
+    "rank": "Q1",
+    "image": "assets/img/publications/depth-sr-contrastive",
+    "links": {
+      "paper": "https://www.sciencedirect.com/science/article/pii/S0893608023005166"
+    }
+  },
+  {
+    "title": "Depth Restoration in Under-Display Time-of-Flight Imaging",
+    "authors": [
+      "Xin Qiao",
+      "Chenyang Ge",
+      "Pengchao Deng",
+      "Hao Wei",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 45, no. 5, pp. 5668–5683",
+    "badge": "TPAMI 2023",
+    "year": 2023,
+    "rank": "Q1",
+    "abstract": "We propose a cascaded deep network to restore depth from under-display ToF cameras: a complex-valued subnet jointly denoises, deblurs and enhances the raw measurements, and a second subnet refines the depth map. We also build a real and a large-scale synthetic UD-ToF dataset.",
+    "image": "assets/img/publications/under-display-tof",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/9903562"
+    }
+  },
+  {
+    "title": "Lightweight Self-Supervised Depth Estimation with few-beams LiDAR Data",
+    "authors": [
+      "Rizhao Fan",
+      "Fabio Tosi",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "British Machine Vision Conference (BMVC 2023)",
+    "badge": "BMVC 2023",
+    "year": 2023,
+    "rank": "CORE A",
+    "abstract": "A self-supervised depth completion network trained only on monocular videos and sparse raw LiDAR measurements: a lightweight multi-stage architecture with a novel guided sparse convolution and a distance-dependent outlier mask reaches state-of-the-art results from 4-beam LiDAR to 64-beam depth completion with a fraction of the parameters.",
+    "image": "assets/img/publications/few-beams-lidar-lightweight",
+    "links": {
+      "paper": "https://cris.unibo.it/handle/11585/962061",
+      "code": "https://github.com/franky-ciomp/GSCNN"
+    }
+  },
+  {
+    "title": "On-Site Adaptation for Monocular Depth Estimation with a Static Camera",
+    "authors": [
+      "Huan Li",
+      "Matteo Poggi",
+      "Fabio Tosi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "British Machine Vision Conference (BMVC 2023)",
+    "badge": "BMVC 2023",
+    "year": 2023,
+    "rank": "CORE A",
+    "abstract": "An on-site adaptation technique to deploy off-the-shelf monocular depth networks on a fixed camera mounted above the ground: it improves the depth of moving subjects, makes the predicted structure consistent with the scene and recovers absolute metric depth. We also release the StaticDepth dataset, with synthetic CARLA and real stereo sequences.",
+    "image": "assets/img/publications/onsite-adaptation",
+    "links": {
+      "dataset": "https://sites.google.com/view/staticdepth-dataset",
+      "paper": "https://proceedings.bmvc2023.org/901/"
+    }
   }
 ];
