@@ -506,6 +506,7 @@ window.PUBLICATIONS = [
     "badge": "CVPR 2026",
     "year": 2026,
     "rank": "CORE A*",
+    "tag": "Highlight",
     "image": "assets/img/publications/eventhub.jpg",
     "url": "https://bartn8.github.io/eventhub/",
     "links": {
