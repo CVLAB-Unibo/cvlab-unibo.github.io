@@ -27,7 +27,7 @@ window.RESEARCH = [
     title: "3D Perception & Depth",
     short: "Depth Perception",
     axis: "what",
-    image: "imgs/research/monocular.png",
+    image: "imgs/research/monocular.jpg",
     text: "How do we recover 3D information from images and sensors? We work on monocular depth, depth completion and super-resolution, depth from sparse LiDAR and time-of-flight data, optical flow and confidence estimation, with a focus on real scenes, hard conditions such as transparent and reflective surfaces, and efficient models.",
     keywords: ["depth", "disparity", "optical flow", "scene flow", "flowseek", "flowit", "confidence", "uncertainty", "time-of-flight", "tof", "monocular", "super-resolution", "profilometry"]
   },
@@ -51,7 +51,7 @@ window.RESEARCH = [
     title: "SLAM, Localization & Spatial Computing",
     short: "SLAM & Localization",
     axis: "what",
-    image: "imgs/research/slam.png",
+    image: "imgs/research/slam.jpg",
     text: "Tracking the camera and building maps in real time. Our SLAM works with neural implicit and Gaussian representations, depth and DINO foundation models, stereo and time-of-flight sensors, from RGB-D to monocular video.",
     keywords: ["slam", "localization", "localisation", "relocali", "pose estimation", "odometry", "camera pose", "and mapping", "mapping framework", "real-time mapping"]
   },

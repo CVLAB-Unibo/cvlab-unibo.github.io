@@ -1022,6 +1022,6 @@
   initHeroFigures();
   renderNav();
   renderFooter();
-  document.title = (document.title ? document.title + " | " : "") + S.name;
+  if (!document.title.includes(S.name)) document.title = (document.title ? document.title + " | " : "") + S.name;
   ({ home: renderHome, publications: renderPublications, news: renderNews, research: renderResearch, team: renderTeam, positions: renderPositions }[PAGE] || (() => {}))();
 })();
