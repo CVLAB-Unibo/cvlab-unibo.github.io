@@ -135,7 +135,7 @@
     return `<img src="${esc(url(path + "." + FIG_EXTS[0]))}" data-fig="${esc(url(path))}" data-ext="0" ${attrs}>`;
   }
 
-  const LINK_LABELS = { project: "Project", pdf: "PDF", paper: "Paper", workshop: "Workshop", preprint: "Preprint", arxiv: "arXiv", supp: "Supp.", code: "Code", demo: "Demo", video: "Video", poster: "Poster", slides: "Slides", weights: "Weights", dataset: "Dataset", extended: "Extended paper", leaderboard: "Leaderboard" };
+  const LINK_LABELS = { project: "Project", pdf: "PDF", paper: "Paper", openreview: "OpenReview", openaccess: "Open access", workshop: "Workshop", preprint: "Preprint", arxiv: "arXiv", supp: "Supp.", code: "Code", demo: "Demo", video: "Video", poster: "Poster", slides: "Slides", weights: "Weights", dataset: "Dataset", extended: "Extended paper", leaderboard: "Leaderboard" };
 
   const topicHref = (label) => `${url("publications/")}?topic=${encodeURIComponent(label)}`;
   const tagHref = (label) => `${url("publications/")}?tag=${encodeURIComponent(label)}`;
@@ -394,7 +394,7 @@
     const link = (p) => (p.url ? url(p.url) : p.links?.project ? url(p.links.project) : p.links?.pdf ? url(p.links.pdf) : null);
     const awards = pubs.filter((p) => /best|award|honou?rable|prize/i.test(p.tag || ""))
       .map((p) => ({ year: p.year, title: p.tag, event: venueLabel(p), work: p.title, href: link(p), who: authorsHtml(p) }))
-      .concat((window.AWARDS || []).map((a) => ({ ...a, href: a.url, who: a.person ? `Awarded to <strong>${esc(a.person)}</strong>` : "" })))
+      .concat((window.AWARDS || []).map((a) => ({ ...a, href: a.url, who: a.credit ? esc(a.credit) : a.person ? `Awarded to <strong>${esc(a.person)}</strong>` : "" })))
       .sort((a, b) => b.year - a.year);
     const dist = pubs.filter((p) => /^(oral|highlight|spotlight)/i.test(p.tag || "")).sort((a, b) => b.year - a.year);
     if (!awards.length && !dist.length) { el.closest("section").hidden = true; return; }
@@ -517,7 +517,7 @@
     (window.AWARDS || []).forEach((w) => {
       const parts = (w.event || "").split(/ · | – /), venue = (parts.find((x) => /^[A-Z][A-Za-z0-9]+ \d{4}$/.test(x)) || parts[0]).replace(/ \d{4}$/, "");
       add({ k: "award", year: w.year, venue, title: w.title,
-        body: `${w.work ? `<p>${link(w.work, w.url)}</p>` : w.url ? `<p>${link("Details ↗", w.url)}</p>` : ""}<p class="nw-who">${esc(w.event || "")}${w.person ? ` · awarded to <strong>${esc(w.person)}</strong>` : ""}</p>` });
+        body: `${w.work ? `<p>${link(w.work, w.url)}</p>` : w.url ? `<p>${link("Details ↗", w.url)}</p>` : ""}<p class="nw-who">${esc(w.event || "")}${w.credit ? ` · ${esc(w.credit)}` : w.person ? ` · awarded to <strong>${esc(w.person)}</strong>` : ""}</p>` });
     });
 
     // recognitions for reviewing / area chairing: one item per year, venues + names in small

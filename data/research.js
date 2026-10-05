@@ -72,6 +72,14 @@ window.RESEARCH = [
     keywords: ["anomal", "industrial", "inspection", "defect", "semiconductor"]
   },
   {
+    title: "Medical 3D Vision & Surgical Planning",
+    short: "Medical & Surgical",
+    axis: "what",
+    image: "imgs/research/medical.jpeg",
+    text: "Bringing 3D vision to the clinic: shape completion and implant generation for cranio- and maxillofacial surgery planning, from partial CT-derived meshes to complete patient-specific anatomies, and generative models such as flow matching for privacy-preserving synthetic craniofacial data.",
+    keywords: ["cranio", "maxillofacial", "surgery", "surgical", "implant generation", "skull", "medical", "clinical"]
+  },
+  {
     title: "Efficient & Real-Time Vision",
     short: "Efficient & Real-Time",
     axis: "how",

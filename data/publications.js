@@ -2934,5 +2934,173 @@ window.PUBLICATIONS = [
       "Depth Perception",
       "Stereo & Multi-Sensor"
     ]
+  },
+
+  /* ---- papers added at Giuseppe Lisanti's request ---- */
+  {
+    "title": "Why Adversarially Train Diffusion Models?",
+    "authors": [
+      "Maria Rosaria Briglia",
+      "Mujtaba Hussain Mirza",
+      "Giuseppe Lisanti",
+      "Iacopo Masi"
+    ],
+    "kind": "Conference",
+    "venue": "International Conference on Learning Representations (ICLR 2026)",
+    "badge": "ICLR 2026",
+    "year": 2026,
+    "rank": "CORE A*",
+    "abstract": "We adapt adversarial training to diffusion models, replacing the conventional invariance objective with an equivariance constraint aligned to the denoising dynamics of score matching, so that score-based generative models stay robust under noisy or corrupted input data.",
+    "image": "assets/img/publications/adv-train-diffusion",
+    "links": {
+      "pdf": "https://proceedings.iclr.cc/paper_files/paper/2026/file/5a5ddf0ab751861025c00700093c5677-Paper-Conference.pdf",
+      "openreview": "https://openreview.net/forum?id=lL6htAaolp"
+    }
+  },
+  {
+    "title": "Perturb, Attend, Detect, and Localize (PADL): Robust Proactive Image Defense",
+    "authors": [
+      "Filippo Bartolucci",
+      "Iacopo Masi",
+      "Giuseppe Lisanti"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Access, vol. 13, pp. 81755–81768",
+    "badge": "IEEE Access 2025",
+    "year": 2025,
+    "abstract": "PADL is a proactive image defense against manipulations by generative models: an encoder conditions a learnable perturbation on each input image, making it unique and robust against attacks, and a decoder extracts it to detect and localize the manipulated regions.",
+    "image": "assets/img/publications/padl",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/10980274",
+      "arxiv": "https://arxiv.org/abs/2409.17941",
+      "code": "https://github.com/filippobartolucci/PADL"
+    }
+  },
+  {
+    "title": "Semantic Image Synthesis via Class-Adaptive Cross-Attention",
+    "authors": [
+      "Tomaso Fontanini",
+      "Claudio Ferrari",
+      "Giuseppe Lisanti",
+      "Massimo Bertozzi",
+      "Andrea Prati"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Access, vol. 13, pp. 10326–10339",
+    "badge": "IEEE Access 2025",
+    "year": 2025,
+    "abstract": "We replace SPADE layers with class-adaptive cross-attention for semantic image synthesis, taking global image statistics into account for convincing local style editing and enabling shape manipulations without manual intervention on the semantic mask.",
+    "image": "assets/img/publications/ca2sis",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/10841835",
+      "arxiv": "https://arxiv.org/abs/2308.16071",
+      "code": "https://github.com/TFonta/CA2SIS"
+    }
+  },
+  {
+    "title": "Neural shape completion for personalized Maxillofacial surgery",
+    "authors": [
+      "Stefano Mazzocchetti",
+      "Riccardo Spezialetti",
+      "Mirko Bevini",
+      "Giovanni Badiali",
+      "Giuseppe Lisanti",
+      "Samuele Salti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Journal",
+    "venue": "Scientific Reports, vol. 14, no. 1, art. 19810",
+    "badge": "Scientific Reports 2024",
+    "year": 2024,
+    "abstract": "We study shape completion networks as clinical aids in maxillofacial surgery planning: a pipeline reconstructs complete eumorphic 3D meshes from partial meshes obtained from routine CT data, covering defects on both neurocranium and splanchnocranium, with a new dataset designed for the task.",
+    "image": "assets/img/publications/maxillofacial-completion",
+    "links": {
+      "paper": "https://www.nature.com/articles/s41598-024-68084-5"
+    }
+  },
+  {
+    "title": "Conditioning diffusion models via attributes and semantic masks for face generation",
+    "authors": [
+      "Giuseppe Lisanti",
+      "Nico Giambi"
+    ],
+    "kind": "Journal",
+    "venue": "Computer Vision and Image Understanding, vol. 244, art. 104026",
+    "badge": "CVIU 2024",
+    "year": 2024,
+    "rank": "Q1",
+    "abstract": "We propose a multi-conditioning approach for diffusion models via cross-attention, exploiting both attributes and semantic masks to generate high-quality and controllable face images, and study perceptual-focused loss weighting in the latent space.",
+    "image": "assets/img/publications/face-diffusion-conditioning",
+    "links": {
+      "paper": "https://www.sciencedirect.com/science/article/pii/S1077314224001073",
+      "arxiv": "https://arxiv.org/abs/2306.00914"
+    }
+  },
+  {
+    "title": "FrankenMask: Manipulating semantic masks with transformers for face parts editing",
+    "authors": [
+      "Tomaso Fontanini",
+      "Claudio Ferrari",
+      "Giuseppe Lisanti",
+      "Leonardo Galteri",
+      "Stefano Berretti",
+      "Massimo Bertozzi",
+      "Andrea Prati"
+    ],
+    "kind": "Journal",
+    "venue": "Pattern Recognition Letters, vol. 176, pp. 14–20",
+    "badge": "PRL 2023",
+    "year": 2023,
+    "abstract": "FrankenMask swaps and rearranges face parts in semantic masks for automatic editing of shape-related facial attributes, combining a Transformer encoder that learns the spatial relationships of facial parts with an encoder–decoder that reconstructs a complete mask.",
+    "image": "assets/img/publications/frankenmask",
+    "links": {
+      "paper": "https://www.sciencedirect.com/science/article/pii/S0167865523002829",
+      "openaccess": "https://air.unipr.it/handle/11381/2962452",
+      "code": "https://github.com/TFonta/FrankenMask_semantic"
+    }
+  },
+  {
+    "title": "Flow Matching for 3D Craniofacial Skeletal Data Generation",
+    "authors": [
+      "Giacomo Melacini",
+      "Stefano Mazzocchetti",
+      "Giuseppe Lisanti",
+      "Luigi Di Stefano",
+      "Samuele Salti"
+    ],
+    "kind": "Conference",
+    "venue": "Medical Imaging with Deep Learning (MIDL 2026)",
+    "badge": "MIDL 2026",
+    "year": 2026,
+    "abstract": "We generate synthetic craniofacial skeletal data with Flow Matching with Optimal Transport, to build large anonymized medical datasets without compromising patient privacy, and validate it on two clinical downstream tasks, skull alignment and shape completion, where it outperforms DDPMs in quality and robustness.",
+    "image": "assets/img/publications/craniofacial-flow-matching",
+    "links": {
+      "paper": "https://proceedings.mlr.press/v315/melacini26a.html",
+      "pdf": "https://raw.githubusercontent.com/mlresearch/v315/main/assets/melacini26a/melacini26a.pdf",
+      "openreview": "https://openreview.net/forum?id=O669OJ3fZf"
+    }
+  },
+  {
+    "title": "Deep 3D morphable model refinement via progressive growing of conditional Generative Adversarial Networks",
+    "authors": [
+      "Leonardo Galteri",
+      "Claudio Ferrari",
+      "Giuseppe Lisanti",
+      "Stefano Berretti",
+      "Alberto Del Bimbo"
+    ],
+    "kind": "Journal",
+    "venue": "Computer Vision and Image Understanding, vol. 185, pp. 31–42",
+    "badge": "CVIU 2019",
+    "year": 2019,
+    "rank": "Q1",
+    "abstract": "We refine the coarse reconstruction of a 3D Morphable Model with a conditional GAN: the face is represented as a three-channel image of depth, curvature and elevation, and an encoder–decoder trained progressively from low resolution produces fine-grained realistic details with lower reconstruction errors.",
+    "image": "assets/img/publications/3dmm-refinement",
+    "url": "https://clferrari.github.io/publication/CVIU19",
+    "links": {
+      "project": "https://clferrari.github.io/publication/CVIU19",
+      "paper": "https://www.sciencedirect.com/science/article/abs/pii/S1077314219300773",
+      "code": "https://github.com/clferrari/deep-3dmm-refinement"
+    }
   }
 ];

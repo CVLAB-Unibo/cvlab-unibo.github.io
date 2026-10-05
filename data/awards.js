@@ -16,8 +16,12 @@
      person  shown only for personal awards such as thesis prizes; the other
              awards are presented as awards of the lab
      url     page that documents the award (optional)
+     credit  free text shown instead of "Awarded to …", e.g. to credit a team outside the lab
    =========================================================================== */
 window.AWARDS = [
+  { year: 2026, title: "2nd and 3rd place",
+    event: "RoboRacer Autonomous Driving World Championship 2026 · Vienna",
+    credit: "Enrico Mannocci (CVLab PhD student) in collaboration with the Unibo Motorsport team" },
   { year: 2022, title: "Best PhD Thesis Award", person: "Fabio Tosi",
     event: "CVPL 2022", work: "Deep-learning for 3D reconstruction",
     url: "https://www.cvpl.it/en/awards/#miglior_tesi_dottorato" },
