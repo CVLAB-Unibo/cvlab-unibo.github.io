@@ -3102,5 +3102,29 @@ window.PUBLICATIONS = [
       "paper": "https://www.sciencedirect.com/science/article/abs/pii/S1077314219300773",
       "code": "https://github.com/clferrari/deep-3dmm-refinement"
     }
+  },
+
+  /* ---- IROS 2026 ---- */
+  {
+    "title": "ProDyGS: Dynamic Gaussian Splatting from a Single Static Monocular Camera",
+    "authors": [
+      "Ugo Leone Cavalcanti",
+      "Fabio Tosi",
+      "Matteo Poggi",
+      "Andrea Conti",
+      "Vladimir Zlokolica",
+      "Valerio Cambareri",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2026), Pittsburgh",
+    "badge": "IROS 2026",
+    "year": 2026,
+    "rank": "CORE A",
+    "abstract": "ProDyGS is a dynamic 3D Gaussian Splatting framework for novel view synthesis from videos captured by a single static camera, where multi-view supervision is completely absent: temporally consistent monocular depth drives proxy images from arbitrary viewpoints, and a deformation network learns the temporal dynamics.",
+    "image": "assets/img/publications/prodygs",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2609.32711"
+    }
   }
 ];
