@@ -175,7 +175,7 @@
     const V = window.VENUES || {};
     if (/^CoRR|arXiv/i.test(p.venue)) return "preprint";
     if (/^PhD thesis/i.test(p.venue)) return "thesis";
-    if (/^Zenodo/i.test(p.venue)) return "preprint";                       // demos / software records
+    if (p.kind === "Demo" || /^Zenodo/i.test(p.venue)) return "demo";     // demos / software records
     const key = venueKey(p);
     if (/workshop/i.test(p.venue + " " + key) || /^(ICCVW|CVPRW|ECCVW|WACVW|3DVW)$/.test(key)) return "workshop";
     if (p.rank) {
@@ -203,7 +203,7 @@
     let from = last - 4;                       // default view: the last 5 years
     const draw = () => {
       const inRange = all.filter((p) => p.year >= from);
-      const peer = inRange.filter((p) => !["preprint", "thesis", "workshop"].includes(tierOf(p)));
+      const peer = inRange.filter((p) => !["preprint", "thesis", "workshop", "demo"].includes(tierOf(p)));
       const bucket = (p) => { const t = tierOf(p); return TIERS[t] ? t : "other"; };
       const n = { top: 0, q1: 0, a: 0, other: 0 };
       peer.forEach((p) => n[bucket(p)]++);
@@ -215,7 +215,7 @@
           <div class="seg" role="group" aria-label="Time range"><button type="button" data-from="${last - 4}" class="${from ? "on" : ""}">Last 5 years</button><button type="button" data-from="0" class="${from === 0 ? "on" : ""}">All time</button></div></div>
         <div class="sum-bar" role="img" aria-label="Peer-reviewed papers by venue tier">${tiers.map((t) => `<i style="flex:${n[t]};background:${TIERS[t].color}" title="${TIERS[t].name}: ${n[t]}"></i>`).join("")}</div>
         <div class="sum-legend">${tiers.map((t) => `<span><i style="background:${TIERS[t].color}"></i><b>${n[t]}</b>${TIERS[t].name}</span>`).join("")}
-          <span class="info" tabindex="0" title="Conferences follow the ICORE 2026 ranking; journals are Q1 in their Scimago/JCR category. Not counted: ${nWs} workshop papers and preprints.">how we count</span></div>`;
+          <span class="info" tabindex="0" title="Conferences follow the ICORE 2026 ranking; journals are Q1 in their Scimago/JCR category. Not counted: ${nWs} workshop papers, demos and preprints.">how we count</span></div>`;
     };
     el.addEventListener("click", (e) => { const b = e.target.closest("[data-from]"); if (b) { from = +b.dataset.from; draw(); } });
     draw();
@@ -261,7 +261,11 @@
         const okK = !activeK || c.dataset.tags.split("|").includes(activeK);
         c.hidden = !okT || !okK || (!!q && !c.dataset.search.includes(q));
       });
-      root.querySelectorAll(".year-group").forEach((g) => (g.hidden = ![...g.querySelectorAll(".card")].some((c) => !c.hidden)));
+      root.querySelectorAll(".year-group").forEach((g) => {
+        const n = [...g.querySelectorAll(".card")].filter((c) => !c.hidden).length;
+        g.hidden = !n;
+        g.querySelector(".year-count").textContent = n;                      // the count follows filters and search
+      });
       bar?.querySelectorAll(".tfilter").forEach((b) => b.classList.toggle("on", b.dataset.f === activeT));
       more?.querySelectorAll(".tfilter").forEach((b) => b.classList.toggle("on", b.dataset.k === activeK));
       if (activeK && more) more.querySelector("details").open = true;
@@ -371,9 +375,14 @@
     const events = (re) => [...new Set(svc.filter((a) => re.test(a.title)).map((a) => a.event))];
     const venues = (re) => { const m = {}; svc.filter((a) => re.test(a.title)).forEach((a) => { const v = a.event.replace(/\s*\d{4}$/, ""); m[v] = (m[v] || 0) + 1; }); return Object.keys(m).sort((a, b) => m[b] - m[a]); };
     const list = (xs) => (xs.length > 1 ? xs.slice(0, -1).join(", ") + " and " + xs[xs.length - 1] : xs[0] || "");
-    const ae = events(/Associate Editor/), ac = events(/^Area Chair/), out = venues(/^Outstanding/);
+    const ae = events(/Associate Editor/), ac = events(/^Area Chair/), out = venues(/^(Outstanding|Top Reviewer)/);
     const roles = [ae.length && `associate editors (${ae.join(", ")})`, ac.length && `area chairs (${ac.join(", ")})`, "reviewers for the main computer vision and machine learning venues"].filter(Boolean);
-    return `<p class="svc-note">Beyond research, members of the lab serve the community as ${esc(list(roles))}${out.length ? `, and have received Outstanding Reviewer and Area Chair awards at ${esc(list(out))}` : ""}.</p>`;
+    // generic wording: "multiple" only when there is more than one award of that kind
+    const count = (re) => svc.filter((a) => re.test(a.title)).reduce((n, a) => n + (a.who || [1]).length, 0);
+    const nAC = count(/^Outstanding Area Chair/), nRev = count(/^(Outstanding|Top) Reviewer/);
+    const names = [nAC && "Outstanding Area Chair", nRev && "Outstanding Reviewer"].filter(Boolean);
+    const awards = names.length ? `${nAC + nRev > 1 ? "multiple " : "an "}${names.join(" and ")} award${nAC + nRev > 1 ? "s" : ""}` : "";
+    return `<p class="svc-note">Beyond research, members of the lab serve the community as ${esc(list(roles))}${awards ? `, receiving ${esc(awards)} at ${esc(list(out))}` : ""}.</p>`;
   }
 
   function renderAwards(el) {
@@ -474,8 +483,8 @@
   // From NEWS_SINCE on everything is open; the earlier years sit behind the "Earlier events" button.
   const NEWS_SINCE = 2020;
   const NEWS_MONTH = { WACV: 2, AAAI: 2, DATE: 3, ICLR: 4, ICRA: 5, CVPR: 6, ECCV: 9, "3DV": 9, ICCV: 10, IROS: 10, Expo: 10, BMVC: 11, NeurIPS: 12, "SIGGRAPH Asia": 12 };
-  const NEWS_KINDS = { all: "All", paper: "Papers", award: "Awards", workshop: "Workshops & challenges we organise", tutorial: "Tutorials", demo: "Demos", patent: "Patents", people: "People" };
-  const NEWS_LABEL = { paper: "Paper", award: "Award", workshop: "Organised", tutorial: "Tutorial", demo: "Demo", patent: "Patent", people: "People" };
+  const NEWS_KINDS = { all: "All", paper: "Papers", award: "Awards", service: "Reviewer awards", workshop: "Workshops & challenges we organise", tutorial: "Tutorials", demo: "Demos", patent: "Patents", people: "People" };
+  const NEWS_LABEL = { paper: "Paper", award: "Award", service: "Recognition", workshop: "Organised", tutorial: "Tutorial", demo: "Demo", patent: "Patent", people: "People" };
 
   function newsItems() {
     const link = (t, h) => (h ? `<a href="${esc(h)}"${/^https?:/.test(h) ? ' target="_blank" rel="noopener"' : ""}>${esc(t)}</a>` : esc(t));
@@ -508,7 +517,17 @@
         body: `${w.work ? `<p>${link(w.work, w.url)}</p>` : w.url ? `<p>${link("Details ↗", w.url)}</p>` : ""}<p class="nw-who">${esc(w.event || "")}${w.person ? ` · awarded to <strong>${esc(w.person)}</strong>` : ""}</p>` });
     });
 
-    // "service" rows are left out on purpose (they only feed one line on the home page)
+    // recognitions for reviewing / area chairing: one item per year, venues + names in small
+    const recog = (window.ACTIVITIES || []).filter((x) => x.kind === "service" && x.year && /^(Outstanding|Top Reviewer)/.test(x.title));
+    [...new Set(recog.map((x) => x.year))].forEach((y) => {
+      const rows = recog.filter((x) => x.year === y).sort((a, b) => month(b.event) - month(a.event) || /Chair/.test(b.title) - /Chair/.test(a.title));
+      const n = rows.reduce((t, x) => t + (x.who || [1]).length, 0);
+      add({ k: "service", year: y, m: Math.max(...rows.map((x) => month(x.event))) + 0.2, venue: [...new Set(rows.map((x) => x.event.replace(/ \d{4}$/, "")))].join(" · "),
+        title: `${n} reviewing award${n > 1 ? "s" : ""}`,
+        body: `<ul class="nw-recog">${rows.map((x) => `<li><b>${esc(x.title)}</b> · ${esc(x.event)}<span>${esc((x.who || []).join(", "))}</span></li>`).join("")}</ul>` });
+    });
+
+    // associate editor / area chair roles are not in the timeline: they feed one line on the home page
     (window.ACTIVITIES || []).filter((x) => ["workshop", "tutorial", "demo", "patent"].includes(x.kind)).forEach((x) => {
       const ev = (x.event || "").replace(/ \d{4}$/, "");
       add({ k: x.kind, year: x.year, title: x.title,

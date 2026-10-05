@@ -2859,5 +2859,79 @@ window.PUBLICATIONS = [
       "project": "https://cvlab-unibo.github.io/cts-web/",
       "paper": "https://ieeexplore.ieee.org/document/10214589"
     }
+  },
+
+  /* ---- papers reported missing by Alex Costanzino and Luca Bartolomei; CVPR 2024 demo ---- */
+  {
+    "title": "Towards Reliable Identification of Diffusion-based Image Manipulations",
+    "authors": [
+      "Alex Costanzino",
+      "Woody Bayliss",
+      "Juil Sock",
+      "Marc Gorriz Blanch",
+      "Danijela Horak",
+      "Ivan Laptev",
+      "Philip Torr",
+      "Fabio Pizzati"
+    ],
+    "kind": "Conference",
+    "venue": "Conference on Neural Information Processing Systems (NeurIPS 2025), pp. 42473–42508",
+    "badge": "NeurIPS 2025",
+    "year": 2025,
+    "rank": "CORE A*",
+    "abstract": "We propose RADAR (ReliAble iDentification of inpainted AReas), which builds on foundation models, combines features from different image modalities and uses an auxiliary contrastive loss to isolate manipulated patches, generalising to a large number of diffusion models. We also introduce BBC-PAIR, a benchmark for realistic evaluation.",
+    "image": "assets/img/publications/radar",
+    "url": "https://alex-costanzino.github.io/radar/",
+    "links": {
+      "project": "https://alex-costanzino.github.io/radar/",
+      "paper": "https://neurips.cc/virtual/2025/loc/san-diego/poster/117068",
+      "arxiv": "https://arxiv.org/abs/2506.05466",
+      "code": "https://github.com/alex-costanzino/RADAR-code",
+      "dataset": "https://github.com/bbc/PAIR",
+      "demo": "https://huggingface.co/spaces/radar-ifdl/RADAR-demo",
+      "poster": "https://neurips.cc/media/PosterPDFs/NeurIPS%202025/117068.png?t=1762382992.4399571"
+    }
+  },
+  {
+    "title": "Towards Event-Based Stereo Depth Estimation at Millisecond Resolution",
+    "authors": [
+      "Enrico Mannocci",
+      "Luca Bartolomei",
+      "Fabio Tosi",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Journal",
+    "venue": "IET Image Processing, vol. 20, no. 1, art. e70472",
+    "badge": "IET Image Processing 2026",
+    "year": 2026,
+    "abstract": "We introduce MADNet-ε, a lightweight architecture for event-based stereo matching that infers disparity at more than 140 FPS: events are stacked into 10 ms histograms and a recurrent feature extractor with spiking convolutional LSTM cells keeps temporal information. It is pre-trained on ε-CARLA, a new synthetic dataset generated with the CARLA simulator.",
+    "image": "assets/img/publications/madnet-epsilon",
+    "links": {
+      "paper": "https://doi.org/10.1049/ipr2.70472"
+    }
+  },
+  {
+    "title": "Robust depth perception through Virtual Pattern Projection",
+    "authors": [
+      "Luca Bartolomei",
+      "Matteo Poggi",
+      "Fabio Tosi",
+      "Andrea Conti",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Demo",
+    "venue": "Live demo at CVPR 2024 (record on Zenodo)",
+    "badge": "CVPR 2024 Demo",
+    "year": 2024,
+    "image": "assets/img/publications/vpp-demo2024",
+    "links": {
+      "demo": "https://github.com/bartn8/cvpr24-demo",
+      "paper": "https://zenodo.org/records/12903866"
+    },
+    "topics": [
+      "Depth Perception",
+      "Stereo & Multi-Sensor"
+    ]
   }
 ];

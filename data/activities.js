@@ -1,6 +1,6 @@
 /* ===========================================================================
    Activities of the lab beyond papers. Workshops, tutorials, demos and patents are
-   shown in the News timeline; service rows only in one line on the home page.
+   shown in the News timeline, together with the reviewing awards of the service rows.
 
    kind: "workshop"  workshops and challenges organised by CVLab (not chair roles of single members)
          "tutorial"  tutorials we give at conferences
@@ -9,9 +9,9 @@
          "service"   recognitions for reviewing / area chairing, editorial roles
 
    Fields: year, event (short, e.g. "CVPR 2026"), title, people, url, note.
-   "service" rows are not listed anywhere: they only feed one sentence under the awards
-   on the home page ("members of the lab serve as associate editors (…), area chairs (…)").
-   `who` lists the members concerned; it is never shown. Add yourself!
+   "service" rows: Outstanding / Top Reviewer and Outstanding Area Chair awards appear in the
+   News timeline (one item per year, with the names in small); all service rows also feed one
+   sentence under the awards on the home page. `who` lists the members concerned. Add yourself!
    =========================================================================== */
 window.ACTIVITIES = [
   /* ---- workshops & challenges ---- */
@@ -97,8 +97,11 @@ window.ACTIVITIES = [
   { kind: "service", year: 2026, event: "NeurIPS 2026", title: "Area Chair", who: ["Matteo Poggi"] },
   { kind: "service", year: 2026, event: "CVPR 2026", title: "Area Chair", who: ["Matteo Poggi", "Fabio Tosi"] },
   { kind: "service", year: 2026, event: "CVPR 2026", title: "Outstanding Area Chair", who: ["Matteo Poggi", "Fabio Tosi"] },
+  { kind: "service", year: 2026, event: "ECCV 2026", title: "Outstanding Reviewer", who: ["Pierluigi Zama Ramirez", "Luca Bartolomei", "Alex Costanzino"] },
+  { kind: "service", year: 2026, event: "CVPR 2026", title: "Outstanding Reviewer", who: ["Pierluigi Zama Ramirez", "Luca Bartolomei"] },
+  { kind: "service", year: 2025, event: "NeurIPS 2025", title: "Top Reviewer", who: ["Luca Bartolomei"] },
   { kind: "service", year: 2025, event: "ICCV 2025", title: "Outstanding Reviewer", who: ["Matteo Poggi", "Fabio Tosi"] },
-  { kind: "service", year: 2025, event: "CVPR 2025", title: "Outstanding Reviewer", who: ["Matteo Poggi", "Fabio Tosi"] },
+  { kind: "service", year: 2025, event: "CVPR 2025", title: "Outstanding Reviewer", who: ["Matteo Poggi", "Fabio Tosi", "Pierluigi Zama Ramirez", "Luca Bartolomei", "Alex Costanzino"] },
   { kind: "service", year: 2025, event: "BMVC 2025", title: "Outstanding Reviewer", who: ["Matteo Poggi"] },
   { kind: "service", year: 2024, event: "ECCV 2024", title: "Outstanding Reviewer", who: ["Fabio Tosi"] },
   { kind: "service", year: 2024, event: "CVPR 2024", title: "Outstanding Reviewer", who: ["Matteo Poggi", "Fabio Tosi"] },
@@ -106,10 +109,10 @@ window.ACTIVITIES = [
   { kind: "service", year: 2023, event: "CVPR 2023", title: "Outstanding Reviewer", who: ["Matteo Poggi", "Fabio Tosi"] },
   { kind: "service", year: 2022, event: "ECCV 2022", title: "Outstanding Reviewer", who: ["Matteo Poggi"] },
   { kind: "service", year: 2021, event: "ICCV 2021", title: "Outstanding Reviewer", who: ["Fabio Tosi"] },
-  { kind: "service", year: 2021, event: "CVPR 2021", title: "Outstanding Reviewer", who: ["Matteo Poggi"] },
+  { kind: "service", year: 2021, event: "CVPR 2021", title: "Outstanding Reviewer", who: ["Matteo Poggi", "Samuele Salti"] },
   { kind: "service", year: 2020, event: "ECCV 2020", title: "Outstanding Reviewer", who: ["Fabio Tosi"] },
   { kind: "service", year: 2020, event: "ACCV 2020", title: "Outstanding Reviewer", who: ["Matteo Poggi"] },
-  { kind: "service", year: 2020, event: "CVPR 2020", title: "Outstanding Reviewer", who: ["Matteo Poggi"] },
+  { kind: "service", year: 2020, event: "CVPR 2020", title: "Outstanding Reviewer", who: ["Matteo Poggi", "Samuele Salti"] },
   { kind: "service", year: 2019, event: "CVPR 2019", title: "Outstanding Reviewer", who: ["Matteo Poggi"] },
   { kind: "service", year: 2018, event: "CVPR 2018", title: "Outstanding Reviewer", who: ["Matteo Poggi"] }
 ];

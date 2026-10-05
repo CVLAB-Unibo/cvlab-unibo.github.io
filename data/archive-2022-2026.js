@@ -36,7 +36,6 @@ window.ARCHIVE = (window.ARCHIVE || []).concat([
   [2024, "Self-Evolving Depth-Supervised 3D Gaussian Splatting from Rendered Stereo Pairs", "Sadra Safadoust, Fabio Tosi, Fatma Güney, Matteo Poggi", "BMVC 2024"],
   [2024, "Federated Online Adaptation for Deep Stereo", "Matteo Poggi, Fabio Tosi", "CVPR 2024: 20165-20175"],
   [2024, "Diffusion Models for Monocular Depth Estimation: Overcoming Challenging Conditions", "Fabio Tosi, Pierluigi Zama Ramirez, Matteo Poggi", "ECCV (23) 2024: 236-257"],
-  [2024, "Robust depth perception through Virtual Pattern Projection (CVPR 2024 DEMO)", "Luca Bartolomei, Matteo Poggi, Fabio Tosi, Andrea Conti, Stefano Mattoccia", "Zenodo, 2024"],
   [2024, "LLaNA: Large Language and NeRF Assistant", "Andrea Amaduzzi, Pierluigi Zama Ramirez, Giuseppe Lisanti, Samuele Salti, Luigi Di Stefano", "NeurIPS 2024"],
 
   /* 2023 */
