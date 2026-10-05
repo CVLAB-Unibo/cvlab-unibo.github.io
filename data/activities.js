@@ -93,6 +93,10 @@ window.ACTIVITIES = [
 
   /* ---- service to the community ---- */
   { kind: "service", year: null, event: "IJCV", title: "Associate Editor", who: ["Matteo Poggi"] },
+  // editorial roles without a year: only the venue name goes into the generic line on the home page
+  { kind: "service", year: null, event: "ECCV", title: "Area Chair / Associate Editor", who: ["Fabio Tosi"] },
+  { kind: "service", year: null, event: "ICRA", title: "Area Chair / Associate Editor", who: ["Fabio Tosi"] },
+  { kind: "service", year: null, event: "IROS", title: "Area Chair / Associate Editor", who: ["Fabio Tosi"] },
   { kind: "service", year: 2026, event: "ICRA 2026", title: "Associate Editor", who: ["Matteo Poggi"] },
   { kind: "service", year: 2026, event: "NeurIPS 2026", title: "Area Chair", who: ["Matteo Poggi"] },
   { kind: "service", year: 2026, event: "CVPR 2026", title: "Area Chair", who: ["Matteo Poggi", "Fabio Tosi"] },

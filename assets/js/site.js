@@ -372,17 +372,20 @@
   function serviceHtml() {
     const svc = (window.ACTIVITIES || []).filter((a) => a.kind === "service");
     if (!svc.length) return "";
-    const events = (re) => [...new Set(svc.filter((a) => re.test(a.title)).map((a) => a.event))];
     const venues = (re) => { const m = {}; svc.filter((a) => re.test(a.title)).forEach((a) => { const v = a.event.replace(/\s*\d{4}$/, ""); m[v] = (m[v] || 0) + 1; }); return Object.keys(m).sort((a, b) => m[b] - m[a]); };
     const list = (xs) => (xs.length > 1 ? xs.slice(0, -1).join(", ") + " and " + xs[xs.length - 1] : xs[0] || "");
-    const ae = events(/Associate Editor/), ac = events(/^Area Chair/), out = venues(/^(Outstanding|Top Reviewer)/);
-    const roles = [ae.length && `associate editors (${ae.join(", ")})`, ac.length && `area chairs (${ac.join(", ")})`, "reviewers for the main computer vision and machine learning venues"].filter(Boolean);
+    // editorial roles: one generic list of venues, without years and without telling AE from AC
+    const ORDER = ["TPAMI", "IJCV", "CVPR", "ICCV", "ECCV", "NeurIPS", "ICLR", "ICRA", "IROS"];
+    const rank = (v) => (ORDER.includes(v) ? ORDER.indexOf(v) : ORDER.length);
+    const ed = [...new Set(svc.filter((a) => /Editor|^Area Chair/.test(a.title)).map((a) => a.event.replace(/\s*\d{4}$/, "")))].sort((a, b) => rank(a) - rank(b));
+    const out = venues(/^(Outstanding|Top Reviewer)/);
+    const roles = (ed.length ? `as associate editors and area chairs for ${list(ed)}, and ` : "") + "as reviewers for the main computer vision and machine learning venues";
     // generic wording: "multiple" only when there is more than one award of that kind
     const count = (re) => svc.filter((a) => re.test(a.title)).reduce((n, a) => n + (a.who || [1]).length, 0);
     const nAC = count(/^Outstanding Area Chair/), nRev = count(/^(Outstanding|Top) Reviewer/);
     const names = [nAC && "Outstanding Area Chair", nRev && "Outstanding Reviewer"].filter(Boolean);
     const awards = names.length ? `${nAC + nRev > 1 ? "multiple " : "an "}${names.join(" and ")} award${nAC + nRev > 1 ? "s" : ""}` : "";
-    return `<p class="svc-note">Beyond research, members of the lab serve the community as ${esc(list(roles))}${awards ? `, receiving ${esc(awards)} at ${esc(list(out))}` : ""}.</p>`;
+    return `<p class="svc-note">Beyond research, members of the lab serve the community ${esc(roles)}${awards ? `, receiving ${esc(awards)} at ${esc(list(out))}` : ""}.</p>`;
   }
 
   function renderAwards(el) {
