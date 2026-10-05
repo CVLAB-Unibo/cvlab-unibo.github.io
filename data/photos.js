@@ -32,7 +32,10 @@ window.PHOTOS = [
   "assets/img/hero/IMG_20190615_192328.jpg",
   "assets/img/hero/IMG_20190619_093901.jpg",
   "assets/img/hero/IMG_20190619_194230.jpg",
+  "assets/img/hero/IMG_20250521_171455_657.jpg",
+  "assets/img/hero/IMG_20260604_172209.jpg",
   "assets/img/hero/Untitled.jpg",
   "assets/img/hero/canyon.jpg",
-  "assets/img/hero/eog-wallpaper.jpg"
+  "assets/img/hero/eog-wallpaper.jpg",
+  "assets/img/hero/photo_2026-10-05_11-50-57.jpg"
 ];

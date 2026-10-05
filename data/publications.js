@@ -779,7 +779,7 @@ window.PUBLICATIONS = [
     ],
     "authorLinks": {
       "Luca Bartolomei": "https://bartn8.github.io/",
-      "Enrico Mannocci": "https://www.unibo.it/sitoweb/enrico.mannocci3/en",
+      "Enrico Mannocci": "https://noce99.github.io/",
       "Matteo Poggi": "https://mattpoggi.github.io/",
     },
     "kind": "Conference",

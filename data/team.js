@@ -58,7 +58,7 @@ window.TEAM = [
     people: [
       { name: "Ugo Leone Cavalcanti",  role: "PhD Student", url: "https://www.ugoleonecavalcanti.com/" },
       { name: "Ziren Gong",            role: "PhD Student", url: "https://zorangong.github.io/" },
-      { name: "Enrico Mannocci",       role: "PhD Student", url: "https://www.unibo.it/sitoweb/enrico.mannocci3/en" },
+      { name: "Enrico Mannocci",       role: "PhD Student", url: "https://noce99.github.io/" },
       { name: "Iacopo Curti",          role: "PhD Student", url: "https://www.unibo.it/sitoweb/iacopo.curti2" },
       { name: "Giacomo Melacini",      role: "PhD Student", url: "https://chavelanda.github.io/" },
       { name: "Edoardo Merli",         role: "PhD Student", url: "https://www.linkedin.com/in/edoardo-merli" },
