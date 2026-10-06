@@ -3239,5 +3239,105 @@ window.PUBLICATIONS = [
       "paper": "https://ieeexplore.ieee.org/document/9776555",
       "arxiv": "https://arxiv.org/abs/2204.01693"
     }
+  },
+
+  /* ---- 2022 papers moved here from the archive ---- */
+  {
+    "title": "Real-Time Self-Supervised Monocular Depth Estimation Without GPU",
+    "authors": [
+      "Matteo Poggi",
+      "Fabio Tosi",
+      "Filippo Aleotti",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Transactions on Intelligent Transportation Systems, vol. 23, no. 10, pp. 17342–17353",
+    "badge": "T-ITS 2022",
+    "year": 2022,
+    "rank": "Q1",
+    "abstract": "PyD-Net and PyD-Net2 are compact CNNs for monocular depth estimation trained with self-supervision from a stereo rig: they trade a small drop in accuracy for 2× to 100× lower runtime and memory, and run in real time on embedded and consumer devices, even without a GPU.",
+    "image": "assets/img/publications/depth-without-gpu",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/9733979"
+    }
+  },
+  {
+    "title": "A Cascade Dense Connection Fusion Network for Depth Completion",
+    "authors": [
+      "Rizhao Fan",
+      "Zhigen Li",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "British Machine Vision Conference (BMVC 2022)",
+    "badge": "BMVC 2022",
+    "year": 2022,
+    "rank": "CORE A",
+    "abstract": "A lightweight yet effective network for depth completion that fuses multi-modal and multi-level features through cascaded dense connection fusion blocks, multi-scale features and a modality-aware aggregation mechanism, competitive on KITTI with far fewer parameters.",
+    "image": "assets/img/publications/cascade-depth-completion",
+    "links": {
+      "pdf": "https://papers.bmvc2022.cvml.group/0843.pdf"
+    }
+  },
+  {
+    "title": "Online Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions",
+    "authors": [
+      "Theodoros Panagiotakopoulos",
+      "Pier Luigi Dovesi",
+      "Linus Härenstam-Nielsen",
+      "Matteo Poggi"
+    ],
+    "kind": "Conference",
+    "venue": "European Conference on Computer Vision (ECCV 2022), pp. 128–146",
+    "badge": "ECCV 2022",
+    "year": 2022,
+    "rank": "CORE A*",
+    "abstract": "We tackle Online Domain Adaptation (OnDA) for semantic segmentation, where domain changes occur continuously and unpredictably during deployment: our pipeline is robust to gradual or sudden shifts, such as rain and fog, and adapts to new domains without catastrophic forgetting of the previous ones.",
+    "image": "assets/img/publications/online-da-segmentation",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2207.10667",
+      "code": "https://github.com/theo2021/OnDA"
+    }
+  },
+  {
+    "title": "Meta-confidence estimation for stereo matching",
+    "authors": [
+      "Seungryong Kim",
+      "Matteo Poggi",
+      "Sunok Kim",
+      "Kwanghoon Sohn",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE International Conference on Robotics and Automation (ICRA 2022), pp. 10624–10631",
+    "badge": "ICRA 2022",
+    "year": 2022,
+    "rank": "CORE A*",
+    "abstract": "We estimate the confidence of a disparity map taking into account, for the first time, the uncertainty of the confidence estimation itself: a second-level meta-confidence finds incorrect confidence predictions and learns to correct them, for both random-forest and deep confidence estimators.",
+    "image": "assets/img/publications/meta-confidence",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/9811620"
+    }
+  },
+  {
+    "title": "Unsupervised confidence for LiDAR depth maps and applications",
+    "authors": [
+      "Andrea Conti",
+      "Matteo Poggi",
+      "Filippo Aleotti",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2022), pp. 8352–8359",
+    "badge": "IROS 2022",
+    "year": 2022,
+    "rank": "CORE A",
+    "abstract": "We propose an unsupervised framework that learns to estimate the confidence of LiDAR sparse depth maps projected on the camera image, filtering out the noise and gross outliers they contain; results on KITTI show the benefits for a wide range of downstream tasks.",
+    "image": "assets/img/publications/lidar-confidence",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2210.03118",
+      "code": "https://github.com/andreaconti/lidar-confidence"
+    }
   }
 ];
