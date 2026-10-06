@@ -77,7 +77,7 @@ window.RESEARCH = [
     axis: "what",
     image: "imgs/research/medical.jpeg",
     text: "Bringing 3D vision to the clinic: shape completion and implant generation for cranio- and maxillofacial surgery planning, from partial CT-derived meshes to complete patient-specific anatomies, and generative models such as flow matching for privacy-preserving synthetic craniofacial data.",
-    keywords: ["cranio", "maxillofacial", "surgery", "surgical", "implant generation", "skull", "medical", "clinical"]
+    keywords: ["cranio", "maxillofacial", "surgery", "surgical", "implant generation", "skull", "medical", "clinical", "cephalometric"]
   },
   {
     title: "Efficient & Real-Time Vision",
@@ -166,7 +166,7 @@ window.TAXONOMY = {
     "Robotics": ["robot", "grasp", "navigation"],
     "Industrial Inspection": ["industrial", "anomal", "defect", "inspection", "semiconductor"],
     "Human-Object Interaction": ["human-object"],
-    "Medical": ["cranio", "maxillofacial", "surgery", "surgical", "implant generation", "skull", "medical", "clinical"]
+    "Medical": ["cranio", "maxillofacial", "surgery", "surgical", "implant generation", "skull", "medical", "clinical", "cephalometric"]
   }
 };
 

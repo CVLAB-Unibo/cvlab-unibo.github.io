@@ -3077,7 +3077,8 @@ window.PUBLICATIONS = [
     "links": {
       "paper": "https://proceedings.mlr.press/v315/melacini26a.html",
       "pdf": "https://raw.githubusercontent.com/mlresearch/v315/main/assets/melacini26a/melacini26a.pdf",
-      "openreview": "https://openreview.net/forum?id=O669OJ3fZf"
+      "openreview": "https://openreview.net/forum?id=O669OJ3fZf",
+      "code": "https://github.com/Chavelanda/skeletal_fm"
     }
   },
   {
@@ -3551,6 +3552,32 @@ window.PUBLICATIONS = [
       "pdf": "https://openaccess.thecvf.com/content/ICCV2021/papers/Poggi_Sensor-Guided_Optical_Flow_ICCV_2021_paper.pdf",
       "arxiv": "https://arxiv.org/abs/2109.15321",
       "code": "https://github.com/mattpoggi/sensor-guided-flow"
+    }
+  },
+
+  /* ---- MICCAI 2026 workshop ---- */
+  {
+    "title": "Attention Voting for 3D Cephalometric Landmark Detection",
+    "authors": [
+      "Giacomo Melacini",
+      "Carlotta Bortolami",
+      "Chiara Gulotta",
+      "Giovanni Badiali",
+      "Giuseppe Lisanti",
+      "Luigi Di Stefano",
+      "Samuele Salti"
+    ],
+    "kind": "Workshop",
+    "venue": "MICCAI 2026 Workshops – ODIN",
+    "badge": "MICCAI Workshops 2026",
+    "year": 2026,
+    "abstract": "Attention Voting models 3D cephalometric landmark detection as a matching problem between learned landmark embeddings and spatial feature maps, turning cross-attention scores into continuous coordinates; on in-house CT/CBCT scans and the public MMLD dataset it matches or outperforms existing methods.",
+    "image": "assets/img/publications/attention_voting.png",
+    "url": "https://papers.miccai.org/miccai-2026-sat/ODIN_006.html",
+    "links": {
+      "paper": "https://papers.miccai.org/miccai-2026-sat/ODIN_006.html",
+      "pdf": "https://papers.miccai.org/miccai-2026-sat/paper/ODIN_006.pdf",
+      "code": "https://github.com/Chavelanda/attention_voting"
     }
   }
 ];
