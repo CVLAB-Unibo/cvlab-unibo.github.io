@@ -102,7 +102,7 @@ window.TEAM = [
       { name: "Federico Tombari",       role: "Now Director of Research at Google, Zurich", url: "https://federicotombari.github.io/" },
       { name: "Daniele De Gregorio",    role: "Now CEO of eyecan.ai", url: "https://www.eyecan.ai/" },
       { name: "Rizhao Fan",             role: "Now at the Research Institute of Mine Artificial Intelligence", url: "https://www.linkedin.com/in/rizhao-fan123/?locale=en" },
-      { name: "Ninghui Xu",             role: "Visiting researcher from Southeast University" },
+      { name: "Ninghui Xu",             role: "Visiting researcher from Southeast University", url: "https://scholar.google.com/citations?user=P16bN2IAAAAJ" },
       { name: "Xin Qiao",               role: "Visiting researcher from Xi'an Jiaotong University" },
       { name: "Alioscia Petrelli",      role: "Former member", url: "https://www.linkedin.com/in/alioscia-petrelli-851a3b4?originalSubdomain=it" },
       { name: "Gianluca Berardi",       role: "Former member", url: "https://www.linkedin.com/in/gianluca-berardi-phd/?locale=it" },

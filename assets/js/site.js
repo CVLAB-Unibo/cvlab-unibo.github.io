@@ -793,7 +793,7 @@
   // "Matteo Poggi" -> "matteo-poggi" (photo file name, no accents)
   const slug = (n) => n.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   const initials = (n) => n.split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toUpperCase();
-  const linkLabel = (u) => (/linkedin\.com/.test(u) ? "LinkedIn" : /unibo\.it/.test(u) ? "Unibo page" : "Website");
+  const linkLabel = (u) => (/linkedin\.com/.test(u) ? "LinkedIn" : /scholar\.google/.test(u) ? "Scholar" : /unibo\.it/.test(u) ? "Unibo page" : "Website");
 
   // round photo (or initials when the file is missing)
   function avatarHtml(p, cls = "avatar") {
