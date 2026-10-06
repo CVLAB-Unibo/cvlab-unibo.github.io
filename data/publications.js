@@ -3126,5 +3126,118 @@ window.PUBLICATIONS = [
     "links": {
       "arxiv": "https://arxiv.org/abs/2609.32711"
     }
+  },
+
+  /* ---- 2022–2023 journal papers moved here from the archive ---- */
+  {
+    "title": "Learning Good Features to Transfer Across Tasks and Domains",
+    "authors": [
+      "Pierluigi Zama Ramirez",
+      "Adriano Cardace",
+      "Luca De Luigi",
+      "Alessio Tonioni",
+      "Samuele Salti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence, vol. 45, no. 8, pp. 9981–9995",
+    "badge": "TPAMI 2023",
+    "year": 2023,
+    "rank": "Q1",
+    "abstract": "We show that knowledge can be shared across tasks by learning a mapping between task-specific deep features in a given domain, and that this mapping, implemented by a neural network, generalizes to novel unseen domains; constraints on the learned feature spaces ease learning and improve generalization.",
+    "image": "assets/img/publications/transfer-tasks-domains",
+    "links": {
+      "paper": "https://research.google/pubs/learning-good-features-to-transfer-across-tasks-and-domains/",
+      "arxiv": "https://arxiv.org/abs/2301.11310"
+    }
+  },
+  {
+    "title": "Lightweight and Effective Convolutional Neural Networks for Vehicle Viewpoint Estimation From Monocular Images",
+    "authors": [
+      "Simone Magistri*",
+      "Marco Boschi*",
+      "Francesco Sambo",
+      "Douglas Coimbra de Andrade",
+      "Matteo Simoncini",
+      "Luca Kubin",
+      "Leonardo Taccari",
+      "Luca De Luigi",
+      "Samuele Salti"
+    ],
+    "equalContribution": true,
+    "kind": "Journal",
+    "venue": "IEEE Transactions on Intelligent Transportation Systems, vol. 24, no. 1, pp. 191–200",
+    "badge": "T-ITS 2023",
+    "year": 2023,
+    "rank": "Q1",
+    "abstract": "We advance vehicle viewpoint estimation from monocular images for autonomous driving and fleet management: a smoothing filter on the CNN output neurons, and a CoordConv layer that gives the network the position of the vehicle, resolving the ambiguity between its viewpoint and its location in the image.",
+    "image": "assets/img/publications/vehicle-viewpoint",
+    "links": {
+      "pdf": "https://leotac.github.io/pdfs/tits2022viewpoint.pdf"
+    }
+  },
+  {
+    "title": "Energy-Quality Scalable Monocular Depth Estimation on Low-Power CPUs",
+    "authors": [
+      "Antonio Cipolletta",
+      "Valentino Peluso",
+      "Andrea Calimera",
+      "Matteo Poggi",
+      "Fabio Tosi",
+      "Filippo Aleotti",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Internet of Things Journal, vol. 9, no. 1, pp. 25–36",
+    "badge": "IoT-J 2022",
+    "year": 2022,
+    "rank": "Q1",
+    "abstract": "We design an energy-quality scalable pyramidal network for monocular depth estimation on low-power CPUs, enabling dynamic energy-quality scaling: accuracy is boosted only when needed, with substantial energy savings on average.",
+    "image": "assets/img/publications/energy-quality-depth",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/9432391"
+    }
+  },
+  {
+    "title": "Monocular Depth Perception on Microcontrollers for Edge Applications",
+    "authors": [
+      "Valentino Peluso",
+      "Antonio Cipolletta",
+      "Andrea Calimera",
+      "Matteo Poggi",
+      "Fabio Tosi",
+      "Filippo Aleotti",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Transactions on Circuits and Systems for Video Technology, vol. 32, no. 3, pp. 1524–1536",
+    "badge": "TCSVT 2022",
+    "year": 2022,
+    "rank": "Q1",
+    "abstract": "μPyD-Net is a lightweight, shallow pyramidal CNN that brings monocular depth estimation to microcontrollers, trained in a self-supervised manner with proxy labels from a traditional stereo algorithm, together with optimization strategies for deployment on low-power devices.",
+    "image": "assets/img/publications/depth-microcontrollers",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/9422776"
+    }
+  },
+  {
+    "title": "Monitoring Social Distancing With Single Image Depth Estimation",
+    "authors": [
+      "Alessio Mingozzi",
+      "Andrea Conti",
+      "Filippo Aleotti",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Transactions on Emerging Topics in Computational Intelligence, vol. 6, no. 6, pp. 1290–1301",
+    "badge": "TETCI 2022",
+    "year": 2022,
+    "abstract": "We monitor social distancing from a single RGB frame, without depth sensors: single image depth estimation recovers the 3D structure of the scene to measure the distance between people, also when ground localization is not available, after a simple calibration with a scale-aware SLAM algorithm.",
+    "image": "assets/img/publications/social-distancing-depth",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/9776555",
+      "arxiv": "https://arxiv.org/abs/2204.01693"
+    }
   }
 ];
