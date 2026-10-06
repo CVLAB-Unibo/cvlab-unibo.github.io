@@ -1,13 +1,8 @@
 /* Publication archive 2013–2021. Format: [year, title, authors, venue] */
 window.ARCHIVE = (window.ARCHIVE || []).concat([
   /* 2021 */
-  [2021, "Beyond the Baseline: 3D Reconstruction of Tiny Objects With Single Camera Stereo Robot", "Daniele De Gregorio, Matteo Poggi, Pierluigi Zama Ramirez, Gianluca Palli, Stefano Mattoccia, Luigi Di Stefano", "IEEE Access 9: 119755-119765 (2021)"],
-  [2021, "A computer vision approach based on deep learning for the detection of dairy cows in free stall barn", "Patrizia Tassinari, Marco Bovo, Stefano Benni, Simone Franzoni, Matteo Poggi, Ludovica Maria Eugenia Mammi, Stefano Mattoccia, Luigi Di Stefano, Filippo Bonora, Alberto Barbaresi, Enrica Santolini, Daniele Torreggiani", "Comput. Electron. Agric. 182: 106030 (2021)"],
-  [2021, "Real-Time Single Image Depth Perception in the Wild with Handheld Devices", "Filippo Aleotti, Giulio Zaccaroni, Luca Bartolomei, Matteo Poggi, Fabio Tosi, Stefano Mattoccia", "Sensors 21(1): 15 (2021)"],
   [2021, "Computer Vision for 3D Perception and Applications", "Matteo Poggi, Thomas B. Moeslund", "Sensors 21(12): 3944 (2021)"],
   [2021, "Neural Disparity Refinement for Arbitrary Resolution Stereo", "Filippo Aleotti, Fabio Tosi, Pierluigi Zama Ramirez, Matteo Poggi, Samuele Salti, Stefano Mattoccia, Luigi Di Stefano", "3DV 2021: 207-217"],
-  [2021, "Learning Optical Flow From Still Images", "Filippo Aleotti, Matteo Poggi, Stefano Mattoccia", "CVPR 2021: 15201-15211"],
-  [2021, "Sensor-Guided Optical Flow", "Matteo Poggi, Filippo Aleotti, Stefano Mattoccia", "ICCV 2021: 7888-7898"],
   [2021, "SMD-Nets: Stereo Mixture Density Networks", "Fabio Tosi, Yiyi Liao, Carolin Schmitt, Andreas Geiger", "CVPR 2021: 8942-8952"],
   [2021, "Keypoint detection by wave propagation", "Samuele Salti, Alessandro Lanza, Luigi Di Stefano", "J. Electronic Imaging 30(1): 013003 (2021)"],
   [2021, "SketchyDepth: from Scene Sketches to RGB-D Images", "Gianluca Berardi, Samuele Salti, Luigi Di Stefano", "ICCVW 2021: 2414-2423"],

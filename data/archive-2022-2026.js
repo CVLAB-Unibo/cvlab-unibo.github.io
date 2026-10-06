@@ -60,10 +60,5 @@ window.ARCHIVE = (window.ARCHIVE || []).concat([
   [2022, "MonoViT: Self-Supervised Monocular Depth Estimation with a Vision Transformer", "Chaoqiang Zhao, Youmin Zhang, Matteo Poggi, Fabio Tosi, Xianda Guo, Zheng Zhu, Guan Huang, Yang Tang, Stefano Mattoccia", "3DV 2022: 668-678"],
   [2022, "RGB-Multispectral Matching: Dataset, Learning Methodology, Evaluation", "Fabio Tosi, Pierluigi Zama Ramirez, Matteo Poggi, Samuele Salti, Stefano Mattoccia, Luigi Di Stefano", "CVPR 2022: 15937-15947"],
   [2022, "Open Challenges in Deep Stereo: the Booster Dataset", "Pierluigi Zama Ramirez, Fabio Tosi, Matteo Poggi, Samuele Salti, Stefano Mattoccia, Luigi Di Stefano", "CVPR 2022: 21136-21146"],
-  [2022, "Multi-View Guided Multi-View Stereo", "Matteo Poggi, Andrea Conti, Stefano Mattoccia", "IROS 2022: 8391-8398"],
   [2022, "Unsupervised Learning of Local Equivariant Descriptors for Point Clouds", "Marlon Marcon, Riccardo Spezialetti, Samuele Salti, Luciano Silva, Luigi Di Stefano", "IEEE Trans. Pattern Anal. Mach. Intell. 44(12): 9687-9702 (2022)"],
-  [2022, "Unsafe Maneuver Classification From Dashcam Video and GPS/IMU Sensors Using Spatio-Temporal Attention Selector", "Matteo Simoncini, Douglas Coimbra de Andrade, Leonardo Taccari, Samuele Salti, Luca Kubin, Fabio Schoen, Francesco Sambo", "IEEE Trans. Intell. Transp. Syst. 23(9): 15605-15615 (2022)"],
-  [2022, "Learning the Space of Deep Models", "Gianluca Berardi, Luca De Luigi, Samuele Salti, Luigi Di Stefano", "ICPR 2022: 2482-2488"],
-  [2022, "Plugging Self-Supervised Monocular Depth into Unsupervised Domain Adaptation for Semantic Segmentation", "Adriano Cardace, Luca De Luigi, Pierluigi Zama Ramirez, Samuele Salti, Luigi Di Stefano", "WACV 2022: 1999-2009"],
-  [2022, "Shallow Features Guide Unsupervised Domain Adaptation for Semantic Segmentation at Class Boundaries", "Adriano Cardace, Pierluigi Zama Ramirez, Samuele Salti, Luigi Di Stefano", "WACV 2022: 2010-2020"]
 ]);

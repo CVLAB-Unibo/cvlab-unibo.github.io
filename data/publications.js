@@ -3339,5 +3339,218 @@ window.PUBLICATIONS = [
       "arxiv": "https://arxiv.org/abs/2210.03118",
       "code": "https://github.com/andreaconti/lidar-confidence"
     }
+  },
+
+  /* ---- 2022 papers moved here from the archive (2) ---- */
+  {
+    "title": "Multi-View Guided Multi-View Stereo",
+    "authors": [
+      "Matteo Poggi",
+      "Andrea Conti",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS 2022), pp. 8391–8398",
+    "badge": "IROS 2022",
+    "year": 2022,
+    "rank": "CORE A",
+    "abstract": "Sparse depth measurements gathered with the images guide a deep multi-view stereo network by modulating its plane-sweep cost volume, and a multi-view guidance strategy densifies these hints across viewpoints, consistently improving several state-of-the-art networks on BlendedMVG and DTU.",
+    "image": "assets/img/publications/mvguided-mvs",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2210.11467",
+      "code": "https://github.com/andreaconti/multi-view-guided-multi-view-stereo"
+    }
+  },
+  {
+    "title": "Unsafe Maneuver Classification From Dashcam Video and GPS/IMU Sensors Using Spatio-Temporal Attention Selector",
+    "authors": [
+      "Matteo Simoncini",
+      "Douglas Coimbra de Andrade",
+      "Leonardo Taccari",
+      "Samuele Salti",
+      "Luca Kubin",
+      "Fabio Schoen",
+      "Francesco Sambo"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Transactions on Intelligent Transportation Systems, vol. 23, no. 9, pp. 15605–15615",
+    "badge": "T-ITS 2022",
+    "year": 2022,
+    "rank": "Q1",
+    "abstract": "A deep architecture classifies unsafe driving maneuvers from dashcam video and GPS/IMU data: a Spatio-Temporal Attention Selector (STAS) describes how each detected object evolves over time and uses multi-head attention to select the dangerous ones, or the ones in danger.",
+    "image": "assets/img/publications/unsafe-maneuver",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/9686618"
+    }
+  },
+  {
+    "title": "Learning the Space of Deep Models",
+    "authors": [
+      "Gianluca Berardi",
+      "Luca De Luigi",
+      "Samuele Salti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Conference",
+    "venue": "International Conference on Pattern Recognition (ICPR 2022), pp. 2482–2488",
+    "badge": "ICPR 2022",
+    "year": 2022,
+    "abstract": "Trained deep models are as redundant as the data they process: we use representation learning to learn a fixed-size, low-dimensional embedding space of trained networks, which can be explored by interpolation or optimization to obtain ready-to-use models, across instances of one architecture and across architectures.",
+    "image": "assets/img/publications/space-of-deep-models",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2206.05194"
+    }
+  },
+  {
+    "title": "Plugging Self-Supervised Monocular Depth into Unsupervised Domain Adaptation for Semantic Segmentation",
+    "authors": [
+      "Adriano Cardace",
+      "Luca De Luigi",
+      "Pierluigi Zama Ramirez",
+      "Samuele Salti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2022), pp. 1999–2009",
+    "badge": "WACV 2022",
+    "year": 2022,
+    "rank": "CORE A",
+    "abstract": "We exploit self-supervised monocular depth estimation to improve unsupervised domain adaptation for semantic segmentation: depth becomes a plug-in that injects geometric cues into any UDA method, and generates a large, varied set of samples to self-train the final model.",
+    "image": "assets/img/publications/depth-uda-segmentation",
+    "links": {
+      "pdf": "https://openaccess.thecvf.com/content/WACV2022/papers/Cardace_Plugging_Self-Supervised_Monocular_Depth_Into_Unsupervised_Domain_Adaptation_for_Semantic_WACV_2022_paper.pdf",
+      "arxiv": "https://arxiv.org/abs/2110.06685",
+      "code": "https://github.com/CVLAB-Unibo/d4-dbst"
+    }
+  },
+  {
+    "title": "Shallow Features Guide Unsupervised Domain Adaptation for Semantic Segmentation at Class Boundaries",
+    "authors": [
+      "Adriano Cardace",
+      "Pierluigi Zama Ramirez",
+      "Samuele Salti",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2022), pp. 2010–2020",
+    "badge": "WACV 2022",
+    "year": 2022,
+    "rank": "CORE A",
+    "abstract": "Domain shift is most visible along class boundaries: we present a low-level adaptation strategy that yields sharp segmentation masks in synthetic-to-real adaptation, and a data augmentation that reduces the noise of pseudo-labels at semantic boundaries during self-training.",
+    "image": "assets/img/publications/shallow-features-uda",
+    "links": {
+      "pdf": "https://openaccess.thecvf.com/content/WACV2022/papers/Cardace_Shallow_Features_Guide_Unsupervised_Domain_Adaptation_for_Semantic_Segmentation_at_WACV_2022_paper.pdf",
+      "arxiv": "https://arxiv.org/abs/2110.02833",
+      "code": "https://github.com/CVLAB-Unibo/Shallow_DA"
+    }
+  },
+
+  /* ---- 2021 papers moved here from the archive ---- */
+  {
+    "title": "Beyond the Baseline: 3D Reconstruction of Tiny Objects With Single Camera Stereo Robot",
+    "authors": [
+      "Daniele De Gregorio",
+      "Matteo Poggi",
+      "Pierluigi Zama Ramirez",
+      "Gianluca Palli",
+      "Stefano Mattoccia",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Journal",
+    "venue": "IEEE Access, vol. 9, pp. 119755–119765",
+    "badge": "IEEE Access 2021",
+    "year": 2021,
+    "abstract": "SiSteR (Single camera Stereo Robot) reconstructs miniature objects, below 1 cm, that active sensors and off-the-shelf stereo cameras cannot measure: a single camera in eye-on-hand configuration exploits the robot's repeatability to acquire multiple views, processed by a stereo algorithm revised for multiple vantage points.",
+    "image": "assets/img/publications/tiny-objects-3d",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/9524696"
+    }
+  },
+  {
+    "title": "A computer vision approach based on deep learning for the detection of dairy cows in free stall barn",
+    "authors": [
+      "Patrizia Tassinari",
+      "Marco Bovo",
+      "Stefano Benni",
+      "Simone Franzoni",
+      "Matteo Poggi",
+      "Ludovica Maria Eugenia Mammi",
+      "Stefano Mattoccia",
+      "Luigi Di Stefano",
+      "Filippo Bonora",
+      "Alberto Barbaresi",
+      "Enrica Santolini",
+      "Daniele Torreggiani"
+    ],
+    "kind": "Journal",
+    "venue": "Computers and Electronics in Agriculture, vol. 182, art. 106030",
+    "badge": "COMPAG 2021",
+    "year": 2021,
+    "abstract": "A first step towards a computer vision system for precision livestock farming: a YOLO network recognizes individual cows in barn videos from their coat pattern, showing that the piebald spotting of the coat is clearly distinguishable and giving indications on the images needed for efficient training.",
+    "image": "assets/img/publications/dairy-cows",
+    "links": {
+      "paper": "https://www.sciencedirect.com/science/article/pii/S016816992100048X"
+    }
+  },
+  {
+    "title": "Real-Time Single Image Depth Perception in the Wild with Handheld Devices",
+    "authors": [
+      "Filippo Aleotti",
+      "Giulio Zaccaroni",
+      "Luca Bartolomei",
+      "Matteo Poggi",
+      "Fabio Tosi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Journal",
+    "venue": "Sensors, vol. 21, no. 1, art. 15",
+    "badge": "Sensors 2021",
+    "year": 2021,
+    "abstract": "We show how appropriate network design and training make single image depth estimation both reliable in the wild and fast enough for handheld devices, and how to map such networks on smartphones for real-time depth-aware augmented reality and image blurring.",
+    "image": "assets/img/publications/handheld-depth",
+    "links": {
+      "arxiv": "https://arxiv.org/abs/2006.05724",
+      "code": "https://github.com/FilippoAleotti/mobilePydnet"
+    }
+  },
+  {
+    "title": "Learning Optical Flow From Still Images",
+    "authors": [
+      "Filippo Aleotti",
+      "Matteo Poggi",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR 2021), pp. 15201–15211",
+    "badge": "CVPR 2021",
+    "year": 2021,
+    "rank": "CORE A*",
+    "abstract": "We generate accurate ground-truth optical flow quickly and in large amounts from any single real picture: an off-the-shelf monocular depth network builds a plausible point cloud, and moving a virtual camera with known motion synthesizes a novel view together with its optical flow field.",
+    "image": "assets/img/publications/flow-from-still-images",
+    "links": {
+      "pdf": "https://openaccess.thecvf.com/content/CVPR2021/papers/Aleotti_Learning_Optical_Flow_From_Still_Images_CVPR_2021_paper.pdf",
+      "arxiv": "https://arxiv.org/abs/2104.03965",
+      "code": "https://github.com/mattpoggi/depthstillation"
+    }
+  },
+  {
+    "title": "Sensor-Guided Optical Flow",
+    "authors": [
+      "Matteo Poggi",
+      "Filippo Aleotti",
+      "Stefano Mattoccia"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF International Conference on Computer Vision (ICCV 2021), pp. 7888–7898",
+    "badge": "ICCV 2021",
+    "year": 2021,
+    "rank": "CORE A*",
+    "abstract": "Sparse but accurate optical flow hints from an external source modulate the correlation scores of a state-of-the-art flow network, improving accuracy on known and unseen domains; the hints can be obtained by combining depth from active sensors with geometry and hand-crafted flow algorithms.",
+    "image": "assets/img/publications/sensor-guided-flow",
+    "links": {
+      "pdf": "https://openaccess.thecvf.com/content/ICCV2021/papers/Poggi_Sensor-Guided_Optical_Flow_ICCV_2021_paper.pdf",
+      "arxiv": "https://arxiv.org/abs/2109.15321",
+      "code": "https://github.com/mattpoggi/sensor-guided-flow"
+    }
   }
 ];
