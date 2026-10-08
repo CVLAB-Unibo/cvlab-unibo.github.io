@@ -948,10 +948,15 @@
     if (!strip) return;
     const src = window[strip.dataset.list || "PHOTOS"];
     if (!src?.length) { strip.closest(".hero")?.classList.remove("hero--photos"); strip.remove(); return; }
-    const list = [...src];
+    // home: the photos named in SITE.heroLead come first and the strip starts from them
+    const base = (p) => p.split("/").pop().replace(/\.\w+$/, "");
+    const lead = PAGE === "home" ? (S.heroLead || []).map((n) => src.find((p) => base(p) === n)).filter(Boolean) : [];
+    const list = src.filter((p) => !lead.includes(p));
     for (let i = list.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [list[i], list[j]] = [list[j], list[i]]; }   // shuffled
+    list.unshift(...lead);
     const imgs = list.concat(list).map((src) => `<img src="${url(src)}" alt="" decoding="async">`).join("");                               // duplicated: seamless loop
-    strip.innerHTML = `<div class="strip" style="--n:${list.length};animation-delay:-${(Math.random() * list.length * 11).toFixed(1)}s">${imgs}</div>`;
+    const delay = lead.length ? 0 : Math.random() * list.length * 11;                                                                       // random start, except with lead photos
+    strip.innerHTML = `<div class="strip" style="--n:${list.length};animation-delay:-${delay.toFixed(1)}s">${imgs}</div>`;
   }
 
   // positions page: who to write to (the faculty, from data/team.js)

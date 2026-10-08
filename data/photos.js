@@ -40,11 +40,13 @@ window.PHOTOS = [
   "assets/img/hero/Untitled.jpg",
   "assets/img/hero/canyon.jpg",
   "assets/img/hero/disi-cvlab-sign.jpg",
+  "assets/img/hero/disi.jpg",
   "assets/img/hero/eog-wallpaper.jpg",
   "assets/img/hero/group-20240326.jpg",
   "assets/img/hero/iccv19.jpg",
   "assets/img/hero/iclr23.jpg",
   "assets/img/hero/moto0.jpg",
   "assets/img/hero/moto1.jpg",
-  "assets/img/hero/photo_2026-10-05_11-50-57.jpg"
+  "assets/img/hero/photo_2026-10-05_11-50-57.jpg",
+  "assets/img/hero/vietato_esaltarsi.jpg"
 ];
