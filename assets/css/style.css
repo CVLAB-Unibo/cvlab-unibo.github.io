@@ -576,12 +576,19 @@ span.au { color: var(--muted); }
 .pos-sub { margin: 0 0 1.2rem; font-size: .92rem; font-weight: 600; letter-spacing: .02em; color: var(--accent); }
 .pos-lead { max-width: 52rem; font-size: 1.08rem; color: var(--text); margin-bottom: 1.8rem; }
 .pos-lead a { color: var(--ink); border-bottom: 1px solid var(--line-2); }
-.pos-topics { display: grid; gap: 1px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-.pos-topic { background: var(--surface); padding: 1.3rem 1.4rem 1.4rem; transition: background .2s; }
-.pos-topic:hover { background: var(--accent-tint); }
-.pos-topic h3 { font-size: 1.02rem; line-height: 1.3; margin-bottom: .45rem; }
-.pos-topic h3 .badge { margin-left: .35rem; vertical-align: 2px; }
-.pos-topic p { margin: 0; font-size: .9rem; color: var(--text); }
+/* thesis topics: rows with a small thumbnail, two columns, no boxes */
+.pos-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3rem; }
+@media (max-width: 760px) { .pos-list { grid-template-columns: minmax(0, 1fr); } }
+.pos-list a { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1.2rem; align-items: center; padding: 1.1rem 0; border-top: 1px solid var(--line); color: inherit; }
+.pos-th { aspect-ratio: 4 / 3; border-radius: .6rem; overflow: hidden; background: var(--bg-soft); }
+.pos-th img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.pos-list a:hover .pos-th img { transform: scale(1.06); }
+.pos-list h3 { font-size: 1.02rem; margin: 0 0 .25rem; transition: color .15s; }
+.pos-list a:hover h3 { color: var(--accent); }
+.pos-list p { margin: 0; font-size: .88rem; color: var(--text); line-height: 1.5; }
+.pos-list .new { margin-left: .4rem; font-size: .66rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); vertical-align: 2px; }
+.pos-list .own .pos-th { display: grid; place-items: center; background: var(--accent-tint); border: 1.5px dashed var(--accent-line); }
+.pos-list .own .pos-th span { font-family: var(--font-head); font-size: 2rem; font-weight: 300; color: var(--accent); }
 .pos-note { max-width: 52rem; margin: 1.6rem 0 0; padding-left: 1rem; border-left: 3px solid var(--hl); color: var(--text); }
 .pos-faculty { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
 .fac { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.2rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
