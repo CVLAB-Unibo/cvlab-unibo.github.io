@@ -19,7 +19,7 @@ window.SITE = {
 
   // Home page: these photos (file names in imgs/photos, without extension) open the scrolling strip,
   // in this order; the others follow, shuffled at every visit
-  heroLead: ["disi", "vietato_esaltarsi"],
+  heroLead: ["vietato_esaltarsi", "disi"],
 
   tagline: "We study how machines perceive, reconstruct and understand the 3D world, and how to make that perception efficient, robust and general.",
 
