@@ -368,6 +368,7 @@
 
   /* ---------- home: awards (paper tags from data/publications.js + data/awards.js) -------------- */
   const TROPHY = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7M10 17h4"/></svg>';
+  const SPARK = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16z"/></svg>';
   // one quiet line on service to the community, built from the "service" rows of data/activities.js
   function serviceHtml() {
     const svc = (window.ACTIVITIES || []).filter((a) => a.kind === "service");
@@ -386,6 +387,35 @@
     const names = [nAC && "Outstanding Area Chair", nRev && "Outstanding Reviewer"].filter(Boolean);
     const awards = names.length ? `${nAC + nRev > 1 ? "multiple " : "an "}${names.join(" and ")} award${nAC + nRev > 1 ? "s" : ""}` : "";
     return `<p class="svc-note">Beyond research, members of the lab serve the community ${esc(roles)}${awards ? `, receiving ${esc(awards)} at ${esc(list(out))}` : ""}.</p>`;
+  }
+
+  // a single, short confetti burst the first time a celebration card (e.g. the PRIN grant) comes into view
+  function celebrate(card) {
+    const cv = card && card.querySelector("canvas");
+    if (!cv || !("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const COLS = ["#c2410c", "#fb923c", "#fed7aa", "#fdba74", "#fcd34d", "#0f172a"];
+    const burst = () => {
+      const ctx = cv.getContext("2d"), r = cv.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+      cv.width = r.width * dpr; cv.height = r.height * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const parts = Array.from({ length: 110 }, (_, i) => {
+        const left = i % 2 === 0;
+        return { x: left ? 10 : r.width - 10, y: r.height * (.6 + Math.random() * .3), vx: (left ? 1 : -1) * (3 + Math.random() * 6), vy: -(6 + Math.random() * 6),
+          w: 4 + Math.random() * 5, h: 7 + Math.random() * 6, a: Math.random() * 6, va: (Math.random() - .5) * .35, c: COLS[i % COLS.length] };
+      });
+      const t0 = performance.now();
+      const step = (t) => {
+        ctx.clearRect(0, 0, r.width, r.height);
+        parts.forEach((p) => {
+          p.vx *= .985; p.vy += .2; p.x += p.vx; p.y += p.vy; p.a += p.va;
+          ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.fillStyle = p.c; ctx.globalAlpha = Math.max(0, 1 - (t - t0) / 3500);
+          ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h * Math.abs(Math.cos(p.a * 2))); ctx.restore();
+        });
+        if (t - t0 < 3500 && parts.some((p) => p.y < r.height + 20)) requestAnimationFrame(step); else ctx.clearRect(0, 0, r.width, r.height);
+      };
+      requestAnimationFrame(step);
+    };
+    const io = new IntersectionObserver((es) => { if (es[0].isIntersecting) { io.disconnect(); setTimeout(burst, 250); } }, { threshold: .5 });
+    io.observe(card);
   }
 
   function renderAwards(el) {
@@ -470,6 +500,7 @@
     $("#home-news").innerHTML = news.map(newsItem).join("");
 
     renderAwards($("#home-awards"));
+    celebrate($("#prin"));
     renderCarousel($("#home-research"));
     renderGallery($("#home-gallery"));
     renderStory($("#home-story"));
@@ -486,8 +517,8 @@
   // From NEWS_SINCE on everything is open; the earlier years sit behind the "Earlier events" button.
   const NEWS_SINCE = 2020;
   const NEWS_MONTH = { WACV: 2, AAAI: 2, DATE: 3, ICLR: 4, ICRA: 5, CVPR: 6, ECCV: 9, "3DV": 9, ICCV: 10, IROS: 10, Expo: 10, BMVC: 11, NeurIPS: 12, "SIGGRAPH Asia": 12 };
-  const NEWS_KINDS = { all: "All", paper: "Papers", award: "Awards", service: "Reviewer awards", workshop: "Workshops & challenges we organise", tutorial: "Tutorials", demo: "Demos", patent: "Patents", people: "People" };
-  const NEWS_LABEL = { paper: "Paper", award: "Award", service: "Recognition", workshop: "Organised", tutorial: "Tutorial", demo: "Demo", patent: "Patent", people: "People" };
+  const NEWS_KINDS = { all: "All", paper: "Papers", award: "Awards", grant: "Grants", service: "Reviewer awards", workshop: "Workshops & challenges we organise", tutorial: "Tutorials", demo: "Demos", patent: "Patents", people: "People" };
+  const NEWS_LABEL = { paper: "Paper", award: "Award", grant: "Grant", service: "Recognition", workshop: "Organised", tutorial: "Tutorial", demo: "Demo", patent: "Patent", people: "People" };
 
   function newsItems() {
     const link = (t, h) => (h ? `<a href="${esc(h)}"${/^https?:/.test(h) ? ' target="_blank" rel="noopener"' : ""}>${esc(t)}</a>` : esc(t));
@@ -496,7 +527,7 @@
     const items = [];
     const add = (o) => items.push({ m: month(o.venue), ...o });
 
-    (window.NEWS || []).forEach((n) => add({ k: "people", year: +n.date.slice(0, 4), m: +n.date.slice(5, 7) + 0.5, venue: fmtDate(n.date).replace(/ \d{4}$/, ""),
+    (window.NEWS || []).forEach((n) => add({ k: n.kind || "people", year: +n.date.slice(0, 4), m: +n.date.slice(5, 7) + n.date.slice(8, 10) / 32, venue: fmtDate(n.date).replace(/ \d{4}$/, ""),
       title: n.title, body: `<p>${(n.text || "").replaceAll("{root}", ROOT)}</p>` }));
 
     const groups = {};
@@ -545,7 +576,8 @@
     const nf = $("#news-filters"), tl = $("#news-list"), yrs = $("#news-years");
     if (!tl) return;
     const items = newsItems();
-    const item = (i) => `<li class="nw-it nk-${i.k}${i.k === "award" ? " nw-big" : ""}">${i.k === "award" ? `<span class="nw-tro">${TROPHY}</span>` : ""}
+    const icon = { award: TROPHY, grant: SPARK };
+    const item = (i) => `<li class="nw-it nk-${i.k}${icon[i.k] ? " nw-big" : ""}">${icon[i.k] ? `<span class="nw-tro">${icon[i.k]}</span>` : ""}
         <div class="nw-meta"><span class="nw-k">${NEWS_LABEL[i.k]}</span>${i.venue ? `<span class="nw-v">${esc(i.venue)}</span>` : ""}</div>
         <h4>${esc(i.title)}</h4>${i.body || ""}</li>`;
     let filter = "all", early = false;
