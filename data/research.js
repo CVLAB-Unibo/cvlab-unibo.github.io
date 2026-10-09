@@ -32,12 +32,12 @@ window.RESEARCH = [
     keywords: ["depth", "disparity", "optical flow", "scene flow", "flowseek", "flowit", "confidence", "uncertainty", "time-of-flight", "tof", "monocular", "super-resolution", "profilometry"]
   },
   {
-    title: "Stereo Vision & Multi-Sensor 3D Sensing",
+    title: "Stereo, Active & Multi-Sensor 3D Sensing",
     short: "Stereo & Multi-Sensor",
     axis: "what",
     image: "imgs/research/stereo.png",
-    text: "From deep stereo matching to zero-shot, generalizable stereo. We study active and virtual-pattern stereo, event-based and LiDAR-stereo fusion, multispectral matching, stereo confidence and even the synthesis of stereo geometry.",
-    keywords: ["stereo", "disparity", "event-based", "event camera", "event stereo", "event-frame", "eventhub", "multispectral", "lidar", "multi-view stereo"]
+    text: "From deep stereo matching to zero-shot, generalizable stereo. We work with active depth sensors (LiDAR, time-of-flight, structured light and pattern projectors) through active and virtual-pattern stereo and depth completion, and study event-based and LiDAR-stereo fusion, multispectral matching, stereo confidence and even the synthesis of stereo geometry.",
+    keywords: ["stereo", "disparity", "event-based", "event camera", "event stereo", "event-frame", "eventhub", "multispectral", "lidar", "multi-view stereo", "active stereo", "virtual pattern", "pattern projector", "structured light", "time-of-flight", "tof", "depth completion"]
   },
   {
     title: "3D Reconstruction, Neural Fields & Novel View Synthesis",
@@ -138,7 +138,8 @@ window.TAXONOMY = {
     "Foundation Models": ["foundation", "dino", "sam-adapter", "segment anything", "lora"],
     "Vision-Language": ["vision-language", "language", "llana", "text-to", "open-vocabulary"],
     "Transformers": ["transformer"],
-    "Point Clouds": ["point cloud"]
+    "Point Clouds": ["point cloud"],
+    "Image Synthesis & Forensics": ["image synthesis", "generated images", "image defense", "face generation", "face parts editing", "adversarially train diffusion"]
   },
   "Learning": {
     "Domain Adaptation": ["adaptation", "domains", "domain-shift", "domain shift", "cross-domain", "domain invariant"],
