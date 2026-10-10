@@ -12,6 +12,8 @@
             Without a photo the initials are shown.
      email  optional
      badge  optional highlighted label under the name, e.g. "Active contributor to the lab"
+     was    former members only: role held in the lab, shown in small above the current role.
+            Default "PhD at CVLab". A role of "Former member" is not shown (the section title says it).
      start  optional, "YYYY-MM-DD". Before that date the person is shown as "Incoming …" and not counted;
             from that date on the label disappears by itself.
 
@@ -94,21 +96,21 @@ window.TEAM = [
       { name: "Andrea Conti",           role: "Now Computer Vision Engineer at Sony Depthsensing Solutions", url: "https://andreaconti.github.io/" },
       { name: "Adriano Cardace",        role: "Now Computer Vision Research Scientist at Stanford University", url: "https://www.linkedin.com/in/adriano-cardace" },
       { name: "Tommaso Cavallari",      role: "Now Senior Research Scientist at Niantic, Inc", url: "https://uk.linkedin.com/in/tcavallari" },
-      { name: "Paolo Galeone",          role: "Now Head of Software Engineering at Zuru Tech", url: "https://it.linkedin.com/in/paolo-galeone-6782b311b" },
-      { name: "Dario De Nardi",         role: "Now Edge AI Engineer at Reply Labs (Area42), Turin", url: "https://dariodenardi.me/" },
-      { name: "Chaoqiang Zhao",         role: "Former member", url: "https://zxcqlf.github.io/" },
-      { name: "Alessandro Maragno",     role: "Former member", url: "https://www.linkedin.com/in/alessandro-maragno-37784514a/" },
-      { name: "Marlon Marcon",          role: "Now Assistant Professor at the Federal University of Technology – Paraná (UTFPR)" },
+      { name: "Paolo Galeone",          was: "Research fellow at CVLab", role: "Now Head of Software Engineering at Zuru Tech", url: "https://it.linkedin.com/in/paolo-galeone-6782b311b" },
+      { name: "Dario De Nardi",         was: "Research fellow at CVLab", role: "Now Edge AI Engineer at Reply Labs (Area42), Turin", url: "https://dariodenardi.me/" },
+      { name: "Chaoqiang Zhao",         was: "Visiting researcher", role: "Former member", url: "https://zxcqlf.github.io/" },
+      { name: "Alessandro Maragno",     was: "Postdoc at CVLab", role: "Former member", url: "https://www.linkedin.com/in/alessandro-maragno-37784514a/" },
+      { name: "Marlon Marcon",          was: "Visiting researcher", role: "Now Assistant Professor at the Federal University of Technology – Paraná (UTFPR)" },
       { name: "Federico Tombari",       role: "Now Director of Research at Google, Zurich", url: "https://federicotombari.github.io/" },
-      { name: "Daniele De Gregorio",    role: "Now CEO of eyecan.ai", url: "https://www.eyecan.ai/" },
+      { name: "Daniele De Gregorio",    was: "PhD in Electronics, Telecom & IT, research at CVLab", role: "Now CEO of eyecan.ai", url: "https://www.eyecan.ai/" },
       { name: "Rizhao Fan",             role: "Now at the Research Institute of Mine Artificial Intelligence", url: "https://www.linkedin.com/in/rizhao-fan123/?locale=en" },
-      { name: "Ninghui Xu",             role: "Visiting researcher from Southeast University", url: "https://scholar.google.com/citations?user=P16bN2IAAAAJ" },
-      { name: "Xin Qiao",               role: "Visiting researcher from Xi'an Jiaotong University" },
+      { name: "Ninghui Xu",             was: "Visiting researcher", role: "From Southeast University", url: "https://scholar.google.com/citations?user=P16bN2IAAAAJ" },
+      { name: "Xin Qiao",               was: "Visiting researcher", role: "From Xi'an Jiaotong University" },
       { name: "Alioscia Petrelli",      role: "Former member", url: "https://www.linkedin.com/in/alioscia-petrelli-851a3b4?originalSubdomain=it" },
       { name: "Gianluca Berardi",       role: "Former member", url: "https://www.linkedin.com/in/gianluca-berardi-phd/?locale=it" },
       { name: "Musawar Ali",            role: "Former member", url: "https://www.linkedin.com/in/musawar-ali-4362a6159/" },
       { name: "Alessio Mingozzi",       role: "Former member" },
-      { name: "Marco Boschi",           role: "Former member", url: "https://marcoboschi.altervista.org/it/" }
+      { name: "Marco Boschi",           was: "Research fellow at CVLab", role: "Former member", url: "https://marcoboschi.altervista.org/it/" }
     ]
   }
 ];

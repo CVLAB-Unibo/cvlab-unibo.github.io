@@ -31,7 +31,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
-  <link rel="stylesheet" href="../assets/css/style.css?v=ea68cf57">
+  <link rel="stylesheet" href="../assets/css/style.css?v=0063191d">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <link rel="apple-touch-icon" href="../assets/img/favicon.png">
 </head>
@@ -59,6 +59,22 @@
     <div id="research-carousel"></div>
   </main>
 
+  <section class="gx" id="explore" aria-label="Interactive 3D map of our publications">
+    <div class="gx-load">Loading the 3D view…</div>
+    <div class="gx-head"><h2>Explore our research in 3D</h2>
+      <p><b class="gx-n">0</b> papers, one star each, grouped by research pillar ·
+        <span class="gx-hint-mouse">drag to rotate · click, then scroll to zoom · click a star to open the paper</span><span class="gx-hint-touch">swipe sideways to rotate · tap a star</span></p></div>
+    <div class="gx-legend"></div>
+    <button type="button" class="gx-reset">Reset view</button>
+    <div class="gx-labels"></div>
+    <div class="gx-tip"></div>
+    <div class="gx-time">
+      <button type="button" class="gx-play" aria-label="Play the timeline"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></button>
+      <input type="range" aria-label="Show papers up to year">
+      <div class="gx-year"><span class="gx-yr"></span><span class="gx-cnt"></span></div>
+    </div>
+  </section>
+
   <section class="section section--soft">
     <div class="container">
       <div class="section-head"><h2>From perception to understanding</h2></div>
@@ -78,12 +94,13 @@
 
   <script src="../data/site.js?v=30156fd4"></script>
   <script src="../data/photos.js?v=24b48a48"></script>
-  <script src="../data/team.js?v=d75c1cc0"></script>
+  <script src="../data/team.js?v=5104a778"></script>
   <script src="../data/publications.js?v=7ef8b7c9"></script>
   <script src="../data/archive-2022-2026.js?v=aaf21cd6"></script>
   <script src="../data/archive-2013-2021.js?v=d4bf95eb"></script>
   <script src="../data/archive-before-2013.js?v=9c8394fd"></script>
   <script src="../data/research.js?v=2b0e3a17"></script>
-  <script src="../assets/js/site.js?v=2e014810"></script>
+  <script src="../assets/js/site.js?v=d5ae1ae3"></script>
+  <script type="module" src="../assets/js/galaxy.js?v=7ea7412d"></script>
 </body>
 </html>

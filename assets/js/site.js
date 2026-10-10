@@ -686,7 +686,7 @@
           <p>${esc(r.text)}</p>
           ${rel.length ? `<h6>Latest papers</h6><ul class="slide-papers">${rel.slice(0, 3).map((p) =>
             `<li>${esc(p.title)} <span>${esc(venueLabel(p))}</span></li>`).join("")}</ul>
-          <a class="slide-more" href="${url("publications/")}?topic=${q}">See all ${rel.length} publications →</a>` : ""}
+          <a class="slide-more" href="${url("publications/")}?topic=${q}">See all ${rel.length} publications →</a>${document.getElementById("explore") ? `<a class="slide-3d" href="#explore" data-gx="${esc(r.short || r.title)}">Explore in 3D ↓</a>` : ""}` : ""}
         </div>
       </article>`;
     }).join("");
@@ -798,9 +798,13 @@
     const all = (window.PUBLICATIONS || []).concat(archiveObjects());
     const counts = {};
     all.forEach((p) => keywordsOf(p).forEach((l) => (counts[l] = (counts[l] || 0) + 1)));
+    // one card per dimension; keywords sorted by number of papers, each with a bar relative to the largest
     el.innerHTML = Object.entries(TAX()).map(([d, g]) => {
-      const items = Object.keys(g).filter((l) => counts[l]);
-      return items.length ? `<div class="dim"><h4>${esc(d)}</h4><div class="chips">${items.map((l) => `<a class="chip" href="${tagHref(l)}">${esc(l)} <span>${counts[l]}</span></a>`).join("")}</div></div>` : "";
+      const items = Object.keys(g).filter((l) => counts[l]).sort((a, b) => counts[b] - counts[a]);
+      if (!items.length) return "";
+      const max = counts[items[0]];
+      return `<div class="dim"><h4>${esc(d)}<span>${items.length} keyword${items.length > 1 ? "s" : ""}</span></h4>${items.map((l) =>
+        `<a href="${tagHref(l)}"><b>${esc(l)}</b><em>${counts[l]}</em><i style="--w:${Math.round(counts[l] / max * 100)}%"></i></a>`).join("")}</div>`;
     }).join("");
   }
 
@@ -812,6 +816,14 @@
   }
 
   function renderResearch() {
+    // "Explore in 3D" on a pillar: scroll up to the galaxy and fly to that cloud (assets/js/galaxy.js)
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest("[data-gx]");
+      if (!a) return;
+      e.preventDefault();
+      $("#explore").scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => dispatchEvent(new CustomEvent("gx:focus", { detail: a.dataset.gx })), 500);
+    });
     renderOverview($("#research-overview"));
     renderCarousel($("#research-carousel"));
     renderStory($("#research-story"));
@@ -857,7 +869,9 @@
         const name = p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)}</a>` : esc(p.name);
         const links = [p.url && `<a class="pill" href="${esc(p.url)}" target="_blank" rel="noopener">${linkLabel(p.url)} ↗</a>`,
                        p.email && `<a class="pill" href="mailto:${esc(p.email)}">Email</a>`].filter(Boolean).join("");
-        return `<div class="person${p.badge ? " person--lead" : ""}">${avatarHtml(p)}<h5>${name}</h5>${p.badge ? `<span class="p-badge">${esc(p.badge)}</span>` : ""}<p class="role">${esc(roleOf(p))}</p>${links ? `<div class="links">${links}</div>` : ""}</div>`;
+        const was = g.alumni ? `<p class="was">${esc(p.was || "PhD at CVLab")}</p>` : "";
+        const role = g.alumni && p.role === "Former member" ? "" : `<p class="role">${esc(roleOf(p))}</p>`;
+        return `<div class="person${p.badge ? " person--lead" : ""}">${avatarHtml(p)}<h5>${name}</h5>${p.badge ? `<span class="p-badge">${esc(p.badge)}</span>` : ""}${was}${role}${links ? `<div class="links">${links}</div>` : ""}</div>`;
       }).join("")}</div>`).join("");
     fixMissingPhotos($("#team-list"));
     renderTeamOverview($("#team-overview"));
@@ -1058,6 +1072,8 @@
     strip.innerHTML = `<div class="strip" style="--n:${list.length};--s:10s;animation-delay:-${(Math.random() * list.length * 10).toFixed(1)}s">${html}</div>`;
   }
 
+
+  window.CVLAB = { archiveObjects, tierOf, topicsOf, venueLabel, url, figImg };   // for assets/js/galaxy.js
 
   /* ---------- boot ----------------------------------------------------------- */
   initThemes();
