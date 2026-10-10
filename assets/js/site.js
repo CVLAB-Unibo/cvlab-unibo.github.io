@@ -385,13 +385,13 @@
     const ORDER = ["TPAMI", "IJCV", "CVPR", "ICCV", "ECCV", "NeurIPS", "ICLR", "ICRA", "IROS"];
     const rank = (v) => (ORDER.includes(v) ? ORDER.indexOf(v) : ORDER.length);
     const ed = [...new Set(svc.filter((a) => /Editor|^Area Chair/.test(a.title)).map((a) => a.event.replace(/\s*\d{4}$/, "")))].sort((a, b) => rank(a) - rank(b));
-    const out = venues(/^(Outstanding|Top Reviewer)/);
+    const out = venues(/^(Outstanding|Top (Reviewer|Area Chair))/);
     const roles = (ed.length ? `as associate editors and area chairs for ${list(ed)}, and ` : "") + "as reviewers for the main computer vision and machine learning venues";
     // generic wording: "multiple" only when there is more than one award of that kind
     const count = (re) => svc.filter((a) => re.test(a.title)).reduce((n, a) => n + (a.who || [1]).length, 0);
-    const nAC = count(/^Outstanding Area Chair/), nRev = count(/^(Outstanding|Top) Reviewer/);
-    const names = [nAC && "Outstanding Area Chair", nRev && "Outstanding Reviewer"].filter(Boolean);
-    const awards = names.length ? `${nAC + nRev > 1 ? "multiple " : "an "}${names.join(" and ")} award${nAC + nRev > 1 ? "s" : ""}` : "";
+    const nAC = count(/^Outstanding Area Chair/), nTop = count(/^Top Area Chair/), nRev = count(/^(Outstanding|Top) Reviewer/), n = nAC + nTop + nRev;
+    const names = [nAC && "Outstanding Area Chair", nTop && "Top Area Chair", nRev && "Outstanding Reviewer"].filter(Boolean);
+    const awards = names.length ? `${n > 1 ? "multiple " : "an "}${list(names)} award${n > 1 ? "s" : ""}` : "";
     return `<p class="svc-note">Beyond research, members of the lab serve the community ${esc(roles)}${awards ? `, receiving ${esc(awards)} at ${esc(list(out))}` : ""}.</p>`;
   }
 
@@ -533,7 +533,7 @@
     const items = [];
     const add = (o) => items.push({ m: month(o.venue), ...o });
 
-    (window.NEWS || []).forEach((n) => add({ k: n.kind || "people", year: +n.date.slice(0, 4), m: +n.date.slice(5, 7) + n.date.slice(8, 10) / 32, venue: fmtDate(n.date).replace(/ \d{4}$/, ""),
+    (window.NEWS || []).filter((n) => n.kind !== "service").forEach((n) => add({ k: n.kind || "people", year: +n.date.slice(0, 4), m: +n.date.slice(5, 7) + n.date.slice(8, 10) / 32, venue: fmtDate(n.date).replace(/ \d{4}$/, ""),
       title: n.title, body: `<p>${(n.text || "").replaceAll("{root}", ROOT)}</p>` }));
 
     const groups = {};
@@ -558,7 +558,7 @@
     });
 
     // recognitions for reviewing / area chairing: one item per year, venues + names in small
-    const recog = (window.ACTIVITIES || []).filter((x) => x.kind === "service" && x.year && /^(Outstanding|Top Reviewer)/.test(x.title));
+    const recog = (window.ACTIVITIES || []).filter((x) => x.kind === "service" && x.year && /^(Outstanding|Top (Reviewer|Area Chair))/.test(x.title));
     [...new Set(recog.map((x) => x.year))].forEach((y) => {
       const rows = recog.filter((x) => x.year === y).sort((a, b) => month(b.event) - month(a.event) || /Chair/.test(b.title) - /Chair/.test(a.title));
       const n = rows.reduce((t, x) => t + (x.who || [1]).length, 0);

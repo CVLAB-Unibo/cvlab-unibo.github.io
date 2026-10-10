@@ -99,6 +99,7 @@ window.ACTIVITIES = [
   { kind: "service", year: null, event: "IROS", title: "Area Chair / Associate Editor", who: ["Fabio Tosi"] },
   { kind: "service", year: 2026, event: "ICRA 2026", title: "Associate Editor", who: ["Matteo Poggi"] },
   { kind: "service", year: 2026, event: "NeurIPS 2026", title: "Area Chair", who: ["Matteo Poggi"] },
+  { kind: "service", year: 2026, event: "NeurIPS 2026", title: "Top Area Chair", who: ["Matteo Poggi"] },
   { kind: "service", year: 2026, event: "CVPR 2026", title: "Area Chair", who: ["Matteo Poggi", "Fabio Tosi"] },
   { kind: "service", year: 2026, event: "CVPR 2026", title: "Outstanding Area Chair", who: ["Matteo Poggi", "Fabio Tosi"] },
   { kind: "service", year: 2026, event: "ECCV 2026", title: "Outstanding Reviewer", who: ["Pierluigi Zama Ramirez", "Luca Bartolomei", "Alex Costanzino"] },
