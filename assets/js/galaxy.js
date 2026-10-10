@@ -57,6 +57,21 @@ async function start() {
   });
   const years = papers.map((x) => x.year), Y0 = Math.min(...years), Y1 = Math.max(...years);
 
+  // names written next to the stars: the short name before ":" ("EventHub"), otherwise the first words of the title.
+  // Priority: selected / awarded papers, then A* & Q1, then recent ones
+  const shortName = (t) => {
+    const head = t.split(":")[0];
+    if (t.includes(":") && head.length <= 22) return head;
+    let out = "";
+    for (const w of t.split(" ")) { if ((out + " " + w).trim().length > 24) break; out = (out + " " + w).trim(); }
+    return out + "…";
+  };
+  papers.forEach((x) => {
+    x.label = shortName(x.p.title);
+    x.rank = (x.p.featured || x.p.tag ? 4 : 0) + (["top", "q1"].includes(x.tier) ? 2 : 0) + (x.year >= 2023 ? 1 : 0) + (x.label.endsWith("…") ? 0 : 1);
+  });
+  const byRank = papers.map((x, i) => i).sort((a, b) => papers[b].rank - papers[a].rank || papers[b].year - papers[a].year);
+
   // ---- scene ---------------------------------------------------------------------------------
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -105,6 +120,7 @@ async function start() {
   // ---- labels and legend ---------------------------------------------------------------------
   const labelBox = $(".gx-labels");
   themes.forEach((t) => { t.el = document.createElement("div"); t.el.className = "gx-label"; labelBox.appendChild(t.el); });
+  const POOL = 20, starLabels = Array.from({ length: POOL }, () => { const e = document.createElement("span"); e.className = "gx-star"; labelBox.appendChild(e); return e; });
   const legend = $(".gx-legend");
   legend.innerHTML = Object.entries(AXES).map(([ax, name]) => `<h6>${name}</h6>` + themes.filter((t) => t.axis === ax)
     .map((t) => `<button type="button" data-k="${t.key}" style="--c:${t.css}"><i></i><span>${t.key}</span><small>${t.n}</small></button>`).join("")).join("");
@@ -202,6 +218,7 @@ async function start() {
   });
 
   // ---- loop ----------------------------------------------------------------------------------
+  let themeLabelsOn = true;
   function resize() {
     const w = wrap.clientWidth, h = wrap.clientHeight;
     renderer.setSize(w, h, false); camera.aspect = w / h;
@@ -211,6 +228,7 @@ async function start() {
     const k = Math.max(1, 1.25 / camera.aspect);                        // narrow screens: step back so it all fits
     HOME.set(0, 40, 190).multiplyScalar(k); controls.maxDistance = 340 * k;
     if (!camTo.pos && !focus) camera.position.copy(HOME);
+    themeLabelsOn = getComputedStyle(themes[0].el).display !== "none";   // hidden on phones
   }
   addEventListener("resize", resize); resize();
   let visible = true;
@@ -241,6 +259,29 @@ async function start() {
       t.el.style.left = (v.x * .5 + .5) * w + "px"; t.el.style.top = (-v.y * .5 + .5) * h + "px";
       if (t._n !== n) { t._n = n; t.el.innerHTML = `${t.key}<small>${n} papers</small>`; }
     });
+    placeStarLabels(w, h);
     renderer.render(scene, camera);
   })();
+
+  // write the names of the most relevant visible stars, skipping any that would overlap
+  function placeStarLabels(w, h) {
+    const max = focus ? 16 : touch ? 7 : 16, taken = [];
+    if (themeLabelsOn) themes.forEach((t) => { if (+t.el.style.opacity > 0) taken.push([parseFloat(t.el.style.left) - 70, parseFloat(t.el.style.top) - 16, 140, 32]); });
+    let n = 0;
+    for (const i of byRank) {
+      if (n >= max) break;
+      const x = papers[i];
+      if (x.year > upTo || i === hover || (focus && !x.topics.includes(focus))) continue;
+      v.copy(x.pos).project(camera);
+      if (v.z > 1) continue;
+      const px = (v.x * .5 + .5) * w + 7, py = (-v.y * .5 + .5) * h, bw = x.label.length * 6 + 6, box = [px, py - 8, bw, 16];
+      if (px < 8 || px + bw > w - 8 || py < 90 || py > h - 90) continue;
+      if (taken.some((r) => box[0] < r[0] + r[2] && box[0] + box[2] > r[0] && box[1] < r[1] + r[3] && box[1] + box[3] > r[1])) continue;
+      taken.push(box);
+      const e = starLabels[n++];
+      if (e.textContent !== x.label) e.textContent = x.label;
+      e.style.left = px + "px"; e.style.top = py + "px"; e.style.opacity = 1;
+    }
+    for (; n < POOL; n++) starLabels[n].style.opacity = 0;
+  }
 }

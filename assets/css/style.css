@@ -878,6 +878,7 @@ span.au { color: var(--muted); }
 .gx-labels { position: absolute; inset: 0; pointer-events: none; }
 .gx-label { position: absolute; z-index: 1; transform: translate(-50%, -50%); white-space: nowrap; font-size: .74rem; font-weight: 600; letter-spacing: .02em; color: #fff; text-shadow: 0 1px 8px #0b1220, 0 0 2px #0b1220; transition: opacity .3s; opacity: 0; }
 .gx-label small { display: block; text-align: center; font-weight: 500; font-size: .66rem; color: #9ca3af; }
+.gx-star { position: absolute; transform: translateY(-50%); white-space: nowrap; font-size: .66rem; font-weight: 500; color: #e2e8f0; text-shadow: 0 1px 6px #0b1220, 0 0 2px #0b1220; opacity: 0; transition: opacity .25s; }
 .gx-time { position: absolute; z-index: 2; left: 50%; bottom: 1.4rem; transform: translateX(-50%); display: flex; align-items: center; gap: .9rem; width: min(40rem, calc(100% - 2.5rem)); padding: .55rem .9rem .55rem .55rem; border-radius: 999px; background: rgba(15,23,42,.72); border: 1px solid #1f2937; backdrop-filter: blur(8px); }
 .gx-play { flex: none; display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; border: 0; background: #fed7aa; color: #111827; cursor: pointer; }
 .gx-play svg { width: .9rem; height: .9rem; }
