@@ -155,18 +155,25 @@ async function start() {
     const len = Math.min(controls.maxDistance, Math.max(controls.minDistance, d.length() * k));
     camera.position.copy(controls.target).add(d.setLength(len)); camTo.pos = null;
   }, { passive: false });
-  cv.addEventListener("pointerleave", () => (controls.enableZoom = false));
+  cv.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") controls.enableZoom = false; });
 
   // ---- hover, tap and click ------------------------------------------------------------------
-  const ray = new THREE.Raycaster(), mouse = new THREE.Vector2(), tip = $(".gx-tip");
-  ray.params.Points.threshold = 1.8;
+  const tip = $(".gx-tip");
   let hover = -1, downAt = null;
+  // nearest visible star on screen: within 14px with a mouse, 30px with a finger
+  const sp = new THREE.Vector3();
   function pick(e) {
-    const r = cv.getBoundingClientRect();
-    mouse.set((e.clientX - r.left) / r.width * 2 - 1, -(e.clientY - r.top) / r.height * 2 + 1);
-    ray.setFromCamera(mouse, camera);
-    const hit = ray.intersectObject(stars.pts).filter((h) => papers[h.index].a > .3).sort((a, b) => a.distanceToRay - b.distanceToRay)[0];
-    return hit ? hit.index : -1;
+    const r = cv.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top;
+    const lim = e.pointerType === "mouse" ? 14 : 30;
+    let best = -1, bd = lim * lim;
+    papers.forEach((x, i) => {
+      if (x.a < .3) return;
+      sp.copy(x.pos).project(camera);
+      if (sp.z > 1) return;
+      const dx = (sp.x * .5 + .5) * r.width - mx, dy = (-sp.y * .5 + .5) * r.height - my, d = dx * dx + dy * dy;
+      if (d < bd) { bd = d; best = i; }
+    });
+    return best;
   }
   function showTip(i, e) {
     hover = i;
@@ -184,10 +191,11 @@ async function start() {
     linkGeo.setDrawRange(0, Math.min(x.topics.length, 6) * 2); linkGeo.attributes.position.needsUpdate = true; links.visible = true;
   }
   cv.addEventListener("pointermove", (e) => { if (e.pointerType === "mouse") showTip(pick(e), e); });
-  cv.addEventListener("pointerleave", () => showTip(-1));
+  // touch pointers "leave" right after the finger is lifted: only the mouse closes the card this way
+  cv.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") showTip(-1); });
   cv.addEventListener("pointerdown", (e) => { downAt = [e.clientX, e.clientY]; controls.autoRotate = false; if (e.pointerType === "mouse") controls.enableZoom = true; });
   cv.addEventListener("pointerup", (e) => {
-    if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 6) return;
+    if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > (e.pointerType === "mouse" ? 6 : 12)) return;
     const i = pick(e);
     if (e.pointerType !== "mouse" && i !== hover) return showTip(i, e);   // first tap: show the card
     if (i >= 0 && papers[i].href) open(H.url(papers[i].href), "_blank", "noopener");
