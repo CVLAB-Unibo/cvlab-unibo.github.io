@@ -6,4 +6,10 @@
   <url><loc>https://cvlab.unibo.it/news/</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://cvlab.unibo.it/team/</loc><lastmod>2026-10-05</lastmod></url>
   <url><loc>https://cvlab.unibo.it/positions/</loc><lastmod>2026-10-05</lastmod></url>
+  <url><loc>https://cvlab.unibo.it/FeatureDistillation/</loc></url>
+  <url><loc>https://cvlab.unibo.it/RefRec/</loc></url>
+  <url><loc>https://cvlab.unibo.it/clip2nerf/</loc></url>
+  <url><loc>https://cvlab.unibo.it/inr2vec/</loc></url>
+  <url><loc>https://cvlab.unibo.it/nf2vec/</loc></url>
+  <url><loc>https://cvlab.unibo.it/gmnerf/</loc></url>
 </urlset>

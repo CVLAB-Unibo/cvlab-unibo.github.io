@@ -55,7 +55,8 @@
         <div class="ft-btns"><a class="ft-btn ft-pri" href="${url("positions/")}">Theses &amp; positions ${FOOT_ICON.arrow}</a>${social}</div></div>` : ""}
       <div class="ft-grid">
         <div class="ft-brand"><a href="${ROOT || "./"}"><img src="${url("assets/img/favicon.png")}" alt="${esc(S.fullName)}"></a>
-          <div><b>${esc(S.fullName)}</b><p><a href="${esc(S.departmentUrl || "#")}" target="_blank" rel="noopener">${esc(S.department)}</a><br>${esc(S.affiliation)}</p></div></div>
+          <div><b>${esc(S.fullName)}</b><p><a href="${esc(S.departmentUrl || "#")}" target="_blank" rel="noopener">${esc(S.department)}</a><br>${esc(S.affiliation)}</p>
+            <a class="ft-unibo" href="https://www.unibo.it/" target="_blank" rel="noopener"><img src="${url("imgs/unibo-white.png")}" alt="Alma Mater Studiorum – Università di Bologna" loading="lazy"></a></div></div>
         ${people ? `<div><h6>Get in touch</h6><ul class="ft-people">${people}</ul></div>` : ""}
         <div class="ft-where"><h6>Find us</h6><a href="${maps}" target="_blank" rel="noopener">${FOOT_ICON.pin}<span>${c.lines.map(esc).join("<br>")}</span></a></div>
       </div>

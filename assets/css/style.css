@@ -289,6 +289,9 @@ dialog.bibtex .dialog-actions { display: flex; gap: .5rem; justify-content: flex
 .ft-brand img { width: 3.2rem; height: 3.2rem; border-radius: .8rem; }
 .ft-brand b { display: block; color: #fff; font-size: 1.05rem; font-weight: 600; }
 .ft-brand p { margin: .25rem 0 0; font-size: .86rem; line-height: 1.6; }
+.ft-unibo { display: inline-block; margin-top: 1.2rem; opacity: .9; transition: opacity .2s; }
+.ft-unibo:hover { opacity: 1; }
+.ft-unibo img { height: 6.4rem; width: auto; }
 .ft-people { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0; padding: 0; list-style: none; }
 .ft-people a { display: inline-flex; align-items: center; gap: .45rem; padding: .3rem .75rem .3rem .3rem; border-radius: 999px; font-size: .86rem; background: #111a2e; border: 1px solid #1f2937; color: #e5e7eb; }
 .ft-people a:hover { border-color: #fed7aa; color: #fff; }
