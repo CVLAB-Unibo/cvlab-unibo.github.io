@@ -8,7 +8,7 @@ window.SITE = {
   department: "Department of Computer Science and Engineering (DISI)",
   departmentUrl: "https://disi.unibo.it/en",
   logo: "assets/img/logo-mark.png",           // symbol only (navbar) – built by tools/build_logo.py
-  logoFull: "assets/img/logo-full.png",       // symbol + LAB + name (footer)
+  logoFull: "assets/img/logo-full.png",       // symbol + LAB + name
   parentLogo: null,                           // e.g. "assets/img/logo-unibo.png" (shown left of the lab logo)
   parentUrl: "https://www.unibo.it/en",
 

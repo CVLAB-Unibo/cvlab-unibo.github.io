@@ -266,18 +266,36 @@ dialog.bibtex .dialog-actions { display: flex; gap: .5rem; justify-content: flex
 @media (min-width: 768px) { .news-item { grid-template-columns: 8rem 1fr; } }
 
 /* ---------- Footer ---------------------------------------------------------- */
-.footer { background: var(--bg-soft); border-top: 1px solid var(--line); color: var(--muted); padding: 4rem 0 2rem; }
-.footer .cols { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-.footer h6 { text-transform: uppercase; font-size: .72rem; letter-spacing: .08em; color: var(--ink); font-weight: 600; }
-.footer ul { list-style: none; margin: 0; padding: 0; }
-.footer li { margin-bottom: .5rem; font-size: .9rem; }
-.footer a { color: var(--muted); }
-.footer a:hover { color: var(--accent); }
-.footer .brand-white { display: flex; align-items: center; gap: .8rem; color: var(--ink); margin-bottom: 1rem; }
-.footer-logo { width: 13rem; max-width: 100%; height: auto; margin-bottom: 1rem; }
-.footer .brand-white strong { font-size: 1.5rem; font-weight: 800; letter-spacing: -.04em; }
-.footer small { font-size: .85rem; line-height: 1.7; }
-.footer .copy { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); font-size: .8rem; }
+.footer { background: #0b1220; color: #9ca3af; padding: 4.5rem 0 1.6rem; }
+.footer--plain .ft-grid { padding-top: 0; }
+.footer a { color: #d1d5db; transition: color .15s, background .15s, border-color .15s; }
+.footer a:hover { color: #fed7aa; }
+.footer svg { width: 1rem; height: 1rem; flex: none; }
+.footer h6 { margin: 0 0 .9rem; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: #6b7280; font-weight: 600; }
+.ft-cta { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.5rem 3rem; padding-bottom: 3rem; border-bottom: 1px solid #1f2937; }
+.ft-cta h2 { margin: 0; color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: -.035em; line-height: 1.1; max-width: 36rem; }
+.ft-cta h2 em { font-style: normal; color: #fed7aa; }
+.ft-btns { display: flex; flex-wrap: wrap; gap: .6rem; }
+.ft-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.2rem; border-radius: 999px; font-weight: 600; font-size: .95rem; border: 1px solid #374151; }
+.ft-btn:hover { border-color: #fed7aa; }
+.footer .ft-pri { background: #fed7aa; border-color: #fed7aa; color: #111827; }
+.footer .ft-pri:hover { background: #fdba74; border-color: #fdba74; color: #111827; }
+.ft-grid { display: grid; gap: 2.5rem; padding: 2.8rem 0 2.4rem; }
+@media (min-width: 900px) { .ft-grid { grid-template-columns: 1.1fr 1.6fr .9fr; gap: 4rem; } }
+.ft-brand { display: flex; gap: 1rem; align-items: flex-start; }
+.ft-brand img { width: 3.2rem; height: 3.2rem; border-radius: .8rem; }
+.ft-brand b { display: block; color: #fff; font-size: 1.05rem; font-weight: 600; }
+.ft-brand p { margin: .25rem 0 0; font-size: .86rem; line-height: 1.6; }
+.ft-people { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0; padding: 0; list-style: none; }
+.ft-people a { display: inline-flex; align-items: center; gap: .45rem; padding: .3rem .75rem .3rem .3rem; border-radius: 999px; font-size: .86rem; background: #111a2e; border: 1px solid #1f2937; color: #e5e7eb; }
+.ft-people a:hover { border-color: #fed7aa; color: #fff; }
+.ft-people img { width: 1.6rem; height: 1.6rem; border-radius: 50%; object-fit: cover; }
+.ft-where a { display: inline-flex; gap: .5rem; align-items: flex-start; font-size: .9rem; line-height: 1.55; }
+.ft-where svg { margin-top: .2rem; }
+.ft-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .8rem 2rem; padding-top: 1.4rem; border-top: 1px solid #1f2937; font-size: .8rem; }
+.ft-bottom nav { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; }
+.footer .ft-bottom nav a { color: #9ca3af; }
+.footer .ft-bottom nav a:hover { color: #fed7aa; }
 
 .prose { max-width: 46rem; }
 .prose h3 { margin-top: 2rem; }
@@ -741,8 +759,6 @@ span.au { color: var(--muted); }
 .prin-partners b { color: var(--ink); font-weight: 600; }
 
 .svc-note { margin: 1.6rem 0 0; max-width: 52rem; font-size: .92rem; color: var(--muted); }
-.footer-mails { margin-top: .7rem !important; }
-.footer-mails li { margin-bottom: .2rem; font-size: .82rem; }
 
 /* ---------- News & events: timeline ------------------------------------------------------------ */
 /* one soft colour per kind of item (same family as Perceive → Adapt on the Research page) */

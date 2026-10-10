@@ -34,27 +34,33 @@
     $(".nav-toggle").addEventListener("click", () => $(".nav-links").classList.toggle("open"));
   }
 
+  const FOOT_ICON = {
+    pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+    github: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>',
+    arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+  };
+
+  // dark footer: a call to action, the faculty as e-mail chips (data/team.js), the address on a map, the menu
   function renderFooter() {
     const c = S.contact;
-    // contact e-mails: the faculty in data/team.js (fallback: contact.email in data/site.js)
     const faculty = (window.TEAM || []).filter((g) => g.kind === "faculty").flatMap((g) => g.people).filter((p) => p.email);
-    const mails = (faculty.length ? faculty : c.email ? [{ email: c.email }] : [])
-      .map((p) => `<li><a href="mailto:${esc(p.email)}"${p.name ? ` title="${esc(p.name)}"` : ""}>${esc(p.email)}</a></li>`).join("");
-    $("#site-footer").outerHTML = `<footer class="footer"><div class="container">
-      <div class="cols">
-        <div><a href="${ROOT || "./"}"><img class="footer-logo" src="${url(S.logoFull || S.logo)}" alt="${esc(S.fullName)}"></a>
-          <small><a href="${esc(S.departmentUrl || "#")}" target="_blank" rel="noopener">${esc(S.department)}</a><br>${esc(S.affiliation)}</small></div>
-        <div><h6>Links</h6><ul>
-          <li><a href="${ROOT || "./"}">Home</a></li>
-          ${S.nav.map((n) => `<li><a href="${url(n.href)}">${esc(n.label)}</a></li>`).join("")}
-        </ul></div>
-        <div><h6>Contact</h6><small>${c.lines.map(esc).join("<br>")}</small>
-          ${mails ? `<ul class="footer-mails">${mails}</ul>` : ""}</div>
-        <div><h6>Connect</h6><ul>
-          ${S.social.map((s) => `<li><a href="${esc(s.href)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join("")}
-        </ul></div>
+    const people = faculty.map((p) => `<li><a href="mailto:${esc(p.email)}" title="${esc(p.email)}"><img src="${url(p.photo || `imgs/team/${slug(p.name)}.jpg`)}" alt="" loading="lazy">${esc(p.name)}</a></li>`).join("")
+      || (c.email ? `<li><a href="mailto:${esc(c.email)}">${esc(c.email)}</a></li>` : "");
+    const maps = "https://maps.google.com/?q=" + encodeURIComponent(c.lines.join(", "));
+    const social = S.social.map((x) => `<a class="ft-btn" href="${esc(x.href)}" target="_blank" rel="noopener">${/github/i.test(x.href) ? FOOT_ICON.github : ""}${esc(x.label)}</a>`).join("");
+    // on the Work with us page the call to action would point to itself: skip it, GitHub moves to the bottom row
+    const cta = document.body.dataset.page !== "positions";
+    $("#site-footer").outerHTML = `<footer class="footer${cta ? "" : " footer--plain"}"><div class="container">
+      ${cta ? `<div class="ft-cta"><h2>Curious about 3D vision? <em>Come and work with us.</em></h2>
+        <div class="ft-btns"><a class="ft-btn ft-pri" href="${url("positions/")}">Theses &amp; positions ${FOOT_ICON.arrow}</a>${social}</div></div>` : ""}
+      <div class="ft-grid">
+        <div class="ft-brand"><a href="${ROOT || "./"}"><img src="${url("assets/img/favicon.png")}" alt="${esc(S.fullName)}"></a>
+          <div><b>${esc(S.fullName)}</b><p><a href="${esc(S.departmentUrl || "#")}" target="_blank" rel="noopener">${esc(S.department)}</a><br>${esc(S.affiliation)}</p></div></div>
+        ${people ? `<div><h6>Get in touch</h6><ul class="ft-people">${people}</ul></div>` : ""}
+        <div class="ft-where"><h6>Find us</h6><a href="${maps}" target="_blank" rel="noopener">${FOOT_ICON.pin}<span>${c.lines.map(esc).join("<br>")}</span></a></div>
       </div>
-      <div class="copy">© ${new Date().getFullYear()} ${esc(S.fullName)}, ${esc(S.affiliation)}</div>
+      <div class="ft-bottom"><span>© ${new Date().getFullYear()} ${esc(S.fullName)} · ${esc(S.affiliation)}</span>
+        <nav><a href="${ROOT || "./"}">Home</a>${S.nav.map((n) => `<a href="${url(n.href)}">${esc(n.label)}</a>`).join("")}${cta ? "" : S.social.map((x) => `<a href="${esc(x.href)}" target="_blank" rel="noopener">${esc(x.label)} ↗</a>`).join("")}</nav></div>
     </div></footer>`;
   }
 
