@@ -102,7 +102,7 @@ window.ACTIVITIES = [
   { kind: "service", year: 2026, event: "NeurIPS 2026", title: "Top Area Chair", who: ["Matteo Poggi"] },
   { kind: "service", year: 2026, event: "CVPR 2026", title: "Area Chair", who: ["Matteo Poggi", "Fabio Tosi"] },
   { kind: "service", year: 2026, event: "CVPR 2026", title: "Outstanding Area Chair", who: ["Matteo Poggi", "Fabio Tosi"] },
-  { kind: "service", year: 2026, event: "ECCV 2026", title: "Outstanding Reviewer", who: ["Pierluigi Zama Ramirez", "Luca Bartolomei", "Alex Costanzino"] },
+  { kind: "service", year: 2026, event: "ECCV 2026", title: "Outstanding Reviewer", who: ["Luigi Di Stefano", "Pierluigi Zama Ramirez", "Luca Bartolomei", "Alex Costanzino"] },
   { kind: "service", year: 2026, event: "CVPR 2026", title: "Outstanding Reviewer", who: ["Pierluigi Zama Ramirez", "Luca Bartolomei"] },
   { kind: "service", year: 2025, event: "NeurIPS 2025", title: "Top Reviewer", who: ["Luca Bartolomei"] },
   { kind: "service", year: 2025, event: "ICCV 2025", title: "Outstanding Reviewer", who: ["Matteo Poggi", "Fabio Tosi"] },
