@@ -885,6 +885,7 @@
     const cnt = (kind) => window.TEAM.filter((g) => g.kind === kind).reduce((a, g) => a + g.people.filter((p) => !isIncoming(p)).length, 0);
     const n = { faculty: cnt("faculty"), postdocs: cnt("postdocs"), phd: cnt("phd"), visiting: cnt("visiting"), alumni: cnt("alumni") };
     n.current = n.faculty + n.postdocs + n.phd + n.visiting;
+    n.visitingPhrase = n.visiting ? `, joined by <strong>${n.visiting} visiting researcher${n.visiting > 1 ? "s" : ""}</strong>,` : "";   // {visitingPhrase} in data/team.js
     const fill = (t) => t.replace(/\{(\w+)\}/g, (m, k) => (k in n ? n[k] : m));
     el.innerHTML = `<div><h2>${esc(o.title)}</h2>${o.paragraphs.map((x) => `<p>${fill(x)}</p>`).join("")}</div>`;
   }
