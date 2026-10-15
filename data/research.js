@@ -147,6 +147,7 @@ window.TAXONOMY = {
     "Vision-Language": ["vision-language", "language", "llana", "text-to", "open-vocabulary"],
     "Transformers": ["transformer"],
     "Point Clouds": ["point cloud"],
+    "Super-Resolution": ["super-resolution", "arbitrary resolution", "arbitrary-resolution", "gigapixel", "upsampl"],
     "Image Synthesis & Forensics": ["image synthesis", "generated images", "image defense", "face generation", "face parts editing", "adversarially train diffusion"]
   },
   "Learning": {

@@ -54,7 +54,7 @@
       ${cta ? `<div class="ft-cta"><h2>Curious about 3D vision? <em>Come and work with us.</em></h2>
         <div class="ft-btns"><a class="ft-btn ft-pri" href="${url("positions/")}">Theses &amp; positions ${FOOT_ICON.arrow}</a>${social}</div></div>` : ""}
       <div class="ft-grid">
-        <div class="ft-brand"><a href="${ROOT || "./"}"><img src="${url("assets/img/favicon.png")}" alt="${esc(S.fullName)}"></a>
+        <div class="ft-brand"><a href="${ROOT || "./"}"><img src="${url("assets/img/logo-mark.png")}" alt="${esc(S.fullName)}"></a>
           <div><b>${esc(S.fullName)}</b><p><a href="${esc(S.departmentUrl || "#")}" target="_blank" rel="noopener">${esc(S.department)}</a><br>${esc(S.affiliation)}</p>
             <a class="ft-unibo" href="https://www.unibo.it/" target="_blank" rel="noopener"><img src="${url("imgs/unibo-white.png")}" alt="Alma Mater Studiorum – Università di Bologna" loading="lazy"></a></div></div>
         ${people ? `<div><h6>Get in touch</h6><ul class="ft-people">${people}</ul></div>` : ""}
@@ -77,6 +77,27 @@
       return u ? `<a class="au" href="${esc(u)}" target="_blank" rel="noopener">${esc(clean)}</a>${star}` : `<span class="au">${esc(clean)}</span>${star}`;
     }).join(", ");
     return list + (p.equalContribution ? ' <span class="text-muted">(* equal contribution)</span>' : "");
+  }
+
+  // distinction badge on a paper: oral / spotlight / highlight / award, with a small symbol
+  const TAG_ICON = {
+    oral: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>',
+    spot: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.2L12 19.5l-2.2-6.3L3.5 11l6.3-2.2z"/></svg>',
+    high: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg>',
+    award: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4zM8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7M10 17h4"/></svg>'
+  };
+  const TAG_TIP = { oral: "Selected for an oral presentation", spot: "Selected as a spotlight", high: "Selected as a highlight paper", award: "Award" };
+  const tagKind = (t) => (!t ? "" : /best|award|honou?rable|prize/i.test(t) ? "award" : /oral/i.test(t) ? "oral" : /spotlight/i.test(t) ? "spot" : /highlight/i.test(t) ? "high" : "");
+  // plain tags (anything that is not a distinction) stay a small badge in the meta row
+  function tagBadge(p) {
+    return p.tag && !tagKind(p.tag) ? `<span class="badge badge--tag">${esc(p.tag)}</span>` : "";
+  }
+  // distinctions get a round seal in the top-right corner (same idea as the PRIN badge)
+  function tagSeal(p) {
+    const k = tagKind(p.tag);
+    if (!k) return "";
+    const words = esc(p.tag).replace(/^Best Paper Honou?rable Mention$/i, "Honorable mention").replace(/ Award$/i, "").split(" ");
+    return `<span class="seal seal--${k}" title="${TAG_TIP[k]}: ${esc(p.tag)}">${TAG_ICON[k]}<b>${words.join("<br>")}</b></span>`;
   }
 
   // BibTeX reads "Luigi Di Stefano" as first "Luigi Di", last "Stefano": write names as "Last, First".
@@ -156,12 +177,12 @@
     const venue = p.venueUrl ? `<a href="${esc(p.venueUrl)}">${esc(p.venue)}</a>` : esc(p.venue);
     const keys = Object.keys(LINK_LABELS).filter((k) => p.links?.[k]).concat(Object.keys(p.links || {}).filter((k) => !LINK_LABELS[k]));
     const buttons = keys.map((k) => `<a class="btn btn-xs" href="${url(p.links[k])}" target="_blank" rel="noopener">${esc(LINK_LABELS[k] || k)}</a>`).join("");
-    return `<article class="card pub${p.image ? " has-img" : ""}" data-topics="${esc(topics.join("|"))}" data-tags="${esc(kws.join("|"))}" data-search="${esc((p.title + " " + p.authors.join(" ") + " " + p.venue + " " + (p.abstract || "") + " " + topics.join(" ") + " " + kws.join(" ")).toLowerCase())}">
-      ${thumb}
+    return `<article class="card pub${p.image ? " has-img" : ""}${tagKind(p.tag) ? " has-seal" : ""}" data-topics="${esc(topics.join("|"))}" data-tags="${esc(kws.join("|"))}" data-search="${esc((p.title + " " + p.authors.join(" ") + " " + p.venue + " " + (p.abstract || "") + " " + topics.join(" ") + " " + kws.join(" ")).toLowerCase())}">
+      ${tagSeal(p)}${thumb}
       <div class="pub-main">
         <div class="pub-meta">
           <span class="badge badge--venue">${esc(venueLabel(p))}</span>${p.rank ? `<span class="rank" title="${/CORE/.test(p.rank) ? "ICORE 2026 conference ranking" : "Journal quartile (Scimago / JCR)"}">${esc(p.rank)}</span>` : ""}
-          ${p.tag ? `<span class="badge badge--tag">${esc(p.tag)}</span>` : ""}
+          ${tagBadge(p)}
           ${p.kind && !["Conference", "Journal"].includes(p.kind) ? `<span class="badge">${esc(p.kind)}</span>` : ""}
           ${topics.slice(0, 2).map((t) => `<a class="topic-tag ax-${axisOf(t)}" href="${topicHref(t)}" data-topic="${esc(t)}">${esc(t)}</a>`).join("")}${kws.slice(0, 2).map((t) => `<a class="kw-tag" href="${tagHref(t)}" data-tag="${esc(t)}">${esc(t)}</a>`).join("")}
         </div>
@@ -363,9 +384,9 @@
     const full = (p.venue || "").replace(/\s*\([^)]*\d{4}\)/, "").replace(/,\s*pp\..*$/, "");
     return `<article class="hl-row">
       <div class="hl-year">${p.year}</div>
-      ${href ? `<a class="hl-thumb" href="${href}"${ext} tabindex="-1" aria-hidden="true">${img}</a>` : `<div class="hl-thumb">${img}</div>`}
+      ${href ? `<a class="hl-thumb" href="${href}"${ext} tabindex="-1" aria-hidden="true">${img}${tagSeal(p)}</a>` : `<div class="hl-thumb">${img}${tagSeal(p)}</div>`}
       <div class="hl-text">
-        <h3 class="hl-title">${href ? `<a href="${href}"${ext}>${esc(p.title)}</a>` : esc(p.title)}${p.tag ? ` <span class="badge badge--tag">${esc(p.tag)}</span>` : ""}</h3>
+        <h3 class="hl-title">${href ? `<a href="${href}"${ext}>${esc(p.title)}</a>` : esc(p.title)}${tagBadge(p) ? ` ${tagBadge(p)}` : ""}</h3>
         <p class="hl-authors">${authorsHtml(p)}</p>
         ${p.summary ? `<p class="hl-sum">${esc(p.summary)}</p>` : ""}
         <p class="hl-venue"><span class="hl-v">${esc(venueLabel(p))}</span>${p.rank ? `<span class="hl-rank">${esc(p.rank)}</span>` : ""}<span class="hl-vfull">${esc(full)}</span></p>
@@ -434,19 +455,18 @@
       .map((p) => ({ year: p.year, title: p.tag, event: venueLabel(p), work: p.title, href: link(p), who: authorsHtml(p) }))
       .concat((window.AWARDS || []).map((a) => ({ ...a, href: a.url, who: a.credit ? esc(a.credit) : a.person ? `Awarded to <strong>${esc(a.person)}</strong>` : "" })))
       .sort((a, b) => b.year - a.year);
-    const dist = pubs.filter((p) => /^(oral|highlight|spotlight)/i.test(p.tag || "")).sort((a, b) => b.year - a.year);
-    if (!awards.length && !dist.length) { el.closest("section").hidden = true; return; }
+    // orals, spotlights and highlights are not listed here: their badge is on the paper cards
+    if (!awards.length) { el.closest("section").hidden = true; return; }
     const ext = (h) => (h && /^https?:/.test(h) ? ' target="_blank" rel="noopener"' : "");
-    el.innerHTML = `<div class="aw-grid">${awards.map((a) => `<article class="aw-card">
-        <span class="aw-icon">${TROPHY}</span>
-        <div><div class="aw-title">${esc(a.title)}</div><div class="aw-event">${esc(a.event || "")}${a.event && !/\d{4}/.test(a.event) ? ` ${a.year}` : ""}</div>
-          ${a.work ? `<p class="aw-paper">${a.href ? `<a href="${a.href}"${ext(a.href)}>${esc(a.work)}</a>` : esc(a.work)}</p>` : a.href ? `<p class="aw-paper"><a href="${a.href}"${ext(a.href)}>Details ↗</a></p>` : ""}
-          ${a.who ? `<p class="aw-who">${a.who}</p>` : ""}</div></article>`).join("")}</div>
-      ${serviceHtml()}
-      ${dist.length ? `<h3 class="aw-sub">Orals, spotlights &amp; highlights</h3><ul class="aw-list">${dist.map((p) => {
-        const h = link(p);
-        return `<li><span class="aw-kind">${esc(p.tag)}</span><span class="aw-v">${esc(venueLabel(p))}</span>${h ? `<a href="${h}"${ext(h)}>${esc(p.title)}</a>` : `<span>${esc(p.title)}</span>`}</li>`;
-      }).join("")}</ul>` : ""}`;
+    // a shelf of medals: gold for awards, silver for honourable mentions and placements
+    const medal = (t) => (/honou?rable|2nd|3rd/i.test(t) ? " silver" : "");
+    const shortEv = (a) => (a.event || "").split(" · ").filter((x) => !/^(Vienna|Expo 2020 Dubai)$/.test(x))
+      .map((x) => x.replace(/^\d+(st|nd|rd|th) IEEE /, "").replace(/ Autonomous Driving World Championship/, "")).join(" · ") + (a.event && !/\d{4}/.test(a.event) ? ` ${a.year}` : "");
+    el.innerHTML = `<div class="medals">${awards.map((a) => {
+        const inner = `<div class="disc"><span>${a.year}</span></div><h4>${esc(a.title.replace(/ – Future Mobility, category winner$/, ""))}</h4><div class="ev">${esc(shortEv(a))}</div>${a.work ? `<p>${esc(a.work)}</p>` : ""}${a.person ? `<p class="who">Awarded to <strong>${esc(a.person)}</strong></p>` : !a.work && a.who ? `<p>${a.who.replace(/<[^>]+>/g, "")}</p>` : ""}`;
+        return `<article class="medal${medal(a.title)}" title="${esc(a.title)}${a.event ? " · " + esc(a.event) : ""}">${a.href ? `<a href="${a.href}"${ext(a.href)}>${inner}</a>` : inner}</article>`;
+      }).join("")}</div>
+      ${serviceHtml()}`;
   }
 
   /* ---------- gallery: photo-only section with lightbox ---------------------------------------- */
@@ -497,21 +517,19 @@
       <aside class="facts-card">${a.facts.map(factRow).join("")}</aside>`;
 
     const pubs = window.PUBLICATIONS;
-    const featured = pubs.filter((p) => p.featured).sort((a, b) => a.featured - b.featured);        // order set by the `featured` number in data/publications.js
+    const featured = pubs.filter((p) => p.featured).sort((a, b) => a.featured - b.featured).slice(0, 10);   // order set by the `featured` number in data/publications.js; at most 10 on the home page
     $("#home-pubs").innerHTML = featured.map(hlRow).join("");
     const total = pubs.length + archiveObjects().length;
     const more = $("#home-pubs-more");
     if (more) more.innerHTML = `Browse all <strong>${total}</strong> publications, with search and filters by topic →`;
     wirePubs($("#home-pubs"), pubs);
 
-    const news = [...window.NEWS].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
-    $("#home-news").innerHTML = news.map(newsItem).join("");
+    renderHomeNews($("#home-news"));
 
     renderAwards($("#home-awards"));
     celebrate($("#prin"));
     renderCarousel($("#home-research"));
     renderGallery($("#home-gallery"));
-    renderStory($("#home-story"));
     renderPeopleStrip($("#home-people"));
   }
 
@@ -519,6 +537,30 @@
   const fmtDate = (d) => new Date(d + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
   const newsItem = (n) => `<div class="news-item"><div class="news-date">${fmtDate(n.date)}</div>
     <div><h5>${esc(n.title)}</h5><div class="text-muted">${(n.text || "").replaceAll("{root}", ROOT)}</div></div></div>`;
+
+  // home: the 3 latest news as a short timeline under a pulsing "Now" (same kind colours as the News page)
+  const NEWS_DOT = { paper: ["Paper", "#fed7aa"], award: ["Award", "#fde68a"], grant: ["Grant", "#fed7aa"], service: ["Recognition", "#c7d2fe"], people: ["People", "#e7e5e4"] };
+  function timeAgo(d) {
+    const n = Math.round((Date.now() - new Date(d + "T12:00:00")) / 864e5);
+    return n <= 0 ? "today" : n === 1 ? "yesterday" : n < 7 ? `${n} days ago` : n < 14 ? "last week" : n < 60 ? `${Math.round(n / 7)} weeks ago` : n < 365 ? `${Math.round(n / 30)} months ago` : `${Math.round(n / 365)} year${n >= 730 ? "s" : ""} ago`;
+  }
+  // home: the latest news as a big card (with its `image`), the next four as a short timeline under a pulsing "Now"
+  function renderHomeNews(el) {
+    if (!el) return;
+    const plain = (h) => (h || "").replace(/<[^>]+>/g, "").replace(/\{root\}/g, "");
+    const [first, ...rest] = [...(window.NEWS || [])].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5);
+    if (!first) { el.closest("section").hidden = true; return; }
+    const kind = (n) => NEWS_DOT[n.kind] || NEWS_DOT.people;
+    const fresh = Date.now() - new Date(first.date + "T12:00:00") < 30 * 864e5;
+    const feat = `<a class="nf-feat" href="${url("news/")}" style="--k:${kind(first)[1]}">${first.image ? `<div class="nf-img${/imgs\/team\//.test(first.image) ? " person" : ""}"><img src="${url(first.image)}" alt="" loading="lazy"></div>` : ""}
+      <div class="nf-body"><div class="nf-meta"><span class="k">${kind(first)[0]}</span><time datetime="${first.date}">${fmtDate(first.date)}</time><span>· ${timeAgo(first.date)}</span>${fresh ? `<span class="nf-new">New</span>` : ""}</div>
+        <h3>${esc(first.title)}</h3><p>${esc(plain(first.text))}</p></div></a>`;
+    const line = `<ol class="tv"><li class="now"><span class="now-dot"></span><span class="now-lbl">Now</span></li>${rest.map((n) =>
+      `<li class="it"><a href="${url("news/")}" style="--k:${kind(n)[1]}"><div class="when"><time datetime="${n.date}">${fmtDate(n.date)}</time><span class="ago">${timeAgo(n.date)}</span></div>
+        <div><span class="k">${kind(n)[0]}</span><b>${esc(n.title)}</b><span class="tx">${esc(plain(n.text))}</span></div></a></li>`).join("")}</ol>`;
+    el.innerHTML = `<div class="nf">${feat}${rest.length ? `<div>${line}</div>` : ""}</div>`;
+  }
+
 
   // News & events: one timeline built from data/news.js (people), the papers in A* venues and Q1
   // journals, data/awards.js + award tags, and data/activities.js (workshops, tutorials, demos, patents).
