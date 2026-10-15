@@ -6,6 +6,8 @@
    `text` may contain simple HTML; write internal links as {root}path/ so they work on every page.
    =========================================================================== */
 window.NEWS = [
+  { date: "2026-10-15", kind: "paper", title: "Two papers accepted at WACV 2027",
+    text: "<strong>CoordFormer</strong>, coordinate-based semantic segmentation of very-high-resolution images, and a <strong>benchmark of learnable representations for gigapixel image compression and super-resolution</strong> have been accepted at WACV 2027. See our <a href='{root}publications/'>publications</a>." },
   { date: "2026-10-10", kind: "service", title: "Top Area Chair at NeurIPS 2026",
     text: "Congratulations to <strong>Matteo Poggi</strong>, acknowledged as a <strong>Top Area Chair</strong> at NeurIPS 2026!" },
   { date: "2026-10-05", kind: "grant", title: "PRIN 2026 grant for PREMISE",

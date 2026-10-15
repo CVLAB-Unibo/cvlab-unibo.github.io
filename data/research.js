@@ -88,6 +88,14 @@ window.RESEARCH = [
     keywords: ["efficient", "lightweight", "real-time", "real time", "energy", "low-power", "low power", "embedded", "fpga", "cpu", "microcontroller", "architecture search", "quantiz", "compress", "power budget", "edge"]
   },
   {
+    title: "High-Resolution Vision",
+    short: "High-Resolution",
+    axis: "how",
+    image: "imgs/research/high-resolution.jpg",
+    text: "Seeing every detail: perception at high and arbitrary resolution. Depth super-resolution, arbitrary-resolution stereo and semantic segmentation of very-high-resolution images, learnable representations for gigapixel image compression and super-resolution, and the NTIRE challenges on high-resolution depth that we organise.",
+    keywords: ["high-resolution", "high resolution", "hr depth", "super-resolution", "arbitrary resolution", "arbitrary-resolution", "gigapixel", "upsampl"]
+  },
+  {
     title: "Robust, Adaptive & Generalizable Vision",
     short: "Robust & Generalizable",
     axis: "how",

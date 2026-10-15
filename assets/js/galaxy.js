@@ -23,7 +23,7 @@ async function start() {
   const H = window.CVLAB, RESEARCH = window.RESEARCH;
   const $ = (s) => wrap.querySelector(s);
   const AXES = { what: "What we perceive", how: "How we make it work", past: "Earlier work" };
-  const COLS = ["#fdba74", "#fcd34d", "#7dd3fc", "#c4b5fd", "#6ee7b7", "#fda4af", "#bef264", "#5eead4", "#a5b4fc", "#f0abfc", "#fb923c", "#67e8f9", "#d6d3d1"];
+  const COLS = ["#fdba74", "#fcd34d", "#7dd3fc", "#c4b5fd", "#6ee7b7", "#fda4af", "#bef264", "#5eead4", "#fca5a5", "#a5b4fc", "#f0abfc", "#fb923c", "#67e8f9", "#d6d3d1"];
   const touch = matchMedia("(pointer: coarse)").matches;
 
   // seeded random numbers: the galaxy has the same shape on every visit

@@ -206,7 +206,8 @@
   function renderPubSummary(all) {
     const el = $("#pub-summary");
     if (!el) return;
-    const last = Math.max(...all.map((p) => p.year));
+    // the last 5 years counted from the current year (papers already accepted for next year are included)
+    const last = Math.min(Math.max(...all.map((p) => p.year)), new Date().getFullYear());
     let from = last - 4;                       // default view: the last 5 years
     const draw = () => {
       const inRange = all.filter((p) => p.year >= from);

@@ -29,6 +29,42 @@
    =========================================================================== */
 window.PUBLICATIONS = [
   {
+    "title": "CoordFormer: Give Me Any Coordinates and I Will Give You Labels",
+    "authors": [
+      "Iacopo Curti",
+      "Pierluigi Zama Ramirez",
+      "Alioscia Petrelli",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF Winter Conference on Applications of Computer Vision",
+    "badge": "WACV 2027",
+    "year": 2027,
+    "rank": "CORE A",
+    "abstract": "Semantic segmentation on very-high-resolution images remains challenging due to the high computational cost and the difficulty of capturing fine-grained details. CoordFormer is a coordinate-based architecture that predicts labels at arbitrary spatial locations through a Coordinate Decoder with Localized Cross-Attention, combining coordinate embeddings and high-resolution local patch features with global tokens from a ViT foundation encoder. It runs at arbitrary resolutions with low memory, supports a semantic-edge-focused strategy that concentrates computation along boundaries, and achieves state-of-the-art results on MaSS13K while outperforming comparable methods on DIS5K and KPIs.",
+    "image": "assets/img/publications/coordformer.jpg",
+    "links": {
+      "pdf": "https://arxiv.org/abs/2609.08660"
+    },
+    "topics": ["Scene Understanding", "High-Resolution", "Efficient & Real-Time"]
+  },
+  {
+    "title": "Benchmarking Learnable Representations for Gigapixel Image Compression and Super-Resolution",
+    "authors": [
+      "Matteo Fusconi",
+      "Alex Costanzino",
+      "Pierluigi Zama Ramirez",
+      "Luigi Di Stefano"
+    ],
+    "kind": "Conference",
+    "venue": "IEEE/CVF Winter Conference on Applications of Computer Vision",
+    "badge": "WACV 2027",
+    "year": 2027,
+    "rank": "CORE A",
+    "image": "assets/img/publications/gigapixel-compression-sr",
+    "topics": ["High-Resolution", "Efficient & Real-Time"]
+  },
+  {
     title: "Weight Space Representation Learning on Diverse NeRF Architectures",
     image: "assets/img/publications/weight-space.jpg",
     authors: ["Francesco Ballerini", "Pierluigi Zama Ramirez", "Luigi Di Stefano", "Samuele Salti"],
@@ -958,7 +994,7 @@ window.PUBLICATIONS = [
       "pdf": "https://doi.org/10.1109/TPAMI.2023.3323858",
       "project": "https://cvlab-unibo.github.io/booster-web/"
     },
-    "addTopics": ["Stereo & Multi-Sensor"]
+    "addTopics": ["Stereo & Multi-Sensor", "High-Resolution"]
   },
   {
     "title": "Neural Disparity Refinement",
@@ -987,7 +1023,7 @@ window.PUBLICATIONS = [
       "project": "https://cvlab-unibo.github.io/neural-disparity-refinement-web/",
       "code": "https://github.com/CVLAB-Unibo/neural-disparity-refinement"
     },
-    "addTopics": ["Stereo & Multi-Sensor"]
+    "addTopics": ["Stereo & Multi-Sensor", "High-Resolution"]
   },
   {
     "title": "Federated Online Adaptation for Deep Stereo",
@@ -1247,7 +1283,7 @@ window.PUBLICATIONS = [
       "benchmark": "https://cvlab-unibo.github.io/booster-web/benchmark.html",
       "video": "https://youtu.be/EEg3z9b_Bt4"
     },
-    "addTopics": ["Stereo & Multi-Sensor"]
+    "addTopics": ["Stereo & Multi-Sensor", "High-Resolution"]
   },
   {
     "title": "RGB-Multispectral Matching: Dataset, Learning Methodology, Evaluation",
@@ -1418,7 +1454,7 @@ window.PUBLICATIONS = [
       "video": "https://www.youtube.com/watch?v=tvVGuUSe2n8&t=148s",
       "poster": "http://www.cvlibs.net/publications/Tosi2021CVPR_poster.pdf"
     },
-    "addTopics": ["Stereo & Multi-Sensor"]
+    "addTopics": ["Stereo & Multi-Sensor", "High-Resolution"]
   },
   {
     "title": "Distilled Semantics for Comprehensive Scene Understanding from Videos",
