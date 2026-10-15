@@ -26,6 +26,7 @@ window.PHOTOS = [
   "assets/img/hero/5918101034653913985.jpg",
   "assets/img/hero/5918101034653913992.jpg",
   "assets/img/hero/5940619002722239858.jpg",
+  "assets/img/hero/5947554541685379101.jpg",
   "assets/img/hero/5960590025123018710.jpg",
   "assets/img/hero/5969996591911778258.jpg",
   "assets/img/hero/6039733898587520881.jpg",
