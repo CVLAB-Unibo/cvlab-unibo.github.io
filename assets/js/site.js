@@ -367,7 +367,11 @@
     const icon = `<span class="fact-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[f.icon] || ICONS.topics}</svg></span>`;
     let body = f.value ? `<div class="fact-text">${f.value}</div>` : "";
     if (f.chips === "research") body = `<div class="chips">${window.RESEARCH.map((r) => `<a class="chip" href="${url("research/")}">${esc(r.title)}</a>`).join("")}</div>`;
-    if (f.mail) body = `<div class="fact-text"><a href="mailto:${esc(S.contact.email)}">${esc(S.contact.email)}</a></div>`;
+    if (f.people) {
+      const faces = window.TEAM.filter((g) => !g.alumni).flatMap((g) => g.people).filter((p) => !isIncoming(p));
+      body = `<div class="fact-faces">${faces.slice(0, 8).map((p) => avatarHtml(p, "face")).join("")}${faces.length > 8 ? `<span class="face more">+${faces.length - 8}</span>` : ""}</div>${body}`;
+    }
+        if (f.mail) body = `<div class="fact-text"><a href="mailto:${esc(S.contact.email)}">${esc(S.contact.email)}</a></div>`;
     const ext = /^https?:/.test(f.link?.href || "");
     const link = f.link ? `<a class="fact-link" href="${esc(url(f.link.href))}"${ext ? ' target="_blank" rel="noopener"' : ""}>${esc(f.link.label)} →</a>` : "";
     return `<div class="fact">${icon}<div class="fact-main"><div class="fact-label">${esc(f.label)}</div>${body}${link}</div></div>`;
@@ -512,9 +516,15 @@
 
 
     const a = S.about;
-    $("#home-about").innerHTML = `<div><h2>${esc(a.title)}</h2>
-        ${a.paragraphs.map((p) => `<p>${p.replaceAll("{root}", ROOT)}</p>`).join("")}</div>
-      <aside class="facts-card">${a.facts.map(factRow).join("")}</aside>`;
+    // group size from data/team.js, used as {faculty} {postdocs} {phd} {current} {visitingPhrase}
+    const cnt = (kind) => window.TEAM.filter((g) => g.kind === kind).reduce((n, g) => n + g.people.filter((p) => !isIncoming(p)).length, 0);
+    const n = { faculty: cnt("faculty"), postdocs: cnt("postdocs"), phd: cnt("phd"), visiting: cnt("visiting") };
+    n.current = n.faculty + n.postdocs + n.phd + n.visiting;
+    n.visitingPhrase = n.visiting ? `, joined by <strong>${n.visiting} visiting researcher${n.visiting > 1 ? "s" : ""}</strong>,` : ",";
+    const fill = (t) => t.replaceAll("{root}", ROOT).replace(/\{(\w+)\}/g, (m, k) => (k in n ? n[k] : m));
+    $("#home-about").innerHTML = `<h2>${esc(a.title)}</h2>
+      <div class="about-text">${a.paragraphs.map((p) => `<p>${fill(p)}</p>`).join("")}</div>
+      <aside class="facts-card">${a.facts.map((f) => factRow({ ...f, value: f.value && fill(f.value) })).join("")}</aside>`;
 
     const pubs = window.PUBLICATIONS;
     const featured = pubs.filter((p) => p.featured).sort((a, b) => a.featured - b.featured).slice(0, 10);   // order set by the `featured` number in data/publications.js; at most 10 on the home page
