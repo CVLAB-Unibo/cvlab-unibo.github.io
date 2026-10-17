@@ -107,6 +107,7 @@ window.TEAM = [
       { name: "Rizhao Fan",             role: "Now at the Research Institute of Mine Artificial Intelligence", url: "https://www.linkedin.com/in/rizhao-fan123/?locale=en" },
       { name: "Ninghui Xu",             was: "Visiting researcher", role: "From Southeast University", url: "https://scholar.google.com/citations?user=P16bN2IAAAAJ" },
       { name: "Xin Qiao",               was: "Visiting researcher", role: "From Xi'an Jiaotong University" },
+      { name: "Xiaohan Li",             was: "Visiting researcher", role: "Now Postdoctoral Researcher at The University of Hong Kong", photo: "imgs/team/xiaohan-li.jpeg" },
       { name: "Alioscia Petrelli",      role: "Former member", url: "https://www.linkedin.com/in/alioscia-petrelli-851a3b4?originalSubdomain=it" },
       { name: "Gianluca Berardi",       role: "Former member", url: "https://www.linkedin.com/in/gianluca-berardi-phd/?locale=it" },
       { name: "Musawar Ali",            role: "Former member", url: "https://www.linkedin.com/in/musawar-ali-4362a6159/" },
