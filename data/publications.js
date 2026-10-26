@@ -49,7 +49,7 @@ window.PUBLICATIONS = [
     "topics": ["Scene Understanding", "High-Resolution", "Efficient & Real-Time"]
   },
   {
-    "title": "Benchmarking Learnable Representations for Gigapixel Image Compression and Super-Resolution",
+    "title": "GigaBench: Benchmarking Learnable Representations for Gigapixel Image Compression and Super-Resolution",
     "authors": [
       "Matteo Fusconi",
       "Alex Costanzino",
@@ -61,7 +61,14 @@ window.PUBLICATIONS = [
     "badge": "WACV 2027",
     "year": 2027,
     "rank": "CORE A",
+    "abstract": "GigaBench is the first benchmark and experimental evaluation of learnable representations (implicit, hybrid and explicit neural formats) on gigapixel images. It covers images collected, acquired and synthetically rendered across diverse domains, addresses image compression and super-resolution, and adapts a representative set of methods to run reliably at gigapixel scale on consumer hardware, comparing reconstruction quality, model size, compression and inference times.",
     "image": "assets/img/publications/gigapixel-compression-sr",
+    "url": "https://matteofusconi.github.io/GigaBench/",
+    "links": {
+      "project": "https://matteofusconi.github.io/GigaBench/",
+      "arxiv": "https://arxiv.org/abs/2610.31644",
+      "dataset": "https://huggingface.co/datasets/Fusco6/GigaBench"
+    },
     "topics": ["High-Resolution", "Efficient & Real-Time"]
   },
   {

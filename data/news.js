@@ -8,7 +8,7 @@
    =========================================================================== */
 window.NEWS = [
   { date: "2026-10-15", kind: "paper", title: "Two papers accepted at WACV 2027", image: "assets/img/publications/coordformer.jpg",
-    text: "<strong>CoordFormer</strong>, coordinate-based semantic segmentation of very-high-resolution images, and a <strong>benchmark of learnable representations for gigapixel image compression and super-resolution</strong> have been accepted at WACV 2027. See our <a href='{root}publications/'>publications</a>." },
+    text: "<strong>CoordFormer</strong>, coordinate-based semantic segmentation of very-high-resolution images, and <strong>GigaBench</strong>, a benchmark of learnable representations for gigapixel image compression and super-resolution, have been accepted at WACV 2027. See our <a href='{root}publications/'>publications</a>." },
   { date: "2026-10-10", kind: "service", title: "Top Area Chair at NeurIPS 2026", image: "imgs/team/matteo-poggi.jpg",
     text: "Congratulations to <strong>Matteo Poggi</strong>, acknowledged as a <strong>Top Area Chair</strong> at NeurIPS 2026!" },
   { date: "2026-10-05", kind: "grant", title: "PRIN 2026 grant for PREMISE", image: "imgs/research/premise_wide.webp",
