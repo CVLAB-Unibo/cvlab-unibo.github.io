@@ -40,24 +40,24 @@
     arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
   };
 
-  // dark footer: a call to action, the faculty as e-mail chips (data/team.js), the address on a map, the menu
+  // dark footer: a call to action, the faculty as chips linking to their pages (data/team.js), the address on a map, the menu
   function renderFooter() {
     const c = S.contact;
-    const faculty = (window.TEAM || []).filter((g) => g.kind === "faculty").flatMap((g) => g.people).filter((p) => p.email);
-    const people = faculty.map((p) => `<li><a href="mailto:${esc(p.email)}" title="${esc(p.email)}"><img src="${url(p.photo || `imgs/team/${slug(p.name)}.jpg`)}" alt="" loading="lazy">${esc(p.name)}</a></li>`).join("")
-      || (c.email ? `<li><a href="mailto:${esc(c.email)}">${esc(c.email)}</a></li>` : "");
+    // faculty chips link to their personal pages: no e-mail addresses are published on the site
+    const faculty = (window.TEAM || []).filter((g) => g.kind === "faculty").flatMap((g) => g.people);
+    const people = faculty.map((p) => `<li><a href="${esc(p.url || url("team/"))}"${p.url ? ' target="_blank" rel="noopener"' : ""}><img src="${url(p.photo || `imgs/team/${slug(p.name)}.jpg`)}" alt="" loading="lazy">${esc(p.name)}</a></li>`).join("");
     const maps = "https://maps.google.com/?q=" + encodeURIComponent(c.lines.join(", "));
     const social = S.social.map((x) => `<a class="ft-btn" href="${esc(x.href)}" target="_blank" rel="noopener">${/github/i.test(x.href) ? FOOT_ICON.github : ""}${esc(x.label)}</a>`).join("");
     // on the Work with us page the call to action would point to itself: skip it, GitHub moves to the bottom row
     const cta = document.body.dataset.page !== "positions";
     $("#site-footer").outerHTML = `<footer class="footer${cta ? "" : " footer--plain"}"><div class="container">
-      ${cta ? `<div class="ft-cta"><h2>Curious about 3D vision? <em>Come and work with us.</em></h2>
-        <div class="ft-btns"><a class="ft-btn ft-pri" href="${url("positions/")}">Theses &amp; positions ${FOOT_ICON.arrow}</a>${social}</div></div>` : ""}
+      ${cta ? `<div class="ft-cta"><h2>Studying at the University of Bologna? <em>Do your thesis with us.</em></h2>
+        <div class="ft-btns"><a class="ft-btn ft-pri" href="${url("positions/")}">Thesis topics ${FOOT_ICON.arrow}</a>${social}</div></div>` : ""}
       <div class="ft-grid">
         <div class="ft-brand"><a href="${ROOT || "./"}"><img src="${url("assets/img/logo-mark.png")}" alt="${esc(S.fullName)}"></a>
           <div><b>${esc(S.fullName)}</b><p><a href="${esc(S.departmentUrl || "#")}" target="_blank" rel="noopener">${esc(S.department)}</a><br>${esc(S.affiliation)}</p>
             <a class="ft-unibo" href="https://www.unibo.it/" target="_blank" rel="noopener"><img src="${url("imgs/unibo-white.png")}" alt="Alma Mater Studiorum – Università di Bologna" loading="lazy"></a></div></div>
-        ${people ? `<div><h6>Get in touch</h6><ul class="ft-people">${people}</ul></div>` : ""}
+        ${people ? `<div><h6>Faculty</h6><ul class="ft-people">${people}</ul></div>` : ""}
         <div class="ft-where"><h6>Find us</h6><a href="${maps}" target="_blank" rel="noopener">${FOOT_ICON.pin}<span>${c.lines.map(esc).join("<br>")}</span></a></div>
       </div>
       <div class="ft-bottom"><span>© ${new Date().getFullYear()} ${esc(S.fullName)} · ${esc(S.affiliation)}</span>
@@ -371,7 +371,6 @@
       const faces = window.TEAM.filter((g) => !g.alumni).flatMap((g) => g.people).filter((p) => !isIncoming(p));
       body = `<div class="fact-faces">${faces.slice(0, 8).map((p) => avatarHtml(p, "face")).join("")}${faces.length > 8 ? `<span class="face more">+${faces.length - 8}</span>` : ""}</div>${body}`;
     }
-        if (f.mail) body = `<div class="fact-text"><a href="mailto:${esc(S.contact.email)}">${esc(S.contact.email)}</a></div>`;
     const ext = /^https?:/.test(f.link?.href || "");
     const link = f.link ? `<a class="fact-link" href="${esc(url(f.link.href))}"${ext ? ' target="_blank" rel="noopener"' : ""}>${esc(f.link.label)} →</a>` : "";
     return `<div class="fact">${icon}<div class="fact-main"><div class="fact-label">${esc(f.label)}</div>${body}${link}</div></div>`;
@@ -922,7 +921,7 @@
       <div class="grid grid-4${g.alumni ? " grid-former" : ""}">${g.people.map((p) => {
         const name = p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)}</a>` : esc(p.name);
         const links = [p.url && `<a class="pill" href="${esc(p.url)}" target="_blank" rel="noopener">${linkLabel(p.url)} ↗</a>`,
-                       p.email && `<a class="pill" href="mailto:${esc(p.email)}">Email</a>`].filter(Boolean).join("");
+                       ].filter(Boolean).join("");
         const was = g.alumni ? `<p class="was">${esc(p.was || "PhD at CVLab")}</p>` : "";
         const role = g.alumni && p.role === "Former member" ? "" : `<p class="role">${esc(roleOf(p))}</p>`;
         return `<div class="person${p.badge ? " person--lead" : ""}">${avatarHtml(p)}<h5>${name}</h5>${p.badge ? `<span class="p-badge">${esc(p.badge)}</span>` : ""}${was}${role}${links ? `<div class="links">${links}</div>` : ""}</div>`;
@@ -1074,7 +1073,7 @@
     el.innerHTML = people.map((p) => `<div class="fac">
       ${avatarHtml(p, "fac-avatar")}
       <div><div class="fac-name">${esc(p.name)}</div><div class="fac-role">${esc(roleOf(p))}</div>
-        <div class="fac-links">${p.url ? `<a class="pill" href="${esc(p.url)}" target="_blank" rel="noopener">${linkLabel(p.url)} ↗</a>` : ""}${p.email ? `<a class="pill" href="mailto:${esc(p.email)}">Email</a>` : ""}</div></div></div>`).join("");
+        <div class="fac-links">${p.url ? `<a class="pill" href="${esc(p.url)}" target="_blank" rel="noopener">${linkLabel(p.url)} ↗</a>` : ""}</div></div></div>`).join("");
     fixMissingPhotos(el);
   }
 

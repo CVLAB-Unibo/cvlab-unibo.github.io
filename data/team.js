@@ -10,7 +10,6 @@
      photo  optional. Default: imgs/team/<name-surname>.jpg  (lowercase, no accents,
             words separated by "-", e.g. imgs/team/matteo-poggi.jpg).
             Without a photo the initials are shown.
-     email  optional
      badge  optional highlighted label under the name, e.g. "Active contributor to the lab"
      was    former members only: role held in the lab, shown in small above the current role.
             Default "PhD at CVLab". A role of "Former member" is not shown (the section title says it).
@@ -26,24 +25,24 @@ window.TEAM = [
     group: "Full Professors",
     kind: "faculty",
     people: [
-      { name: "Luigi Di Stefano",  role: "Full Professor", url: "https://it.linkedin.com/in/luigi-di-stefano-a4b35b3a7", email: "luigi.distefano@unibo.it" },
-      { name: "Stefano Mattoccia", role: "Full Professor", url: "https://stefanomattoccia.github.io/", email: "stefano.mattoccia@unibo.it" }
+      { name: "Luigi Di Stefano",  role: "Full Professor", url: "https://it.linkedin.com/in/luigi-di-stefano-a4b35b3a7" },
+      { name: "Stefano Mattoccia", role: "Full Professor", url: "https://stefanomattoccia.github.io/" }
     ]
   },
   {
     group: "Associate Professors",
     kind: "faculty",
     people: [
-      { name: "Giuseppe Lisanti", role: "Associate Professor", url: "https://www.unibo.it/sitoweb/giuseppe.lisanti/en", email: "giuseppe.lisanti@unibo.it" },
-      { name: "Matteo Poggi",     role: "Associate Professor", url: "https://mattpoggi.github.io/", email: "m.poggi@unibo.it" },
-      { name: "Samuele Salti",    role: "Associate Professor", url: "https://it.linkedin.com/in/samuelesalti", email: "samuele.salti@unibo.it" }
+      { name: "Giuseppe Lisanti", role: "Associate Professor", url: "https://www.unibo.it/sitoweb/giuseppe.lisanti/en" },
+      { name: "Matteo Poggi",     role: "Associate Professor", url: "https://mattpoggi.github.io/" },
+      { name: "Samuele Salti",    role: "Associate Professor", url: "https://it.linkedin.com/in/samuelesalti" }
     ]
   },
   {
     group: "Junior Assistant Professors",
     kind: "faculty",
     people: [
-      { name: "Fabio Tosi", role: "Junior Assistant Professor", url: "https://fabiotosi92.github.io/", email: "fabio.tosi5@unibo.it" }
+      { name: "Fabio Tosi", role: "Junior Assistant Professor", url: "https://fabiotosi92.github.io/" }
     ]
   },
   {

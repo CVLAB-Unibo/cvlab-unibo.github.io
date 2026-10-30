@@ -1007,3 +1007,6 @@ span.au { color: var(--muted); }
 .medal p.who strong { color: var(--ink); font-weight: 600; }
 /* News heading underlined in soft sage */
 html[data-theme^="m-"] #news .section-head h2 { background: linear-gradient(transparent 62%, #d9f99d 62%); }
+
+/* Work with us: notice that unsolicited requests are not answered */
+.pos-notice { margin: 1rem 0 0; padding: .9rem 1.1rem; max-width: 52rem; border-radius: .8rem; background: var(--accent-tint); border: 1px solid var(--accent-line); font-size: .95rem; color: var(--ink); }
