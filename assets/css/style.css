@@ -1010,3 +1010,13 @@ html[data-theme^="m-"] #news .section-head h2 { background: linear-gradient(tran
 
 /* Work with us: notice that unsolicited requests are not answered */
 .pos-notice { margin: 1rem 0 0; padding: .9rem 1.1rem; max-width: 52rem; border-radius: .8rem; background: var(--accent-tint); border: 1px solid var(--accent-line); font-size: .95rem; color: var(--ink); }
+
+
+/* ribbon on a team photo (status in data/team.js) */
+.av-wrap { position: relative; display: block; width: max-content; margin: 0 auto; }
+.person .av-wrap { margin-bottom: 1rem; }
+.person .av-wrap .avatar { margin-bottom: 0; }
+.av-status { position: absolute; left: 50%; bottom: -.35rem; transform: translateX(-50%); white-space: nowrap; padding: .14rem .6rem; border-radius: 999px;
+  background: #0b1220; color: #fed7aa; font-size: .64rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; box-shadow: 0 0 0 2px #fff, 0 4px 10px rgba(15,23,42,.2); }
+.pcard .av-wrap { margin-bottom: .8rem; } .pcard .av-wrap .pavatar { margin-bottom: 0; }
+.pcard .av-wrap .av-status { font-size: .56rem; padding: .1rem .45rem; bottom: -.25rem; }

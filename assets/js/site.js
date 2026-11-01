@@ -903,6 +903,11 @@
     const src = url(p.photo || `imgs/team/${slug(p.name)}.jpg`);
     return `<img class="${cls}" src="${src}" alt="${esc(p.name)}" loading="lazy" data-initials="${esc(initials(p.name))}">`;
   }
+  // avatar plus an optional ribbon on the photo (`status` in data/team.js, e.g. "Defense pending")
+  const STATUS_TIP = { "Defense pending": "Completed the PhD programme in October 2026; the final thesis defense is still to come" };
+  const avatarWithStatus = (p, cls) => p.status
+    ? `<span class="av-wrap" title="${esc(STATUS_TIP[p.status] || p.status)}">${avatarHtml(p, cls)}<span class="av-status">${esc(p.status)}</span></span>`
+    : avatarHtml(p, cls);
   function fixMissingPhotos(root) {
     root.querySelectorAll("img[data-initials]").forEach((img) => {
       const swap = () => {
@@ -924,7 +929,7 @@
                        ].filter(Boolean).join("");
         const was = g.alumni ? `<p class="was">${esc(p.was || "PhD at CVLab")}</p>` : "";
         const role = g.alumni && p.role === "Former member" ? "" : `<p class="role">${esc(roleOf(p))}</p>`;
-        return `<div class="person${p.badge ? " person--lead" : ""}">${avatarHtml(p)}<h5>${name}</h5>${p.badge ? `<span class="p-badge">${esc(p.badge)}</span>` : ""}${was}${role}${links ? `<div class="links">${links}</div>` : ""}</div>`;
+        return `<div class="person${p.badge ? " person--lead" : ""}">${avatarWithStatus(p)}<h5>${name}</h5>${p.badge ? `<span class="p-badge">${esc(p.badge)}</span>` : ""}${was}${role}${links ? `<div class="links">${links}</div>` : ""}</div>`;
       }).join("")}</div>`).join("");
     fixMissingPhotos($("#team-list"));
     renderTeamOverview($("#team-overview"));
@@ -949,7 +954,7 @@
     const people = window.TEAM.filter((g) => !g.alumni).flatMap((g) => g.people);
     if (!people.length) { el.closest("section").hidden = true; return; }
     const card = (p) => {
-      const inner = `${avatarHtml(p, "pavatar")}<div class="pname">${esc(p.name)}</div><div class="prole">${esc(roleOf(p))}</div>`;
+      const inner = `${avatarWithStatus(p, "pavatar")}<div class="pname">${esc(p.name)}</div><div class="prole">${esc(roleOf(p))}</div>`;
       return p.url ? `<a class="pcard" href="${esc(p.url)}" target="_blank" rel="noopener">${inner}</a>` : `<div class="pcard">${inner}</div>`;
     };
     el.innerHTML = `<div class="people-scroll" tabindex="0" aria-label="Current members">${people.map(card).join("")}</div>`;

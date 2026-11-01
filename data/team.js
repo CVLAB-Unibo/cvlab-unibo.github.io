@@ -13,6 +13,7 @@
      badge  optional highlighted label under the name, e.g. "Active contributor to the lab"
      was    former members only: role held in the lab, shown in small above the current role.
             Default "PhD at CVLab". A role of "Former member" is not shown (the section title says it).
+     status optional ribbon on the photo, e.g. "Defense pending" (PhD programme completed, defense still to come)
      start  optional, "YYYY-MM-DD". Before that date the person is shown as "Incoming …" and not counted;
             from that date on the label disappears by itself.
 
@@ -57,20 +58,20 @@ window.TEAM = [
     group: "PhD Students",
     kind: "phd",
     people: [
-      { name: "Ugo Leone Cavalcanti",  role: "PhD Student", url: "https://www.ugoleonecavalcanti.com/" },
-      { name: "Ziren Gong",            role: "PhD Student", url: "https://zorangong.github.io/" },
-      { name: "Enrico Mannocci",       role: "PhD Student", url: "https://noce99.github.io/" },
+      { name: "Ugo Leone Cavalcanti",  role: "PhD Student", status: "Defense pending", url: "https://www.ugoleonecavalcanti.com/" },
+      { name: "Ziren Gong",            role: "PhD Student", status: "Defense pending", url: "https://zorangong.github.io/" },
+      { name: "Enrico Mannocci",       role: "PhD Student", status: "Defense pending", url: "https://noce99.github.io/" },
       { name: "Iacopo Curti",          role: "PhD Student", url: "https://www.unibo.it/sitoweb/iacopo.curti2" },
       { name: "Giacomo Melacini",      role: "PhD Student", url: "https://chavelanda.github.io/" },
       { name: "Edoardo Merli",         role: "PhD Student", url: "https://www.linkedin.com/in/edoardo-merli" },
       { name: "Matteo Fusconi",        role: "PhD Student", url: "https://it.linkedin.com/in/matteo-fusconi-2b0907271" },
-      { name: "Francesco Ballerini",   role: "PhD Student", url: "https://www.unibo.it/sitoweb/francesco.ballerini4/en" },
-      { name: "Alessandra Stramiglio", role: "PhD Student", url: "https://it.linkedin.com/in/alestrami" },
+      { name: "Francesco Ballerini",   role: "PhD Student", status: "Defense pending", url: "https://www.unibo.it/sitoweb/francesco.ballerini4/en" },
+      { name: "Alessandra Stramiglio", role: "PhD Student", status: "Defense pending", url: "https://it.linkedin.com/in/alestrami" },
       { name: "Filippo Bartolucci",    role: "PhD Student", url: "https://github.com/filippobartolucci" },
-      { name: "Stefano Mazzocchetti",  role: "PhD Student", url: "https://www.unibo.it/sitoweb/stefano.mazzocchett5/cv" },
-      { name: "Mehdi Amlal",           role: "PhD Student", start: "2026-11-01", url: "https://mehdiamlal.com/" },
-      { name: "Gabriele Pattarozzi",   role: "PhD Student", start: "2026-11-01", url: "https://it.linkedin.com/in/gabriele-pattarozzi" },
-      { name: "Leonardo Montrucchio",  role: "PhD Student", start: "2026-11-01", url: "https://www.linkedin.com/in/leonardomontrucchio/" }
+      { name: "Stefano Mazzocchetti",  role: "PhD Student", status: "Defense pending", url: "https://www.unibo.it/sitoweb/stefano.mazzocchett5/cv" },
+      { name: "Mehdi Amlal",           role: "PhD Student", url: "https://mehdiamlal.com/" },
+      { name: "Gabriele Pattarozzi",   role: "PhD Student", url: "https://it.linkedin.com/in/gabriele-pattarozzi" },
+      { name: "Leonardo Montrucchio",  role: "PhD Student", url: "https://www.linkedin.com/in/leonardomontrucchio/" }
     ]
   },
   {
