@@ -586,7 +586,7 @@
     const items = [];
     const add = (o) => items.push({ m: month(o.venue), ...o });
 
-    (window.NEWS || []).filter((n) => n.kind !== "service").forEach((n) => add({ k: n.kind || "people", year: +n.date.slice(0, 4), m: +n.date.slice(5, 7) + n.date.slice(8, 10) / 32, venue: fmtDate(n.date).replace(/ \d{4}$/, ""),
+    (window.NEWS || []).filter((n) => n.kind !== "service").forEach((n) => add({ dated: true, k: n.kind || "people", year: +n.date.slice(0, 4), m: +n.date.slice(5, 7) + n.date.slice(8, 10) / 32, venue: fmtDate(n.date).replace(/ \d{4}$/, ""),
       title: n.title, body: `<p>${(n.text || "").replaceAll("{root}", ROOT)}</p>` }));
 
     const groups = {};
@@ -628,6 +628,10 @@
         body: `${x.note ? `<p>${esc(x.note)}</p>` : ""}${x.people ? `<p class="nw-who">${esc(x.people)}</p>` : ""}${x.url ? `<p><a class="nw-go" href="${esc(x.url)}" target="_blank" rel="noopener">${x.kind === "patent" ? "Details" : "Website"} ↗</a></p>` : ""}` });
     });
 
+    // conference items sit at the month of the conference; in the current year, one still to come would end up above
+    // today's news, so it is placed just before the current month instead
+    const now = new Date(), nowY = now.getFullYear(), nowM = now.getMonth() + 1;
+    items.forEach((i) => { if (i.year === nowY && !i.dated && i.m >= nowM) i.m = nowM - .5; });
     return items.sort((x, y) => (y.year || 0) - (x.year || 0) || y.m - x.m);
   }
 
