@@ -811,6 +811,7 @@ span.au { color: var(--muted); }
 .nk-patent   { --k: #fecdd3; --kd: #be123c; }
 .nk-people   { --k: #e7e5e4; --kd: #57534e; }
 .nk-service  { --k: #c7d2fe; --kd: #4338ca; }
+.nk-recognition { --k: #c7d2fe; --kd: #4338ca; }
 .news-wrap { max-width: 64rem; }
 
 /* filters + year jump, sticky under the navbar */

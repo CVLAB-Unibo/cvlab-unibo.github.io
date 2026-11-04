@@ -7,6 +7,8 @@
    `text` may contain simple HTML; write internal links as {root}path/ so they work on every page.
    =========================================================================== */
 window.NEWS = [
+  { date: "2026-11-03", kind: "recognition", title: "Stanford–Elsevier Top 2% Scientists 2026", image: "assets/img/hero/disi.jpg",
+    text: "Congratulations to <strong>Luigi Di Stefano</strong> (career-long and single-year impact), <strong>Stefano Mattoccia</strong> (career-long impact), <strong>Matteo Poggi</strong> and <strong>Fabio Tosi</strong> (single-year impact), included in the 2026 edition of the Stanford–Elsevier ranking of the world's most-cited scientists, together with many colleagues of our Department." },
   { date: "2026-11-01", title: "Welcome Mehdi, Gabriele and Leonardo!", image: "assets/img/news/new-phd-2026.jpg",
     text: "Today <strong>Mehdi Amlal</strong>, <strong>Gabriele Pattarozzi</strong> and <strong>Leonardo Montrucchio</strong> officially start their PhD at CVLab. Welcome to the lab, we are happy to have you with us! Meet them on the <a href='{root}team/'>team</a> page." },
   { date: "2026-10-15", kind: "paper", title: "Two papers accepted at WACV 2027", image: "assets/img/publications/coordformer.jpg",

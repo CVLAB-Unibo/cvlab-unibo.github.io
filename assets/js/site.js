@@ -548,7 +548,7 @@
     <div><h5>${esc(n.title)}</h5><div class="text-muted">${(n.text || "").replaceAll("{root}", ROOT)}</div></div></div>`;
 
   // home: the 3 latest news as a short timeline under a pulsing "Now" (same kind colours as the News page)
-  const NEWS_DOT = { paper: ["Paper", "#fed7aa"], award: ["Award", "#fde68a"], grant: ["Grant", "#fed7aa"], service: ["Recognition", "#c7d2fe"], people: ["People", "#e7e5e4"] };
+  const NEWS_DOT = { paper: ["Paper", "#fed7aa"], award: ["Award", "#fde68a"], grant: ["Grant", "#fed7aa"], recognition: ["Recognition", "#c7d2fe"], service: ["Recognition", "#c7d2fe"], people: ["People", "#e7e5e4"] };
   function timeAgo(d) {
     const n = Math.round((Date.now() - new Date(d + "T12:00:00")) / 864e5);
     return n <= 0 ? "today" : n === 1 ? "yesterday" : n < 7 ? `${n} days ago` : n < 14 ? "last week" : n < 60 ? `${Math.round(n / 7)} weeks ago` : n < 365 ? `${Math.round(n / 30)} months ago` : `${Math.round(n / 365)} year${n >= 730 ? "s" : ""} ago`;
@@ -577,7 +577,7 @@
   const NEWS_SINCE = 2020;
   const NEWS_MONTH = { WACV: 2, AAAI: 2, DATE: 3, ICLR: 4, ICRA: 5, CVPR: 6, ECCV: 9, "3DV": 9, ICCV: 10, IROS: 10, Expo: 10, BMVC: 11, NeurIPS: 12, "SIGGRAPH Asia": 12 };
   const NEWS_KINDS = { all: "All", paper: "Papers", award: "Awards", grant: "Grants", service: "Reviewer awards", workshop: "Workshops & challenges we organise", tutorial: "Tutorials", demo: "Demos", patent: "Patents", people: "People" };
-  const NEWS_LABEL = { paper: "Paper", award: "Award", grant: "Grant", service: "Recognition", workshop: "Organised", tutorial: "Tutorial", demo: "Demo", patent: "Patent", people: "People" };
+  const NEWS_LABEL = { paper: "Paper", award: "Award", grant: "Grant", recognition: "Recognition", service: "Recognition", workshop: "Organised", tutorial: "Tutorial", demo: "Demo", patent: "Patent", people: "People" };
 
   function newsItems() {
     const link = (t, h) => (h ? `<a href="${esc(h)}"${/^https?:/.test(h) ? ' target="_blank" rel="noopener"' : ""}>${esc(t)}</a>` : esc(t));
