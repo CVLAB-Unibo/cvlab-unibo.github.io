@@ -75,6 +75,13 @@ window.TEAM = [
     ]
   },
   {
+    group: "Research Fellows",
+    kind: "fellows",
+    people: [
+      { name: "Francesco Taccetti", role: "Research Fellow" }
+    ]
+  },
+  {
     group: "Visiting Researchers",
     kind: "visiting",
     people: [
@@ -117,11 +124,11 @@ window.TEAM = [
   }
 ];
 
-/* Text at the top of the Team page. {faculty} {postdocs} {phd} {visiting} {alumni} {current} are filled in from the data above. */
+/* Text at the top of the Team page. {faculty} {postdocs} {fellows} {phd} {visiting} {alumni} {current} are filled in from the data above. */
 window.TEAM_OVERVIEW = {
   title: "Our group",
   paragraphs: [
-    "CVLab brings together <strong>{faculty} faculty members</strong>, <strong>{postdocs} postdoctoral researchers</strong> and <strong>{phd} PhD students</strong>{visitingPhrase} at the Department of Computer Science and Engineering (DISI) of the University of Bologna, working side by side on 3D perception, reconstruction and scene understanding.",
+    "CVLab brings together <strong>{faculty} faculty members</strong>, <strong>{postdocs} postdoctoral researchers</strong>{fellowsStrong} and <strong>{phd} PhD students</strong>{visitingPhrase} at the Department of Computer Science and Engineering (DISI) of the University of Bologna, working side by side on 3D perception, reconstruction and scene understanding.",
     "The faculty, from full professors to a junior assistant professor, give the scientific direction and supervise the work; postdocs and PhD students carry out most of the day-to-day research, often on projects that cut across several of our research pillars, and publish together with the faculty."
   ]
 };

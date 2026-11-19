@@ -29,10 +29,10 @@ window.SITE = {
   // "About us" block on the home page – edit freely (paragraphs may contain simple HTML)
   about: {
     title: "About us",
-    // {faculty} {postdocs} {phd} {visitingPhrase} are filled in from data/team.js
+    // {faculty} {postdocs} {fellowsPhrase} {phd} {visitingPhrase} are filled in from data/team.js
     paragraphs: [
       "The <strong>Computer Vision Laboratory (CVLab)</strong> is a research group of the <a href=\"https://disi.unibo.it/en\" target=\"_blank\" rel=\"noopener\">Department of Computer Science and Engineering (DISI)</a> at the <strong>University of Bologna</strong>. We study how machines see and understand the world: from <strong>monocular depth, stereo and SLAM</strong> to <strong>semantic and scene understanding</strong>, <strong>neural fields</strong> as a new kind of data that can be classified, generated and connected to <strong>language</strong>, <strong>vision-language models</strong> and <strong>anomaly detection</strong>, with methods that stay efficient and robust on real devices.",
-      "We are <strong>{faculty} faculty members, {postdocs} postdocs and {phd} PhD students</strong>{visitingPhrase} together with the master's students who do their thesis in the lab, working side by side on shared projects and collaborating with universities and companies in Italy and abroad.",
+      "We are <strong>{faculty} faculty members, {postdocs} postdocs{fellowsPhrase} and {phd} PhD students</strong>{visitingPhrase} together with the master's students who do their thesis in the lab, working side by side on shared projects and collaborating with universities and companies in Italy and abroad.",
       "We publish at top venues such as CVPR, ICCV, ECCV, NeurIPS, ICLR and TPAMI and release our code and datasets openly. Motivated students and researchers are always welcome: see how to <a href=\"{root}positions/\">work with us</a>."
     ],
     // Card on the right of "About us". icon: pin | users | code | mail | topics
@@ -42,7 +42,7 @@ window.SITE = {
         value: "<a href=\"https://disi.unibo.it/en\" target=\"_blank\" rel=\"noopener\">Department of Computer Science and Engineering (DISI)</a><br>University of Bologna, Italy",
         link: { label: "Directions", href: "https://www.openstreetmap.org/search?query=Viale%20del%20Risorgimento%202%20Bologna" } },
       { icon: "users", label: "People",
-        value: "{current} people, from faculty to PhD students and visiting researchers.",
+        value: "{current} people, from faculty to research fellows, PhD students and visiting researchers.",
         link: { label: "Meet the team", href: "team/" } },
       { icon: "code", label: "Open source",
         value: "Code and datasets of our papers are public.",

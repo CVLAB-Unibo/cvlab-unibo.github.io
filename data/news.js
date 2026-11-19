@@ -4,9 +4,12 @@
    `kind: "service"` (reviewing / area chair awards) shows only in the home news: in the timeline these
    come from the "service" rows of data/activities.js, so add the award there too.
    `image` (optional, path from the site root): shown when the item is the latest one, as the big card on the home page.
+   `feature: false` keeps an item out of the big card on the home page: it only goes in the timeline next to it.
    `text` may contain simple HTML; write internal links as {root}path/ so they work on every page.
    =========================================================================== */
 window.NEWS = [
+  { date: "2026-11-19", title: "Welcome Francesco!", feature: false,
+    text: "<strong>Francesco Taccetti</strong> joins CVLab today as a research fellow. Welcome to the lab, we are happy to have you with us! Meet the whole group on the <a href='{root}team/'>team</a> page." },
   { date: "2026-11-03", kind: "recognition", title: "Stanford–Elsevier Top 2% Scientists 2026", image: "assets/img/hero/disi.jpg",
     text: "Congratulations to <strong>Luigi Di Stefano</strong> (career-long and single-year impact), <strong>Stefano Mattoccia</strong> (career-long impact), <strong>Matteo Poggi</strong> and <strong>Fabio Tosi</strong> (single-year impact), included in the 2026 edition of the Stanford–Elsevier ranking of the world's most-cited scientists, together with many colleagues of our Department." },
   { date: "2026-11-01", title: "Welcome Mehdi, Gabriele and Leonardo!", image: "assets/img/news/new-phd-2026.jpg",

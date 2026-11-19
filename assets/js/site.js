@@ -517,8 +517,9 @@
     const a = S.about;
     // group size from data/team.js, used as {faculty} {postdocs} {phd} {current} {visitingPhrase}
     const cnt = (kind) => window.TEAM.filter((g) => g.kind === kind).reduce((n, g) => n + g.people.filter((p) => !isIncoming(p)).length, 0);
-    const n = { faculty: cnt("faculty"), postdocs: cnt("postdocs"), phd: cnt("phd"), visiting: cnt("visiting") };
-    n.current = n.faculty + n.postdocs + n.phd + n.visiting;
+    const n = { faculty: cnt("faculty"), postdocs: cnt("postdocs"), fellows: cnt("fellows"), phd: cnt("phd"), visiting: cnt("visiting") };
+    n.current = n.faculty + n.postdocs + n.fellows + n.phd + n.visiting;
+    n.fellowsPhrase = n.fellows ? `, ${n.fellows} research fellow${n.fellows > 1 ? "s" : ""}` : "";
     n.visitingPhrase = n.visiting ? `, joined by <strong>${n.visiting} visiting researcher${n.visiting > 1 ? "s" : ""}</strong>,` : ",";
     const fill = (t) => t.replaceAll("{root}", ROOT).replace(/\{(\w+)\}/g, (m, k) => (k in n ? n[k] : m));
     $("#home-about").innerHTML = `<h2>${esc(a.title)}</h2>
@@ -557,7 +558,9 @@
   function renderHomeNews(el) {
     if (!el) return;
     const plain = (h) => (h || "").replace(/<[^>]+>/g, "").replace(/\{root\}/g, "");
-    const [first, ...rest] = [...(window.NEWS || [])].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5);
+    // the big card is the latest item that is not marked `feature: false`; the timeline shows the next four
+    const all = [...(window.NEWS || [])].sort((a, b) => b.date.localeCompare(a.date));
+    const first = all.find((n) => n.feature !== false), rest = all.filter((n) => n !== first).slice(0, 4);
     if (!first) { el.closest("section").hidden = true; return; }
     const kind = (n) => NEWS_DOT[n.kind] || NEWS_DOT.people;
     const fresh = Date.now() - new Date(first.date + "T12:00:00") < 30 * 864e5;
@@ -944,8 +947,9 @@
     const o = window.TEAM_OVERVIEW;
     if (!o) { el.closest("section").hidden = true; return; }
     const cnt = (kind) => window.TEAM.filter((g) => g.kind === kind).reduce((a, g) => a + g.people.filter((p) => !isIncoming(p)).length, 0);
-    const n = { faculty: cnt("faculty"), postdocs: cnt("postdocs"), phd: cnt("phd"), visiting: cnt("visiting"), alumni: cnt("alumni") };
-    n.current = n.faculty + n.postdocs + n.phd + n.visiting;
+    const n = { faculty: cnt("faculty"), postdocs: cnt("postdocs"), fellows: cnt("fellows"), phd: cnt("phd"), visiting: cnt("visiting"), alumni: cnt("alumni") };
+    n.current = n.faculty + n.postdocs + n.fellows + n.phd + n.visiting;
+    n.fellowsStrong = n.fellows ? `, <strong>${n.fellows} research fellow${n.fellows > 1 ? "s" : ""}</strong>` : "";
     n.visitingPhrase = n.visiting ? `, joined by <strong>${n.visiting} visiting researcher${n.visiting > 1 ? "s" : ""}</strong>,` : "";   // {visitingPhrase} in data/team.js
     const fill = (t) => t.replace(/\{(\w+)\}/g, (m, k) => (k in n ? n[k] : m));
     el.innerHTML = `<div><h2>${esc(o.title)}</h2>${o.paragraphs.map((x) => `<p>${fill(x)}</p>`).join("")}</div>`;
