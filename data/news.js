@@ -8,6 +8,8 @@
    `text` may contain simple HTML; write internal links as {root}path/ so they work on every page.
    =========================================================================== */
 window.NEWS = [
+  { date: "2026-11-19", title: "Welcome Hongbo!", feature: false,
+    text: "<strong>Hongbo Li</strong> joins CVLab as a PhD student in the EIT4SEMM PhD programme. Welcome to the lab, we are happy to have you with us! Meet the whole group on the <a href='{root}team/'>team</a> page." },
   { date: "2026-11-19", title: "Welcome Francesco!", feature: false,
     text: "<strong>Francesco Taccetti</strong> joins CVLab today as a research fellow. Welcome to the lab, we are happy to have you with us! Meet the whole group on the <a href='{root}team/'>team</a> page." },
   { date: "2026-11-03", kind: "recognition", title: "Stanford–Elsevier Top 2% Scientists 2026", image: "assets/img/hero/disi.jpg",
