@@ -69,7 +69,7 @@ window.TEAM = [
       { name: "Alessandra Stramiglio", role: "PhD Student", status: "Defense pending", url: "https://it.linkedin.com/in/alestrami" },
       { name: "Filippo Bartolucci",    role: "PhD Student", url: "https://github.com/filippobartolucci" },
       { name: "Stefano Mazzocchetti",  role: "PhD Student", status: "Defense pending", url: "https://www.unibo.it/sitoweb/stefano.mazzocchett5/cv" },
-      { name: "Mehdi Amlal",           role: "PhD Student", url: "https://mehdiamlal.com/" },
+      { name: "Mehdi Amlal",           role: "PhD Student", url: "https://mehdiamlal.github.io/" },
       { name: "Gabriele Pattarozzi",   role: "PhD Student", url: "https://it.linkedin.com/in/gabriele-pattarozzi" },
       { name: "Leonardo Montrucchio",  role: "PhD Student", url: "https://www.linkedin.com/in/leonardomontrucchio/" },
       { name: "Hongbo Li",             role: "PhD Student", url: "https://hongboli-harper.github.io/" }
